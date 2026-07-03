@@ -342,6 +342,86 @@ html[lang="en"] .lang-de{display:none!important}
   .qual-grid{grid-template-columns:repeat(2,1fr)}
 }
 
+/* ---------- Referenzen-Seite: Kennzahlen ---------- */
+.stats-row{display:flex;gap:60px;flex-wrap:wrap;justify-content:center}
+.stats-row .stat{text-align:center}
+.stats-row .stat .n{font-family:var(--font-display);font-weight:400;font-size:3rem;color:var(--orange);line-height:1}
+.stats-row .stat .l{color:var(--muted);margin-top:6px}
+.page-hero .stats-row{justify-content:flex-start;gap:44px;margin-top:30px}
+
+/* ---------- Referenzen-Seite: klickbare Projekt-Karten ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tile{
+  border-radius:15px;border:1px solid var(--line);overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;min-height:230px;
+  cursor:pointer;text-decoration:none;color:inherit;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.tile:hover,.tile:focus-visible{transform:translateY(-5px);box-shadow:0 0 0 2px var(--orange),0 26px 55px -26px rgba(232,83,30,.6);outline:none}
+.tile-visual{
+  flex:1;display:flex;align-items:flex-end;padding:18px;color:#fff;
+  background:var(--grad);position:relative;overflow:hidden;min-height:128px;
+}
+.tile-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tile-visual::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(232,83,30,.28) 0%,rgba(200,60,20,.66) 100%)}
+.tile-cat{
+  position:absolute;top:14px;left:16px;z-index:2;
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(28,27,26,.55);padding:5px 11px;border-radius:30px;
+}
+.tile-visual h4{position:relative;z-index:2;font-size:1.18rem;line-height:1.25;color:#fff}
+.tile-body{padding:18px 20px}
+.tile-body p{color:var(--muted);font-size:.96rem}
+.tile-more{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:700;font-size:.85rem;color:var(--orange);letter-spacing:.02em}
+.tile-more .icon{transition:transform .2s ease}
+.tile:hover .tile-more .icon{transform:translateX(4px)}
+
+/* Zitat-Karten im Raster */
+.tcard{background:#fff;border:1px solid var(--line);border-radius:15px;padding:26px;display:flex;flex-direction:column}
+.tcard blockquote{font-size:1.04rem;color:var(--ink);line-height:1.5;margin-bottom:18px}
+.tcard blockquote::before{content:"\201E"}
+.tcard blockquote::after{content:"\201C"}
+.tcard .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.tcard .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.tcard .who b{display:block;color:var(--ink);font-size:.95rem}
+.tcard .who span{color:var(--muted);font-size:.85rem}
+a.tcard{cursor:pointer;text-decoration:none;color:inherit;transition:transform .2s ease,box-shadow .2s ease}
+a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 2px var(--orange),0 24px 50px -24px rgba(232,83,30,.5);outline:none}
+.to-project{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:700;font-size:.82rem;color:var(--orange)}
+
+/* ---------- Referenzen-Seite: Fallbeispiele ---------- */
+.cases{display:flex;flex-direction:column;gap:26px}
+.case{
+  border:1px solid var(--line);border-radius:16px;background:#fff;padding:34px;
+  scroll-margin-top:100px;transition:box-shadow .3s ease,border-color .3s ease;
+}
+.case:target{box-shadow:0 0 0 2px var(--orange),0 26px 55px -30px rgba(232,83,30,.4);border-color:var(--orange)}
+.case-kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.case h3{font-size:clamp(1.5rem,3.2vw,2.1rem);margin-bottom:22px}
+.case-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.case-gallery.g2{grid-template-columns:repeat(2,1fr)}
+.case-shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin:0}
+.case-shot img{width:100%;height:210px;object-fit:cover;display:block}
+.case-shot.wide{grid-column:1 / -1}
+.case-shot.wide img{height:auto;max-height:560px;object-fit:contain;background:#fbf9f6}
+.case-shot figcaption{padding:10px 14px;font-size:.8rem;color:var(--muted)}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:22px 36px}
+.cm{border-top:1px solid var(--line);padding-top:15px}
+.cm.full{grid-column:1 / -1}
+.cm-l{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.cm p{color:var(--body)}
+.cm a{color:var(--orange)}
+@media (max-width:900px){
+  .gallery{grid-template-columns:1fr 1fr}
+  .stats-row{gap:36px}
+}
+@media (max-width:760px){
+  .gallery{grid-template-columns:1fr}
+  .case{padding:24px}
+  .case-gallery,.case-gallery.g2,.case-meta{grid-template-columns:1fr}
+  .case-shot img{height:200px}
+}
+
 /* ---------- Zitate ---------- */
 .quote{
   background:#fff;border:1px solid var(--line);border-radius:var(--radius);

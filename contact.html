@@ -40,16 +40,24 @@
   <div class="wrap nav">
 
     <a class="brand" href="index.html" aria-label="Robin Hotz">
-      <img src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
     </a>
 
     <nav class="menu" id="menu" aria-label="Hauptnavigation">
       <a class="navlink" href="index.html">
         <span class="lang-de">Start</span><span class="lang-en">Home</span>
       </a>
-      <a class="navlink" href="solutions.html">
-        <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span>
-      </a>
+      <span class="navitem has-drop">
+        <a class="navlink" href="solutions.html">
+          <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span>
+        </a>
+        <span class="dropdown">
+          <a href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
+          <a href="solutions.html#coaching">Coaching</a>
+          <a href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
+        </span>
+      </span>
       <a class="navlink" href="references.html">
         <span class="lang-de">Referenzen</span><span class="lang-en">References</span>
       </a>
@@ -149,27 +157,37 @@
         <span class="lang-de">Anfrage senden</span><span class="lang-en">Send an enquiry</span>
       </h3>
       <p class="muted" style="font-size:.95rem;margin-bottom:22px">
-        <span class="lang-de">Das Formular öffnet eine vorbereitete E-Mail an rh@visualfacilitators.com in Ihrem Mailprogramm.</span>
-        <span class="lang-en">The form opens a prepared email to rh@visualfacilitators.com in your mail programme.</span>
+        <span class="lang-de">Schreiben Sie mir direkt über dieses Formular. Ihre Nachricht landet als E-Mail bei mir, und ich melde mich in der Regel innerhalb von ein bis zwei Werktagen.</span>
+        <span class="lang-en">Write to me directly via this form. Your message reaches me by email, and I usually reply within one to two working days.</span>
       </p>
 
-      <div class="field">
-        <label for="f-name"><span class="lang-de">Name</span><span class="lang-en">Name</span></label>
-        <input id="f-name" name="name" type="text" autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="f-mail"><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></label>
-        <input id="f-mail" name="email" type="email" autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="f-msg"><span class="lang-de">Nachricht</span><span class="lang-en">Message</span></label>
-        <textarea id="f-msg" name="message"></textarea>
-      </div>
+      <form id="contact-form" action="php/send.php" method="post" novalidate>
+        <div class="field">
+          <label for="f-name"><span class="lang-de">Name</span><span class="lang-en">Name</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-mail"><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></label>
+          <input id="f-mail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-msg"><span class="lang-de">Nachricht</span><span class="lang-en">Message</span></label>
+          <textarea id="f-msg" name="message" required></textarea>
+        </div>
 
-      <button class="btn btn-fill" type="button" onclick="rhContactMail()">
-        <span class="lang-de">Nachricht senden</span><span class="lang-en">Send message</span>
-        <span class="icon icon-arrow sm" aria-hidden="true"></span>
-      </button>
+        <!-- Honeypot gegen Spam: für Menschen unsichtbar, bitte leer lassen -->
+        <div class="hp" aria-hidden="true">
+          <label for="f-web">Website</label>
+          <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button class="btn btn-fill" type="submit">
+          <span class="lang-de">Nachricht senden</span><span class="lang-en">Send message</span>
+          <span class="icon icon-arrow sm" aria-hidden="true"></span>
+        </button>
+
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
 
   </div>
@@ -223,7 +241,8 @@
     <div class="foot-grid">
 
       <div class="foot-brand">
-        <img src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+        <img class="lang-de" src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+        <img class="lang-en" src="assets/images/logo-cream-en.webp" alt="Robin Hotz, Facilitation for Change">
         <p>
           <span class="lang-de">Moderation und Visualisierung für Organisationen im Wandel.</span>
           <span class="lang-en">Facilitation and visualisation for organisations in change.</span>
@@ -263,15 +282,55 @@
 
 <script src="js/lang.js"></script>
 <script>
-/* Kontaktformular: öffnet eine vorbereitete E-Mail an rh@visualfacilitators.com */
-function rhContactMail(){
-  var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
-  var n=g('f-name'), e=g('f-mail'), m=g('f-msg');
-  var lang=document.documentElement.lang||'de';
-  var subject=(lang==='en'?'Enquiry via robin-hotz.com':'Anfrage über robin-hotz.com')+(n?(lang==='en'?' from ':' von ')+n:'');
-  var body=m+'\n\n'+(n||'')+(e?'\n'+e:'');
-  location.href='mailto:rh@visualfacilitators.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-}
+/* Kontaktformular: sendet per fetch an send.php, ohne Seitenwechsel */
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  var btn = form.querySelector('button[type="submit"]');
+
+  var TXT = {
+    sending: { de: 'Wird gesendet …', en: 'Sending …' },
+    ok:      { de: 'Vielen Dank! Ihre Nachricht wurde gesendet. Ich melde mich in Kürze.',
+               en: 'Thank you! Your message has been sent. I’ll be in touch shortly.' },
+    missing: { de: 'Bitte füllen Sie Name, E-Mail und Nachricht aus.',
+               en: 'Please fill in name, email and message.' },
+    email:   { de: 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
+               en: 'Please enter a valid email address.' },
+    error:   { de: 'Das hat leider nicht geklappt. Schreiben Sie mir gern direkt an rh@visualfacilitators.com.',
+               en: 'Something went wrong. Please email me directly at rh@visualfacilitators.com.' }
+  };
+  function t(key) { var l = document.documentElement.lang === 'en' ? 'en' : 'de'; return TXT[key][l]; }
+  function show(key, kind) {
+    status.textContent = t(key);
+    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var msg = form.message.value.trim();
+    if (!name || !email || !msg) { show('missing', 'error'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('email', 'error'); return; }
+
+    btn.disabled = true;
+    show('sending', '');
+
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+      .then(function (data) {
+        if (data && data.ok) {
+          form.reset();
+          show('ok', 'ok');
+        } else {
+          show(data && data.error === 'email' ? 'email' : 'error', 'error');
+        }
+      })
+      .catch(function () { show('error', 'error'); })
+      .finally(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>

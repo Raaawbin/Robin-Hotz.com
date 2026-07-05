@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero 3: Light Editorial | Robin Hotz Prototyp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --orange:#E8531E;
+  --orange-soft:#F4863F;
+  --grad:linear-gradient(95deg,#E8531E 0%,#F4863F 100%);
+  --grad-dark:linear-gradient(95deg,#CF460F 0%,#E5732A 100%);
+  --ink:#1A1A1A;
+  --body:#3F3F3F;
+  --muted:#6E6A66;
+  --cream:#F6F3EF;
+  --line:#E7E3DE;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Sans 3",system-ui,sans-serif;color:var(--body);background:var(--cream);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ===== Hero 3: Light Editorial =====
+   Vollbild-Foto rechtsbündig, heller Creme-Verlauf von links
+   (passend zum bestehenden Seitenstil), dunkle Typo,
+   Testimonial-Karte schwebt über dem Bild. */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;flex-direction:column;
+  isolation:isolate;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  background:url("../assets/images/hero.webp") 78% 20%/cover no-repeat;
+}
+/* Heller Gradient-Overlay: Creme von links, rechts wird das Foto frei.
+   Wirkt luftig und bleibt nah am bestehenden Look der Website. */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(95deg,
+    rgba(246,243,239,1) 0%,
+    rgba(246,243,239,.96) 38%,
+    rgba(246,243,239,.72) 55%,
+    rgba(246,243,239,.18) 78%,
+    rgba(246,243,239,0) 100%);
+}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+.brand img{height:54px;width:auto}
+.menu{display:flex;align-items:center;gap:30px;font-weight:600;font-size:.97rem;color:var(--ink)}
+.menu a{position:relative;transition:color .15s ease}
+.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:width .2s ease}
+.menu a:hover{color:var(--orange)}
+.menu a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:700;font-size:.84rem;letter-spacing:.13em;text-transform:uppercase;
+  padding:16px 26px;border-radius:6px;border:2px solid transparent;cursor:pointer;
+  background:var(--grad);color:#fff;box-shadow:0 8px 20px -10px rgba(232,83,30,.7);
+  transition:background .18s ease,transform .18s ease;
+}
+.btn:hover{background:var(--grad-dark);transform:translateY(-2px)}
+.btn.outline{background:transparent;color:var(--orange);border-color:var(--orange);box-shadow:none}
+.btn.outline:hover{background:var(--grad);color:#fff;border-color:transparent}
+
+.hero-main{flex:1;display:flex;align-items:center;padding:40px 0 90px}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  padding:8px 16px;font-size:.82rem;font-weight:600;color:var(--ink);
+  box-shadow:0 6px 18px -10px rgba(0,0,0,.15);margin-bottom:26px;
+}
+.badge .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,83,30,.45)}50%{box-shadow:0 0 0 7px rgba(232,83,30,0)}}
+h1{
+  font-family:"Permanent Marker",cursive;font-weight:400;color:var(--ink);
+  font-size:clamp(2.8rem,6.8vw,5rem);line-height:1.03;letter-spacing:.5px;
+  max-width:13ch;margin-bottom:24px;
+}
+h1 .o{color:var(--orange)}
+.sub{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.65;max-width:31rem;margin-bottom:36px}
+.sub b{
+  font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.ctas{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:44px}
+
+/* Mini-Fakten mit Avataren */
+.proof{display:flex;align-items:center;gap:18px}
+.faces{display:flex}
+.faces img{
+  width:46px;height:46px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--cream);margin-right:-12px;
+}
+.proof p{font-size:.92rem;color:var(--muted);max-width:22rem}
+.proof b{color:var(--ink)}
+
+/* Schwebende Testimonial-Karte über dem Foto */
+.float-card{
+  position:absolute;right:48px;bottom:56px;z-index:1;
+  max-width:330px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:16px;padding:22px 24px;
+  box-shadow:0 30px 60px -30px rgba(28,27,26,.45);
+}
+.float-card blockquote{font-size:.98rem;color:var(--ink);line-height:1.5;margin-bottom:14px}
+.float-card blockquote::before{content:"\201E"}
+.float-card blockquote::after{content:"\201C"}
+.float-card .who{display:flex;align-items:center;gap:11px}
+.float-card .who img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.float-card .who b{display:block;color:var(--ink);font-size:.88rem}
+.float-card .who span{color:var(--muted);font-size:.8rem}
+
+@media (max-width:1100px){.float-card{right:28px;bottom:40px}}
+@media (max-width:860px){
+  .menu{display:none}
+  .hero-bg{background-position:70% 15%}
+  .hero::before{background:linear-gradient(180deg,rgba(246,243,239,.97) 0%,rgba(246,243,239,.9) 55%,rgba(246,243,239,.55) 100%)}
+  .float-card{display:none}
+  .hero-main{padding-bottom:60px}
+}
+@media (prefers-reduced-motion:reduce){.badge .dot{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO 3: LIGHT EDITORIAL ============
+     Bestehendes Hero-Foto in voller Breite, Creme-Verlauf von links,
+     dunkle Typo im Seitenstil, Badge, Social Proof und
+     schwebende Testimonial-Karte. -->
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Robin Hotz moderiert vor einer Graphic-Recording-Wand"></div>
+
+  <header class="wrap nav">
+    <a class="brand" href="../index.html" aria-label="Robin Hotz">
+      <img src="../assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+    </a>
+    <nav class="menu" aria-label="Hauptnavigation">
+      <a href="../index.html">Start</a>
+      <a href="../solutions.html">Lösungen</a>
+      <a href="../references.html">Referenzen</a>
+      <a href="../about.html">Über mich</a>
+      <a class="btn" href="../contact.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <div class="hero-main">
+    <div class="wrap">
+      <span class="badge"><span class="dot" aria-hidden="true"></span>Verfügbar für Projekte 2026</span>
+      <h1>Von Komplexität <span class="o">zu Klarheit</span></h1>
+      <p class="sub">Organisationen im Wandel stehen vor <b>komplexen Herausforderungen</b>. Ich bringe klare Moderation, die Ergebnisse sichtbar macht.</p>
+      <div class="ctas">
+        <a class="btn" href="../contact.html">Zusammenarbeit anfragen</a>
+        <a class="btn outline" href="../solutions.html">Meine Lösungen</a>
+      </div>
+      <div class="proof">
+        <div class="faces">
+          <img src="../assets/images/person-christoph.webp" alt="Christoph Schneider">
+          <img src="../assets/images/person-lino.webp" alt="Lino Zeddies">
+          <img src="../assets/images/person-raphael.webp" alt="Raphael Thelen">
+        </div>
+        <p><b>250+ Veranstaltungen</b> für Konzerne, Universitäten und NGOs — von der Bühne bis zum Strategieraum.</p>
+      </div>
+    </div>
+  </div>
+
+  <aside class="float-card">
+    <blockquote>Dank Robin war unsere Konferenz ein voller Erfolg. Professionelle Moderation trifft auf kreatives Veranstaltungs-Design.</blockquote>
+    <div class="who">
+      <img src="../assets/images/person-christoph.webp" alt="Christoph Schneider">
+      <div><b>Christoph Schneider</b><span>Rektor, Universität Hohenheim</span></div>
+    </div>
+  </aside>
+</section>
+
+</body>
+</html>

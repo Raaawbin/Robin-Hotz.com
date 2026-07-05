@@ -72,6 +72,13 @@
           burger.setAttribute('aria-expanded', 'false');
         });
       });
+      /* Klick oder Tipp außerhalb des offenen Menüs schließt es */
+      document.addEventListener('click', function (e) {
+        if (!menu.classList.contains('open')) return;
+        if (menu.contains(e.target) || burger.contains(e.target)) return;
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
     }
 
     /* Jahr im Footer */

@@ -95,6 +95,9 @@ html[lang="en"] .lang-de{display:none!important}
 /* Mobiler Zeilenumbruch: <br class="br-m"> bricht nur unter 760px */
 .br-m{display:none}
 @media (max-width:760px){.br-m{display:block}}
+/* Desktop-Zeilenumbruch: <br class="br-d"> bricht nur über 760px */
+.br-d{display:none}
+@media (min-width:761px){.br-d{display:inline}}
 
 /* =====================================================================
    robin-hotz.com | layout.css
@@ -133,6 +136,34 @@ html[lang="en"] .lang-de{display:none!important}
 .lang-switch button:hover{color:var(--orange)}
 .lang-switch button[aria-pressed="true"]{color:var(--orange)}
 .lang-switch .sep{color:var(--muted)}
+
+/* Dropdown im Menü (Lösungen) */
+.navitem{position:relative;display:inline-flex;align-items:center}
+.navitem.has-drop > .navlink{display:inline-flex;align-items:center;gap:6px}
+.navitem .caret{
+  display:inline-block;width:0;height:0;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  border-top:5px solid currentColor;
+  transition:transform .2s ease;
+}
+.dropdown{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);
+  min-width:210px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 24px 48px -24px rgba(28,27,26,.35);
+  padding:10px;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s;
+  z-index:10;
+}
+/* Unsichtbare Brücke, damit der Hover beim Übergang nicht abreißt */
+.dropdown::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.navitem:hover .dropdown,.navitem:focus-within .dropdown{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.navitem:hover .caret,.navitem:focus-within .caret{transform:rotate(180deg)}
+.dropdown a{
+  padding:10px 14px;border-radius:8px;font-weight:600;font-size:.9rem;color:var(--ink);
+  transition:background .15s ease,color .15s ease;
+}
+.dropdown a:hover{background:var(--bg-soft);color:var(--orange)}
 
 /* Burger (mobil) */
 .burger{display:none;color:var(--ink);padding:8px}
@@ -187,6 +218,19 @@ html[lang="en"] .lang-de{display:none!important}
   }
   .menu.open{display:flex}
   .menu .navlink{padding:12px 0;font-size:.95rem;width:100%}
+  .navitem{width:100%;flex-direction:column;align-items:flex-start}
+  .navitem .caret{display:none}
+  /* Dropdown mobil: die drei Lösungen sind immer ausgeklappt */
+  .dropdown{
+    position:static;transform:none;box-shadow:none;border:0;border-radius:0;
+    background:transparent;min-width:0;padding:0 0 6px 16px;width:100%;
+    visibility:visible;opacity:1;max-height:none;overflow:visible;transition:none;
+  }
+  /* Desktop-Hover-Regeln neutralisieren (translate(-50%) würde die
+     Wörter mobil aus dem Bild schieben) */
+  .navitem:hover .dropdown,.navitem:focus-within .dropdown{transform:none}
+  .dropdown::before{display:none}
+  .dropdown a{padding:10px 0}
   .lang-switch{padding:12px 0}
   .nav-cta{margin:8px 0 0}
   .burger{display:block}
@@ -459,6 +503,14 @@ a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 
 }
 .field textarea{min-height:150px;resize:vertical}
 
+/* Honeypot gegen Spam: für Nutzer unsichtbar, für Bots erreichbar */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Statusmeldung des Kontaktformulars */
+.form-status{margin-top:16px;font-weight:600;font-size:.95rem;min-height:1.2em}
+.form-status.is-ok{color:#1a7a3c}
+.form-status.is-error{color:var(--orange)}
+
 /* ---------- CTA-Band (dunkel) ---------- */
 .cta-band{
   background:var(--dark);color:#D8D2CA;padding:84px 0;text-align:center;
@@ -506,6 +558,7 @@ a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 
 .icon-mic{-webkit-mask-image:url(../assets/icons/mic.svg);mask-image:url(../assets/icons/mic.svg)}
 .icon-compass{-webkit-mask-image:url(../assets/icons/compass.svg);mask-image:url(../assets/icons/compass.svg)}
 .icon-spark{-webkit-mask-image:url(../assets/icons/spark.svg);mask-image:url(../assets/icons/spark.svg)}
+.icon-target{-webkit-mask-image:url(../assets/icons/target.svg);mask-image:url(../assets/icons/target.svg)}
 
 /* Größen-Varianten */
 .icon.sm{width:17px;height:17px}
@@ -551,7 +604,7 @@ a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 
 }
 
 /* ---------- Methode (3 Einstiegs-Karten) ---------- */
-.method{padding:8px 0 84px}
+.method{padding:64px 0}
 .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .mcell{
   background:#fff;border:1px solid var(--line);border-radius:14px;
@@ -575,8 +628,13 @@ a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 
 
 /* ---------- Transformation ---------- */
 .transform{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.t-col{background:#fff;border:1px solid var(--line);border-radius:14px;padding:38px 34px}
+.t-col{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:38px 34px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.t-col:hover{transform:translateY(-5px);box-shadow:0 28px 50px -34px rgba(28,27,26,.45);border-color:rgba(232,83,30,.4)}
 .t-col.solution{border-color:rgba(232,83,30,.35);box-shadow:0 24px 48px -34px rgba(232,83,30,.5)}
+.t-col.solution:hover{box-shadow:0 30px 55px -30px rgba(232,83,30,.6)}
 .t-media{margin-bottom:26px;border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#fff}
 .t-media img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#fff}
 .t-title{font-family:var(--font-display);font-weight:400;font-size:1.5rem;color:var(--ink);margin-bottom:6px;letter-spacing:.4px}

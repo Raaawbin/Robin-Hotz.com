@@ -1,0 +1,787 @@
+/* =====================================================================
+   robin-hotz.com | base.css
+   Design-Tokens, Reset, Typografie, Sprach-Sichtbarkeit
+   ===================================================================== */
+
+/* ---------- Design-Tokens ---------- */
+:root{
+  /* Farben */
+  --orange:#E8531E;
+  --orange-dark:#C9461A;
+  --grad:linear-gradient(95deg,#E8531E 0%,#F4863F 100%);
+  --grad-dark:linear-gradient(95deg,#CF460F 0%,#E5732A 100%);
+  --ink:#1A1A1A;
+  --body:#3F3F3F;
+  --muted:#6E6A66;
+  --bg:#FFFFFF;
+  --bg-soft:#F6F3EF;
+  --line:#E7E3DE;
+  --dark:#1C1B1A;
+
+  /* Handgezeichneter Schwung (Marker-Signatur) */
+  --swoosh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='14' viewBox='0 0 130 14'%3E%3Cpath d='M3 9 Q 33 2 65 8 T 127 7' stroke='%23E8531E' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  /* Schriften */
+  --font-display:"Permanent Marker",cursive;
+  --font-body:"Source Sans 3",system-ui,sans-serif;
+  --font-hand:"Caveat",cursive;
+
+  /* Abstände */
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:40px;
+  --space-5:64px;
+  --space-6:96px;
+
+  /* Sonstiges */
+  --radius:15px;
+  --radius-sm:10px;
+  --shadow:0 24px 50px -28px rgba(0,0,0,.3);
+  --shadow-orange:0 8px 20px -10px rgba(232,83,30,.7);
+  --wrap:1180px;
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  font-size:18px;line-height:1.6;
+  color:var(--body);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font:inherit;border:0;background:none;cursor:pointer}
+:target{scroll-margin-top:110px}
+
+/* ---------- Typografie ---------- */
+h1,h2{font-family:var(--font-display);font-weight:400;color:var(--ink);line-height:1.12;letter-spacing:.01em}
+h1{font-size:clamp(2.6rem,6.2vw,4.4rem)}
+h2{font-size:clamp(2.1rem,4.6vw,3.1rem)}
+h3,h4{color:var(--ink);line-height:1.25}
+h3{font-size:1.32rem}
+p{max-width:70ch}
+.o{color:var(--orange)}
+strong.o{font-weight:600}
+.lead{color:var(--body);font-size:1.18rem}
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* Handschrift-Akzent */
+.hand{font-family:var(--font-hand);font-size:1.55rem;line-height:1.2;color:var(--orange);font-weight:700}
+.hand-note{display:inline-block;transform:rotate(-2deg)}
+
+/* ---------- Barrierefreiheit ---------- */
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:10px;z-index:200;background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px}
+.skip:focus{left:10px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Sprach-Sichtbarkeit (DE/EN) ----------
+   Beide Sprachen stehen im Markup (.lang-de / .lang-en),
+   js/lang.js setzt <html lang="de|en">, CSS blendet die inaktive aus. */
+html[lang="de"] .lang-en{display:none!important}
+html[lang="en"] .lang-de{display:none!important}
+
+/* ---------- Reduzierte Bewegung ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* Mobiler Zeilenumbruch: <br class="br-m"> bricht nur unter 760px */
+.br-m{display:none}
+@media (max-width:760px){.br-m{display:block}}
+/* Desktop-Zeilenumbruch: <br class="br-d"> bricht nur über 760px */
+.br-d{display:none}
+@media (min-width:761px){.br-d{display:inline}}
+
+/* =====================================================================
+   robin-hotz.com | layout.css
+   Seitenraster, Header-Navigation, Footer, Sektionen, Breakpoints
+   ===================================================================== */
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+
+/* ---------- Header / Navigation ---------- */
+.site-head{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px;gap:20px}
+.brand img{height:54px;width:auto}
+.menu{display:flex;align-items:center;gap:32px}
+.navlink{
+  font-weight:600;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink);position:relative;padding:4px 0;
+}
+.navlink::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+  background:var(--orange);transition:width .2s ease;
+}
+.navlink:hover::after{width:100%}
+.navlink.active{color:var(--orange)}
+.navlink.active::after{width:100%}
+.nav-cta{margin-left:4px;padding:13px 24px}
+
+/* Sprachumschalter */
+.lang-switch{display:flex;align-items:center;gap:6px;font-weight:700;font-size:.88rem}
+.lang-switch .i{width:17px;height:17px;color:var(--muted)}
+.lang-switch button{padding:3px 5px;border-radius:6px;color:var(--ink);font-weight:700}
+.lang-switch button:hover{color:var(--orange)}
+.lang-switch button[aria-pressed="true"]{color:var(--orange)}
+.lang-switch .sep{color:var(--muted)}
+
+/* Dropdown im Menü (Lösungen) */
+.navitem{position:relative;display:inline-flex;align-items:center}
+.navitem.has-drop > .navlink{display:inline-flex;align-items:center;gap:6px}
+.navitem .caret{
+  display:inline-block;width:0;height:0;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+  border-top:5px solid currentColor;
+  transition:transform .2s ease;
+}
+.dropdown{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);
+  min-width:210px;background:#fff;border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 24px 48px -24px rgba(28,27,26,.35);
+  padding:10px;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s;
+  z-index:10;
+}
+/* Unsichtbare Brücke, damit der Hover beim Übergang nicht abreißt */
+.dropdown::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.navitem:hover .dropdown,.navitem:focus-within .dropdown{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.navitem:hover .caret,.navitem:focus-within .caret{transform:rotate(180deg)}
+.dropdown a{
+  padding:10px 14px;border-radius:8px;font-weight:600;font-size:.9rem;color:var(--ink);
+  transition:background .15s ease,color .15s ease;
+}
+.dropdown a:hover{background:var(--bg-soft);color:var(--orange)}
+
+/* Burger (mobil) */
+.burger{display:none;color:var(--ink);padding:8px}
+.burger .i{width:26px;height:26px}
+
+/* ---------- Sektionen ---------- */
+.sec{padding:var(--space-6) 0}
+.sec-soft{background:var(--bg-soft)}
+.sec-tight{padding:var(--space-5) 0}
+.sec-head{max-width:740px;margin-bottom:var(--space-4)}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head p{margin-top:14px;color:var(--muted);font-size:1.12rem}
+
+/* Seiten-Kopf für Unterseiten */
+.page-hero{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:70px 0 60px}
+.page-hero .lead{max-width:46rem;margin-top:18px}
+
+/* Grid-Helfer */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+
+/* ---------- Footer ---------- */
+.site-foot{background:var(--dark);color:#B9B3AC;padding:64px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px}
+.foot-brand img{height:48px;margin-bottom:18px}
+.foot-brand p{color:#9A948C;font-size:.95rem;max-width:260px}
+.foot-col h4{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.foot-col a{display:flex;align-items:center;gap:10px;color:#B9B3AC;padding:7px 0;transition:color .15s ease}
+.foot-col a:hover{color:var(--orange)}
+.foot-col .i{width:18px;height:18px}
+.foot-col .c-plain{display:flex;align-items:center;gap:10px;padding:7px 0;color:#9A948C}
+.foot-bottom{
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:1px solid #2C2A28;margin-top:44px;padding-top:24px;
+  font-size:.86rem;color:#8A847D;
+}
+
+/* ---------- Breakpoints ---------- */
+/* Tablet */
+@media (max-width:1000px){
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+/* Mobil */
+@media (max-width:760px){
+  .menu{
+    position:fixed;inset:82px 0 auto 0;background:var(--bg);
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+    flex-direction:column;align-items:flex-start;gap:4px;
+    padding:18px 28px 26px;display:none;
+  }
+  .menu.open{display:flex}
+  .menu .navlink{padding:12px 0;font-size:.95rem;width:100%}
+  .navitem{width:100%;flex-direction:column;align-items:flex-start}
+  .navitem .caret{display:none}
+  /* Dropdown mobil: die drei Lösungen sind immer ausgeklappt */
+  .dropdown{
+    position:static;transform:none;box-shadow:none;border:0;border-radius:0;
+    background:transparent;min-width:0;padding:0 0 6px 16px;width:100%;
+    visibility:visible;opacity:1;max-height:none;overflow:visible;transition:none;
+  }
+  /* Desktop-Hover-Regeln neutralisieren (translate(-50%) würde die
+     Wörter mobil aus dem Bild schieben) */
+  .navitem:hover .dropdown,.navitem:focus-within .dropdown{transform:none}
+  .dropdown::before{display:none}
+  .dropdown a{padding:10px 0}
+  .lang-switch{padding:12px 0}
+  .nav-cta{margin:8px 0 0}
+  .burger{display:block}
+  .grid-3{grid-template-columns:1fr}
+  .sec{padding:70px 0}
+  .foot-grid{grid-template-columns:1fr}
+}
+
+/* =====================================================================
+   robin-hotz.com | components.css
+   Wiederverwendbare Bausteine im Marker-Stil
+   ===================================================================== */
+
+/* ---------- Icons ---------- */
+.i{width:22px;height:22px;flex:0 0 auto}
+
+/* ---------- Eyebrow mit Swoosh (Marken-Signatur) ---------- */
+.eyebrow{
+  display:inline-block;font-weight:700;font-size:.78rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:18px;
+  background:var(--swoosh) no-repeat left bottom/100% 10px;
+  padding-bottom:10px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:700;font-size:.84rem;letter-spacing:.13em;text-transform:uppercase;
+  padding:16px 26px;border-radius:6px;border:2px solid transparent;
+  transition:background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.btn .i{width:17px;height:17px;transition:transform .18s ease}
+.btn:hover .i{transform:translateX(4px)}
+.btn-fill{background:var(--grad);color:#fff;box-shadow:var(--shadow-orange)}
+.btn-fill:hover{background:var(--grad-dark);transform:translateY(-2px)}
+.btn-outline{color:var(--orange);border-color:var(--orange)}
+.btn-outline:hover{background:var(--grad);color:#fff;border-color:transparent;transform:translateY(-2px)}
+.btn-ghost-light{border-color:#fff;color:#fff}
+.btn-ghost-light:hover{background:#fff;color:var(--ink)}
+
+/* ---------- Karten ---------- */
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 30px;transition:transform .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.card .ico{
+  width:62px;height:62px;border-radius:13px;background:var(--bg-soft);color:var(--orange);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.card .ico .i{width:30px;height:30px}
+.card h3{margin-bottom:10px}
+.card p{color:var(--muted)}
+
+/* ---------- Häkchen-Liste ---------- */
+.checks li{display:flex;gap:12px;margin-bottom:11px;color:var(--body)}
+.checks .i{width:21px;height:21px;margin-top:4px;color:var(--orange)}
+.checks .icon{width:20px;height:20px;margin-top:5px;color:var(--orange)}
+
+/* ---------- Nummerierte Prozess-Schritte ---------- */
+.steps{counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding-left:58px;margin-bottom:24px}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:-2px;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--grad);color:#fff;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-orange);
+}
+.steps li b{display:block;color:var(--ink);font-size:1.04rem;margin-bottom:3px}
+.steps li span{color:var(--muted)}
+
+/* ---------- Tags ---------- */
+.tagrow{display:flex;flex-wrap:wrap;gap:10px}
+.tag{
+  display:inline-block;
+  font-size:.84rem;font-weight:600;color:var(--ink);
+  background:var(--bg-soft);border:1px solid var(--line);
+  border-radius:30px;padding:7px 15px;
+  transition:transform .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.tag:hover{
+  color:var(--orange);border-color:var(--orange);
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px -14px rgba(232,83,30,.5);
+}
+.sec-soft .tag,.card .tag{background:#fff}
+
+/* ---------- Lösungsseite: Überblick-Karten ---------- */
+.ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.ov-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:30px 28px;display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.ov-card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(0,0,0,.3);border-color:rgba(232,83,30,.4)}
+.ov-ico{width:62px;height:62px;border-radius:13px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.ov-ico img{width:38px;height:38px;object-fit:contain}
+.ov-card h3{font-size:1.45rem;margin-bottom:10px}
+.ov-card p{color:var(--muted);margin-bottom:20px}
+.ov-card .btn{margin-top:auto;align-self:flex-start}
+
+/* ---------- Lösungsseite: Detailblöcke ---------- */
+.sol{padding:80px 0;border-bottom:1px solid var(--line)}
+.sol:last-of-type{border-bottom:0}
+.sol-top{display:grid;grid-template-columns:0.95fr 1.05fr;gap:54px;align-items:center}
+.sol-media{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sol-media img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff}
+.sol-kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.sol h2{font-size:clamp(2rem,4.4vw,3rem);margin-bottom:16px}
+.sol-intro{font-size:1.12rem;color:var(--body)}
+.sol-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:46px;margin-top:50px}
+.block-title{font-size:.8rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+@media (max-width:900px){
+  .ov-grid{grid-template-columns:1fr}
+  .sol-top{grid-template-columns:1fr;gap:30px}
+  .sol-cols{grid-template-columns:1fr;gap:32px}
+}
+
+/* ---------- Über-mich-Seite: Intro mit Porträt ----------
+   Das Bild streckt sich exakt auf die Höhe der Textspalte. */
+.about-intro{display:grid;grid-template-columns:0.85fr 1.15fr;gap:54px;align-items:stretch}
+.about-intro .sol-media{position:relative;min-height:380px}
+.about-intro .sol-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+
+/* ---------- Über-mich-Seite: Lebenslauf-Timeline ---------- */
+.tl{max-width:760px;margin:0 auto;border-left:2px solid var(--line);padding-left:34px}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-43px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 5px var(--bg)}
+.sec-soft .tl-item::before{box-shadow:0 0 0 5px var(--bg-soft)}
+.tl-item h3{font-size:1.2rem;margin-bottom:6px}
+.tl-item .yr{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.tl-item p{color:var(--muted)}
+
+/* ---------- Über-mich-Seite: Qualifikations-Karten ---------- */
+.qual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.qual-card{
+  background:#fff;border:1px solid var(--line);border-radius:13px;
+  padding:22px 24px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.qual-card:hover{transform:translateY(-4px);box-shadow:0 24px 46px -30px rgba(28,27,26,.45);border-color:rgba(232,83,30,.4)}
+.qual-card b{display:block;color:var(--ink);font-size:1rem;margin-bottom:4px}
+.qual-card span{color:var(--muted);font-size:.9rem}
+@media (max-width:900px){
+  .about-intro{grid-template-columns:1fr;gap:30px}
+  .qual-grid{grid-template-columns:1fr}
+}
+@media (min-width:901px) and (max-width:1100px){
+  .qual-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- Referenzen-Seite: Kennzahlen ---------- */
+.stats-row{display:flex;gap:60px;flex-wrap:wrap;justify-content:center}
+.stats-row .stat{text-align:center}
+.stats-row .stat .n{font-family:var(--font-display);font-weight:400;font-size:3rem;color:var(--orange);line-height:1}
+.stats-row .stat .l{color:var(--muted);margin-top:6px}
+.page-hero .stats-row{justify-content:flex-start;gap:44px;margin-top:30px}
+
+/* ---------- Referenzen-Seite: klickbare Projekt-Karten ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tile{
+  border-radius:15px;border:1px solid var(--line);overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;min-height:230px;
+  cursor:pointer;text-decoration:none;color:inherit;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.tile:hover,.tile:focus-visible{transform:translateY(-5px);box-shadow:0 0 0 2px var(--orange),0 26px 55px -26px rgba(232,83,30,.6);outline:none}
+.tile-visual{
+  flex:1;display:flex;align-items:flex-end;padding:18px;color:#fff;
+  background:var(--grad);position:relative;overflow:hidden;min-height:128px;
+}
+.tile-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tile-visual::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(232,83,30,.28) 0%,rgba(200,60,20,.66) 100%)}
+.tile-cat{
+  position:absolute;top:14px;left:16px;z-index:2;
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(28,27,26,.55);padding:5px 11px;border-radius:30px;
+}
+.tile-visual h4{position:relative;z-index:2;font-size:1.18rem;line-height:1.25;color:#fff}
+.tile-body{padding:18px 20px}
+.tile-body p{color:var(--muted);font-size:.96rem}
+.tile-more{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:700;font-size:.85rem;color:var(--orange);letter-spacing:.02em}
+.tile-more .icon{transition:transform .2s ease}
+.tile:hover .tile-more .icon{transform:translateX(4px)}
+
+/* Zitat-Karten im Raster */
+.tcard{background:#fff;border:1px solid var(--line);border-radius:15px;padding:26px;display:flex;flex-direction:column}
+.tcard blockquote{font-size:1.04rem;color:var(--ink);line-height:1.5;margin-bottom:18px}
+.tcard blockquote::before{content:"\201E"}
+.tcard blockquote::after{content:"\201C"}
+.tcard .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.tcard .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.tcard .who b{display:block;color:var(--ink);font-size:.95rem}
+.tcard .who span{color:var(--muted);font-size:.85rem}
+a.tcard{cursor:pointer;text-decoration:none;color:inherit;transition:transform .2s ease,box-shadow .2s ease}
+a.tcard:hover,a.tcard:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 2px var(--orange),0 24px 50px -24px rgba(232,83,30,.5);outline:none}
+.to-project{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:700;font-size:.82rem;color:var(--orange)}
+
+/* ---------- Referenzen-Seite: Fallbeispiele ---------- */
+.cases{display:flex;flex-direction:column;gap:26px}
+.case{
+  border:1px solid var(--line);border-radius:16px;background:#fff;padding:34px;
+  scroll-margin-top:100px;transition:box-shadow .3s ease,border-color .3s ease;
+}
+.case:target{box-shadow:0 0 0 2px var(--orange),0 26px 55px -30px rgba(232,83,30,.4);border-color:var(--orange)}
+.case-kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.case h3{font-size:clamp(1.5rem,3.2vw,2.1rem);margin-bottom:22px}
+.case-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.case-gallery.g2{grid-template-columns:repeat(2,1fr)}
+.case-shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin:0}
+.case-shot img{width:100%;height:210px;object-fit:cover;display:block}
+.case-shot.wide{grid-column:1 / -1}
+.case-shot.wide img{height:auto;max-height:560px;object-fit:contain;background:#fbf9f6}
+.case-shot figcaption{padding:10px 14px;font-size:.8rem;color:var(--muted)}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:22px 36px}
+.cm{border-top:1px solid var(--line);padding-top:15px}
+.cm.full{grid-column:1 / -1}
+.cm-l{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.cm p{color:var(--body)}
+.cm a{color:var(--orange)}
+@media (max-width:900px){
+  .gallery{grid-template-columns:1fr 1fr}
+  .stats-row{gap:36px}
+}
+@media (max-width:760px){
+  .gallery{grid-template-columns:1fr}
+  .case{padding:24px}
+  .case-gallery,.case-gallery.g2,.case-meta{grid-template-columns:1fr}
+  .case-shot img{height:200px}
+}
+
+/* ---------- Zitate ---------- */
+.quote{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;display:flex;flex-direction:column;
+}
+.quote blockquote{font-size:1.05rem;color:var(--ink);line-height:1.5;margin-bottom:20px}
+.quote blockquote::before{content:"\201E"}
+.quote blockquote::after{content:"\201C"}
+.who{display:flex;align-items:center;gap:13px;margin-top:auto}
+.who img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.who b{display:block;color:var(--ink);font-size:.96rem}
+.who span{color:var(--muted);font-size:.85rem}
+
+/* ---------- Logos-Reihe ---------- */
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:44px 60px}
+.logos img{height:42px;width:auto;object-fit:contain;opacity:.85}
+
+/* ---------- Formular ---------- */
+.form{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px;box-shadow:var(--shadow);
+}
+.field{margin-bottom:18px}
+.field label{
+  display:block;font-size:.82rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:7px;
+}
+.field input,.field textarea{
+  width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:13px 15px;font:inherit;color:var(--ink);background:#fff;
+}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(232,83,30,.14);
+}
+.field textarea{min-height:150px;resize:vertical}
+
+/* Honeypot gegen Spam: für Nutzer unsichtbar, für Bots erreichbar */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Statusmeldung des Kontaktformulars */
+.form-status{margin-top:16px;font-weight:600;font-size:.95rem;min-height:1.2em}
+.form-status.is-ok{color:#1a7a3c}
+.form-status.is-error{color:var(--orange)}
+
+/* ---------- CTA-Band (dunkel) ---------- */
+.cta-band{
+  background:var(--dark);color:#D8D2CA;padding:84px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:auto -80px -120px auto;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,83,30,.32),transparent 65%);
+}
+.cta-band h2{color:#fff;margin-bottom:14px}
+.cta-band p{color:#B9B3AB;max-width:44rem;margin:0 auto 30px}
+.cta-band .hand{color:#F49140}
+
+/* ---------- Kontaktliste ---------- */
+.c-list a,.c-list .c-row{
+  display:flex;align-items:center;gap:14px;padding:15px 0;
+  border-bottom:1px solid var(--line);color:var(--ink);font-weight:600;
+}
+.c-list a:hover{color:var(--orange)}
+.c-list .i{width:38px;height:38px;padding:8px;border-radius:10px;background:var(--bg-soft);color:var(--orange)}
+
+/* ---------- Icon-Einbindung über CSS-Maske ----------
+   Vorteil: Icons liegen als einzelne SVGs in assets/icons/ und erben
+   trotzdem die Textfarbe (currentColor), auch bei Hover.
+   Nutzung: <span class="icon icon-mail" aria-hidden="true"></span> */
+.icon{
+  display:inline-block;width:22px;height:22px;flex:0 0 auto;
+  background:currentColor;
+  -webkit-mask:no-repeat center/contain;mask:no-repeat center/contain;
+}
+.icon-arrow{-webkit-mask-image:url(../assets/icons/arrow-right.svg);mask-image:url(../assets/icons/arrow-right.svg)}
+.icon-mail{-webkit-mask-image:url(../assets/icons/mail.svg);mask-image:url(../assets/icons/mail.svg)}
+.icon-linkedin{-webkit-mask-image:url(../assets/icons/linkedin.svg);mask-image:url(../assets/icons/linkedin.svg)}
+.icon-instagram{-webkit-mask-image:url(../assets/icons/instagram.svg);mask-image:url(../assets/icons/instagram.svg)}
+.icon-pin{-webkit-mask-image:url(../assets/icons/pin.svg);mask-image:url(../assets/icons/pin.svg)}
+.icon-check{-webkit-mask-image:url(../assets/icons/check.svg);mask-image:url(../assets/icons/check.svg)}
+.icon-burger{-webkit-mask-image:url(../assets/icons/burger.svg);mask-image:url(../assets/icons/burger.svg)}
+.icon-close{-webkit-mask-image:url(../assets/icons/close.svg);mask-image:url(../assets/icons/close.svg)}
+.icon-globe{-webkit-mask-image:url(../assets/icons/globe.svg);mask-image:url(../assets/icons/globe.svg)}
+.icon-bubble{-webkit-mask-image:url(../assets/icons/bubble.svg);mask-image:url(../assets/icons/bubble.svg)}
+.icon-users{-webkit-mask-image:url(../assets/icons/users.svg);mask-image:url(../assets/icons/users.svg)}
+.icon-eye{-webkit-mask-image:url(../assets/icons/eye.svg);mask-image:url(../assets/icons/eye.svg)}
+.icon-pen{-webkit-mask-image:url(../assets/icons/pen.svg);mask-image:url(../assets/icons/pen.svg)}
+.icon-mic{-webkit-mask-image:url(../assets/icons/mic.svg);mask-image:url(../assets/icons/mic.svg)}
+.icon-compass{-webkit-mask-image:url(../assets/icons/compass.svg);mask-image:url(../assets/icons/compass.svg)}
+.icon-spark{-webkit-mask-image:url(../assets/icons/spark.svg);mask-image:url(../assets/icons/spark.svg)}
+.icon-target{-webkit-mask-image:url(../assets/icons/target.svg);mask-image:url(../assets/icons/target.svg)}
+
+/* Größen-Varianten */
+.icon.sm{width:17px;height:17px}
+.icon.lg{width:30px;height:30px}
+
+/* =====================================================================
+   Seiten-Bausteine (Startseite und wiederverwendbar)
+   ===================================================================== */
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:700px;display:flex;align-items:center;
+  padding:64px 0;
+}
+.hero .wrap{width:100%;position:relative;z-index:2}
+.hero-copy{max-width:640px}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.3rem);line-height:.98;white-space:nowrap}
+.hero p.sub{font-size:1.2rem;margin:30px 0 36px;color:var(--body);max-width:none}
+.hero-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+
+/* Gradient-Text-Akzent */
+.grad-orange{
+  font-weight:700;
+  background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--orange);
+}
+
+/* Großflächiges Hero-Foto: bleed nach rechts bis zum Rand, links unter den Text */
+.hero-visual{
+  position:absolute;top:0;right:0;bottom:0;
+  z-index:0;overflow:hidden;
+}
+.hero-visual img{display:block;height:100%;width:auto;max-width:none}
+/* weicher Übergang nach Weiß an der linken Kante */
+.hero-visual::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to right,
+    #fff 0%,
+    rgba(255,255,255,.82) 12%,
+    rgba(255,255,255,0) 28%);
+}
+
+/* ---------- Methode (3 Einstiegs-Karten) ---------- */
+.method{padding:64px 0}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mcell{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px 24px 30px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.mcell:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 50px -34px rgba(28,27,26,.45);
+  border-color:rgba(232,83,30,.4);
+}
+.mcell .ico{height:82px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.mcell .ico img{height:82px;width:auto}
+.mcell h3{
+  font-family:var(--font-display);font-weight:400;color:var(--ink);
+  font-size:1.06rem;line-height:1.15;letter-spacing:.3px;margin-bottom:12px;text-transform:uppercase;
+}
+.mcell p{font-size:.92rem;color:var(--muted);line-height:1.5;margin-bottom:18px}
+.mcell-btn{margin-top:auto;padding:11px 20px;font-size:.76rem}
+
+/* ---------- Transformation ---------- */
+.transform{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.t-col{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:38px 34px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.t-col:hover{transform:translateY(-5px);box-shadow:0 28px 50px -34px rgba(28,27,26,.45);border-color:rgba(232,83,30,.4)}
+.t-col.solution{border-color:rgba(232,83,30,.35);box-shadow:0 24px 48px -34px rgba(232,83,30,.5)}
+.t-col.solution:hover{box-shadow:0 30px 55px -30px rgba(232,83,30,.6)}
+.t-media{margin-bottom:26px;border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.t-media img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#fff}
+.t-title{font-family:var(--font-display);font-weight:400;font-size:1.5rem;color:var(--ink);margin-bottom:6px;letter-spacing:.4px}
+.t-col.solution .t-title{color:var(--orange)}
+.t-intro{color:var(--muted);margin-bottom:24px;font-size:1rem}
+.t-list li{display:flex;gap:15px;align-items:flex-start;margin-bottom:20px}
+.t-list .icon{width:26px;height:26px;margin-top:2px;color:var(--orange)}
+.t-list b{color:var(--ink);font-weight:700}
+
+/* ---------- Leistungen (3 Karten) ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:36px 30px 32px;display:flex;flex-direction:column;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.svc:hover{transform:translateY(-5px);box-shadow:0 28px 50px -34px rgba(28,27,26,.45);border-color:rgba(232,83,30,.4)}
+.svc-media{margin-bottom:22px;border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.svc-media img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#fff}
+.svc h3{font-family:var(--font-display);font-weight:400;font-size:1.5rem;color:var(--orange);margin-bottom:14px;letter-spacing:.4px}
+.svc p.desc{font-size:1rem;color:var(--body);margin-bottom:22px}
+.svc .feats{margin-bottom:24px;display:flex;flex-direction:column;gap:10px}
+.svc .feats li{display:flex;gap:11px;align-items:center;font-weight:600;color:var(--ink);font-size:.98rem}
+.svc .feats li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--orange);flex:0 0 auto;transform:rotate(45deg)}
+.svc .result{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);font-size:.96rem;color:var(--body)}
+.svc .result b{display:block;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;margin-bottom:6px}
+.svc-cta{align-self:center;margin-top:22px}
+.svc-more{display:flex;justify-content:center;margin-top:48px}
+.result-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:13px;padding:20px 24px;margin-bottom:26px}
+.sec-soft .result-box{background:#fff}
+.result-box b{display:block;color:var(--orange);text-transform:uppercase;font-size:.74rem;letter-spacing:.13em;margin-bottom:5px}
+.result-box p{color:var(--ink)}
+
+/* ---------- Kennzahlen ---------- */
+.facts{display:flex;gap:34px;flex-wrap:wrap}
+.fact .n{font-family:var(--font-display);font-weight:400;font-size:2.1rem;color:var(--orange);line-height:1}
+.fact .l{font-size:.82rem;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-top:4px}
+
+/* ---------- Über-mich-Vorschau ---------- */
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+.about-media{
+  border-radius:16px;border:1px solid var(--line);aspect-ratio:4/4.6;
+  background:linear-gradient(160deg,#f7efe9,#fdeee4);position:relative;overflow:hidden;
+  box-shadow:0 28px 56px -36px rgba(28,27,26,.4);
+}
+.about-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.about-grid p{margin-bottom:20px}
+
+/* Textlink mit Pfeil */
+.textlink{font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:8px}
+.textlink .icon{color:var(--orange)}
+.textlink:hover{color:var(--orange)}
+
+/* ---------- Ich arbeite mit ---------- */
+.audience{padding:10px 0 70px}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding-top:10px}
+.aud .ico{color:var(--orange);margin-bottom:16px}
+.aud .ico .icon{width:46px;height:46px}
+.aud h4{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.92rem;color:var(--ink);margin-bottom:10px}
+.aud p{font-size:.98rem;color:var(--muted)}
+
+/* ---------- Testimonial-Slider ---------- */
+.quotes-wrap{display:flex;align-items:center;gap:14px;max-width:900px;margin:34px auto 0}
+.q-arrow{
+  flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.q-arrow:hover{border-color:var(--orange);color:var(--orange);box-shadow:0 10px 22px -14px rgba(0,0,0,.4)}
+.q-arrow .icon{width:20px;height:20px}
+.q-prev .icon{transform:rotate(180deg)}
+.quotes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex:1;min-width:0}
+.quotes::-webkit-scrollbar{display:none}
+.q-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px}
+.q-avatar{width:74px;height:74px;border-radius:50%;overflow:hidden;margin-bottom:18px;flex:0 0 auto}
+.q-avatar img{width:100%;height:100%;object-fit:cover}
+.q-slide blockquote{font-size:1.4rem;color:var(--ink);font-weight:500;line-height:1.45;margin-bottom:18px;max-width:680px}
+.q-slide cite{font-style:normal;color:var(--muted);font-weight:600;font-size:.95rem}
+.dots{display:flex;gap:10px;justify-content:center;margin-top:30px}
+.dots button{width:10px;height:10px;border-radius:50%;background:#D6CFC7;padding:0;transition:background .2s ease,transform .2s ease}
+.dots button.on{background:var(--orange);transform:scale(1.15)}
+.refs-more{text-align:center;margin-top:46px}
+
+/* ---------- CTA-Band zweispaltig (Startseite) ---------- */
+.cta-band.cta-split{text-align:left;padding:60px 0}
+.cta-band.cta-split::before{display:none}
+.cta-split .cta-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cta-split h2{font-size:2.4rem;line-height:1.05;margin-bottom:0}
+.cta-right{text-align:right}
+.cta-right p{margin:0 0 22px auto}
+.cta-right p.big{font-size:1.45rem;font-weight:600;color:#fff;line-height:1.3}
+.cta-right .mail{margin:16px 0 0 auto;font-size:.95rem;color:#B9B3AC}
+.cta-right .mail a{color:#F4863F;font-weight:700}
+
+/* ---------- Responsiv für Seiten-Bausteine ---------- */
+@media (max-width:1000px){
+  .transform{grid-template-columns:1fr}
+  .method-grid,.svc-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .about-media{max-width:480px}
+  .aud-grid{grid-template-columns:1fr}
+  .cta-split .cta-inner{grid-template-columns:1fr}
+  .cta-right{text-align:left}
+  .cta-right p,.cta-right .mail{margin-left:0}
+}
+@media (max-width:960px){
+  .hero{min-height:0;padding:54px 0 0;flex-direction:column;align-items:stretch}
+  .hero-visual{position:relative;width:100%;height:auto;margin-top:30px;left:auto;right:auto;top:auto;bottom:auto}
+  .hero-visual img{width:100%;height:auto}
+  .hero-visual::after{
+    background:linear-gradient(to bottom,
+      #fff 0%,
+      rgba(255,255,255,.6) 14%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,.6) 86%,
+      #fff 100%);
+  }
+  .hero-copy{max-width:none}
+  .hero h1{font-size:clamp(1.9rem,8vw,3.4rem)}
+}
+@media (max-width:760px){
+  .facts{gap:26px}
+  .method-grid,.svc-grid{grid-template-columns:1fr}
+  .q-arrow{display:none}
+}
+
+/* ---------- FAQ (Kontaktseite) ---------- */
+.faq{max-width:760px;margin:0 auto}
+.faq details{border:1px solid var(--line);border-radius:12px;padding:6px 22px;margin-bottom:14px;background:#fff}
+.faq summary{cursor:pointer;font-weight:600;color:var(--ink);padding:16px 0;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--orange);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{padding:0 0 18px;color:var(--muted)}
+
+/* Ausrichtungs-Utility */
+.align-start{align-items:start}
+
+/* ---------- Rechtstexte (Impressum, Datenschutz) ---------- */
+.prose{max-width:760px;margin:0 auto}
+.prose h2{font-family:var(--font-body);font-weight:700;font-size:1.4rem;color:var(--ink);margin:36px 0 12px;letter-spacing:0}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-size:1.12rem;margin:24px 0 8px}
+.prose p{margin-bottom:14px}
+.prose ul{margin:0 0 14px 22px;list-style:disc}
+.prose li{margin-bottom:7px}
+.prose a{color:var(--orange);font-weight:600}
+.prose a:hover{text-decoration:underline}
+.prose .addr{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:inline-block}

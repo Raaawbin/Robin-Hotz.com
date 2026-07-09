@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<title>Robin Hotz | Von Komplexität zu Klarheit — Prototyp Dark/Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="index-new/style.css">
+<!-- theme.js bewusst blockierend im <head>: setzt data-theme vor dem ersten Rendern -->
+<script src="index-new/theme.js"></script>
+<script src="index-new/main.js" defer></script>
+</head>
+<body>
+
+<!-- ============ NAVIGATION: transparent → Glasleiste im Theme-Ton ============ -->
+<header class="site-head" id="siteHead">
+  <div class="nav">
+
+    <a class="brand" href="../../index.html" aria-label="Robin Hotz">
+      <!-- Je Theme wird die passende Logo-Variante angezeigt (CSS) -->
+      <img class="logo-on-dark" src="../../assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-light" src="../../assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Hauptnavigation">
+      <a href="../../index.html" aria-current="page">Start</a>
+      <span class="navitem">
+        <a class="navlink" href="../../solutions.html">Lösungen<span class="caret" aria-hidden="true"></span></a>
+        <span class="dropdown">
+          <a href="../../solutions.html#moderation">Moderation</a>
+          <a href="../../solutions.html#coaching">Coaching</a>
+          <a href="../../solutions.html#visualisierung">Visualisierung</a>
+        </span>
+      </span>
+      <a href="../../references.html">Referenzen</a>
+      <a href="../../about.html">Über mich</a>
+
+      <!-- Sprach-Umschalter als Dropdown -->
+      <span class="navitem drop-ctl" id="langCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="icon icon-globe sm" aria-hidden="true"></span>
+          <span class="ctl-label">DE</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Sprache wählen">
+          <button type="button" role="option" data-lang="de" aria-selected="true">Deutsch</button>
+          <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        </span>
+      </span>
+
+      <!-- Theme-Umschalter als Dropdown (Auto folgt der Systemeinstellung) -->
+      <span class="navitem drop-ctl" id="themeCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span class="ctl-label">Hell</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Darstellung wählen">
+          <button type="button" role="option" data-set-theme="system" aria-selected="true">System</button>
+          <button type="button" role="option" data-set-theme="light" aria-selected="false">Hell</button>
+          <button type="button" role="option" data-set-theme="dark" aria-selected="false">Dunkel</button>
+        </span>
+      </span>
+
+      <a class="btn nav-cta" href="../../contact.html">Kontakt</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">
+      <span class="visually-hidden">Menü öffnen</span>
+      <span class="icon icon-burger" aria-hidden="true"></span>
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO: CINEMATIC ============ -->
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Robin Hotz moderiert auf der Bühne einer internationalen Konferenz"></div>
+
+  <div class="hero-main">
+    <div class="wrap">
+      <span class="eyebrow">Moderation für Veränderung</span>
+      <h1>Von Komplexität <span class="o">zu Klarheit</span></h1>
+      <p class="sub"><span class="nobr">Organisationen im Wandel stehen vor <b>komplexen Herausforderungen</b>.</span><br> Ich bringe klare Moderation, die Ergebnisse sichtbar macht.</p>
+      <div class="ctas">
+        <a class="btn" href="../../contact.html">Zusammenarbeit anfragen</a>
+        <a class="btn ghost" href="../../solutions.html">Lösungen entdecken</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kundenlogos statt Kennzahlen -->
+  <div class="hero-logos">
+    <div class="wrap">
+      <p class="label">Vertrauen von Organisationen wie</p>
+      <div class="row">
+        <img src="../../assets/clients/dbbahn.webp" alt="DB Bahn" loading="eager">
+        <img src="../../assets/clients/fraunhofer.webp" alt="Fraunhofer" loading="eager">
+        <img src="../../assets/clients/ergo.webp" alt="ERGO" loading="eager">
+        <img class="logo-giz-hero" src="../../assets/clients/giz-neu.webp" alt="GIZ" loading="eager">
+        <img src="../../assets/clients/hohenheim.webp" alt="Universität Hohenheim" loading="eager">
+      </div>
+    </div>
+  </div>
+
+  <span class="scroll-hint" aria-hidden="true">Scrollen</span>
+</section>
+
+<!-- ============ ANSATZ: drei Panels ============ -->
+<section class="method">
+  <div class="wrap">
+    <div class="method-grid">
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-dialog" aria-hidden="true"></span></div>
+        <h3>Dialog fördern</h3>
+        <p>Raum für echten Austausch und Inspiration auf Events und Konferenzen.</p>
+        <a class="btn mcell-btn" href="../../solutions.html#moderation">Moderation</a>
+      </div>
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
+        <h3>Kultur entwickeln</h3>
+        <p>Zusammenarbeit stärken und nachhaltige Veränderung in Organisationen gestalten.</p>
+        <a class="btn mcell-btn" href="../../solutions.html#coaching">Coaching</a>
+      </div>
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-eye" aria-hidden="true"></span></div>
+        <h3>Komplexität verstehen</h3>
+        <p>Klarheit in komplexe Situationen bringen und das Wesentliche sichtbar machen.</p>
+        <a class="btn mcell-btn" href="../../solutions.html#visualisierung">Visualisierung</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORMATION ============ -->
+<section class="sec sec-soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Die Transformation</span>
+      <h2>Von Komplexität zu <span class="o">Klarheit</span></h2>
+    </div>
+
+    <div class="transform">
+      <div class="t-col panel problem">
+        <div class="t-media">
+          <img src="../../assets/fotos/townhall-1.webp" loading="lazy"
+               alt="Volle Townhall-Veranstaltung: viele Stimmen, viele offene Fragen">
+        </div>
+        <div class="t-title">Von Komplexität</div>
+        <p class="t-intro">Organisationen im Wandel kennen diese Probleme:</p>
+        <ul class="t-list">
+          <li><span class="icon icon-spark" aria-hidden="true"></span><span>
+            <b>Chaos:</b> Meetings und Veranstaltungen verlieren den roten Faden. Diskussionen drehen sich im Kreis, statt zu greifbaren Ergebnissen zu kommen.
+          </span></li>
+          <li><span class="icon icon-users" aria-hidden="true"></span><span>
+            <b>Konflikt:</b> Teams ziehen nicht am selben Strang. Zusammenarbeit und Kultur werden anstrengend, und jeder verfolgt sein eigenes Bild vom Ziel.
+          </span></li>
+          <li><span class="icon icon-eye" aria-hidden="true"></span><span>
+            <b>Komplexität:</b> Themen werden zu vielschichtig, niemand sieht mehr das große Ganze. Gute Gedanken bleiben abstrakt und gehen im Detail verloren.
+          </span></li>
+        </ul>
+      </div>
+
+      <div class="t-col panel solution">
+        <div class="t-media">
+          <img src="../../assets/fotos/klarheit-stadtraum.webp" loading="lazy"
+               alt="Robin Hotz moderiert vor einer Graphic-Recording-Wand mit klarem Zukunftsbild">
+        </div>
+        <div class="t-title">Zu Klarheit</div>
+        <p class="t-intro">Klare Moderation führt zu nachhaltigen Lösungen:</p>
+        <ul class="t-list">
+          <li><span class="icon icon-target" aria-hidden="true"></span><span>
+            <b>Fokus:</b> Alle bleiben im Thema, jede Stimme wird eingebunden, und am Ende stehen klare Entscheidungen. Aus zähen Meetings werden spannende Veranstaltungen.
+          </span></li>
+          <li><span class="icon icon-compass" aria-hidden="true"></span><span>
+            <b>Richtung:</b> Ein geteiltes Verständnis von Auftrag und Ziel entsteht. Zusammenarbeit und Kultur werden zur Stärke, und alle bewegen sich auf dasselbe Bild zu.
+          </span></li>
+          <li><span class="icon icon-eye" aria-hidden="true"></span><span>
+            <b>Sichtbarkeit:</b> Gedanken und Ergebnisse werden sichtbar, und es entsteht ein gemeinsames Bild, das Orientierung gibt und in Erinnerung bleibt.
+          </span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGEN: Foto-Karten ============ -->
+<section class="sec" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Meine Leistungen</span>
+      <h2>Moderation für <span class="o">Veränderung</span></h2>
+    </div>
+
+    <div class="svc-grid">
+
+      <article class="svc panel" id="moderation">
+        <div class="svc-media">
+          <img src="../../assets/fotos/hohenheim-buehne.webp" loading="lazy"
+               alt="Robin Hotz moderiert mit Mikrofon auf einer Konferenzbühne">
+        </div>
+        <div class="svc-body">
+          <h3>Moderation</h3>
+          <p class="desc">Event-Moderation für Konferenzen und Organisationen, die ihre Themen souverän auf die Bühne bringen und ihr Publikum wirklich erreichen wollen.</p>
+          <ul class="feats">
+            <li>Event-Moderation</li>
+            <li>Veranstaltungs-Design</li>
+            <li>Keynotes &amp; Vorträge</li>
+          </ul>
+          <p class="result">
+            <b>Ergebnis</b>
+            Veranstaltungen mit rotem Faden, die Inhalte klar transportieren, das Publikum einbinden und in Erinnerung bleiben.
+          </p>
+          <a class="btn svc-cta" href="../../solutions.html#moderation">Moderation</a>
+        </div>
+      </article>
+
+      <article class="svc panel" id="coaching">
+        <div class="svc-media">
+          <img src="../../assets/fotos/aoh-training.webp" loading="lazy"
+               alt="Moderierte Gesprächsrunde im Kreis bei einem Art-of-Hosting-Training">
+        </div>
+        <div class="svc-body">
+          <h3>Coaching</h3>
+          <p class="desc">Organisationsentwicklung für Führung und Rollenklärung. Strukturierte, partizipative Prozesse für Kulturentwicklung und gemeinsame Visionen.</p>
+          <ul class="feats">
+            <li>Team-Entwicklung</li>
+            <li>Führungskräfte-Coaching</li>
+            <li>Strategie-Workshops</li>
+          </ul>
+          <p class="result">
+            <b>Ergebnis</b>
+            Teams, die Rollen, Richtung und Zusammenarbeit klar haben und gemeinsam ins Handeln kommen.
+          </p>
+          <a class="btn svc-cta" href="../../solutions.html#coaching">Coaching</a>
+        </div>
+      </article>
+
+      <article class="svc panel" id="visualisierung">
+        <div class="svc-media">
+          <img src="../../assets/fotos/strategietag-vision-1.webp" loading="lazy"
+               alt="Strategietag: eine Gruppe arbeitet fokussiert an einem gemeinsamen Bild">
+        </div>
+        <div class="svc-body">
+          <h3>Visualisierung</h3>
+          <p class="desc">Visualisierung, die komplexe Inhalte greifbar macht, damit Teams und Führungskräfte schneller verstehen, entscheiden und ins Handeln kommen.</p>
+          <ul class="feats">
+            <li>Graphic Recording</li>
+            <li>Strategie-Visualisierung</li>
+            <li>Sketchnotes</li>
+          </ul>
+          <p class="result">
+            <b>Ergebnis</b>
+            Bilder und Landkarten, die Diskussionen verdichten und Ergebnisse sichtbar verankern.
+          </p>
+          <a class="btn svc-cta" href="../../solutions.html#visualisierung">Visualisierung</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="svc-more">
+      <a class="btn" href="../../contact.html">Zusammenarbeit anfragen <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER MICH ============ -->
+<section class="sec sec-soft" id="ueber">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="../../assets/fotos/portrait-robin.webp" loading="lazy" alt="Porträt von Robin Hotz">
+    </div>
+    <div>
+      <span class="eyebrow">Über mich</span>
+      <h2 style="margin-bottom:20px">Hi, ich bin <span class="o">Robin</span></h2>
+      <p>Seit über zehn Jahren begleite ich Veränderungsprozesse als Visual Facilitator. In dieser Zeit war ich bei hunderten Veranstaltungen dabei, von Konferenzen bis zu Strategietagen, und habe unzählige Diskussionen in klare Bilder übersetzt.</p>
+      <p>Dabei habe ich gemerkt, wie sehr es auf zwei Dinge ankommt: auf professionelle Moderation, die sicher durch komplexe Themen führt, und auf kreatives Veranstaltungs-Design, das Inhalte erlebbar macht.</p>
+      <p style="margin-bottom:26px">Heute verbinde ich beides als Moderation für Veränderungsprozesse, damit ihr im Wandel den Überblick behaltet und aus Ideen tragfähige Ergebnisse werden.</p>
+      <div class="facts" style="margin-bottom:28px">
+        <div class="fact"><div class="n">10+</div><div class="l">Jahre Erfahrung</div></div>
+        <div class="fact"><div class="n">250+</div><div class="l">begleitete Veranstaltungen</div></div>
+      </div>
+      <a class="textlink" href="../../about.html">Mehr über mich und meine Mission <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZIELGRUPPEN ============ -->
+<section class="audience">
+  <div class="wrap">
+    <span class="eyebrow">Lösungen für</span>
+    <h2 style="margin-bottom:30px">Ich arbeite <span class="o">mit</span></h2>
+    <div class="aud-grid">
+      <div class="aud panel">
+        <div class="ico"><span class="icon icon-mic" aria-hidden="true"></span></div>
+        <h4>Konferenzen</h4>
+        <p>Für alle, die Wandel gestalten und andere dabei unterstützen wollen.</p>
+      </div>
+      <div class="aud panel">
+        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
+        <h4>Teams &amp; Führungskräften</h4>
+        <p>Für bessere Zusammenarbeit, klare Entscheidungen und gemeinsame Ausrichtung.</p>
+      </div>
+      <div class="aud panel">
+        <div class="ico"><span class="icon icon-compass" aria-hidden="true"></span></div>
+        <h4>Organisationen</h4>
+        <p>Für Strategieprozesse, Kulturwandel und die Entwicklung zukunftsfähiger Organisationen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENZEN ============ -->
+<section class="sec sec-soft" id="referenzen">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:10px">
+      <span class="eyebrow">Referenzen</span>
+      <h2>Organisationen, mit denen ich <span class="o">arbeiten durfte</span></h2>
+    </div>
+
+    <div class="logos" style="margin:34px 0 22px">
+      <img src="../../assets/clients/dbbahn.webp" alt="DB Bahn" loading="lazy">
+      <img src="../../assets/clients/fraunhofer.webp" alt="Fraunhofer" loading="lazy">
+      <img src="../../assets/clients/ergo.webp" alt="ERGO" loading="lazy">
+      <img src="../../assets/clients/giz.webp" alt="GIZ" loading="lazy">
+      <img src="../../assets/clients/hohenheim.webp" alt="Universität Hohenheim" loading="lazy">
+      <img src="../../assets/clients/raiffeisen.webp" alt="Raiffeisen Bank International" loading="lazy">
+      <img src="../../assets/clients/reinventing-society.webp" alt="Reinventing Society, Zentrum für Realutopien" loading="lazy">
+    </div>
+
+    <div class="q-grid">
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/images/person-christoph.webp" alt="Christoph Schneider" loading="lazy"></div>
+        <blockquote>Dank Robin war unsere Konferenz ein voller Erfolg. Professionelle Moderation trifft auf kreatives Veranstaltungs-Design.</blockquote>
+        <cite>— Christoph Schneider, Rektor, Universität Hohenheim</cite>
+      </figure>
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/images/person-lino.webp" alt="Lino Zeddies" loading="lazy"></div>
+        <blockquote>Robin schafft es, komplexe Themen greifbar zu machen und Menschen zu befähigen, gemeinsam Lösungen zu entwickeln.</blockquote>
+        <cite>— Lino Zeddies, CEO, Reinventing Society</cite>
+      </figure>
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/images/person-raphael.webp" alt="Raphael Thelen" loading="lazy"></div>
+        <blockquote>Robin hat unser Team in diversen Konflikten moderiert und uns geholfen, eine agile Organisation aufzubauen.</blockquote>
+        <cite>— Raphael Thelen, Autor und Aktivist, Fairness Jetzt e.V.</cite>
+      </figure>
+    </div>
+
+    <div class="refs-more">
+      <a class="btn" href="../../references.html">Mehr Referenzen <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA-BAND ============ -->
+<section class="cta-band" id="kontakt">
+  <div class="wrap cta-inner">
+    <h2>Klarheit. Ausrichtung. <span class="o">Wirkung</span></h2>
+    <div class="cta-right">
+      <p class="big">Lassen Sie uns über Ihre Herausforderungen sprechen</p>
+      <a class="btn" href="../../contact.html">Kontakt aufnehmen <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+      <p class="mail">
+        oder schreiben Sie mir direkt<br>
+        <span class="mail-plain">Robin(at)Robin-Hotz.com</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <img src="../../assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+        <p>Moderation und Visualisierung für Organisationen im Wandel.</p>
+      </div>
+
+      <nav class="foot-col" aria-label="Seiten">
+        <h4>Seiten</h4>
+        <a href="../../index.html">Start</a>
+        <a href="../../solutions.html">Lösungen</a>
+        <a href="../../references.html">Referenzen</a>
+        <a href="../../about.html">Über mich</a>
+        <a href="../../contact.html">Kontakt</a>
+      </nav>
+
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <span class="c-plain"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin(at)Robin-Hotz.com</span>
+        <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>
+        <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>
+        <span class="c-plain"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</span>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Robin Hotz</span>
+      <span>
+        <a href="../../imprint.html">Impressum</a>
+        &nbsp;·&nbsp;
+        <a href="../../privacy.html">Datenschutz</a>
+      </span>
+      <span>Moderation für Veränderung</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

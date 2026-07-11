@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
 <title>Referenzen: Moderation, Coaching &amp; Visualisierung | Robin Hotz</title>
 <meta name="description" content="Referenzen und Fallbeispiele von Robin Hotz: Konferenz-Moderation, Strategiebegleitung, Graphic Recording und Kulturentwicklung für DAX-Konzerne, Universitäten und NGOs. Berlin und deutschlandweit.">
 <link rel="canonical" href="https://robin-hotz.com/references.html">
@@ -32,7 +33,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="prototypes/old/style-old.css">
+<link rel="stylesheet" href="css/style.css?v=7">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<script src="js/theme.js?v=7"></script>
+<script src="js/main.js?v=7" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Visual Facilitator und Moderator","url":"https://robin-hotz.com/","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/"]},
@@ -41,7 +45,7 @@
   {"@type":"ListItem","position":2,"name":"Referenzen","item":"https://robin-hotz.com/references.html"}]},
  {"@type":"CollectionPage","@id":"https://robin-hotz.com/references.html","url":"https://robin-hotz.com/references.html","name":"Referenzen und Fallbeispiele","about":{"@id":"https://robin-hotz.com/#robin"},"mainEntity":{"@type":"ItemList","itemListElement":[
   {"@type":"ListItem","position":1,"name":"Strategiebegleitung Universität Hohenheim","url":"https://robin-hotz.com/references.html#hohenheim"},
-  {"@type":"ListItem","position":2,"name":"Moderation einer Fachkonferenz","url":"https://robin-hotz.com/references.html#fachkonferenz"},
+  {"@type":"ListItem","position":2,"name":"Visualisierung bei internationalen Konferenzen","url":"https://robin-hotz.com/references.html#fachkonferenz"},
   {"@type":"ListItem","position":3,"name":"Live-Visualisierung Forschungssymposium","url":"https://robin-hotz.com/references.html#forschungssymposium"},
   {"@type":"ListItem","position":4,"name":"Strategietag für ein Führungsteam","url":"https://robin-hotz.com/references.html#strategietag"},
   {"@type":"ListItem","position":5,"name":"Town Hall, hybrider Konzern","url":"https://robin-hotz.com/references.html#townhall"},
@@ -53,51 +57,63 @@
 
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<header class="site-head">
-  <div class="wrap nav">
+<header class="site-head" id="siteHead">
+  <div class="nav">
 
     <a class="brand" href="index.html" aria-label="Robin Hotz">
-      <img class="lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
-      <img class="lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <!-- Je Theme und Sprache wird die passende Logo-Variante angezeigt (CSS) -->
+      <img class="logo-on-dark lang-de" src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-dark lang-en" src="assets/images/logo-cream-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <img class="logo-on-light lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-light lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
     </a>
 
     <nav class="menu" id="menu" aria-label="Hauptnavigation">
-      <a class="navlink" href="index.html">
-        <span class="lang-de">Start</span><span class="lang-en">Home</span>
-      </a>
-      <span class="navitem has-drop">
-        <a class="navlink" href="solutions.html">
-          <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span>
-        </a>
+      <a href="index.html"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>
+      <span class="navitem">
+        <a class="navlink" href="solutions.html"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>
         <span class="dropdown">
           <a href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
           <a href="solutions.html#coaching">Coaching</a>
           <a href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
         </span>
       </span>
-      <a class="navlink active" href="references.html" aria-current="page">
-        <span class="lang-de">Referenzen</span><span class="lang-en">References</span>
-      </a>
-      <a class="navlink" href="about.html">
-        <span class="lang-de">Über mich</span><span class="lang-en">About</span>
-      </a>
+      <a href="references.html" aria-current="page"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>
+      <a href="about.html"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>
 
-      <span class="lang-switch">
-        <span class="icon icon-globe sm" aria-hidden="true"></span>
-        <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-        <span class="sep" aria-hidden="true">|</span>
-        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      <!-- Sprach-Umschalter als Dropdown -->
+      <span class="navitem drop-ctl" id="langCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="icon icon-globe sm" aria-hidden="true"></span>
+          <span class="ctl-label">DE</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Sprache wählen">
+          <button type="button" role="option" data-lang="de" aria-selected="true">Deutsch</button>
+          <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        </span>
       </span>
 
-      <a class="btn btn-fill nav-cta" href="contact.html">
-        <span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
-      </a>
+      <!-- Theme-Umschalter als Dropdown (Standard folgt der Systemeinstellung) -->
+      <span class="navitem drop-ctl" id="themeCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span class="ctl-label">Light</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Darstellung wählen">
+          <button type="button" role="option" data-set-theme="light" aria-selected="false">Light</button>
+          <button type="button" role="option" data-set-theme="dark" aria-selected="false">Dark</button>
+        </span>
+      </span>
+
+      <a class="btn nav-cta" href="contact.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
     </nav>
 
-    <button class="burger" aria-expanded="false" aria-controls="menu">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">
       <span class="visually-hidden lang-de">Menü öffnen</span>
       <span class="visually-hidden lang-en">Open menu</span>
-      <span class="icon icon-burger" aria-hidden="true" style="width:26px;height:26px"></span>
+      <span class="icon icon-burger" aria-hidden="true"></span>
     </button>
 
   </div>
@@ -122,21 +138,6 @@
   </div>
 </section>
 
-<!-- ============================== LOGOS ============================= -->
-<section class="sec sec-tight">
-  <div class="wrap">
-    <div class="logos">
-      <img src="assets/clients/dbbahn.webp" alt="DB Bahn" loading="lazy">
-      <img src="assets/clients/fraunhofer.webp" alt="Fraunhofer" loading="lazy">
-      <img src="assets/clients/ergo.webp" alt="ERGO" loading="lazy">
-      <img src="assets/clients/giz.webp" alt="GIZ" loading="lazy">
-      <img src="assets/clients/hohenheim.webp" alt="Universität Hohenheim" loading="lazy">
-      <img src="assets/clients/raiffeisen.webp" alt="Raiffeisen Bank International" loading="lazy">
-      <img src="assets/clients/reinventing-society.webp" alt="Reinventing Society, Zentrum für Realutopien" loading="lazy">
-    </div>
-  </div>
-</section>
-
 <!-- ======================= PROJEKTE UND STIMMEN ===================== -->
 <section class="sec sec-soft" id="projekte">
   <div class="wrap">
@@ -147,7 +148,7 @@
 
     <div class="gallery">
 
-      <a class="tile" href="#hohenheim">
+      <a class="tile tile-tint-orange" href="#hohenheim">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/hohenheim-konferenz.webp" alt="" loading="lazy">
           <span class="tile-cat"><span class="lang-de">Strategie</span><span class="lang-en">Strategy</span></span>
@@ -168,19 +169,28 @@
         <span class="to-project"><span class="lang-de">Zum Projekt, Universität Hohenheim</span><span class="lang-en">View project, University of Hohenheim</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></span>
       </a>
 
-      <a class="tile" href="#fachkonferenz">
+      <a class="tile tile-tint-grey" href="#fachkonferenz">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/konferenz-gss-1.webp" alt="" loading="lazy">
-          <span class="tile-cat"><span class="lang-de">Konferenz</span><span class="lang-en">Conference</span></span>
-          <h4><span class="lang-de">Moderation internationaler Konferenzen</span><span class="lang-en">Facilitating international conferences</span></h4>
+          <span class="tile-cat"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></span>
+          <h4><span class="lang-de">Visualisierung bei internationalen Konferenzen</span><span class="lang-en">Visualisation at international conferences</span></h4>
         </div>
         <div class="tile-body">
-          <p><span class="lang-de">Bühne, Panels und Übergänge mit rotem Faden, von Fachtagung bis Gipfelformat.</span><span class="lang-en">Stage, panels and transitions with a clear thread, from expert conference to summit format.</span></p>
+          <p><span class="lang-de">Keynotes, Panels und Diskussionen live visualisiert, vom Fachkongress bis zum Gipfelformat.</span><span class="lang-en">Keynotes, panels and discussions visualised live, from expert congress to summit format.</span></p>
           <span class="tile-more"><span class="lang-de">Mehr</span><span class="lang-en">More</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></span>
         </div>
       </a>
 
-      <a class="tile" href="#forschungssymposium">
+      <a class="tcard" href="#forschungssymposium">
+        <blockquote><span class="lang-de">Robin schafft es, komplexe Themen greifbar zu machen und Menschen zu befähigen, gemeinsam Lösungen zu entwickeln.</span><span class="lang-en">Robin manages to make complex topics tangible and empowers people to develop solutions together.</span></blockquote>
+        <div class="who">
+          <img src="assets/images/person-lino.webp" alt="Lino Zeddies" loading="lazy">
+          <div><b>Lino Zeddies</b><span>CEO, Reinventing Society</span></div>
+        </div>
+        <span class="to-project"><span class="lang-de">Zum Projekt, Live-Visualisierung</span><span class="lang-en">View project, live visualisation</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></span>
+      </a>
+
+      <a class="tile tile-tint-light" href="#forschungssymposium">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/symposium-mit-1.webp" alt="" loading="lazy">
           <span class="tile-cat">Graphic Recording</span>
@@ -192,7 +202,7 @@
         </div>
       </a>
 
-      <a class="tile" href="#strategietag">
+      <a class="tile tile-tint-orange" href="#strategietag">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/strategietag-vision-1.webp" alt="" loading="lazy">
           <span class="tile-cat"><span class="lang-de">Strategie</span><span class="lang-en">Strategy</span></span>
@@ -204,15 +214,7 @@
         </div>
       </a>
 
-      <div class="tcard">
-        <blockquote><span class="lang-de">Robin schafft es, komplexe Themen greifbar zu machen und Menschen zu befähigen, gemeinsam Lösungen zu entwickeln.</span><span class="lang-en">Robin manages to make complex topics tangible and empowers people to develop solutions together.</span></blockquote>
-        <div class="who">
-          <img src="assets/images/person-lino.webp" alt="Lino Zeddies" loading="lazy">
-          <div><b>Lino Zeddies</b><span>CEO, Reinventing Society</span></div>
-        </div>
-      </div>
-
-      <a class="tile" href="#townhall">
+      <a class="tile tile-tint-grey" href="#townhall">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/townhall-1.webp" alt="" loading="lazy">
           <span class="tile-cat">Town Hall</span>
@@ -224,7 +226,7 @@
         </div>
       </a>
 
-      <a class="tile" href="#kulturwandel">
+      <a class="tile tile-tint-light" href="#kulturwandel">
         <div class="tile-visual">
           <img class="tile-bg" src="assets/fotos/kultur-fairness-1.webp" alt="" loading="lazy">
           <span class="tile-cat"><span class="lang-de">Kulturwandel</span><span class="lang-en">Culture change</span></span>
@@ -236,20 +238,39 @@
         </div>
       </a>
 
-      <div class="tcard">
+      <a class="tcard" href="#kulturwandel">
         <blockquote><span class="lang-de">Robin hat unser Team in diversen Konflikten moderiert und uns geholfen, eine agile Organisation aufzubauen.</span><span class="lang-en">Robin facilitated our team through various conflicts and helped us build an agile organisation.</span></blockquote>
         <div class="who">
           <img src="assets/images/person-raphael.webp" alt="Raphael Thelen" loading="lazy">
           <div><b>Raphael Thelen</b><span><span class="lang-de">Autor und Aktivist, Fairness Jetzt e.V.</span><span class="lang-en">Author and Activist, Fairness Jetzt e.V.</span></span></div>
         </div>
-      </div>
+        <span class="to-project"><span class="lang-de">Zum Projekt, Kulturwandel</span><span class="lang-en">View project, culture change</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></span>
+      </a>
 
     </div>
 
-    <p class="center" style="margin-top:24px;color:var(--muted)">
+    <p class="center muted" style="margin-top:24px">
       <span class="lang-de">Klicken Sie auf eine Karte für die ausführliche Fallbeschreibung. Weitere Fallbeispiele werden laufend ergänzt.</span>
       <span class="lang-en">Click a card for the detailed case description. More case studies are added regularly.</span>
     </p>
+  </div>
+</section>
+
+<!-- ============================ REFERENZEN ========================== -->
+<section class="sec sec-tight" id="referenzen">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:28px">
+      <span class="eyebrow"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></span>
+    </div>
+    <div class="logos">
+      <img src="assets/clients/dbbahn.webp" alt="DB Bahn" loading="lazy">
+      <img src="assets/clients/fraunhofer.webp" alt="Fraunhofer" loading="lazy">
+      <img src="assets/clients/ergo.webp" alt="ERGO" loading="lazy">
+      <img src="assets/clients/giz.webp" alt="GIZ" loading="lazy">
+      <img src="assets/clients/hohenheim.webp" alt="Universität Hohenheim" loading="lazy">
+      <img src="assets/clients/raiffeisen.webp" alt="Raiffeisen Bank International" loading="lazy">
+      <img src="assets/clients/reinventing-society.webp" alt="Reinventing Society, Zentrum für Realutopien" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -313,8 +334,8 @@
 
       <!-- ----------------------- FACHKONFERENZ ----------------------- -->
       <article class="case" id="fachkonferenz">
-        <span class="case-kicker"><span class="lang-de">Konferenz</span><span class="lang-en">Conference</span></span>
-        <h3><span class="lang-de">Moderation internationaler Konferenzen</span><span class="lang-en">Facilitating international conferences</span></h3>
+        <span class="case-kicker"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></span>
+        <h3><span class="lang-de">Visualisierung bei internationalen Konferenzen</span><span class="lang-en">Visualisation at international conferences</span></h3>
         <div class="case-gallery g2">
           <figure class="case-shot"><img src="assets/fotos/konferenz-gss-2.webp" alt="Robin Hotz moderiert auf der Bühne einer internationalen Konferenz" loading="lazy"></figure>
           <figure class="case-shot"><img src="assets/fotos/konferenz-gss-3.webp" alt="Publikum und Panel bei einem internationalen Gipfelformat" loading="lazy"></figure>
@@ -325,21 +346,21 @@
           <div class="cm full">
             <span class="cm-l"><span class="lang-de">Prozess</span><span class="lang-en">Process</span></span>
             <p>
-              <span class="lang-de">Von der Fachtagung bis zum internationalen Gipfelformat: Ich begleite Konferenzen von der Dramaturgie über die Bühnenmoderation bis zur Ergebnissicherung. Gemeinsam mit den Gastgebern entwickle ich den roten Faden, gestalte Übergänge zwischen Keynotes, Panels und interaktiven Formaten und sorge dafür, dass das Publikum nicht nur zuhört, sondern Teil der Veranstaltung wird.</span>
-              <span class="lang-en">From expert conferences to international summit formats: I support conferences from dramaturgy and stage facilitation through to capturing results. Together with the hosts I develop the common thread, design transitions between keynotes, panels and interactive formats, and make sure the audience doesn&#8217;t just listen but becomes part of the event.</span>
+              <span class="lang-de">Von der Fachtagung bis zum internationalen Gipfelformat: Während Keynotes, Panels und Diskussionen laufen, entstehen großformatige Live-Visualisierungen, die Kernaussagen, Zusammenhänge und offene Fragen festhalten. Die Bilder wachsen mit der Veranstaltung, werden in den Pausen zum Treffpunkt und Gesprächsanlass und geben dem Programm einen sichtbaren roten Faden — auf Deutsch und Englisch.</span>
+              <span class="lang-en">From expert conferences to international summit formats: while keynotes, panels and discussions unfold, large-scale live visualisations capture key messages, connections and open questions. The images grow with the event, become a meeting point and conversation starter during the breaks, and give the programme a visible thread — in German and English.</span>
             </p>
           </div>
           <div class="cm">
             <span class="cm-l"><span class="lang-de">Meine Rolle</span><span class="lang-en">My role</span></span>
-            <p><span class="lang-de">Bühnenmoderator und Sparringspartner für das Veranstaltungs-Design, auf Deutsch und Englisch.</span><span class="lang-en">Stage facilitator and sparring partner for the event design, in German and English.</span></p>
+            <p><span class="lang-de">Graphic Recorder und visueller Übersetzer, auf der Bühne und im Raum.</span><span class="lang-en">Graphic recorder and visual translator, on stage and in the room.</span></p>
           </div>
           <div class="cm">
             <span class="cm-l"><span class="lang-de">Methoden</span><span class="lang-en">Methods</span></span>
-            <p><span class="lang-de">Panel-Moderation, Publikums-Interaktion, World Café, Live-Visualisierung und digitale Beteiligungstools.</span><span class="lang-en">Panel facilitation, audience interaction, World Café, live visualisation and digital participation tools.</span></p>
+            <p><span class="lang-de">Graphic Recording in Echtzeit, visuelle Landkarten, Sketchnotes und digitale Aufbereitung für die Nachkommunikation.</span><span class="lang-en">Real-time graphic recording, visual maps, sketchnotes and digital post-processing for follow-up communication.</span></p>
           </div>
           <div class="cm full">
             <span class="cm-l"><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></span>
-            <p><span class="lang-de">Konferenzen mit klarer Dramaturgie, bei denen die zentralen Botschaften ankommen und die Teilnehmenden mit greifbaren Ergebnissen nach Hause gehen.</span><span class="lang-en">Conferences with a clear dramaturgy, where the key messages land and participants go home with tangible results.</span></p>
+            <p><span class="lang-de">Botschaften, die hängen bleiben: Die Teilnehmenden nehmen ein gemeinsames Bild mit nach Hause, und die Inhalte wirken als Poster und digitale Assets über den Konferenztag hinaus.</span><span class="lang-en">Messages that stick: participants take home a shared picture, and the content keeps working beyond the conference day as posters and digital assets.</span></p>
           </div>
         </div>
       </article>
@@ -476,7 +497,7 @@
 
 <!-- ============================ CTA-BAND ============================ -->
 <section class="cta-band" id="kontakt">
-  <div class="wrap center">
+  <div class="wrap center cta-center">
     <h2><span class="lang-de">Werden Sie die nächste <span class="o">Referenz</span></span><span class="lang-en">Become the next <span class="o">reference</span></span></h2>
     <p><span class="lang-de">Lassen Sie uns über Ihr Projekt sprechen und gemeinsam etwas Sichtbares schaffen.</span><span class="lang-en">Let&#8217;s talk about your project and create something visible together.</span></p>
     <a class="btn btn-fill" href="contact.html">
@@ -512,7 +533,7 @@
 
       <div class="foot-col">
         <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
-        <a href="mailto:rh@visualfacilitators.com"><span class="icon icon-mail sm" aria-hidden="true"></span>rh@visualfacilitators.com</a>
+        <span class="c-plain"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin(at)Robin-Hotz.com</span>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>
         <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>
         <span class="c-plain"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</span>
@@ -521,7 +542,7 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Robin Hotz</span>
+      <span>© 2026 Robin Hotz</span>
       <span>
         <a href="imprint.html"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a>
         &nbsp;·&nbsp;
@@ -532,6 +553,5 @@
   </div>
 </footer>
 
-<script src="js/lang.js"></script>
 </body>
 </html>

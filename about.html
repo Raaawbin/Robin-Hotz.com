@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
 <title>Über mich: Robin Hotz, Moderator &amp; Visual Facilitator Berlin</title>
 <meta name="description" content="Robin Hotz, Moderator, Trainer und Visual Facilitator in Berlin. M.A. Erwachsenenbildung, Loop Fellow, Art of Hosting Practitioner. Über 10 Jahre Erfahrung in Moderation, Organisationsentwicklung und Graphic Recording.">
 <link rel="canonical" href="https://robin-hotz.com/about.html">
@@ -32,13 +33,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="prototypes/old/style-old.css">
+<link rel="stylesheet" href="css/style.css?v=7">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<script src="js/theme.js?v=7"></script>
+<script src="js/main.js?v=7" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Moderator, Trainer und Visual Facilitator","url":"https://robin-hotz.com/about.html","image":"https://robin-hotz.com/assets/fotos/portrait-robin.webp","email":"rh@visualfacilitators.com","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Humboldt-Universität zu Berlin"},{"@type":"CollegeOrUniversity","name":"Freie Universität Berlin"}],"hasCredential":[
+ {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Moderator, Trainer und Visual Facilitator","url":"https://robin-hotz.com/about.html","image":"https://robin-hotz.com/assets/fotos/portrait-robin.webp","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Humboldt-Universität zu Berlin"},{"@type":"CollegeOrUniversity","name":"Freie Universität Berlin"}],"hasCredential":[
    {"@type":"EducationalOccupationalCredential","name":"M.A. Erwachsenenbildung / Lebenslanges Lernen","credentialCategory":"degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Humboldt-Universität zu Berlin"}},
    {"@type":"EducationalOccupationalCredential","name":"B.Sc. Volkswirtschaftslehre","credentialCategory":"degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Freie Universität Berlin"}},
-   {"@type":"EducationalOccupationalCredential","name":"Loop Fellow","credentialCategory":"certification","dateCreated":"2024","recognizedBy":{"@type":"Organization","name":"The Dive Academy","url":"https://www.thedive.com/de/produkte-mainpage/the-loop-approach"}}],
+   {"@type":"EducationalOccupationalCredential","name":"Loop Fellow","credentialCategory":"certification","dateCreated":"2024","recognizedBy":{"@type":"Organization","name":"The Dive Academy","url":"https://www.thedive.com/de/produkte-mainpage/the-loop-approach"}},
+   {"@type":"EducationalOccupationalCredential","name":"Train the Trainer für kollektive Führung","credentialCategory":"certification","recognizedBy":{"@type":"Organization","name":"Leadership³ GmbH"}}],
   "knowsAbout":["Moderation","Visual Facilitation","Graphic Recording","Organisationsentwicklung","Erwachsenenbildung","Loop Approach","Art of Hosting","Theory U","New Work","Leadership-Entwicklung"],"knowsLanguage":["de","en","es"],"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/","https://www.tealbirds.de/","https://www.visualfacilitators.com/"]},
  {"@type":"BreadcrumbList","itemListElement":[
   {"@type":"ListItem","position":1,"name":"Start","item":"https://robin-hotz.com/index.html"},
@@ -51,51 +56,64 @@
 
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<header class="site-head">
-  <div class="wrap nav">
+<!-- ============ NAVIGATION: transparent → Glasleiste im Theme-Ton ============ -->
+<header class="site-head" id="siteHead">
+  <div class="nav">
 
     <a class="brand" href="index.html" aria-label="Robin Hotz">
-      <img class="lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
-      <img class="lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <!-- Je Theme und Sprache wird die passende Logo-Variante angezeigt (CSS) -->
+      <img class="logo-on-dark lang-de" src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-dark lang-en" src="assets/images/logo-cream-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <img class="logo-on-light lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-light lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
     </a>
 
     <nav class="menu" id="menu" aria-label="Hauptnavigation">
-      <a class="navlink" href="index.html">
-        <span class="lang-de">Start</span><span class="lang-en">Home</span>
-      </a>
-      <span class="navitem has-drop">
-        <a class="navlink" href="solutions.html">
-          <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span>
-        </a>
+      <a href="index.html"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>
+      <span class="navitem">
+        <a class="navlink" href="solutions.html"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>
         <span class="dropdown">
           <a href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
           <a href="solutions.html#coaching">Coaching</a>
           <a href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
         </span>
       </span>
-      <a class="navlink" href="references.html">
-        <span class="lang-de">Referenzen</span><span class="lang-en">References</span>
-      </a>
-      <a class="navlink active" href="about.html" aria-current="page">
-        <span class="lang-de">Über mich</span><span class="lang-en">About</span>
-      </a>
+      <a href="references.html"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>
+      <a href="about.html" aria-current="page"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>
 
-      <span class="lang-switch">
-        <span class="icon icon-globe sm" aria-hidden="true"></span>
-        <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-        <span class="sep" aria-hidden="true">|</span>
-        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      <!-- Sprach-Umschalter als Dropdown -->
+      <span class="navitem drop-ctl" id="langCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="icon icon-globe sm" aria-hidden="true"></span>
+          <span class="ctl-label">DE</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Sprache wählen">
+          <button type="button" role="option" data-lang="de" aria-selected="true">Deutsch</button>
+          <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        </span>
       </span>
 
-      <a class="btn btn-fill nav-cta" href="contact.html">
-        <span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
-      </a>
+      <!-- Theme-Umschalter als Dropdown (Standard folgt der Systemeinstellung) -->
+      <span class="navitem drop-ctl" id="themeCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span class="ctl-label">Light</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Darstellung wählen">
+          <button type="button" role="option" data-set-theme="light" aria-selected="false">Light</button>
+          <button type="button" role="option" data-set-theme="dark" aria-selected="false">Dark</button>
+        </span>
+      </span>
+
+      <a class="btn nav-cta" href="contact.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
     </nav>
 
-    <button class="burger" aria-expanded="false" aria-controls="menu">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">
       <span class="visually-hidden lang-de">Menü öffnen</span>
       <span class="visually-hidden lang-en">Open menu</span>
-      <span class="icon icon-burger" aria-hidden="true" style="width:26px;height:26px"></span>
+      <span class="icon icon-burger" aria-hidden="true"></span>
     </button>
 
   </div>
@@ -103,124 +121,108 @@
 
 <main id="main">
 
-<!-- ============================ PAGE-HERO =========================== -->
-<section class="page-hero">
-  <div class="wrap">
-    <span class="eyebrow"><span class="lang-de">Über mich</span><span class="lang-en">About me</span></span>
-    <h1><span class="lang-de">Hi, ich bin <span class="o">Robin</span></span><span class="lang-en">Hi, I&#8217;m <span class="o">Robin</span></span></h1>
-    <p class="lead">
-      <span class="lang-de">Moderator und Visual Facilitator. Ich begleite Organisationen im Wandel, damit aus Komplexität Klarheit und aus Ideen tragfähige Ergebnisse werden.</span>
-      <span class="lang-en">Facilitator and visual facilitator. I accompany organisations in transition, turning complexity into clarity and ideas into solid results.</span>
-    </p>
-  </div>
-</section>
-
-<!-- ========================= MEINE GESCHICHTE ======================= -->
-<section class="sec" id="geschichte">
-  <div class="wrap">
-    <div class="about-intro">
-      <div class="sol-media">
-        <img src="assets/fotos/portrait-robin.webp" loading="eager"
-             alt="Porträt von Robin Hotz, Moderator und Visual Facilitator in Berlin">
-      </div>
-      <div>
-        <span class="eyebrow"><span class="lang-de">Meine Geschichte</span><span class="lang-en">My story</span></span>
-        <h2 style="margin:10px 0 18px"><span class="lang-de">Klarheit ist <span class="o">Handwerk</span></span><span class="lang-en">Clarity is a <span class="o">craft</span></span></h2>
-        <p style="margin-bottom:14px">
-          <span class="lang-de">Seit über zehn Jahren begleite ich Veränderungsprozesse als Moderator, Trainer und Visual Facilitator. In dieser Zeit war ich bei hunderten Veranstaltungen dabei, von Strategietagen über Konferenzen bis zu Klausuren, und habe unzählige Diskussionen in klare Bilder übersetzt.</span>
-          <span class="lang-en">For over ten years I have accompanied change processes as a facilitator, trainer and visual facilitator. In that time I have been part of hundreds of events, from strategy days and conferences to offsites, translating countless discussions into clear images.</span>
-        </p>
-        <p style="margin-bottom:14px">
-          <span class="lang-de">Angefangen hat alles mit dem Zeichnen. Die Erkenntnis, dass ein gutes Bild eine Diskussion verändern kann, wurde zum roten Faden meiner Arbeit. Auf das VWL-Studium folgte ein Master in Erwachsenenbildung, denn ich wollte nicht nur verstehen, wie Systeme funktionieren, sondern wie Menschen und Organisationen wirklich lernen und sich verändern.</span>
-          <span class="lang-en">It all started with drawing. The realisation that a good image can change a discussion became the common thread of my work. After studying economics I added a master&#8217;s in adult education, because I wanted to understand not just how systems work, but how people and organisations truly learn and change.</span>
-        </p>
-        <p style="margin-bottom:14px">
-          <span class="lang-de">Dabei habe ich gemerkt, wie sehr es auf zwei Dinge ankommt: auf professionelle Moderation, die sicher durch komplexe Themen führt, und auf kreatives Veranstaltungs-Design, das Inhalte erlebbar macht. Heute verbinde ich beides als Moderation für Veränderungsprozesse — strukturiert genug für belastbare Ergebnisse, offen genug für das, was zwischen den Zeilen passiert.</span>
-          <span class="lang-en">Along the way I realised how much it comes down to two things: professional facilitation that guides safely through complex topics, and creative event design that makes content tangible. Today I combine both as facilitation for change processes — structured enough for solid results, open enough for what happens between the lines.</span>
-        </p>
-        <p style="color:var(--muted)">
-          <span class="lang-de">Privat findet man mich beim Wandern, in der Meditation oder mit dem Skizzenbuch in der Hand. Geboren in Freiburg, zuhause in Berlin, im Einsatz im gesamten deutschsprachigen Raum.</span>
-          <span class="lang-en">Off duty you&#8217;ll find me hiking, meditating or with a sketchbook in hand. Born in Freiburg, at home in Berlin, working across the German-speaking world.</span>
-        </p>
-      </div>
+<!-- ============ MEINE GESCHICHTE ============ -->
+<section class="sec" id="geschichte" style="padding-top:170px">
+  <div class="wrap about-grid align-start">
+    <div class="about-media">
+      <img src="assets/fotos/portrait-robin.webp" loading="eager"
+           alt="Porträt von Robin Hotz, Moderator und Visual Facilitator in Berlin">
+    </div>
+    <div>
+      <span class="eyebrow"><span class="lang-de">Meine Geschichte</span><span class="lang-en">My story</span></span>
+      <h1 style="margin:10px 0 18px"><span class="lang-de">Hi, ich bin <span class="o">Robin</span></span><span class="lang-en">Hi, I&#8217;m <span class="o">Robin</span></span></h1>
+      <p style="margin-bottom:14px">
+        <span class="lang-de">Moderation ist meine Leidenschaft, seit ich zum ersten Mal erlebt habe, was in einem Raum passiert, wenn ein Gespräch wirklich gelingt. Seit über zehn Jahren begleite ich Veränderungsprozesse als Moderator, Trainer und Visual Facilitator — bei hunderten Veranstaltungen, von Strategietagen über Konferenzen bis zu Klausuren.</span>
+        <span class="lang-en">Facilitation has been my passion ever since I first experienced what happens in a room when a conversation truly works. For over ten years I have accompanied change processes as a facilitator, trainer and visual facilitator — at hundreds of events, from strategy days and conferences to offsites.</span>
+      </p>
+      <p style="margin-bottom:14px">
+        <span class="lang-de">Was mich antreibt, ist der Moment, in dem aus vielen Stimmen ein gemeinsames Bild wird. Angefangen hat alles mit dem Zeichnen — die Erkenntnis, dass ein gutes Bild eine Diskussion verändern kann, wurde zum roten Faden meiner Arbeit. Auf das VWL-Studium folgte ein Master in Erwachsenenbildung, weil ich verstehen wollte, wie Menschen und Organisationen wirklich lernen.</span>
+        <span class="lang-en">What drives me is the moment when many voices become one shared picture. It all started with drawing — the realisation that a good image can change a discussion became the common thread of my work. After studying economics I added a master&#8217;s in adult education, because I wanted to understand how people and organisations truly learn.</span>
+      </p>
+      <p style="margin-bottom:14px">
+        <span class="lang-de">Vor einer Gruppe zu stehen, zuzuhören, zu verdichten und den Raum so zu halten, dass alle mitdenken können — genau dort bin ich in meinem Element. Heute verbinde ich professionelle Moderation mit kreativem Veranstaltungs-Design: strukturiert genug für belastbare Ergebnisse, offen genug für das, was zwischen den Zeilen passiert.</span>
+        <span class="lang-en">Standing in front of a group, listening, distilling and holding the space so everyone can think along — that is where I am in my element. Today I combine professional facilitation with creative event design: structured enough for solid results, open enough for what happens between the lines.</span>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ======================== QUALIFIKATIONEN ========================= -->
+<!-- ============ QUALIFIKATIONEN ============ -->
 <section class="sec sec-soft" id="qualifikationen">
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow"><span class="lang-de">Qualifikationen</span><span class="lang-en">Qualifications</span></span>
-      <h2><span class="lang-de">Rollen, Abschlüsse und <span class="o">Ausbildungen</span></span><span class="lang-en">Roles, degrees and <span class="o">trainings</span></span></h2>
+      <h2><span class="lang-de">Abschlüsse, Ausbildungen und <span class="o">Rollen</span></span><span class="lang-en">Degrees, trainings and <span class="o">roles</span></span></h2>
     </div>
     <div class="qual-grid">
       <div class="qual-card">
-        <b>Founder</b>
-        <span>Robin-Hotz.com</span>
-      </div>
-      <div class="qual-card">
-        <b>Co-Founder</b>
-        <span>Tealbirds.de</span>
-      </div>
-      <div class="qual-card">
-        <b>Facilitation Expert</b>
-        <span>VisualFacilitators.com</span>
-      </div>
-      <div class="qual-card">
-        <b>Trainer</b>
-        <span>Synk-Group.com &amp; TheGoodChange.co</span>
-      </div>
-      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-cap" aria-hidden="true"></span></div>
         <b><span class="lang-de">B.Sc. Volkswirtschaftslehre</span><span class="lang-en">B.Sc. Economics</span></b>
         <span><span class="lang-de">Freie Universität Berlin</span><span class="lang-en">Free University Berlin</span></span>
       </div>
       <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-cap" aria-hidden="true"></span></div>
         <b><span class="lang-de">M.A. Erwachsenenbildung</span><span class="lang-en">M.A. Adult Education</span></b>
         <span><span class="lang-de">Humboldt-Universität zu Berlin</span><span class="lang-en">Humboldt University Berlin</span></span>
       </div>
       <div class="qual-card">
-        <b>Loop Fellow</b>
+        <div class="q-ico"><span class="icon icon-award" aria-hidden="true"></span></div>
+        <b><span class="lang-de">Zertifizierter Loop Approach Fellow</span><span class="lang-en">Certified Loop Approach Fellow</span></b>
         <span>The Dive Academy, Berlin</span>
       </div>
       <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-mic" aria-hidden="true"></span></div>
+        <b>Train the Trainer</b>
+        <span><span class="lang-de">Kollektive Führung, Leadership³ Academy</span><span class="lang-en">Collective leadership, Leadership³ Academy</span></span>
+      </div>
+      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-target" aria-hidden="true"></span></div>
+        <b><span class="lang-de">Coaching-Ausbildung</span><span class="lang-en">Coaching Training</span></b>
+        <span><span class="lang-de">Organisationsentwicklung, Leadership³ Berlin</span><span class="lang-en">Organisational development, Leadership³ Berlin</span></span>
+      </div>
+      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-award" aria-hidden="true"></span></div>
+        <b>Theory U Practitioner</b>
+        <span><span class="lang-de">u.lab 1x, u.lab 2x und Generative Scribing, Presencing Institute</span><span class="lang-en">u.lab 1x, u.lab 2x and Generative Scribing, Presencing Institute</span></span>
+      </div>
+      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-globe" aria-hidden="true"></span></div>
         <b>Art of Hosting Practitioner</b>
         <span>Global Art of Hosting Community</span>
       </div>
       <div class="qual-card">
-        <b>Facilitator for Global Change</b>
-        <span>Leadership Academy, Leadership³ GmbH</span>
+        <div class="q-ico"><span class="icon icon-book" aria-hidden="true"></span></div>
+        <b>Timeless Wisdom Training</b>
+        <span><span class="lang-de">Zweijähriges Intensivprogramm, Thomas Hübl</span><span class="lang-en">Two-year intensive programme, Thomas Hübl</span></span>
       </div>
       <div class="qual-card">
-        <b>Theory U Practitioner</b>
-        <span>Presencing Institute</span>
+        <div class="q-ico"><span class="icon icon-spark" aria-hidden="true"></span></div>
+        <b>Founder</b>
+        <span>Robin-Hotz.com</span>
       </div>
       <div class="qual-card">
-        <b><span class="lang-de">Student von Thomas Hübl</span><span class="lang-en">Student of Thomas Hübl</span></b>
-        <span>Academy of Inner Science</span>
+        <div class="q-ico"><span class="icon icon-users" aria-hidden="true"></span></div>
+        <b>Co-Founder</b>
+        <span>Tealbirds.de</span>
+      </div>
+      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-pen" aria-hidden="true"></span></div>
+        <b>Senior Facilitator</b>
+        <span>VisualFacilitators.com</span>
+      </div>
+      <div class="qual-card">
+        <div class="q-ico"><span class="icon icon-mic" aria-hidden="true"></span></div>
+        <b>Trainer</b>
+        <span>Synk-Group.com &amp; TheGoodChange.co</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= MISSION ============================ -->
-<section class="sec" id="mission">
-  <div class="wrap center">
-    <div class="sec-head center" style="margin:0 auto 36px">
-      <span class="eyebrow"><span class="lang-de">Meine Mission</span><span class="lang-en">My mission</span></span>
-      <h2><span class="lang-de">Komplexität <span class="o">die Angst nehmen</span></span><span class="lang-en">Taking the fear <span class="o">out of complexity</span></span></h2>
-    </div>
-    <p class="lead" style="max-width:46rem;margin:0 auto">
-      <span class="lang-de">Ich glaube, dass gute Entscheidungen entstehen, wenn alle das gleiche Bild vor Augen haben. Meine Aufgabe ist es, diesen Raum zu schaffen, in dem Menschen offen denken, sich verständigen und gemeinsam ins Handeln kommen.</span>
-      <span class="lang-en">I believe good decisions emerge when everyone shares the same picture. My job is to create that space where people think openly, reach understanding and start acting together.</span>
-    </p>
-  </div>
-</section>
-
-<!-- ============================ MEIN WEG ============================ -->
+<!-- ============ MEIN WEG ============ -->
 <section class="sec sec-soft" id="weg">
   <div class="wrap">
-    <div class="sec-head" style="margin-bottom:44px">
+    <div class="sec-head center" style="margin-bottom:44px">
       <span class="eyebrow"><span class="lang-de">Mein Weg</span><span class="lang-en">My journey</span></span>
       <h2><span class="lang-de">Stationen, die mich <span class="o">geprägt haben</span></span><span class="lang-en">Milestones that <span class="o">shaped me</span></span></h2>
     </div>
@@ -251,6 +253,11 @@
         <p><span class="lang-de">Visualisierungs-Experte und Prozessbegleiter für Leadership-Programme, unter anderem für DIHK, ERGO, GIZ und Deutsche Bahn.</span><span class="lang-en">Visualisation expert and process facilitator for leadership programmes, including DIHK, ERGO, GIZ and Deutsche Bahn.</span></p>
       </div>
       <div class="tl-item">
+        <div class="yr">2019</div>
+        <h3><span class="lang-de">Gründung meiner Selbstständigkeit</span><span class="lang-en">Founded my own business</span></h3>
+        <p><span class="lang-de">Start als selbstständiger Visual Facilitator, Trainer und Coach für Organisationen im Wandel.</span><span class="lang-en">Starting out as a self-employed visual facilitator, trainer and coach for organisations in change.</span></p>
+      </div>
+      <div class="tl-item">
         <div class="yr"><span class="lang-de">Seit 2019</span><span class="lang-en">Since 2019</span></div>
         <h3>Art of Hosting Practitioner</h3>
         <p><span class="lang-de">Hosting und Harvesting von Trainings und Community-Events in der globalen Art-of-Hosting-Gemeinschaft.</span><span class="lang-en">Hosting and harvesting trainings and community events in the global Art of Hosting community.</span></p>
@@ -279,10 +286,10 @@
   </div>
 </section>
 
-<!-- ========================= ARBEITSWEISE =========================== -->
+<!-- ============ ARBEITSWEISE ============ -->
 <section class="sec" id="arbeitsweise">
   <div class="wrap">
-    <div class="sol-cols" style="margin-top:0">
+    <div class="sol-cols">
       <div>
         <div class="block-title"><span class="lang-de">Wie ich arbeite</span><span class="lang-en">How I work</span></div>
         <ul class="checks">
@@ -303,7 +310,7 @@
           <span class="tag">AI Assisted Sensemaking</span>
           <span class="tag"><span class="lang-de">Online und hybrid</span><span class="lang-en">Online &amp; hybrid</span></span>
         </div>
-        <p style="color:var(--muted);margin-top:20px">
+        <p class="muted" style="margin-top:20px">
           <span class="lang-de">Werkzeuge sind Mittel zum Zweck. Entscheidend ist, dass am Ende Menschen verstehen, sich verständigen und handeln können.</span>
           <span class="lang-en">Tools are means to an end. What matters is that in the end people understand, reach agreement and can act.</span>
         </p>
@@ -312,12 +319,12 @@
   </div>
 </section>
 
-<!-- ============================ CTA-BAND ============================ -->
+<!-- ============ CTA-BAND ============ -->
 <section class="cta-band" id="kontakt">
-  <div class="wrap center">
+  <div class="wrap center cta-center">
     <h2><span class="lang-de">Lernen wir uns <span class="hand">kennen</span></span><span class="lang-en">Let&#8217;s get to <span class="hand">know each other</span></span></h2>
     <p><span class="lang-de">Erzählen Sie mir von Ihrem Vorhaben. Ich freue mich auf das Gespräch.</span><span class="lang-en">Tell me about your plans. I look forward to the conversation.</span></p>
-    <a class="btn btn-fill" href="contact.html">
+    <a class="btn" href="contact.html">
       <span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span>
       <span class="icon icon-arrow sm" aria-hidden="true"></span>
     </a>
@@ -350,7 +357,7 @@
 
       <div class="foot-col">
         <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
-        <a href="mailto:rh@visualfacilitators.com"><span class="icon icon-mail sm" aria-hidden="true"></span>rh@visualfacilitators.com</a>
+        <span class="c-plain"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin(at)Robin-Hotz.com</span>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>
         <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>
         <span class="c-plain"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</span>
@@ -359,7 +366,7 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Robin Hotz</span>
+      <span>© 2026 Robin Hotz</span>
       <span>
         <a href="imprint.html"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a>
         &nbsp;·&nbsp;
@@ -370,6 +377,5 @@
   </div>
 </footer>
 
-<script src="js/lang.js"></script>
 </body>
 </html>

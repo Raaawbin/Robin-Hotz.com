@@ -102,4 +102,37 @@
     });
   });
   window.addEventListener('langchange', syncLang);
+
+  /* ---------- Lightbox: Projektfotos gross im selben Fenster ----------
+     Aktiv auf Seiten mit .case-shot-Bildern (Referenzen). */
+  var shots = [].slice.call(document.querySelectorAll('.case-shot img'));
+  if (shots.length) {
+    var lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.innerHTML = '<img alt="">' +
+      '<button class="lb-close" type="button" aria-label="Schließen">' +
+      '<span class="icon icon-close" aria-hidden="true"></span></button>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img');
+
+    function openLb(img) {
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    shots.forEach(function (img) {
+      img.addEventListener('click', function () { openLb(img); });
+    });
+    lb.addEventListener('click', closeLb); /* Klick irgendwo schließt */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLb();
+    });
+  }
 })();

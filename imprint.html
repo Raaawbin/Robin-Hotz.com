@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
 <title>Impressum | Robin Hotz</title>
 <meta name="description" content="Impressum und Anbieterkennzeichnung von Robin Hotz, Moderation für Veränderung.">
 <link rel="canonical" href="https://robin-hotz.com/imprint.html">
@@ -15,57 +16,72 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="prototypes/old/style-old.css">
+<link rel="stylesheet" href="css/style.css?v=7">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<script src="js/theme.js?v=7"></script>
+<script src="js/main.js?v=7" defer></script>
 </head>
 <body>
 
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<header class="site-head">
-  <div class="wrap nav">
+<header class="site-head" id="siteHead">
+  <div class="nav">
 
     <a class="brand" href="index.html" aria-label="Robin Hotz">
-      <img class="lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
-      <img class="lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <!-- Je Theme und Sprache wird die passende Logo-Variante angezeigt (CSS) -->
+      <img class="logo-on-dark lang-de" src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-dark lang-en" src="assets/images/logo-cream-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <img class="logo-on-light lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-light lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
     </a>
 
     <nav class="menu" id="menu" aria-label="Hauptnavigation">
-      <a class="navlink" href="index.html">
-        <span class="lang-de">Start</span><span class="lang-en">Home</span>
-      </a>
-      <span class="navitem has-drop">
-        <a class="navlink" href="solutions.html">
-          <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span>
-        </a>
+      <a href="index.html"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>
+      <span class="navitem">
+        <a class="navlink" href="solutions.html"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>
         <span class="dropdown">
           <a href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
           <a href="solutions.html#coaching">Coaching</a>
           <a href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
         </span>
       </span>
-      <a class="navlink" href="references.html">
-        <span class="lang-de">Referenzen</span><span class="lang-en">References</span>
-      </a>
-      <a class="navlink" href="about.html">
-        <span class="lang-de">Über mich</span><span class="lang-en">About</span>
-      </a>
+      <a href="references.html"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>
+      <a href="about.html"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>
 
-      <span class="lang-switch">
-        <span class="icon icon-globe sm" aria-hidden="true"></span>
-        <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-        <span class="sep" aria-hidden="true">|</span>
-        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      <!-- Sprach-Umschalter als Dropdown -->
+      <span class="navitem drop-ctl" id="langCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="icon icon-globe sm" aria-hidden="true"></span>
+          <span class="ctl-label">DE</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Sprache wählen">
+          <button type="button" role="option" data-lang="de" aria-selected="true">Deutsch</button>
+          <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        </span>
       </span>
 
-      <a class="btn btn-fill nav-cta" href="contact.html">
-        <span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
-      </a>
+      <!-- Theme-Umschalter als Dropdown (Standard folgt der Systemeinstellung) -->
+      <span class="navitem drop-ctl" id="themeCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span class="ctl-label">Light</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Darstellung wählen">
+          <button type="button" role="option" data-set-theme="light" aria-selected="false">Light</button>
+          <button type="button" role="option" data-set-theme="dark" aria-selected="false">Dark</button>
+        </span>
+      </span>
+
+      <a class="btn nav-cta" href="contact.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
     </nav>
 
-    <button class="burger" aria-expanded="false" aria-controls="menu">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">
       <span class="visually-hidden lang-de">Menü öffnen</span>
       <span class="visually-hidden lang-en">Open menu</span>
-      <span class="icon icon-burger" aria-hidden="true" style="width:26px;height:26px"></span>
+      <span class="icon icon-burger" aria-hidden="true"></span>
     </button>
 
   </div>
@@ -101,7 +117,7 @@
       <h2><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h2>
       <p>
         <span class="lang-de">E-Mail:</span><span class="lang-en">Email:</span>
-        <a href="mailto:robin@robin-hotz.com">robin(at)robin-hotz.com</a>
+        robin(at)robin-hotz.com
       </p>
 
       <h2><span class="lang-de">Umsatzsteuer-Identifikationsnummer</span><span class="lang-en">VAT identification number</span></h2>
@@ -165,7 +181,7 @@
 
       <div class="foot-col">
         <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
-        <a href="mailto:rh@visualfacilitators.com"><span class="icon icon-mail sm" aria-hidden="true"></span>rh@visualfacilitators.com</a>
+        <span class="c-plain"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin(at)Robin-Hotz.com</span>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>
         <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>
         <span class="c-plain"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</span>
@@ -174,7 +190,7 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Robin Hotz</span>
+      <span>© 2026 Robin Hotz</span>
       <span>
         <a href="imprint.html"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a>
         &nbsp;·&nbsp;
@@ -185,6 +201,5 @@
   </div>
 </footer>
 
-<script src="js/lang.js"></script>
 </body>
 </html>

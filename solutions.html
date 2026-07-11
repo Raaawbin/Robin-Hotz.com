@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
 <title>Lösungen: Moderation, Coaching &amp; Visualisierung | Robin Hotz</title>
 <meta name="description" content="Moderation, Coaching und Visualisierung für Organisationen im Wandel. Konferenz-Moderation, World Café, Open Space, Loop Approach und Graphic Recording in Berlin und deutschlandweit.">
 <link rel="canonical" href="https://robin-hotz.com/solutions.html">
@@ -18,7 +19,7 @@
 <meta property="og:description" content="Moderation, Coaching und Visualisierung für Organisationen im Wandel. Konferenz-Moderation, World Café, Open Space, Loop Approach und Graphic Recording.">
 <meta property="og:url" content="https://robin-hotz.com/solutions.html">
 <meta property="og:locale" content="de_DE">
-<meta property="og:image" content="https://robin-hotz.com/assets/images/hero.webp">
+<meta property="og:image" content="https://robin-hotz.com/assets/fotos/hero-stadtraum.webp">
 <meta property="og:image:alt" content="Robin Hotz moderiert vor einer Graphic-Recording-Wand">
 <meta name="keywords" content="Konferenz-Moderation, Workshop-Moderation Berlin, World Café Moderation, Open Space Moderation, Event-Moderation, Loop Approach Coaching, Organisationsentwicklung Berlin, Team-Entwicklung, Führungskräfte-Coaching, Graphic Recording Berlin, Strategie-Visualisierung, Sketchnotes, Visual Facilitation">
 <meta name="geo.region" content="DE-BE">
@@ -28,11 +29,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lösungen: Moderation, Coaching &amp; Visualisierung | Robin Hotz">
 <meta name="twitter:description" content="Moderation, Coaching und Visualisierung für Organisationen im Wandel.">
-<meta name="twitter:image" content="https://robin-hotz.com/assets/images/hero.webp">
+<meta name="twitter:image" content="https://robin-hotz.com/assets/fotos/hero-stadtraum.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="prototypes/old/style-old.css">
+<link rel="stylesheet" href="css/style.css?v=7">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<script src="js/theme.js?v=7"></script>
+<script src="js/main.js?v=7" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Visual Facilitator und Moderator","url":"https://robin-hotz.com/","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"knowsAbout":["Moderation","Konferenz-Moderation","World Café","Open Space","Loop Approach","Organisationsentwicklung","Graphic Recording","Visual Facilitation"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Loop Approach Zertifizierung","credentialCategory":"certification","dateCreated":"2024","recognizedBy":{"@type":"Organization","name":"TheDive","url":"https://www.thedive.com/de/produkte-mainpage/the-loop-approach"}},"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/"]},
@@ -49,51 +53,64 @@
 
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<header class="site-head">
-  <div class="wrap nav">
+<!-- ============ NAVIGATION: transparent → Glasleiste im Theme-Ton ============ -->
+<header class="site-head" id="siteHead">
+  <div class="nav">
 
     <a class="brand" href="index.html" aria-label="Robin Hotz">
-      <img class="lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
-      <img class="lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <!-- Je Theme und Sprache wird die passende Logo-Variante angezeigt (CSS) -->
+      <img class="logo-on-dark lang-de" src="assets/images/logo-cream.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-dark lang-en" src="assets/images/logo-cream-en.webp" alt="Robin Hotz, Facilitation for Change">
+      <img class="logo-on-light lang-de" src="assets/images/logo-light.webp" alt="Robin Hotz, Moderation für Veränderung">
+      <img class="logo-on-light lang-en" src="assets/images/logo-light-en.webp" alt="Robin Hotz, Facilitation for Change">
     </a>
 
     <nav class="menu" id="menu" aria-label="Hauptnavigation">
-      <a class="navlink" href="index.html">
-        <span class="lang-de">Start</span><span class="lang-en">Home</span>
-      </a>
-      <span class="navitem has-drop">
-        <a class="navlink active" href="solutions.html" aria-current="page">
-          <span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span>
-        </a>
+      <a href="index.html"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>
+      <span class="navitem">
+        <a class="navlink" href="solutions.html" aria-current="page"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>
         <span class="dropdown">
           <a href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
           <a href="solutions.html#coaching">Coaching</a>
           <a href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
         </span>
       </span>
-      <a class="navlink" href="references.html">
-        <span class="lang-de">Referenzen</span><span class="lang-en">References</span>
-      </a>
-      <a class="navlink" href="about.html">
-        <span class="lang-de">Über mich</span><span class="lang-en">About</span>
-      </a>
+      <a href="references.html"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>
+      <a href="about.html"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>
 
-      <span class="lang-switch">
-        <span class="icon icon-globe sm" aria-hidden="true"></span>
-        <button type="button" data-lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
-        <span class="sep" aria-hidden="true">|</span>
-        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      <!-- Sprach-Umschalter als Dropdown -->
+      <span class="navitem drop-ctl" id="langCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="icon icon-globe sm" aria-hidden="true"></span>
+          <span class="ctl-label">DE</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Sprache wählen">
+          <button type="button" role="option" data-lang="de" aria-selected="true">Deutsch</button>
+          <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        </span>
       </span>
 
-      <a class="btn btn-fill nav-cta" href="contact.html">
-        <span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
-      </a>
+      <!-- Theme-Umschalter als Dropdown (Standard folgt der Systemeinstellung) -->
+      <span class="navitem drop-ctl" id="themeCtl">
+        <button class="ctl-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="theme-dot" aria-hidden="true"></span>
+          <span class="ctl-label">Light</span>
+          <span class="caret" aria-hidden="true"></span>
+        </button>
+        <span class="dropdown" role="listbox" aria-label="Darstellung wählen">
+          <button type="button" role="option" data-set-theme="light" aria-selected="false">Light</button>
+          <button type="button" role="option" data-set-theme="dark" aria-selected="false">Dark</button>
+        </span>
+      </span>
+
+      <a class="btn nav-cta" href="contact.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
     </nav>
 
-    <button class="burger" aria-expanded="false" aria-controls="menu">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">
       <span class="visually-hidden lang-de">Menü öffnen</span>
       <span class="visually-hidden lang-en">Open menu</span>
-      <span class="icon icon-burger" aria-hidden="true" style="width:26px;height:26px"></span>
+      <span class="icon icon-burger" aria-hidden="true"></span>
     </button>
 
   </div>
@@ -101,52 +118,60 @@
 
 <main id="main">
 
-<!-- =========================== IM ÜBERBLICK ========================= -->
-<section class="sec" id="ueberblick">
+<!-- ============ SEITEN-KOPF ============ -->
+<section class="page-hero">
   <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow"><span class="lang-de">Im Überblick</span><span class="lang-en">At a glance</span></span>
-      <h1><span class="lang-de">Drei Wege zu <span class="o">sichtbarer Klarheit</span></span><span class="lang-en">Three paths to <span class="o">visible clarity</span></span></h1>
-    </div>
-    <div class="ov-grid">
-      <div class="ov-card">
-        <div class="ov-ico"><img src="assets/icons/ico-dialog.webp" alt="" loading="lazy"></div>
+    <span class="eyebrow"><span class="lang-de">Im Überblick</span><span class="lang-en">At a glance</span></span>
+    <h1><span class="lang-de">Drei Wege zu <span class="o">sichtbarer Klarheit</span></span><span class="lang-en">Three paths to <span class="o">visible clarity</span></span></h1>
+    <p class="lead">
+      <span class="lang-de">Moderation, Coaching und Visualisierung, einzeln oder kombiniert. Für Veranstaltungen, Teams und Organisationen im Wandel.</span>
+      <span class="lang-en">Facilitation, coaching and visualisation, individually or combined. For events, teams and organisations in transition.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ ÜBERBLICK: drei Karten wie auf der Startseite ============ -->
+<section class="method" id="ueberblick" style="padding-top:10px">
+  <div class="wrap">
+    <div class="method-grid">
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-dialog" aria-hidden="true"></span></div>
         <h3><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></h3>
         <p>
           <span class="lang-de">Event-Moderation, die Ihre Themen souverän auf die Bühne bringt und das Publikum wirklich erreicht.</span>
           <span class="lang-en">Event facilitation that brings your topics to the stage with confidence and truly reaches the audience.</span>
         </p>
-        <a class="btn btn-fill" href="#moderation"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
+        <a class="btn mcell-btn" href="#moderation"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
       </div>
-      <div class="ov-card">
-        <div class="ov-ico"><img src="assets/icons/ico-kultur.webp" alt="" loading="lazy"></div>
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
         <h3>Coaching</h3>
         <p>
           <span class="lang-de">Organisationsentwicklung von Führung und Rollenklärung bis zur Kultur, strukturiert und partizipativ.</span>
           <span class="lang-en">Organisational development from leadership and role clarity to culture, structured and participatory.</span>
         </p>
-        <a class="btn btn-fill" href="#coaching"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
+        <a class="btn mcell-btn" href="#coaching"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
       </div>
-      <div class="ov-card">
-        <div class="ov-ico"><img src="assets/icons/ico-auge.webp" alt="" loading="lazy"></div>
+      <div class="mcell panel">
+        <div class="ico"><span class="icon icon-eye" aria-hidden="true"></span></div>
         <h3><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></h3>
         <p>
           <span class="lang-de">Visualisierung, die komplexe Inhalte greifbar macht, damit Teams schneller verstehen und entscheiden.</span>
           <span class="lang-en">Visualisation that makes complex content tangible, so teams understand and decide faster.</span>
         </p>
-        <a class="btn btn-fill" href="#visualisierung"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
+        <a class="btn mcell-btn" href="#visualisierung"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ MODERATION ========================== -->
-<section class="sol" id="moderation">
+<!-- ============ MODERATION ============ -->
+<section class="sol sec-soft" id="moderation">
   <div class="wrap">
     <div class="sol-top">
       <div class="sol-media">
-        <img src="assets/images/loesung-moderation.webp" loading="lazy"
-             alt="Illustration: Moderator mit Mikrofon auf einer Bühne vor sitzendem Publikum, daneben ein Flipchart">
+        <img src="assets/fotos/hohenheim-buehne.webp" loading="lazy"
+             alt="Robin Hotz moderiert mit Mikrofon auf einer Konferenzbühne">
       </div>
       <div>
         <span class="sol-kicker"><span class="lang-de">Leistung 01</span><span class="lang-en">Service 01</span></span>
@@ -198,7 +223,7 @@
           <li><span class="icon icon-check" aria-hidden="true"></span><span><span class="lang-de">Spürbare Entlastung für Gastgeber und Team</span><span class="lang-en">Tangible relief for hosts and team</span></span></li>
         </ul>
         <div class="block-title" style="margin-top:32px"><span class="lang-de">Wie ich arbeite</span><span class="lang-en">How I work</span></div>
-        <p style="color:var(--muted)">
+        <p class="muted">
           <span class="lang-de">Ich verbinde professionelle Gesprächsführung mit kreativem Veranstaltungs-Design. Statt nur Programmpunkte abzuarbeiten, entsteht ein Bogen, der Menschen mitnimmt und Inhalte erlebbar macht. Partizipative Formate wie World Café und Open Space setze ich gezielt ein, wenn viele Stimmen gehört werden sollen.</span>
           <span class="lang-en">I combine professional conversation leadership with creative event design. Instead of just working through agenda items, an arc emerges that takes people along and makes content tangible. I use participatory formats such as World Café and Open Space deliberately when many voices need to be heard.</span>
         </p>
@@ -206,7 +231,7 @@
           <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
           <p><span class="lang-de">Veranstaltungen mit rotem Faden, die Inhalte klar transportieren, das Publikum einbinden und in Erinnerung bleiben.</span><span class="lang-en">Events with a clear thread that convey content clearly, engage the audience and stay memorable.</span></p>
         </div>
-        <a class="btn btn-fill" style="margin-top:24px" href="contact.html">
+        <a class="btn" style="margin-top:24px" href="contact.html">
           <span class="lang-de">Anfrage senden</span><span class="lang-en">Send enquiry</span>
           <span class="icon icon-arrow sm" aria-hidden="true"></span>
         </a>
@@ -215,13 +240,13 @@
   </div>
 </section>
 
-<!-- ============================= COACHING =========================== -->
-<section class="sol sec-soft" id="coaching">
+<!-- ============ COACHING ============ -->
+<section class="sol" id="coaching">
   <div class="wrap">
     <div class="sol-top">
       <div class="sol-media">
-        <img src="assets/images/loesung-coaching.webp" loading="lazy"
-             alt="Illustration: Team arbeitet gemeinsam an einer vernetzten Landkarte auf einem Tisch">
+        <img src="assets/fotos/aoh-training.webp" loading="lazy"
+             alt="Moderierte Gesprächsrunde im Kreis bei einem Art-of-Hosting-Training">
       </div>
       <div>
         <span class="sol-kicker"><span class="lang-de">Leistung 02</span><span class="lang-en">Service 02</span></span>
@@ -272,15 +297,15 @@
           <li><span class="icon icon-check" aria-hidden="true"></span><span><span class="lang-de">Eine Kultur, die Veränderung aushält</span><span class="lang-en">A culture that withstands change</span></span></li>
         </ul>
         <div class="block-title" style="margin-top:32px"><span class="lang-de">Wie ich arbeite</span><span class="lang-en">How I work</span></div>
-        <p style="color:var(--muted)">
-          <span class="lang-de">Ich arbeite partizipativ und strukturiert zugleich. Beteiligung schafft Akzeptanz, klare Struktur sorgt dafür, dass am Ende belastbare Ergebnisse stehen statt offener Enden. Mein Ansatz dafür ist der <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline">Loop Approach</a> von TheDive, ein bewährtes Framework für die Transformation von Teams und Organisationen, in dem ich seit 2024 zertifiziert bin.</span>
-          <span class="lang-en">I work in a way that is both participatory and structured. Participation creates acceptance, clear structure ensures solid results instead of loose ends. My approach is the <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--orange);text-decoration:underline">Loop Approach</a> by TheDive, a proven framework for transforming teams and organisations, in which I have been certified since 2024.</span>
+        <p class="muted">
+          <span class="lang-de">Ich arbeite partizipativ und strukturiert zugleich. Beteiligung schafft Akzeptanz, klare Struktur sorgt dafür, dass am Ende belastbare Ergebnisse stehen statt offener Enden. Mein Ansatz dafür ist der <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Loop Approach</a> von TheDive, ein bewährtes Framework für die Transformation von Teams und Organisationen, in dem ich seit 2024 zertifiziert bin.</span>
+          <span class="lang-en">I work in a way that is both participatory and structured. Participation creates acceptance, clear structure ensures solid results instead of loose ends. My approach is the <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Loop Approach</a> by TheDive, a proven framework for transforming teams and organisations, in which I have been certified since 2024.</span>
         </p>
         <div class="result-box">
           <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
           <p><span class="lang-de">Teams, die Rollen, Richtung und Zusammenarbeit klar haben und gemeinsam ins Handeln kommen.</span><span class="lang-en">Teams that are clear on roles, direction and collaboration and start acting together.</span></p>
         </div>
-        <a class="btn btn-fill" style="margin-top:24px" href="contact.html">
+        <a class="btn" style="margin-top:24px" href="contact.html">
           <span class="lang-de">Anfrage senden</span><span class="lang-en">Send enquiry</span>
           <span class="icon icon-arrow sm" aria-hidden="true"></span>
         </a>
@@ -289,13 +314,13 @@
   </div>
 </section>
 
-<!-- ========================== VISUALISIERUNG ======================== -->
-<section class="sol" id="visualisierung">
+<!-- ============ VISUALISIERUNG ============ -->
+<section class="sol sec-soft" id="visualisierung">
   <div class="wrap">
     <div class="sol-top">
       <div class="sol-media">
-        <img src="assets/images/loesung-visualisierung.webp" loading="lazy"
-             alt="Illustration: Person zeichnet Symbole und Diagramme auf ein Board, eine Gruppe schaut zu">
+        <img src="assets/fotos/hohenheim-graphic-recording.webp" loading="lazy"
+             alt="Graphic Recording: Robin Hotz visualisiert Inhalte live an einer großen Wand">
       </div>
       <div>
         <span class="sol-kicker"><span class="lang-de">Leistung 03</span><span class="lang-en">Service 03</span></span>
@@ -345,7 +370,7 @@
           <li><span class="icon icon-check" aria-hidden="true"></span><span><span class="lang-de">Material, das auch nach dem Termin wirkt</span><span class="lang-en">Material that keeps working after the event</span></span></li>
         </ul>
         <div class="block-title" style="margin-top:32px"><span class="lang-de">Wie ich arbeite</span><span class="lang-en">How I work</span></div>
-        <p style="color:var(--muted)">
+        <p class="muted">
           <span class="lang-de">Ich nutze visuelles Denken als Werkzeug für Klarheit. Dabei kombiniere ich klassisches Graphic Recording mit KI-gestützter Aufbereitung, wo es die Qualität und Geschwindigkeit erhöht.</span>
           <span class="lang-en">I use visual thinking as a tool for clarity, combining classic graphic recording with AI-assisted processing where it increases quality and speed.</span>
         </p>
@@ -353,7 +378,7 @@
           <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
           <p><span class="lang-de">Bilder und Landkarten, die Diskussionen verdichten und Ergebnisse sichtbar verankern.</span><span class="lang-en">Images and maps that distil discussions and anchor results visibly.</span></p>
         </div>
-        <a class="btn btn-fill" style="margin-top:24px" href="contact.html">
+        <a class="btn" style="margin-top:24px" href="contact.html">
           <span class="lang-de">Anfrage senden</span><span class="lang-en">Send enquiry</span>
           <span class="icon icon-arrow sm" aria-hidden="true"></span>
         </a>
@@ -362,19 +387,19 @@
   </div>
 </section>
 
-<!-- ============================ CTA-BAND ============================ -->
-<section class="cta-band cta-split" id="kontakt">
+<!-- ============ CTA-BAND ============ -->
+<section class="cta-band" id="kontakt">
   <div class="wrap cta-inner">
     <h2><span class="lang-de">Welche Herausforderung <span class="o">steht bei Ihnen an</span></span><span class="lang-en">What challenge is <span class="o">ahead of you</span></span></h2>
     <div class="cta-right">
       <p class="big"><span class="lang-de">Erzählen Sie mir von Ihrem Vorhaben. Im Erstgespräch finden wir heraus, welche Lösung passt.</span><span class="lang-en">Tell me about your plans. In a first conversation we&#8217;ll find out which solution fits.</span></p>
-      <a class="btn btn-fill" href="contact.html">
+      <a class="btn" href="contact.html">
         <span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span>
         <span class="icon icon-arrow sm" aria-hidden="true"></span>
       </a>
       <p class="mail">
         <span class="lang-de">oder schreiben Sie mir direkt</span><span class="lang-en">or write to me directly</span><br>
-        <a href="mailto:rh@visualfacilitators.com">rh@visualfacilitators.com</a>
+        <span class="mail-plain">Robin(at)Robin-Hotz.com</span>
       </p>
     </div>
   </div>
@@ -406,7 +431,7 @@
 
       <div class="foot-col">
         <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
-        <a href="mailto:rh@visualfacilitators.com"><span class="icon icon-mail sm" aria-hidden="true"></span>rh@visualfacilitators.com</a>
+        <span class="c-plain"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin(at)Robin-Hotz.com</span>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>
         <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>
         <span class="c-plain"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</span>
@@ -415,7 +440,7 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Robin Hotz</span>
+      <span>© 2026 Robin Hotz</span>
       <span>
         <a href="imprint.html"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a>
         &nbsp;·&nbsp;
@@ -426,6 +451,5 @@
   </div>
 </footer>
 
-<script src="js/lang.js"></script>
 </body>
 </html>

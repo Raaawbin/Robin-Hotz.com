@@ -33,10 +33,8 @@
       '<header class="site-head" id="siteHead">' +
         '<div class="nav">' +
           '<a class="brand" href="' + siteUrl('index.html') + '" aria-label="Robin Hotz">' +
-            '<img class="logo-on-dark lang-de" src="' + siteUrl('assets/images/logo-cream.webp') + '" alt="Robin Hotz, Moderation für Veränderung">' +
-            '<img class="logo-on-dark lang-en" src="' + siteUrl('assets/images/logo-cream-en.webp') + '" alt="Robin Hotz, Facilitation for Change">' +
-            '<img class="logo-on-light lang-de" src="' + siteUrl('assets/images/logo-light.webp') + '" alt="Robin Hotz, Moderation für Veränderung">' +
-            '<img class="logo-on-light lang-en" src="' + siteUrl('assets/images/logo-light-en.webp') + '" alt="Robin Hotz, Facilitation for Change">' +
+            '<img class="logo-on-dark" src="' + siteUrl('assets/images/logo-clean-dark.webp') + '" alt="Robin Hotz">' +
+            '<img class="logo-on-light" src="' + siteUrl('assets/images/logo-clean-light.webp') + '" alt="Robin Hotz">' +
           '</a>' +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
             '<a href="' + siteUrl('index.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
@@ -87,7 +85,6 @@
             '<div class="foot-brand">' +
               '<img class="lang-de" src="' + siteUrl('assets/images/logo-cream.webp') + '" alt="Robin Hotz, Moderation für Veränderung">' +
               '<img class="lang-en" src="' + siteUrl('assets/images/logo-cream-en.webp') + '" alt="Robin Hotz, Facilitation for Change">' +
-              '<p><span class="lang-de">Moderation und Visualisierung für Organisationen im Wandel.</span><span class="lang-en">Facilitation and visualisation for organisations in change.</span></p>' +
             '</div>' +
             '<nav class="foot-col" aria-label="Seiten">' +
               '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +

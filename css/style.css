@@ -340,9 +340,6 @@ h2,
   font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:.5px;
   margin-top:10px;
 }
-.heading-standard{
-  font-family:var(--font-body);font-weight:600;letter-spacing:-.025em;
-}
 h3,h4{color:var(--text-strong)}
 b{color:var(--text-strong)}
 
@@ -598,6 +595,7 @@ b{color:var(--text-strong)}
   padding:36px 34px;
   background:var(--panel-bg);border:1px solid var(--line);
   border-radius:var(--radius);box-shadow:var(--shadow);
+  scroll-margin-top:96px;
 }
 .case-kicker{display:inline-block;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .case h3{font-family:var(--font-display);font-weight:400;font-size:1.5rem;line-height:1.25;margin-bottom:22px}
@@ -817,6 +815,7 @@ b{color:var(--text-strong)}
 /* Neue, seitenweite Headline-Typografie: Source Sans wie in index-new. */
 .type-modern .page-hero h1,
 .type-modern #geschichte h1,
+.type-modern .section-title,
 .type-modern:not(.cv-page) h2,
 .type-modern .mcell h3,
 .type-modern .svc h3,
@@ -873,7 +872,7 @@ b{color:var(--text-strong)}
    ============================================================ */
 .site-foot{background:#0E0D0C;color:rgba(255,255,255,.75);padding:64px 0 30px;border-top:1px solid rgba(255,255,255,.14)}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.foot-brand img{height:52px;width:auto;margin-bottom:16px}
+.foot-brand img{height:72px;width:auto;margin-bottom:16px}
 .foot-col{display:flex;flex-direction:column;gap:10px}
 .foot-col h4{color:#fff;font-size:.86rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
 .foot-col a{display:inline-flex;align-items:center;gap:9px;transition:color .15s ease}

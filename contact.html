@@ -25,10 +25,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=12">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <script src="js/theme.js?v=7"></script>
-<script src="js/main.js?v=2" defer></script>
+<script src="js/main.js?v=5" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"ContactPage","@id":"https://robin-hotz.com/contact.html","name":"Kontakt","about":{"@id":"https://robin-hotz.com/#robin"}},
@@ -36,7 +36,7 @@
 ]}
 </script>
 </head>
-<body class="type-modern">
+<body class="type-modern contact-page">
 
 <div data-site-header></div>
 
@@ -67,15 +67,15 @@
         <span class="lang-en">Reach me <span class="o">directly</span></span>
       </h2>
       <p style="margin-bottom:22px">
-        <span class="lang-de">Ich lebe in Berlin und arbeite als Visual Facilitator bei der <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
-        <span class="lang-en">I live in Berlin and work as a visual facilitator at <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
+        <span class="lang-de">Ich lebe in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> und arbeite als Visual Facilitator bei der <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
+        <span class="lang-en">I live in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> and work as a visual facilitator at <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
       </p>
 
       <div class="c-list">
-        <span class="c-row">
+        <a class="c-row" href="mailto:Robin@Robin-Hotz.com">
           <span class="icon icon-mail" aria-hidden="true"></span>
-          <span>Robin(at)Robin-Hotz.com</span>
-        </span>
+          <span>Robin@Robin-Hotz.com</span>
+        </a>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener">
           <span class="icon icon-linkedin" aria-hidden="true"></span>
           <span>LinkedIn, Robin Hotz</span>
@@ -84,20 +84,17 @@
           <span class="icon icon-instagram" aria-hidden="true"></span>
           <span>Instagram, robin.visual.coach</span>
         </a>
-        <span class="c-row">
+        <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener">
           <span class="icon icon-pin" aria-hidden="true"></span>
-          <span>
-            <span class="lang-de">Berlin, im Einsatz im gesamten deutschsprachigen Raum</span>
-            <span class="lang-en">Berlin, working across the German-speaking region</span>
-          </span>
-        </span>
-        <span class="c-row">
+          <span>Berlin - Working Internationally</span>
+        </a>
+        <a class="c-row" href="https://www.visualfacilitators.com/" target="_blank" rel="noopener">
           <span class="icon icon-pen" aria-hidden="true"></span>
           <span>
-            <span class="lang-de">Visual Facilitator bei der Visual Facilitators GmbH</span>
-            <span class="lang-en">Visual facilitator at Visual Facilitators GmbH</span>
+            <span class="lang-de">Senior Facilitator bei der Visual Facilitators GmbH</span>
+            <span class="lang-en">Senior Facilitator at Visual Facilitators GmbH</span>
           </span>
-        </span>
+        </a>
       </div>
 
       <p class="muted" style="margin-top:24px">
@@ -106,7 +103,10 @@
       </p>
     </div>
 
-    <div class="form panel">
+    <div class="form panel contact-form-panel">
+      <figure class="contact-form-photo">
+        <img src="assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin">
+      </figure>
       <h3 style="margin-bottom:6px">
         <span class="lang-de">Anfrage senden</span><span class="lang-en">Send an enquiry</span>
       </h3>
@@ -157,31 +157,59 @@
 
     <div class="faq">
       <details>
-        <summary><span class="lang-de">In welchen Regionen sind Sie im Einsatz</span><span class="lang-en">In which regions do you work</span></summary>
+        <summary><span class="lang-de">Wofür kann ich Sie buchen?</span><span class="lang-en">What can I book you for?</span></summary>
         <p>
-          <span class="lang-de">Ich bin in Berlin zuhause und arbeite im gesamten deutschsprachigen Raum, vor Ort sowie online und hybrid.</span>
-          <span class="lang-en">I&#8217;m based in Berlin and work across the German-speaking region, on site as well as online and hybrid.</span>
+          <span class="lang-de">Sie können mich für Facilitation und Moderation, visuelle Facilitation, Graphic Recording, Strategieprozesse, Organisationsentwicklung, Art-of-Hosting-Formate und Keynotes buchen. Ich begleite einzelne Workshops und Konferenzen ebenso wie mehrmonatige Prozesse. Je nach Ziel übernehme ich Konzeption, Vorbereitung, Moderation und visuelle Ergebnissicherung als Gesamtpaket oder einzelne Bausteine.</span>
+          <span class="lang-en">You can book me for facilitation, visual facilitation, graphic recording, strategy processes, organisational development, Art of Hosting formats and keynotes. I support individual workshops and conferences as well as multi-month processes. Depending on your objective, I can provide the complete package of process design, preparation, facilitation and visual documentation, or selected elements.</span>
         </p>
       </details>
       <details>
-        <summary><span class="lang-de">Wie früh sollte ich anfragen</span><span class="lang-en">How early should I get in touch</span></summary>
+        <summary><span class="lang-de">Was ist der Unterschied zwischen Facilitation und Visualisierung?</span><span class="lang-en">What is the difference between facilitation and visualisation?</span></summary>
         <p>
-          <span class="lang-de">Je früher, desto besser. Für größere Veranstaltungen sind einige Wochen Vorlauf ideal, kurzfristige Anfragen lassen sich aber oft ebenfalls einrichten.</span>
-          <span class="lang-en">The earlier, the better. For larger events a few weeks of lead time is ideal, but short-notice requests can often be accommodated too.</span>
+          <span class="lang-de">Als Facilitator gestalte und führe ich den Prozess: Ich entwickle eine passende Dramaturgie, stelle die richtigen Fragen, beteilige unterschiedliche Perspektiven und unterstütze Gruppen dabei, zu klaren Entscheidungen und nächsten Schritten zu kommen. In der Visualisierung höre ich Inhalte live mit, verdichte Kernaussagen und mache Zusammenhänge in verständlichen Bildern sichtbar. Beides lässt sich wirkungsvoll verbinden, weil der Prozess Orientierung erhält und Ergebnisse direkt nachvollziehbar dokumentiert werden.</span>
+          <span class="lang-en">As a facilitator, I design and guide the process: I create a suitable structure, ask the right questions, involve different perspectives and help groups reach clear decisions and next steps. In visualisation, I listen to the content as it unfolds, distil key messages and make connections visible in accessible images. Combining both creates orientation throughout the process while documenting outcomes in a way people can understand and use.</span>
         </p>
       </details>
       <details>
-        <summary><span class="lang-de">Bieten Sie auch Online-Formate an</span><span class="lang-en">Do you offer online formats</span></summary>
+        <summary><span class="lang-de">Arbeiten Sie auch international?</span><span class="lang-en">Do you work internationally?</span></summary>
         <p>
-          <span class="lang-de">Ja. Moderation und Visualisierung funktionieren auch online und hybrid, mit den passenden Werkzeugen für Beteiligung und Klarheit.</span>
-          <span class="lang-en">Yes. Facilitation and visualisation also work online and hybrid, with the right tools for participation and clarity.</span>
+          <span class="lang-de">Ja. Ich bin in Berlin ansässig und arbeite in Deutschland sowie international, auf Deutsch und Englisch. Workshops, Konferenzen und Strategieprozesse begleite ich vor Ort, online oder hybrid. Für internationale Teams passe ich Sprache, Methoden, Beteiligungsformate und visuelle Dokumentation an den kulturellen und organisatorischen Kontext an.</span>
+          <span class="lang-en">Yes. I am based in Berlin and work throughout Germany and internationally, in both English and German. I facilitate workshops, conferences and strategy processes on site, online or in hybrid settings. For international teams, I adapt the language, methods, participation formats and visual documentation to the cultural and organisational context.</span>
         </p>
       </details>
       <details>
-        <summary><span class="lang-de">Was kostet eine Zusammenarbeit</span><span class="lang-en">What does a collaboration cost</span></summary>
+        <summary><span class="lang-de">Wie beginnt eine Zusammenarbeit?</span><span class="lang-en">How does a collaboration begin?</span></summary>
         <p>
-          <span class="lang-de">Das hängt von Umfang und Format ab. Nach einem kurzen Erstgespräch erhalten Sie ein transparentes Angebot.</span>
-          <span class="lang-en">That depends on scope and format. After a short first conversation you&#8217;ll receive a transparent offer.</span>
+          <span class="lang-de">Am Anfang steht ein unverbindliches Erstgespräch. Darin klären wir Anlass, Zielgruppe, gewünschte Ergebnisse, Rahmenbedingungen und die passende Form der Zusammenarbeit. Anschließend erhalten Sie ein individuelles, transparentes Angebot mit Leistungsumfang, Vorgehen, Zeitplan und Honorar. Nach der Beauftragung folgt eine strukturierte Detailklärung mit den relevanten Ansprechpersonen.</span>
+          <span class="lang-en">We begin with a no-obligation introductory call to clarify the context, audience, intended outcomes, practical requirements and the most suitable form of support. You then receive a tailored, transparent proposal outlining the scope, approach, timeline and fee. Once commissioned, I conduct a structured briefing with the relevant stakeholders.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Welche Erfahrung bringen Sie mit?</span><span class="lang-en">What experience do you bring?</span></summary>
+        <p>
+          <span class="lang-de">Ich arbeite seit mehr als zehn Jahren in Facilitation, Visualisierung, Training und Organisationsentwicklung und habe über 250 Veranstaltungen und Prozesse begleitet. Dazu gehören Führungsklausuren, Strategieworkshops, internationale Konferenzen, Großgruppenformate und längerfristige Veränderungsprozesse. Zu meinen Auftraggebern und Projektkontexten zählen unter anderem die Deutsche Bahn, GIZ, ERGO, Fraunhofer, die Universität Hohenheim und internationale Summit-Formate.</span>
+          <span class="lang-en">I have more than ten years of experience in facilitation, visualisation, training and organisational development and have supported over 250 events and processes. These include leadership offsites, strategy workshops, international conferences, large-group formats and longer-term transformation processes. My clients and project contexts include Deutsche Bahn, GIZ, ERGO, Fraunhofer, the University of Hohenheim and international summit formats.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Für welche Gruppengrößen und Formate ist die Zusammenarbeit geeignet?</span><span class="lang-en">Which group sizes and formats do you support?</span></summary>
+        <p>
+          <span class="lang-de">Ich arbeite mit kleinen Führungs- und Projektteams ebenso wie mit Konferenzen und Großgruppen mit rund 150 oder mehr Teilnehmenden. Das Format folgt dabei immer dem Ziel: von fokussierten Strategie-Meetings über partizipative Workshops bis zu mehrtägigen Trainings und hybriden Events. Bei größeren oder besonders komplexen Aufträgen stelle ich bei Bedarf ein erfahrenes Team aus Facilitation, Visualisierung und technischer Produktion zusammen.</span>
+          <span class="lang-en">I work with small leadership and project teams as well as conferences and large groups of around 150 participants or more. The format always follows the objective, from focused strategy meetings and participatory workshops to multi-day trainings and hybrid events. For larger or particularly complex assignments, I can assemble an experienced team covering facilitation, visualisation and technical production.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Wie früh sollte ich anfragen?</span><span class="lang-en">How early should I get in touch?</span></summary>
+        <p>
+          <span class="lang-de">Für Konferenzen, Strategieprozesse und größere Workshops sind vier bis zwölf Wochen Vorlauf hilfreich, damit Auftragsklärung, Prozessdesign und Abstimmung sorgfältig erfolgen können. Für längerfristige Prozesse empfiehlt sich eine noch frühere Anfrage. Kurzfristige Termine sind je nach Verfügbarkeit ebenfalls möglich, sprechen Sie mich gern an.</span>
+          <span class="lang-en">For conferences, strategy processes and larger workshops, four to twelve weeks of lead time is helpful for a thorough briefing, process design and coordination. Longer-term processes benefit from an even earlier enquiry. Short-notice assignments may also be possible depending on availability, so please feel free to get in touch.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Was kostet eine Zusammenarbeit?</span><span class="lang-en">What does a collaboration cost?</span></summary>
+        <p>
+          <span class="lang-de">Das Honorar richtet sich nach Ziel, Umfang, Vorbereitungsaufwand, Dauer, Reisebedarf und der gewünschten Dokumentation. Ein einzelner Moderations- oder Visualisierungsauftrag wird anders kalkuliert als ein mehrmonatiger Strategieprozess. Nach dem Erstgespräch erhalten Sie ein klar gegliedertes Angebot ohne versteckte Zusatzkosten, sodass Leistungen und Investition verlässlich planbar sind.</span>
+          <span class="lang-en">Fees depend on the objective, scope, preparation required, duration, travel and the desired documentation. A single facilitation or visualisation assignment is calculated differently from a multi-month strategy process. After the introductory call, you receive a clearly structured proposal without hidden extras, making both the services and investment easy to plan.</span>
         </p>
       </details>
     </div>
@@ -208,8 +236,8 @@
                en: 'Please fill in name, email and message.' },
     email:   { de: 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
                en: 'Please enter a valid email address.' },
-    error:   { de: 'Das hat leider nicht geklappt. Schreiben Sie mir gern direkt an Robin(at)Robin-Hotz.com.',
-               en: 'Something went wrong. Please email me directly at Robin(at)Robin-Hotz.com.' }
+    error:   { de: 'Das hat leider nicht geklappt. Schreiben Sie mir gern direkt an Robin@Robin-Hotz.com.',
+               en: 'Something went wrong. Please email me directly at Robin@Robin-Hotz.com.' }
   };
   function t(key) { var l = document.documentElement.lang === 'en' ? 'en' : 'de'; return TXT[key][l]; }
   function show(key, kind) {

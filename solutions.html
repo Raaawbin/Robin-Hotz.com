@@ -33,18 +33,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <script src="js/theme.js?v=7"></script>
-<script src="js/main.js?v=2" defer></script>
+<script src="js/main.js?v=5" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Visual Facilitator und Moderator","url":"https://robin-hotz.com/","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"knowsAbout":["Moderation","Konferenz-Moderation","World Café","Open Space","Loop Approach","Organisationsentwicklung","Graphic Recording","Visual Facilitation"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Loop Approach Zertifizierung","credentialCategory":"certification","dateCreated":"2024","recognizedBy":{"@type":"Organization","name":"TheDive","url":"https://www.thedive.com/de/produkte-mainpage/the-loop-approach"}},"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/"]},
+ {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Visual Facilitator und Moderator","url":"https://robin-hotz.com/","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"knowsAbout":["Moderation","Konferenz-Moderation","World Café","Open Space","The Loop Approach®","Organisationsentwicklung","Graphic Recording","Visual Facilitation"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"The Loop Approach® Zertifizierung","credentialCategory":"certification","dateCreated":"2024","recognizedBy":{"@type":"Organization","name":"TheDive","url":"https://www.thedive.com/de/produkte-mainpage/the-loop-approach"}},"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/"]},
  {"@type":"BreadcrumbList","itemListElement":[
   {"@type":"ListItem","position":1,"name":"Start","item":"https://robin-hotz.com/index.html"},
   {"@type":"ListItem","position":2,"name":"Lösungen","item":"https://robin-hotz.com/solutions.html"}]},
  {"@type":"Service","@id":"https://robin-hotz.com/solutions.html#moderation","name":"Moderation","serviceType":["Konferenz-Moderation","Event-Moderation","World Café","Open Space","Panel-Moderation"],"provider":{"@id":"https://robin-hotz.com/#robin"},"areaServed":["Berlin","Deutschland","DACH"],"url":"https://robin-hotz.com/solutions.html#moderation","description":"Event-Moderation für Konferenzen und Organisationen: Konferenz-Moderation, World Café, Open Space, Panels und Town Halls mit klarem roten Faden."},
- {"@type":"Service","@id":"https://robin-hotz.com/solutions.html#coaching","name":"Coaching","serviceType":["Organisationsentwicklung","Team-Entwicklung","Führungskräfte-Coaching","Loop Approach"],"provider":{"@id":"https://robin-hotz.com/#robin"},"areaServed":["Berlin","Deutschland","DACH"],"url":"https://robin-hotz.com/solutions.html#coaching","description":"Organisationsentwicklung mit dem Loop Approach: Führung, Rollenklärung und Kulturentwicklung, strukturiert und partizipativ."},
+ {"@type":"Service","@id":"https://robin-hotz.com/solutions.html#coaching","name":"Coaching","serviceType":["Organisationsentwicklung","Team-Entwicklung","Führungskräfte-Coaching","The Loop Approach®"],"provider":{"@id":"https://robin-hotz.com/#robin"},"areaServed":["Berlin","Deutschland","DACH"],"url":"https://robin-hotz.com/solutions.html#coaching","description":"Organisationsentwicklung mit The Loop Approach®: Führung, Rollenklärung und Kulturentwicklung, strukturiert und partizipativ."},
  {"@type":"Service","@id":"https://robin-hotz.com/solutions.html#visualisierung","name":"Visualisierung","serviceType":["Graphic Recording","Strategie-Visualisierung","Sketchnotes","Visual Facilitation"],"provider":{"@id":"https://robin-hotz.com/#robin"},"areaServed":["Berlin","Deutschland","DACH"],"url":"https://robin-hotz.com/solutions.html#visualisierung","description":"Graphic Recording und Strategie-Visualisierung, die komplexe Inhalte greifbar machen, damit Teams schneller verstehen und entscheiden."}
 ]}
 </script>
@@ -71,33 +71,33 @@
 <section class="method" id="ueberblick" style="padding-top:10px">
   <div class="wrap">
     <div class="method-grid">
-      <div class="mcell panel">
-        <div class="ico"><span class="icon icon-dialog" aria-hidden="true"></span></div>
-        <h3><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></h3>
+      <a class="mcell panel" href="#moderation">
+        <figure class="mcell-photo"><img src="assets/fotos/konferenzen.webp" alt="Robin Hotz moderiert vor Publikum bei einer Konferenz" loading="lazy"></figure>
+        <h3><span class="lang-de o">Moderation</span><span class="lang-en o">Facilitation</span></h3>
         <p>
           <span class="lang-de">Event-Moderation, die Ihre Themen souverän auf die Bühne bringt und das Publikum wirklich erreicht.</span>
           <span class="lang-en">Event facilitation that brings your topics to the stage with confidence and truly reaches the audience.</span>
         </p>
-        <a class="btn mcell-btn" href="#moderation"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
-      </div>
-      <div class="mcell panel">
-        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
-        <h3>Coaching</h3>
+        <span class="btn mcell-btn"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></span>
+      </a>
+      <a class="mcell panel" href="#coaching">
+        <figure class="mcell-photo"><img src="assets/fotos/aoh-training.webp" alt="Teilnehmende in einem moderierten Gesprächskreis" loading="lazy"></figure>
+        <h3><span class="o">Coaching</span></h3>
         <p>
           <span class="lang-de">Organisationsentwicklung von Führung und Rollenklärung bis zur Kultur, strukturiert und partizipativ.</span>
           <span class="lang-en">Organisational development from leadership and role clarity to culture, structured and participatory.</span>
         </p>
-        <a class="btn mcell-btn" href="#coaching"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
-      </div>
-      <div class="mcell panel">
-        <div class="ico"><span class="icon icon-eye" aria-hidden="true"></span></div>
-        <h3><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></h3>
+        <span class="btn mcell-btn"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></span>
+      </a>
+      <a class="mcell panel" href="#visualisierung">
+        <figure class="mcell-photo"><img src="assets/fotos/strategietag-vision-1.webp" alt="Robin Hotz visualisiert Inhalte live an einer Graphic-Recording-Wand" loading="lazy"></figure>
+        <h3><span class="lang-de o">Visualisierung</span><span class="lang-en o">Visualisation</span></h3>
         <p>
           <span class="lang-de">Visualisierung, die komplexe Inhalte greifbar macht, damit Teams schneller verstehen und entscheiden.</span>
           <span class="lang-en">Visualisation that makes complex content tangible, so teams understand and decide faster.</span>
         </p>
-        <a class="btn mcell-btn" href="#visualisierung"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></a>
-      </div>
+        <span class="btn mcell-btn"><span class="lang-de">Mehr erfahren</span><span class="lang-en">Learn more</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -121,10 +121,10 @@
           <span class="tag">World Café</span>
           <span class="tag">Open Space</span>
           <span class="tag"><span class="lang-de">Panel und Talk</span><span class="lang-en">Panel &amp; talk</span></span>
-          <span class="tag">Town Hall</span>
-          <span class="tag"><span class="lang-de">Strategietag</span><span class="lang-en">Strategy day</span></span>
-          <span class="tag"><span class="lang-de">Preisverleihung</span><span class="lang-en">Award ceremony</span></span>
-          <span class="tag"><span class="lang-de">Online und hybrid</span><span class="lang-en">Online &amp; hybrid</span></span>
+          <a class="tag" href="subpages/liberating-structures.html">Liberating Structures</a>
+          <span class="tag">Art of Hosting</span>
+          <span class="tag">Keynotes</span>
+          <span class="tag"><span class="lang-de">Strategiemeeting</span><span class="lang-en">Strategy meeting</span></span>
         </div>
       </div>
     </div>
@@ -199,7 +199,8 @@
           <span class="tag"><span class="lang-de">Team-Entwicklung</span><span class="lang-en">Team development</span></span>
           <span class="tag"><span class="lang-de">Führungskräfte-Coaching</span><span class="lang-en">Leadership coaching</span></span>
           <span class="tag"><span class="lang-de">Strategie-Workshops</span><span class="lang-en">Strategy workshops</span></span>
-          <span class="tag">Loop Approach</span>
+          <a class="tag" href="subpages/design-thinking.html">Design Thinking</a>
+          <a class="tag" href="subpages/loop-approach.html">The Loop Approach&#174;</a>
           <span class="tag"><span class="lang-de">Rollen und Kultur</span><span class="lang-en">Roles &amp; culture</span></span>
           <span class="tag"><span class="lang-de">Retrospektiven</span><span class="lang-en">Retrospectives</span></span>
           <span class="tag"><span class="lang-de">Klausuren</span><span class="lang-en">Offsites</span></span>
@@ -243,8 +244,8 @@
         </ul>
         <div class="block-title" style="margin-top:32px"><span class="lang-de">Wie ich arbeite</span><span class="lang-en">How I work</span></div>
         <p class="muted">
-          <span class="lang-de">Ich arbeite partizipativ und strukturiert zugleich. Beteiligung schafft Akzeptanz, klare Struktur sorgt dafür, dass am Ende belastbare Ergebnisse stehen statt offener Enden. Mein Ansatz dafür ist der <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Loop Approach</a> von TheDive, ein bewährtes Framework für die Transformation von Teams und Organisationen, in dem ich seit 2024 zertifiziert bin.</span>
-          <span class="lang-en">I work in a way that is both participatory and structured. Participation creates acceptance, clear structure ensures solid results instead of loose ends. My approach is the <a href="https://www.thedive.com/de/produkte-mainpage/the-loop-approach" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Loop Approach</a> by TheDive, a proven framework for transforming teams and organisations, in which I have been certified since 2024.</span>
+          <span class="lang-de">Ich arbeite partizipativ und strukturiert zugleich. Beteiligung schafft Akzeptanz, klare Struktur sorgt dafür, dass am Ende belastbare Ergebnisse stehen statt offener Enden. Mein Ansatz dafür ist <a href="subpages/loop-approach.html" style="color:var(--accent);text-decoration:underline">The Loop Approach®</a> von TheDive, ein bewährtes Framework für die Transformation von Teams und Organisationen, in dem ich seit 2024 zertifiziert bin.</span>
+          <span class="lang-en">I work in a way that is both participatory and structured. Participation creates acceptance, clear structure ensures solid results instead of loose ends. My approach is <a href="subpages/loop-approach.html" style="color:var(--accent);text-decoration:underline">The Loop Approach®</a> by TheDive, a proven framework for transforming teams and organisations, in which I have been certified since 2024.</span>
         </p>
         <div class="result-box">
           <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
@@ -348,7 +349,7 @@
       </a>
       <p class="mail">
         <span class="lang-de">oder schreiben Sie mir direkt</span><span class="lang-en">or write to me directly</span><br>
-        <span class="mail-plain">Robin(at)Robin-Hotz.com</span>
+        <a class="mail-plain" href="mailto:Robin@Robin-Hotz.com">Robin@Robin-Hotz.com</a>
       </p>
     </div>
   </div>

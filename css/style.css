@@ -310,19 +310,6 @@ a{color:inherit;text-decoration:none}
 /* Neues GIZ-Wortmarken-Logo hat mehr Rand — optisch auf Höhe der anderen bringen */
 .hero-logos img.logo-giz-hero{height:62px}
 
-/* Scroll-Hinweis */
-.scroll-hint{
-  position:absolute;right:40px;bottom:160px;
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-  font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--hint-color);
-  writing-mode:vertical-rl;
-}
-.scroll-hint::after{
-  content:"";width:2px;height:56px;background:linear-gradient(180deg,var(--accent),transparent);
-  animation:drop 1.8s ease-in-out infinite;
-}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
 /* ============================================================
    SEKTIONEN
    ============================================================ */
@@ -1674,7 +1661,6 @@ b{color:var(--text-strong)}
   .navitem.drop-ctl{display:flex;flex-direction:column;align-items:flex-start}
   .nav-cta{margin-top:10px}
   .burger{display:inline-flex}
-  .scroll-hint{display:none}
   /* Untertitel schmal als Fließtext: kein fester Umbruch, kein nowrap */
   .hero .sub .nobr{white-space:normal}
   .hero .sub br{display:none}
@@ -1719,7 +1705,6 @@ b{color:var(--text-strong)}
   .about-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
 }
 @media (prefers-reduced-motion:reduce){
-  .scroll-hint::after{animation:none}
   html{scroll-behavior:auto}
 }
 

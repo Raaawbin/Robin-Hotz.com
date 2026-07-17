@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=21">
+<link rel="stylesheet" href="css/style.css?v=25">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <script src="js/theme.js?v=7"></script>
 <script src="js/main.js?v=5" defer></script>
@@ -89,27 +89,42 @@
 
 </section>
 
-<!-- ============ ANSATZ: drei Panels ============ -->
-<section class="method">
+<!-- ============ ZIELGRUPPEN ============ -->
+<section class="audience" id="audience">
   <div class="wrap">
-    <div class="method-grid">
-      <div class="mcell panel">
-        <div class="ico-img"><img src="assets/icons/ico-dialog.webp" alt="" loading="lazy"></div>
-        <h3><span class="lang-de">Dialog fördern</span><span class="lang-en">Foster dialogue</span></h3>
-        <p><span class="lang-de">Raum für echten Austausch und Inspiration auf Events und Konferenzen.</span><span class="lang-en">Space for real exchange and inspiration at events and conferences.</span></p>
-        <a class="btn mcell-btn" href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
-      </div>
-      <div class="mcell panel">
-        <div class="ico-img"><img src="assets/icons/ico-kultur.webp" alt="" loading="lazy"></div>
-        <h3><span class="lang-de">Kultur entwickeln</span><span class="lang-en">Create culture</span></h3>
-        <p><span class="lang-de">Zusammenarbeit stärken und nachhaltige Veränderung in Organisationen gestalten.</span><span class="lang-en">Strengthen collaboration and shape lasting change in organisations.</span></p>
-        <a class="btn mcell-btn" href="solutions.html#coaching">Coaching</a>
-      </div>
-      <div class="mcell panel">
-        <div class="ico-img"><img src="assets/icons/ico-auge.webp" alt="" loading="lazy"></div>
-        <h3><span class="lang-de">Komplexität verstehen</span><span class="lang-en">Understand complexity</span></h3>
-        <p><span class="lang-de">Klarheit in komplexe Situationen bringen und das Wesentliche sichtbar machen.</span><span class="lang-en">Bring clarity to complex situations and make the essential visible.</span></p>
-        <a class="btn mcell-btn" href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
+    <h2 class="audience-title"><span class="lang-de">Ich arbeite <span class="o">mit</span></span><span class="lang-en">I work <span class="o">with</span></span></h2>
+    <p class="section-intro audience-intro">
+      <span class="lang-de">In einer Welt, die sich ständig verändert, kostet ungelöste Komplexität Zeit und Geld, verzögert Entscheidungen und verschärft Konflikte. Ich bringe Klarheit in Gespräche, Entscheidungen und nächste Schritte.</span>
+      <span class="lang-en">In a constantly changing world, unresolved complexity wastes time and money, slows decisions and fuels conflict. I bring clarity to conversations, decisions and next steps.</span>
+    </p>
+    <div class="aud-grid">
+      <article class="aud panel">
+        <div class="ico"><span class="icon icon-mic" aria-hidden="true"></span></div>
+        <h4><span class="lang-de">Konferenzen</span><span class="lang-en">Conferences</span></h4>
+        <p><span class="lang-de">Ihre Veranstaltung hat starke Inhalte, aber keinen klaren roten Faden. Das Publikum bleibt passiv und Ergebnisse verpuffen nach dem letzten Programmpunkt.</span><span class="lang-en">Your event has strong content but no clear thread. The audience remains passive and results fade after the final session.</span></p>
+        <a class="btn aud-cta" href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
+      </article>
+      <article class="aud panel">
+        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
+        <h4><span class="lang-de">Teams &amp; Führungskräfte</span><span class="lang-en">Teams &amp; leaders</span></h4>
+        <p><span class="lang-de">Rollen und Ziele sind unklar. Gespräche drehen sich im Kreis, Entscheidungen werden nicht getragen und die Zusammenarbeit verliert Energie.</span><span class="lang-en">Roles and goals are unclear. Conversations go in circles, decisions lack support and collaboration loses momentum.</span></p>
+        <a class="btn aud-cta" href="solutions.html#coaching">Coaching</a>
+      </article>
+      <article class="aud panel">
+        <div class="ico"><span class="icon icon-compass" aria-hidden="true"></span></div>
+        <h4><span class="lang-de">Organisationen</span><span class="lang-en">Organisations</span></h4>
+        <p><span class="lang-de">Komplexe Veränderung bleibt abstrakt. Perspektiven konkurrieren und ein gemeinsames Bild davon, was als Nächstes zählt, fehlt.</span><span class="lang-en">Complex change remains abstract. Perspectives compete and there is no shared picture of what matters next.</span></p>
+        <a class="btn aud-cta" href="solutions.html#visualisierung"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>
+      </article>
+    </div>
+    <div class="aud-methods" id="methods">
+      <span class="cm-l"><span class="lang-de">Methoden, mit denen ich arbeite</span><span class="lang-en">Methods I work with</span></span>
+      <div class="method-pills" aria-label="Methods">
+        <a class="method-pill" href="subpages/loop-approach.html"><span class="icon icon-spark" aria-hidden="true"></span>The Loop Approach&#174;</a>
+        <a class="method-pill" href="subpages/liberating-structures.html"><span class="icon icon-users" aria-hidden="true"></span>Liberating Structures</a>
+        <a class="method-pill" href="subpages/design-thinking.html"><span class="icon icon-target" aria-hidden="true"></span>Design Thinking</a>
+        <a class="method-pill" href="subpages/visual-facilitation.html"><span class="icon icon-pen" aria-hidden="true"></span>Visual Facilitation</a>
+        <a class="method-pill" href="subpages/integrale-theorie.html"><span class="icon icon-compass" aria-hidden="true"></span><span class="lang-de">Integrale Theorie</span><span class="lang-en">Integral Theory</span></a>
       </div>
     </div>
   </div>
@@ -305,41 +320,6 @@
       </div>
       <div class="about-action">
         <a class="btn" href="about.html"><span class="lang-de">Mehr über mich</span><span class="lang-en">More about me</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ZIELGRUPPEN ============ -->
-<section class="audience" id="audience">
-  <div class="wrap">
-    <span class="eyebrow audience-eyebrow"><span class="lang-de">Lösungen für</span><span class="lang-en">Solutions for</span></span>
-    <h2 class="audience-title" style="margin-bottom:30px"><span class="lang-de">Ich arbeite <span class="o">mit</span></span><span class="lang-en">I work <span class="o">with</span></span></h2>
-    <div class="aud-grid">
-      <div class="aud panel">
-        <div class="ico"><span class="icon icon-mic" aria-hidden="true"></span></div>
-        <h4><span class="lang-de">Konferenzen</span><span class="lang-en">Conferences</span></h4>
-        <p><span class="lang-de">Für alle, die Wandel gestalten und andere dabei unterstützen wollen.</span><span class="lang-en">For everyone who shapes change and wants to support others.</span></p>
-      </div>
-      <div class="aud panel">
-        <div class="ico"><span class="icon icon-users" aria-hidden="true"></span></div>
-        <h4><span class="lang-de">Teams &amp; Führungskräfte</span><span class="lang-en">Teams &amp; leaders</span></h4>
-        <p><span class="lang-de">Für bessere Zusammenarbeit, klare Entscheidungen und gemeinsame Ausrichtung.</span><span class="lang-en">For better collaboration, clear decisions and shared direction.</span></p>
-      </div>
-      <div class="aud panel">
-        <div class="ico"><span class="icon icon-compass" aria-hidden="true"></span></div>
-        <h4><span class="lang-de">Organisationen</span><span class="lang-en">Organisations</span></h4>
-        <p><span class="lang-de">Für Strategieprozesse, Kulturwandel und die Entwicklung zukunftsfähiger Organisationen.</span><span class="lang-en">For strategy processes, cultural change and building future-ready organisations.</span></p>
-      </div>
-    </div>
-    <div class="aud-methods" id="methods">
-      <span class="cm-l"><span class="lang-de">Methoden, mit denen ich arbeite</span><span class="lang-en">Methods I work with</span></span>
-      <div class="method-pills" aria-label="Methods">
-        <a class="method-pill" href="subpages/loop-approach.html"><span class="icon icon-spark" aria-hidden="true"></span>The Loop Approach&#174;</a>
-        <a class="method-pill" href="subpages/liberating-structures.html"><span class="icon icon-users" aria-hidden="true"></span>Liberating Structures</a>
-        <a class="method-pill" href="subpages/design-thinking.html"><span class="icon icon-target" aria-hidden="true"></span>Design Thinking</a>
-        <a class="method-pill" href="subpages/visual-facilitation.html"><span class="icon icon-pen" aria-hidden="true"></span>Visual Facilitation</a>
-        <a class="method-pill" href="subpages/integrale-theorie.html"><span class="icon icon-compass" aria-hidden="true"></span>Integral Theory</a>
       </div>
     </div>
   </div>

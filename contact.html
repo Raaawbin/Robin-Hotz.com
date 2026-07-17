@@ -26,10 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=28">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <script src="js/theme.js?v=7"></script>
-<script src="js/main.js?v=5" defer></script>
+<script src="js/main.js?v=6" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"ContactPage","@id":"https://robin-hotz.com/contact.html","name":"Kontakt","about":{"@id":"https://robin-hotz.com/#robin"}},
@@ -228,6 +228,9 @@
   if (!form) return;
   var status = document.getElementById('form-status');
   var btn = form.querySelector('button[type="submit"]');
+  var nameField = form.elements.namedItem('name');
+  var emailField = form.elements.namedItem('email');
+  var messageField = form.elements.namedItem('message');
 
   var TXT = {
     sending: { de: 'Wird gesendet …', en: 'Sending …' },
@@ -248,9 +251,9 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim();
-    var email = form.email.value.trim();
-    var msg = form.message.value.trim();
+    var name = nameField.value.trim();
+    var email = emailField.value.trim();
+    var msg = messageField.value.trim();
     if (!name || !email || !msg) { show('missing', 'error'); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('email', 'error'); return; }
 

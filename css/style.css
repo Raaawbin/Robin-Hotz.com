@@ -487,9 +487,9 @@ b{color:var(--text-strong)}
 /* Zielgruppen */
 .audience{padding:90px 0;background:var(--bg)}
 .audience-eyebrow{justify-content:center}
-.audience-title{text-align:center}
+.audience-title{text-align:center;margin-bottom:48px}
 .audience-intro{margin:16px auto 34px;text-align:center}
-.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:4px;max-width:950px;margin:0 auto}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:4px;width:100%;margin:0 auto}
 .aud{padding:24px 22px;text-align:center;display:flex;flex-direction:column;align-items:center}
 .aud-methods{margin-top:36px;text-align:center}
 .aud-methods .method-pills{justify-content:center;gap:12px}
@@ -497,8 +497,8 @@ b{color:var(--text-strong)}
 .aud-methods .method-pill .icon{width:20px;height:20px;color:var(--accent)}
 .aud .ico{color:var(--accent);margin-bottom:10px}
 .aud .ico .icon{width:34px;height:34px}
-.aud h4{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.88rem;margin-bottom:7px}
-.aud p{font-size:.94rem;line-height:1.45;flex:1}
+.aud h4{font-weight:700;font-size:1.4rem;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
+.aud p{font-size:1rem;line-height:1.45;flex:1}
 .aud-cta{margin-top:20px;padding:10px 20px;font-size:.78rem}
 
 /* Referenzen */

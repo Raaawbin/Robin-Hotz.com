@@ -110,14 +110,14 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .transformation-image b { color: var(--lime); }
 
 .fasting-journey { background: var(--pink); }
-.journey-layout { display: grid; grid-template-columns: minmax(20rem, .7fr) 1fr; gap: 5vw; align-items: start; }
-.journey-person { position: sticky; top: 8rem; min-height: 34rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.journey-photo { width: min(27rem, 100%); aspect-ratio: 3 / 4; opacity: 1; background-image: url("fotos/fastival-comic-transformation.jpg"); background-repeat: no-repeat; background-size: 500% auto; background-position: 0% 35%; border: .5rem solid var(--cream); border-radius: 48% 48% 1rem 1rem; box-shadow: 1rem 1rem 0 var(--forest); transition: opacity .42s ease, filter .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
-.journey-photo.is-changing { opacity: .28; filter: blur(5px) saturate(.7); transform: scale(.965) rotate(-1deg); }
-.journey-person p { z-index: 2; margin-top: -1rem; padding: .55rem 1rem; background: var(--lime); border: 2px solid var(--ink); border-radius: 999px; font: 900 .78rem/1 var(--display); transform: rotate(-3deg); }
+.journey-layout { display: grid; grid-template-columns: minmax(24rem, .9fr) 1fr; gap: 5vw; align-items: start; }
+.journey-person { position: sticky; top: 8rem; min-height: 28rem; display: flex; align-items: center; }
+.journey-strip { position: relative; width: min(36rem, 100%); margin: 0; transform: rotate(-1deg); }
+.journey-strip img { border: .55rem solid var(--cream); border-radius: 1.25rem; box-shadow: 1rem 1rem 0 var(--forest); }
+.journey-strip figcaption { position: absolute; left: 1rem; bottom: -1rem; padding: .55rem .85rem; color: var(--paper); background: var(--forest-deep); border: 2px solid var(--ink); border-radius: 999px; font: 900 .7rem/1 var(--display); letter-spacing: .05em; text-transform: uppercase; transform: rotate(-2deg); }
 .journey-steps { margin: 0; padding: 0; list-style: none; }
-.journey-steps li { min-height: 19rem; padding: 3rem 0; border-top: 1.5px solid rgba(21,23,17,.35); opacity: .48; transition: opacity .3s, transform .3s; }
-.journey-steps li.active { opacity: 1; transform: translateX(-1rem); }
+.journey-steps li { min-height: 17rem; padding: 3rem 0; border-top: 1.5px solid rgba(21,23,17,.35); opacity: .42; transform: translateX(0); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+.journey-steps li.active { opacity: 1; transform: translateX(-.65rem); }
 .journey-steps li > span { font: 900 .75rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .journey-steps h3 { margin: .8rem 0; font: 900 clamp(2.6rem, 5vw, 5rem)/.9 var(--display); letter-spacing: -.06em; text-transform: uppercase; }
 .journey-steps p { max-width: 36rem; font-size: 1.1rem; }
@@ -207,10 +207,11 @@ footer p:last-child { text-align: right; }
   .transformation-head p { margin-top: 1.5rem; }
   .transformation-image figcaption { grid-template-columns: 1fr; }
   .transformation-image figcaption span:last-child { text-align: left; }
-  .journey-layout { grid-template-columns: 8rem 1fr; gap: 1rem; }
-  .journey-person { top: 7rem; min-height: 22rem; }
-  .journey-photo { width: 8rem; border-width: .25rem; box-shadow: .35rem .35rem 0 var(--forest); }
-  .journey-steps li { min-height: 20rem; }
+  .journey-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .journey-person { position: relative; top: auto; min-height: auto; }
+  .journey-strip { width: 100%; }
+  .journey-strip img { border-width: .3rem; box-shadow: .55rem .55rem 0 var(--forest); }
+  .journey-steps li { min-height: 16rem; }
   .journey-steps h3 { font-size: 2.7rem; }
   .gallery { grid-template-columns: 1fr; grid-template-rows: repeat(4, 18rem); }
   .gallery-main, .gallery figure:last-child { grid-column: auto; }

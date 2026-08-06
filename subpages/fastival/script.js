@@ -5,11 +5,20 @@
   const scrollFast = document.querySelector('[data-scroll-fast]');
   const scrollFastFill = document.querySelector('[data-scroll-fast-fill]');
   const scrollFastTime = document.querySelector('[data-scroll-fast-time]');
-  const journey = document.querySelector('[data-journey]');
+  const benefitTitle = document.querySelector('[data-benefit-title]');
+  const benefitCopy = document.querySelector('[data-benefit-copy]');
+  const benefitFigure = document.querySelector('[data-benefit-figure]');
   const stages = [...document.querySelectorAll('[data-stage]')];
   const journeyLabel = document.querySelector('[data-journey-label]');
   const journeyPhoto = document.querySelector('[data-journey-photo]');
   const stagePositions = ['0%', '25%', '50%', '75%', '100%'];
+  const fastingPhases = [
+    { until: 12, title: 'Fasten startet', copy: 'Die letzte Mahlzeit wird verarbeitet. Glukose ist noch der Haupttreibstoff.' },
+    { until: 24, title: 'Speicher werden leerer', copy: 'Insulin sinkt, Leberglykogen wird genutzt und die Fettverbrennung nimmt zu.' },
+    { until: 48, title: 'Fuel Switch', copy: 'Fettsäuren und Ketone liefern zunehmend Energie. Der Wechsel ist individuell.' },
+    { until: 72, title: 'Ketone steigen', copy: 'Ketone werden wichtiger; der Körper spart dabei zunehmend Glukose.' },
+    { until: 97, title: 'Tiefe Anpassung', copy: 'Die Ketogenese ist stark aktiv. Mehrtägiges Fasten gehört gut begleitet.' }
+  ];
 
   const closeMenu = () => {
     nav?.classList.remove('open');
@@ -29,9 +38,15 @@
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
     const hours = Math.round(progress * 96);
+    const matchingPhase = fastingPhases.findIndex(phase => hours < phase.until);
+    const phaseIndex = matchingPhase === -1 ? fastingPhases.length - 1 : matchingPhase;
+    const phase = fastingPhases[phaseIndex];
     header?.classList.toggle('scrolled', window.scrollY > 48);
     if (scrollFastFill) scrollFastFill.style.height = `${progress * 100}%`;
     if (scrollFastTime) scrollFastTime.textContent = `${hours}h`;
+    if (benefitTitle) benefitTitle.textContent = phase.title;
+    if (benefitCopy) benefitCopy.textContent = phase.copy;
+    if (benefitFigure) benefitFigure.style.backgroundPosition = `${stagePositions[phaseIndex]} 50%`;
     if (scrollFast) scrollFast.hidden = window.innerWidth < 360;
   };
 

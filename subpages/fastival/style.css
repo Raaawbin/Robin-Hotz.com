@@ -110,23 +110,16 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .transformation-image b { color: var(--lime); }
 
 .fasting-journey { background: var(--pink); }
-.journey-layout { display: grid; grid-template-columns: minmax(24rem, .9fr) 1fr; gap: 5vw; align-items: start; }
-.journey-person { position: sticky; top: 8rem; min-height: 28rem; display: flex; align-items: center; }
-.journey-gallery { width: min(36rem, 100%); display: grid; grid-template-columns: repeat(6, 1fr); gap: .7rem; align-items: center; }
-.journey-frame { grid-column: span 2; aspect-ratio: 3 / 4; opacity: .52; background-image: url("fotos/fastival-comic-transformation.jpg"); background-repeat: no-repeat; background-size: 500% auto; background-position-y: 35%; border: .35rem solid var(--cream); border-radius: 1rem; box-shadow: .5rem .5rem 0 rgba(23,61,45,.55); transform: translateY(0) rotate(-1deg); transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease, border-color .5s ease; }
-.journey-frame:nth-child(even) { transform: translateY(0) rotate(1deg); }
-.journey-frame:nth-child(4) { grid-column: 2 / span 2; }
-.journey-frame:nth-child(5) { grid-column: 4 / span 2; }
-.journey-frame[data-journey-frame="0"] { background-position-x: 0%; }
-.journey-frame[data-journey-frame="1"] { background-position-x: 25%; }
-.journey-frame[data-journey-frame="2"] { background-position-x: 50%; }
-.journey-frame[data-journey-frame="3"] { background-position-x: 75%; }
-.journey-frame[data-journey-frame="4"] { background-position-x: 100%; }
-.journey-frame.active { opacity: 1; border-color: var(--lime); box-shadow: .7rem .7rem 0 var(--forest); transform: translateY(-.45rem) rotate(0); }
+.journey-layout { max-width: 76rem; margin: 0 auto; }
 .journey-steps { margin: 0; padding: 0; list-style: none; }
-.journey-steps li { min-height: 17rem; padding: 3rem 0; border-top: 1.5px solid rgba(21,23,17,.35); opacity: .42; transform: translateX(0); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
-.journey-steps li.active { opacity: 1; transform: translateX(-.65rem); }
-.journey-steps li > span { font: 900 .75rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; }
+.journey-steps li { display: grid; grid-template-columns: minmax(14rem, 22rem) 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding: 3rem 0; border-top: 1.5px solid rgba(21,23,17,.35); }
+.journey-day-image { width: 100%; aspect-ratio: 3 / 4; background-image: url("fotos/fastival-comic-transformation.jpg"); background-repeat: no-repeat; background-size: 500% auto; background-position-y: 35%; border: .35rem solid var(--cream); border-radius: 1rem; box-shadow: .55rem .55rem 0 rgba(23,61,45,.55); }
+.journey-day-image[data-journey-day-image="0"] { background-position-x: 0%; }
+.journey-day-image[data-journey-day-image="1"] { background-position-x: 25%; }
+.journey-day-image[data-journey-day-image="2"] { background-position-x: 50%; }
+.journey-day-image[data-journey-day-image="3"] { background-position-x: 75%; }
+.journey-day-image[data-journey-day-image="4"] { background-position-x: 100%; }
+.journey-day-copy > span { font: 900 .75rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .journey-steps h3 { margin: .8rem 0; font: 900 clamp(2.6rem, 5vw, 5rem)/.9 var(--display); letter-spacing: -.06em; text-transform: uppercase; }
 .journey-steps p { max-width: 36rem; font-size: 1.1rem; }
 .health-note { max-width: 58rem; margin: 4rem 0 0 auto; padding-top: 1.2rem; border-top: 1px solid var(--ink); font-size: .75rem; }
@@ -214,12 +207,8 @@ footer p:last-child { text-align: right; }
   .transformation-head p { margin-top: 1.5rem; }
   .transformation-image figcaption { grid-template-columns: 1fr; }
   .transformation-image figcaption span:last-child { text-align: left; }
-  .journey-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .journey-person { position: relative; top: auto; min-height: auto; }
-  .journey-gallery { width: 100%; gap: .45rem; }
-  .journey-frame { border-width: .22rem; box-shadow: .3rem .3rem 0 rgba(23,61,45,.55); }
-  .journey-frame.active { box-shadow: .4rem .4rem 0 var(--forest); }
-  .journey-steps li { min-height: 16rem; }
+  .journey-steps li { grid-template-columns: minmax(11rem, 15rem) 1fr; gap: 1.5rem; }
+  .journey-day-image { border-width: .22rem; box-shadow: .3rem .3rem 0 rgba(23,61,45,.55); }
   .journey-steps h3 { font-size: 2.7rem; }
   .gallery { grid-template-columns: 1fr; grid-template-rows: repeat(4, 18rem); }
   .gallery-main, .gallery figure:last-child { grid-column: auto; }

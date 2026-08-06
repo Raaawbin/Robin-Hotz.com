@@ -8,8 +8,6 @@
   const benefitTitle = document.querySelector('[data-benefit-title]');
   const benefitCopy = document.querySelector('[data-benefit-copy]');
   const benefitFigure = document.querySelector('[data-benefit-figure]');
-  const stages = [...document.querySelectorAll('[data-stage]')];
-  const journeyFrames = [...document.querySelectorAll('[data-journey-frame]')];
   const stagePositions = ['0%', '25%', '50%', '75%', '100%'];
   const fastingPhases = [
     { until: 12, title: 'Fasten startet', copy: 'Die letzte Mahlzeit wird verarbeitet. Glukose ist noch der Haupttreibstoff.' },
@@ -49,18 +47,6 @@
     if (scrollFast) scrollFast.hidden = window.innerWidth < 360;
   };
 
-  const stageObserver = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter(entry => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!visible) return;
-    const activeStage = Number(visible.target.dataset.stage || 0);
-    stages.forEach(item => item.classList.toggle('active', item === visible.target));
-    journeyFrames.forEach((frame, index) => frame.classList.toggle('active', index === activeStage));
-  }, { rootMargin: '-28% 0px -42% 0px', threshold: [0, .2, .6] });
-
-  stages.forEach(stage => stageObserver.observe(stage));
-  stages[0]?.classList.add('active');
   window.addEventListener('scroll', updatePageProgress, { passive: true });
   window.addEventListener('resize', updatePageProgress, { passive: true });
   updatePageProgress();

@@ -46,7 +46,7 @@
     if (scrollFastTime) scrollFastTime.textContent = `${hours}h`;
     if (benefitTitle) benefitTitle.textContent = phase.title;
     if (benefitCopy) benefitCopy.textContent = phase.copy;
-    if (benefitFigure) benefitFigure.style.backgroundPosition = `${stagePositions[phaseIndex]} 50%`;
+    if (benefitFigure) benefitFigure.style.backgroundPosition = `${stagePositions[phaseIndex]} 35%`;
     if (scrollFast) scrollFast.hidden = window.innerWidth < 360;
   };
 
@@ -57,7 +57,7 @@
     if (!visible) return;
     const stage = Number(visible.target.dataset.stage || 0);
     stages.forEach(item => item.classList.toggle('active', item === visible.target));
-    if (journeyPhoto) journeyPhoto.style.backgroundPosition = `${stagePositions[stage]} 50%`;
+    if (journeyPhoto) journeyPhoto.style.backgroundPosition = `${stagePositions[stage]} 35%`;
     if (journeyLabel) journeyLabel.textContent = `Tag ${stage}`;
   }, { rootMargin: '-28% 0px -42% 0px', threshold: [0, .2, .6] });
 

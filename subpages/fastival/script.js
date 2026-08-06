@@ -12,6 +12,8 @@
   const journeyLabel = document.querySelector('[data-journey-label]');
   const journeyPhoto = document.querySelector('[data-journey-photo]');
   const stagePositions = ['0%', '25%', '50%', '75%', '100%'];
+  let currentJourneyStage = 0;
+  let journeyPhotoTimer;
   const fastingPhases = [
     { until: 12, title: 'Fasten startet', copy: 'Die letzte Mahlzeit wird verarbeitet. Glukose ist noch der Haupttreibstoff.' },
     { until: 24, title: 'Speicher werden leerer', copy: 'Insulin sinkt, Leberglykogen wird genutzt und die Fettverbrennung nimmt zu.' },
@@ -57,7 +59,15 @@
     if (!visible) return;
     const stage = Number(visible.target.dataset.stage || 0);
     stages.forEach(item => item.classList.toggle('active', item === visible.target));
-    if (journeyPhoto) journeyPhoto.style.backgroundPosition = `${stagePositions[stage]} 35%`;
+    if (journeyPhoto && stage !== currentJourneyStage) {
+      window.clearTimeout(journeyPhotoTimer);
+      journeyPhoto.classList.add('is-changing');
+      journeyPhotoTimer = window.setTimeout(() => {
+        journeyPhoto.style.backgroundPosition = `${stagePositions[stage]} 35%`;
+        journeyPhoto.classList.remove('is-changing');
+        currentJourneyStage = stage;
+      }, 180);
+    }
     if (journeyLabel) journeyLabel.textContent = `Tag ${stage}`;
   }, { rootMargin: '-28% 0px -42% 0px', threshold: [0, .2, .6] });
 

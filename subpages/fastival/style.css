@@ -166,6 +166,12 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .hosts-image img { border: .55rem solid var(--cream); border-radius: 45% 45% 1rem 1rem; box-shadow: 1rem 1rem 0 var(--forest-deep); }
 .hosts-copy h2 { margin-bottom: 2rem; }
 .hosts-copy p:not(.large-copy) { max-width: 38rem; }
+.hosts-story { counter-reset: story; }
+.hosts-story p { position: relative; padding-left: 2.3rem; }
+.hosts-story p::before { counter-increment: story; content: "0" counter(story); position: absolute; left: 0; top: .25rem; font: 900 .68rem/1 var(--display); letter-spacing: .06em; }
+.hosts-story p:nth-child(2)::before { color: var(--cream); }
+.hosts-story p:nth-child(3)::before { color: var(--lime); }
+.hosts-story p:nth-child(4)::before { color: var(--forest-deep); }
 .hosts blockquote { max-width: 36rem; margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 2px solid var(--ink); font: italic 1.5rem/1.25 Georgia, serif; }
 
 .info-video { color: var(--paper); background: var(--forest); }

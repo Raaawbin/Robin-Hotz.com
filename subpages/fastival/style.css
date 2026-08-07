@@ -129,7 +129,7 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .journey-day-image[data-journey-day-image="0"] { background-position-x: 0%; }
 .journey-day-image[data-journey-day-image="1"] { background-position-x: 25%; }
 .journey-day-image[data-journey-day-image="2"] { background-position-x: 50%; }
-.journey-day-image[data-journey-day-image="3"] { background-position-x: 75%; }
+.journey-day-image[data-journey-day-image="3"] { background-position: 75% 16%; }
 .journey-day-image[data-journey-day-image="4"] { background-position-x: 100%; }
 .phase-meta { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem; }
 .phase-meta span { font: 900 .75rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; }

@@ -439,6 +439,12 @@ b{color:var(--text-strong)}
   }
 }
 .about-action{text-align:center}
+/* Methoden-Pills unter dem Profiltext (Startseite, Ueber mich) */
+.about-methods{margin-top:46px;padding-top:34px;border-top:1px solid var(--line);text-align:center}
+.about-methods .cm-l{margin-bottom:14px}
+.about-methods .method-pills{justify-content:center;gap:10px}
+.about-methods .method-pill{min-height:44px;padding:9px 16px;font-size:.95rem;gap:8px}
+.about-methods .method-pill .icon{width:19px;height:19px;color:var(--accent)}
 .textlink{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--text-strong)}
 .textlink .icon{color:var(--accent);transition:transform .2s ease}
 .textlink:hover{color:var(--accent)}

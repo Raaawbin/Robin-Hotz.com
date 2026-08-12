@@ -96,7 +96,7 @@
             '</nav>' +
             '<div class="foot-col">' +
               '<h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>' +
-              '<a class="c-plain" href="mailto:Robin@Robin-Hotz.com"><span class="icon icon-mail sm" aria-hidden="true"></span>Robin@Robin-Hotz.com</a>' +
+              '<a class="c-plain" href="mailto:rh@visualfacilitators.com"><span class="icon icon-mail sm" aria-hidden="true"></span>rh@visualfacilitators.com</a>' +
               '<a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>' +
               '<a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>' +
               '<a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</a>' +

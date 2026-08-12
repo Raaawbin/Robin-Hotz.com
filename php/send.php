@@ -7,7 +7,7 @@
    ===================================================================== */
 
 // ---- Konfiguration -------------------------------------------------
-$EMPFAENGER = 'Robin@Robin-Hotz.com';
+$EMPFAENGER = 'rh@visualfacilitators.com';
 // Absender MUSS auf der eigenen Domain liegen, sonst lehnen viele
 // Mailserver (auch Strato) die Nachricht ab oder markieren sie als Spam.
 $ABSENDER   = 'noreply@robin-hotz.com';

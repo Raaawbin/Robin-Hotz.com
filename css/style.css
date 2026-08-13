@@ -480,6 +480,21 @@ b{color:var(--text-strong)}
 .about-new-qualifications strong{font-size:.98rem;line-height:1.35}
 .about-new-qualifications small{color:var(--text-dim);font-size:.83rem;line-height:1.4}
 .about-new-qualifications .textlink{font-size:.92rem}
+/* Abschluesse & Rollen: verlinkt, mit orangem Glow beim Hover */
+.about-new-qualifications li{display:block;padding:0}
+.about-new-qualifications .qual-link{
+  display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;
+  padding:15px 14px;margin:0 -14px;border:1px solid transparent;border-radius:var(--radius-sm);
+  color:inherit;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,color .2s ease;
+}
+.about-new-qualifications .qual-link>.icon{width:22px;height:22px;margin-top:2px;color:var(--accent)}
+.about-new-qualifications .qual-link>span{display:flex;flex-direction:column;gap:2px}
+.about-new-qualifications .qual-link:hover{
+  transform:translateY(-2px);border-color:rgba(232,83,30,.5);
+  box-shadow:0 0 0 1px rgba(232,83,30,.3),0 10px 34px -10px rgba(232,83,30,.45);
+}
+.about-new-qualifications .qual-link:hover strong{color:var(--accent)}
 .about-new-journey{grid-column:1/-1;order:3;margin-top:8px;padding-top:78px;border-top:1px solid var(--line)}
 .about-new-journey .sec-head{margin-bottom:34px}
 .about-new-timeline{position:relative;display:flex;flex-direction:column;gap:22px;padding-left:34px}

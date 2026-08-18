@@ -16,8 +16,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: var(--cream); font-family: var(--body); font-size: 16px; line-height: 1.5; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; color: var(--ink); background: var(--cream); font-family: var(--body); font-size: 16px; line-height: 1.5; overflow-x: clip; }
 img { display: block; width: 100%; }
 a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -27,7 +27,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .skip-link:focus { top: 1rem; }
 
 .site-header { position: fixed; z-index: 100; inset: 0 0 auto; height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--gutter); color: var(--paper); border-bottom: 1px solid rgba(255,255,255,.2); transition: background .3s, color .3s, transform .3s; }
-.site-header.scrolled { color: var(--ink); background: rgba(243,237,223,.91); border-color: var(--line); backdrop-filter: blur(16px); }
+.site-header::before { content: ""; position: absolute; z-index: -1; inset: 0; background: rgba(243,237,223,.91); backdrop-filter: blur(16px); opacity: 0; transition: opacity .3s; }
+.site-header.scrolled::before { opacity: 1; }
+.site-header.scrolled { color: var(--ink); border-color: var(--line); }
 .wordmark { display: inline-flex; align-items: center; text-decoration: none; font: 900 1.2rem/1 var(--display); letter-spacing: -.08em; }
 .wordmark i { display: inline-grid; place-items: center; width: 1.4em; height: 1.4em; margin: 0 .08em; color: var(--forest); background: var(--lime); border-radius: 50%; font-style: normal; transform: rotate(-10deg); }
 .site-nav { display: flex; align-items: center; gap: clamp(1rem, 2.3vw, 2.4rem); }
@@ -68,7 +70,7 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .hero-facts strong { font: 900 clamp(1.6rem, 3vw, 3rem)/1 var(--display); color: var(--lime); }
 .hero-facts span { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
 
-.ticker { position: relative; z-index: 3; overflow: hidden; color: var(--forest-deep); background: var(--lime); border-block: 2px solid var(--ink); transform: rotate(-1deg) scale(1.02); }
+.ticker { position: relative; z-index: 3; max-width: 100%; overflow: hidden; color: var(--forest-deep); background: var(--lime); border-block: 2px solid var(--ink); transform: rotate(-1deg) scale(1.02); }
 .ticker-track { display: flex; width: max-content; gap: 1.8rem; padding: .7rem 0; animation: ticker 30s linear infinite; font: 900 .88rem/1 var(--display); letter-spacing: .04em; }
 .ticker b { color: var(--orange); }
 @keyframes ticker { to { transform: translateX(-50%); } }
@@ -258,7 +260,7 @@ footer p:last-child { text-align: right; }
 @media (max-width: 760px) {
   .site-header { height: 64px; }
   .menu-button { display: block; z-index: 2; }
-  .site-nav { position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 2rem; color: var(--paper); background: var(--forest-deep); transform: translateY(-105%); transition: transform .35s; }
+  .site-nav { position: fixed; inset: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 2rem; overflow: hidden; color: var(--paper); background: var(--forest-deep); transform: translateY(-105%); transition: transform .35s; }
   .site-nav.open { transform: none; }
   .site-nav a { font: 900 1.8rem/1 var(--display); }
   .nav-cta { color: var(--ink); }
@@ -268,7 +270,9 @@ footer p:last-child { text-align: right; }
   .hero-visual img { aspect-ratio: 4 / 4.2; }
   .hero-facts { grid-template-columns: 1fr; }
   .hero-facts div { justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.18); }
-  .manifesto-grid, .section-heading, .place-intro, .hosts, .video-card { grid-template-columns: 1fr; }
+  .manifesto-grid, .section-heading, .place-intro, .hosts, .video-card { grid-template-columns: minmax(0, 1fr); }
+  h1, h2, h3, .faq-question { overflow-wrap: break-word; hyphens: auto; }
+  .program .section-heading h2 { hyphens: manual; }
   .manifesto h2, .section-heading h2, .place h2, .hosts h2, .info-video h2 { font-size: clamp(2.24rem, 10.4vw, 4rem); }
   .manifesto-copy { margin-top: 2rem; }
   .program-grid { grid-template-columns: 1fr; }

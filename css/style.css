@@ -18,9 +18,9 @@
   --grad:linear-gradient(95deg,#E8531E 0%,#F4863F 100%);
   --grad-dark:linear-gradient(95deg,#CF460F 0%,#E5732A 100%);
   --ink:#1A1A1A;
-  --font-display:"Permanent Marker",cursive;
+  --font-display:"Source Sans 3",system-ui,sans-serif;
   --font-body:"Source Sans 3",system-ui,sans-serif;
-  --font-hand:"Caveat",cursive;
+  --font-hand:"Source Sans 3",system-ui,sans-serif;
   --radius:15px;
   --radius-sm:10px;
   --shadow-orange:0 0 0 1px rgba(232,83,30,.28),0 8px 26px -8px rgba(232,83,30,.72);
@@ -271,7 +271,7 @@ a{color:inherit;text-decoration:none}
 }
 .eyebrow::before{content:none}
 .hero h1{
-  font-family:var(--font-display);font-weight:400;color:var(--text-strong);
+  font-family:var(--font-display);font-weight:700;color:var(--text-strong);
   font-size:clamp(2.8rem,7vw,5.2rem);line-height:1.02;letter-spacing:.5px;
   max-width:13ch;margin-bottom:26px;
   text-shadow:var(--h1-shadow);
@@ -324,7 +324,7 @@ a{color:inherit;text-decoration:none}
 h2,
 .section-title,
 #geschichte h1{ /* Ueber-mich-H1 in H2-Optik (Seite hat keinen page-hero) */
-  font-family:var(--font-display);font-weight:400;color:var(--text-strong);
+  font-family:var(--font-display);font-weight:700;color:var(--text-strong);
   font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:.5px;
   margin-top:10px;
 }
@@ -364,7 +364,7 @@ b{color:var(--text-strong)}
   color:var(--accent);
 }
 .mcell .ico .icon{width:32px;height:32px}
-.mcell h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;margin-bottom:10px}
+.mcell h3{font-family:var(--font-display);font-weight:700;font-size:1.35rem;margin-bottom:10px}
 .mcell p{margin-bottom:22px}
 .mcell .btn{margin-top:auto;padding:12px 22px}
 
@@ -376,7 +376,7 @@ b{color:var(--text-strong)}
 .t-media img{aspect-ratio:16/9;object-fit:cover;width:100%}
 .t-media::after{content:"";position:absolute;inset:0;background:var(--media-overlay)}
 .t-col.problem .t-media img{filter:var(--problem-filter)}
-.t-title{font-family:var(--font-display);font-size:1.5rem;color:var(--text-strong);margin-bottom:8px}
+.t-title{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--text-strong);margin-bottom:8px}
 .t-col.solution .t-title{color:var(--accent)}
 .t-intro{font-weight:600;color:var(--text-strong);margin-bottom:16px}
 .t-list{list-style:none;display:flex;flex-direction:column;gap:16px}
@@ -390,7 +390,7 @@ b{color:var(--text-strong)}
 .svc-media img{aspect-ratio:3/2;object-fit:cover;width:100%}
 .svc-media::after{content:"";position:absolute;inset:0;background:var(--svc-fade)}
 .svc-body{padding:6px 26px 26px;display:flex;flex-direction:column;flex:1;position:relative}
-.svc h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;margin-bottom:10px}
+.svc h3{font-family:var(--font-display);font-weight:700;font-size:1.35rem;margin-bottom:10px}
 .svc .desc{margin-bottom:16px}
 @media (min-width:981px){
   .svc .desc{min-height:6.4em}
@@ -416,7 +416,7 @@ b{color:var(--text-strong)}
 .about-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
 .about-grid p{margin-bottom:16px}
 .facts{display:flex;gap:44px}
-.fact .n{font-family:var(--font-display);font-size:2rem;color:var(--accent);line-height:1.1}
+.fact .n{font-family:var(--font-display);font-weight:700;font-size:2rem;color:var(--accent);line-height:1.1}
 .fact .l{font-size:.9rem;color:var(--text-dim);margin-top:4px}
 .about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:center}
 .about-facts .fact{
@@ -604,7 +604,7 @@ b{color:var(--text-strong)}
   background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);
 }
 .page-hero h1{
-  font-family:var(--font-display);font-weight:400;color:var(--text-strong);
+  font-family:var(--font-display);font-weight:700;color:var(--text-strong);
   font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.08;letter-spacing:.5px;
   margin:10px 0 18px;
 }
@@ -646,7 +646,7 @@ b{color:var(--text-strong)}
 .stat{flex:1;min-width:180px;padding:20px 28px 0;border-right:1px solid var(--line)}
 .stat:first-child{padding-left:0}
 .stat:last-child{border-right:0}
-.stat .n{font-family:var(--font-display);font-size:1.9rem;color:var(--accent);line-height:1.1}
+.stat .n{font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:var(--accent);line-height:1.1}
 .stat .l{font-size:.9rem;color:var(--text-dim);margin-top:4px}
 
 .sec-tight{padding:44px 0}
@@ -734,7 +734,7 @@ b{color:var(--text-strong)}
   scroll-margin-top:96px;
 }
 .case-kicker{display:inline-block;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.case h3{font-family:var(--font-display);font-weight:400;font-size:1.5rem;line-height:1.25;margin-bottom:22px}
+.case h3{font-family:var(--font-display);font-weight:700;font-size:1.5rem;line-height:1.25;margin-bottom:22px}
 .case-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:26px}
 .case-shot{margin:0;border-radius:var(--radius-sm);overflow:hidden;cursor:zoom-in}
 .case-shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
@@ -834,7 +834,7 @@ b{color:var(--text-strong)}
 
 /* Utilities fuer Unterseiten */
 .center{text-align:center}
-.hand{font-family:var(--font-hand);color:var(--accent);font-size:1.15em}
+.hand{font-family:var(--font-hand);color:var(--accent);font-style:italic;font-weight:600}
 .icon-check{-webkit-mask-image:url(../assets/icons/check.svg);mask-image:url(../assets/icons/check.svg)}
 
 /* Qualifikationen als Karten-Raster: Icon links neben dem Text,
@@ -901,7 +901,7 @@ b{color:var(--text-strong)}
 
 /* Arbeitsweise: Checks + Tags */
 .sol-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-.block-title{font-family:var(--font-display);font-size:1.4rem;color:var(--text-strong);margin-bottom:18px}
+.block-title{font-family:var(--font-display);font-weight:700;font-size:1.4rem;color:var(--text-strong);margin-bottom:18px}
 .checks{list-style:none;display:flex;flex-direction:column;gap:12px}
 .checks li{display:flex;gap:12px;align-items:flex-start}
 .checks .icon{width:20px;height:20px;margin-top:5px;color:var(--accent)}

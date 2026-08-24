@@ -158,21 +158,23 @@
            MAILCHIMP-ANMELDUNG
            Diese Seite liegt in einem oeffentlichen Repository. Der Mailchimp
            API-Key darf hier NICHT stehen, er gehoert nur ins Mailchimp-Konto.
-           Das eingebettete Formular braucht auch keinen Key, sondern zwei
-           oeffentliche Werte aus dem Mailchimp-Embed-Code:
+           Das eingebettete Formular braucht auch keinen Key, sondern nur die
+           drei oeffentlichen Werte aus dem Mailchimp-Embed-Code:
 
              Mailchimp  ->  Audience "Robin Hotz"  ->  Signup forms
                         ->  Embedded form  ->  Code kopieren
 
-           Dort stehen im <form action="..."> die Werte u= und id=.
-           Bitte an DREI Stellen unten einsetzen:
-             1. action-URL:  u=MAILCHIMP_U  und  id=MAILCHIMP_ID
-             2. Honeypot-Feldname:  b_MAILCHIMP_U_MAILCHIMP_ID
-           Solange die Platzhalter drin sind, sendet das Formular nicht.
+           Im kopierten <form action="https://XXXX.us7.list-manage.com/
+           subscribe/post?u=abc123&amp;id=def456"> stehen alle drei Werte:
+             MC_DC = der Teil vor .list-manage.com   (z. B. "us7")
+             MC_U  = der Wert hinter u=              (z. B. "abc123")
+             MC_ID = der Wert hinter id=             (z. B. "def456")
+
+           Diese drei Werte NUR unten im Skript bei "MAILCHIMP-KONFIGURATION"
+           eintragen. Solange dort Platzhalter stehen, sendet das Formular
+           nicht, sondern zeigt einen Hinweis mit E-Mail-Adresse.
            =================================================================== -->
-      <form id="newsletter-form"
-            action="https://visualfacilitators.us7.list-manage.com/subscribe/post?u=MAILCHIMP_U&amp;id=MAILCHIMP_ID"
-            method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <form id="newsletter-form" method="post" name="mc-embedded-subscribe-form" novalidate>
 
         <div class="field">
           <label for="nl-fname"><span class="lang-de">Vorname</span><span class="lang-en">First name</span></label>
@@ -191,9 +193,9 @@
           </label>
         </div>
 
-        <!-- Spamschutz von Mailchimp: Feld muss leer bleiben -->
+        <!-- Spamschutz von Mailchimp: Feld muss leer bleiben, Name setzt das Skript -->
         <div class="hp" aria-hidden="true">
-          <input type="text" name="b_MAILCHIMP_U_MAILCHIMP_ID" tabindex="-1" value="" autocomplete="off">
+          <input id="nl-hp" type="text" name="" tabindex="-1" value="" autocomplete="off">
         </div>
 
         <button class="btn" type="submit" name="subscribe">
@@ -236,25 +238,152 @@
 <div data-site-footer></div>
 
 <script>
-/* Kleine Absicherung: solange die Mailchimp-Platzhalter nicht ersetzt sind,
-   wird nicht abgeschickt, sondern ein Hinweis angezeigt. */
+/* =====================================================================
+   Newsletter-Anmeldung ueber Mailchimp.
+   Der Versand laeuft ueber den oeffentlichen post-json-Endpunkt von
+   Mailchimp. Dadurch bleibt die Besucherin auf der Seite und bekommt
+   die Rueckmeldung direkt im Formular. Kein API-Key noetig.
+   ===================================================================== */
 (function () {
+
+  /* ---- MAILCHIMP-KONFIGURATION ------------------------------------
+     Die drei Werte aus dem Mailchimp-Embed-Code hier eintragen.
+     Siehe Kommentar oben beim Formular.                              */
+  var MC_DC = 'us7';                          // Rechenzentrum
+  var MC_U  = '11b1423e1074b15bdfb0047c3';    // Wert hinter  u=
+  var MC_ID = 'a4c7dc2d50';                   // Wert hinter  id=
+  /* ------------------------------------------------------------------ */
+
   var form = document.getElementById('newsletter-form');
   if (!form) return;
-  var status = document.getElementById('newsletter-status');
+
+  var status  = document.getElementById('newsletter-status');
+  var btn     = form.querySelector('button[type="submit"]');
+  var hp      = document.getElementById('nl-hp');
+  var fname   = form.elements.namedItem('FNAME');
+  var mail    = form.elements.namedItem('EMAIL');
+  var consent = document.getElementById('nl-consent');
+
+  var configured = MC_DC.indexOf('MAILCHIMP') === -1 &&
+                   MC_U.indexOf('MAILCHIMP')  === -1 &&
+                   MC_ID.indexOf('MAILCHIMP') === -1;
+
+  var base = 'https://' + MC_DC + '.list-manage.com/subscribe/post';
+
+  /* Ohne Skript bzw. als Fallback: normales Mailchimp-Formular */
+  form.action = base + '?u=' + MC_U + '&id=' + MC_ID;
+  if (hp) hp.name = 'b_' + MC_U + '_' + MC_ID;
+
+  function isEn() { return document.documentElement.lang === 'en'; }
+
+  function setStatus(text, kind) {
+    status.textContent = text;
+    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+  }
+
+  /* Mailchimp liefert Meldungen mit HTML-Links, hier als reinen Text */
+  function plain(html) {
+    var d = document.createElement('div');
+    d.innerHTML = String(html || '');
+    return (d.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+
+  /* JSONP, weil Mailchimp kein CORS fuer diesen Endpunkt erlaubt */
+  function jsonp(url, done) {
+    var cb = 'mcCallback' + Date.now() + Math.floor(Math.random() * 1000);
+    var script = document.createElement('script');
+    var timer = setTimeout(function () { cleanup(); done(null); }, 12000);
+
+    function cleanup() {
+      clearTimeout(timer);
+      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[cb] = function (data) { cleanup(); done(data); };
+    script.onerror = function () { cleanup(); done(null); };
+    script.src = url + '&c=' + cb;
+    document.body.appendChild(script);
+  }
 
   form.addEventListener('submit', function (e) {
-    var en = document.documentElement.lang === 'en';
-    if (form.action.indexOf('MAILCHIMP_U') > -1) {
-      e.preventDefault();
-      status.textContent = en
+    e.preventDefault();
+    var en = isEn();
+
+    if (!configured) {
+      setStatus(en
         ? 'The signup form is not connected yet. Please write to rh@visualfacilitators.com in the meantime.'
-        : 'Die Anmeldung ist noch nicht verbunden. Schreib mir gern an rh@visualfacilitators.com.';
-      status.className = 'form-status is-error';
+        : 'Die Anmeldung ist noch nicht verbunden. Schreib mir gern an rh@visualfacilitators.com.', 'error');
       return;
     }
-    status.textContent = en ? 'Sending …' : 'Wird gesendet …';
-    status.className = 'form-status';
+
+    if (!mail.value || mail.value.indexOf('@') < 1) {
+      setStatus(en ? 'Please enter a valid email address.'
+                   : 'Bitte gib eine gültige E-Mail-Adresse ein.', 'error');
+      mail.focus();
+      return;
+    }
+
+    if (!consent.checked) {
+      setStatus(en ? 'Please confirm your consent to continue.'
+                   : 'Bitte bestätige die Einwilligung.', 'error');
+      consent.focus();
+      return;
+    }
+
+    /* Honeypot gefuellt: still aussteigen */
+    if (hp && hp.value) return;
+
+    setStatus(en ? 'Sending …' : 'Wird gesendet …', '');
+    if (btn) btn.disabled = true;
+
+    var url = 'https://' + MC_DC + '.list-manage.com/subscribe/post-json'
+            + '?u=' + encodeURIComponent(MC_U)
+            + '&id=' + encodeURIComponent(MC_ID)
+            + '&EMAIL=' + encodeURIComponent(mail.value)
+            + '&FNAME=' + encodeURIComponent(fname ? fname.value : '')
+            + '&b_' + MC_U + '_' + MC_ID + '=';
+
+    jsonp(url, function (data) {
+      if (btn) btn.disabled = false;
+
+      if (!data) {
+        setStatus(en
+          ? 'The signup could not be sent. Please try again or write to rh@visualfacilitators.com.'
+          : 'Die Anmeldung konnte nicht gesendet werden. Bitte versuche es erneut oder schreib an rh@visualfacilitators.com.', 'error');
+        return;
+      }
+
+      if (data.result === 'success') {
+        setStatus(en
+          ? 'Almost there: please confirm the subscription via the email we just sent you.'
+          : 'Fast geschafft: Bitte bestätige die Anmeldung über die E-Mail, die gerade an Dich rausgegangen ist.', 'ok');
+        form.reset();
+        return;
+      }
+
+      /* Mailchimp stellt seinen Meldungen ein "0 - " voran */
+      var msg = plain(data.msg).replace(/^\d+\s*-\s*/, '');
+
+      /* Bereits eingetragen: das ist kein Fehler der Nutzerin */
+      if (/already subscribed/i.test(msg)) {
+        setStatus(en
+          ? 'This address is already subscribed.'
+          : 'Diese Adresse ist bereits eingetragen.', 'ok');
+        return;
+      }
+
+      /* Haeufigster Fehlerfall auf Deutsch statt in Mailchimp-Englisch */
+      if (/must contain a single @|valid email/i.test(msg)) {
+        setStatus(en ? 'Please enter a valid email address.'
+                     : 'Bitte gib eine gültige E-Mail-Adresse ein.', 'error');
+        return;
+      }
+
+      setStatus(msg || (en
+        ? 'The signup did not work. Please write to rh@visualfacilitators.com.'
+        : 'Die Anmeldung hat nicht geklappt. Schreib mir gern an rh@visualfacilitators.com.'), 'error');
+    });
   });
 })();
 </script>

@@ -26,7 +26,7 @@ window.FASTIVAL_I18N_EN = {
   k087_p: "<span>BURN YOUR CALORIES &amp; STRESS</span><b>&#10039;</b><span>NO HANGOVER, JUST HANGING OUT</span><b>&#9787;</b><span>FASTING RULES</span><b>&#10022;</b><span>BURN YOUR CALORIES &amp; STRESS</span><b>&#10039;</b><span>NO HANGOVER, JUST HANGING OUT</span><b>&#9787;</b><span>FASTING RULES</span><b>&#10022;</b>",
   k092: "01 / Why all this?",
   k094: "The festival summer was long. <span>Time for a different trip.</span>",
-  k096: "Besides festivals, Domenico and I genuinely enjoy being high while stone cold sober, so we went and built an entire retreat around it. Next year we are throwing a small fasting retreat, by friends for friends, burner style.",
+  k096: "Besides festivals, Domenico and Robin genuinely enjoy being high while stone cold sober, so they went and built an entire retreat around it. Next year they are throwing a small fasting retreat, by friends for friends, burner style.",
   k097: "A house in the woods, a few days without food, a whole lot of sauna. No bootcamp, no retreat with a certificate. You are invited.",
   k105: "02 / What happens?",
   k106: "A holistic<br>programme.",

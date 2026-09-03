@@ -37,6 +37,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-nav a:not(.nav-cta):hover { text-decoration: underline; text-underline-offset: .35rem; }
 .nav-cta { padding: .68rem 1rem; color: var(--ink); background: var(--lime); border-radius: 999px; }
 .menu-button { display: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--lime); }
+.lang-switch { display: inline-flex; align-items: center; gap: .15rem; padding: .18rem; border: 1px solid currentColor; border-radius: 999px; }
+.lang-switch button { padding: .34rem .55rem; color: inherit; background: none; border: 0; border-radius: 999px; font-family: var(--body); font-size: .68rem; font-weight: 800; letter-spacing: .07em; cursor: pointer; opacity: .58; transition: opacity .2s, background .2s, color .2s; }
+.lang-switch button:hover { opacity: 1; }
+.lang-switch button.is-active { color: var(--forest); background: var(--lime); opacity: 1; }
+.lang-switch button:focus-visible { outline: .18rem solid var(--lime); outline-offset: .2rem; }
 .menu-button span { display: block; width: 18px; height: 2px; margin: 4px auto; background: var(--ink); }
 
 .hero { position: relative; min-height: 100svh; padding: clamp(8rem, 15vh, 10rem) var(--gutter) 2rem; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr); grid-template-rows: 1fr auto; gap: 2rem 4vw; color: var(--paper); background: var(--forest); overflow: hidden; }
@@ -81,9 +86,10 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .manifesto { background: var(--cream); }
 .manifesto-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 7vw; }
 .manifesto h2, .section-heading h2, .place h2, .hosts h2, .info-video h2, .signup h2 { margin-bottom: 0; font-size: clamp(2.24rem, 5.2vw, 5.6rem); line-height: .92; }
-.manifesto h2 span { color: var(--orange); font-family: Georgia, serif; font-style: italic; font-weight: 400; text-transform: none; }
+.manifesto h2 { font-size: clamp(2rem, 4.1vw, 4.3rem); }
+.manifesto h2 span { color: var(--orange); font-family: Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
 .large-copy { font-size: clamp(1.25rem, 2vw, 1.8rem); line-height: 1.3; }
-.manifesto-copy p:last-child { max-width: 42rem; }
+.manifesto-copy p { max-width: 42rem; font-size: clamp(1.15rem, 1.7vw, 1.55rem); line-height: 1.35; }
 .program { background: var(--paper); }
 .section-heading { display: grid; grid-template-columns: 1.5fr .5fr; gap: 5vw; align-items: end; margin-bottom: 4rem; }
 .section-heading > p { max-width: 28rem; font-size: 1.05rem; }
@@ -264,6 +270,8 @@ footer p:last-child { text-align: right; }
   .site-nav.open { transform: none; }
   .site-nav a { font: 900 1.8rem/1 var(--display); }
   .nav-cta { color: var(--ink); }
+  .lang-switch { margin-top: .75rem; padding: .25rem; }
+  .lang-switch button { padding: .5rem .95rem; font: 900 1rem/1 var(--display); letter-spacing: .06em; opacity: .65; }
   .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 7.5rem; }
   h1 { font-size: clamp(2.8rem, 13.6vw, 4.8rem); }
   .hero-visual { width: 86%; margin: 2rem auto 1rem; }
@@ -272,8 +280,9 @@ footer p:last-child { text-align: right; }
   .hero-facts div { justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.18); }
   .manifesto-grid, .section-heading, .place-intro, .hosts, .video-card { grid-template-columns: minmax(0, 1fr); }
   h1, h2, h3, .faq-question { overflow-wrap: break-word; hyphens: auto; }
-  .program .section-heading h2 { hyphens: manual; }
+  .program .section-heading h2, .manifesto h2 { hyphens: manual; }
   .manifesto h2, .section-heading h2, .place h2, .hosts h2, .info-video h2 { font-size: clamp(2.24rem, 10.4vw, 4rem); }
+  .manifesto h2 { font-size: clamp(1.9rem, 8.4vw, 3.1rem); }
   .manifesto-copy { margin-top: 2rem; }
   .program-grid { grid-template-columns: 1fr; }
   .program-card { min-height: 16rem; }

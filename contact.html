@@ -26,10 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=28">
+<link rel="stylesheet" href="css/style.css?v=36">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
-<script src="js/theme.js?v=7"></script>
-<script src="js/main.js?v=6" defer></script>
+<script src="js/theme.js?v=8"></script>
+<script src="js/main.js?v=7" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"ContactPage","@id":"https://robin-hotz.com/contact.html","name":"Kontakt","about":{"@id":"https://robin-hotz.com/#robin"}},
@@ -106,17 +106,17 @@
 
     <div class="form panel contact-form-panel">
       <figure class="contact-form-photo">
-        <img src="assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin">
+        <img src="assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin" width="980" height="1605">
       </figure>
       <h3 style="margin-bottom:6px">
-        <span class="lang-de">Anfrage senden</span><span class="lang-en">Send an enquiry</span>
+        <span class="lang-de">Anfrage vorbereiten</span><span class="lang-en">Prepare an enquiry</span>
       </h3>
       <p class="muted" style="font-size:.95rem;margin-bottom:22px">
-        <span class="lang-de">Schreiben Sie mir direkt über dieses Formular. Ihre Nachricht landet als E-Mail bei mir, und ich melde mich in der Regel innerhalb von ein bis zwei Werktagen.</span>
-        <span class="lang-en">Write to me directly via this form. Your message reaches me by email, and I usually reply within one to two working days.</span>
+        <span class="lang-de">Hier können Sie Ihre Anfrage vorbereiten. Das Formular öffnet einen E-Mail-Entwurf in Ihrem Mailprogramm, den Sie dort absenden können.</span>
+        <span class="lang-en">Prepare your enquiry here. The form opens an email draft in your email app, where you can review and send it.</span>
       </p>
 
-      <form id="contact-form" action="php/send.php" method="post" novalidate>
+      <form id="contact-form" action="mailto:rh@visualfacilitators.com" method="get">
         <div class="field">
           <label for="f-name"><span class="lang-de">Name</span><span class="lang-en">Name</span></label>
           <input id="f-name" name="name" type="text" autocomplete="name" required>
@@ -130,18 +130,14 @@
           <textarea id="f-msg" name="message" required></textarea>
         </div>
 
-        <!-- Honeypot gegen Spam: für Menschen unsichtbar, bitte leer lassen -->
-        <div class="hp" aria-hidden="true">
-          <label for="f-web">Website</label>
-          <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
-        </div>
-
-        <button class="btn" type="submit">
-          <span class="lang-de">Nachricht senden</span><span class="lang-en">Send message</span>
+        <button class="btn" type="submit" disabled>
+          <span class="lang-de">E-Mail vorbereiten</span><span class="lang-en">Prepare email</span>
           <span class="icon icon-arrow sm" aria-hidden="true"></span>
         </button>
 
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-direct"><span class="lang-de">Oder direkt schreiben:</span><span class="lang-en">Or email me directly:</span> <a href="mailto:rh@visualfacilitators.com">rh@visualfacilitators.com</a></p>
+        <noscript><p class="form-direct">Bitte nutzen Sie den E-Mail-Link. / Please use the email link.</p></noscript>
       </form>
     </div>
 
@@ -221,59 +217,6 @@
 
 <div data-site-footer></div>
 
-<script>
-/* Kontaktformular: sendet per fetch an send.php, ohne Seitenwechsel */
-(function () {
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-  var status = document.getElementById('form-status');
-  var btn = form.querySelector('button[type="submit"]');
-  var nameField = form.elements.namedItem('name');
-  var emailField = form.elements.namedItem('email');
-  var messageField = form.elements.namedItem('message');
-
-  var TXT = {
-    sending: { de: 'Wird gesendet …', en: 'Sending …' },
-    ok:      { de: 'Vielen Dank! Ihre Nachricht wurde gesendet. Ich melde mich in Kürze.',
-               en: 'Thank you! Your message has been sent. I’ll be in touch shortly.' },
-    missing: { de: 'Bitte füllen Sie Name, E-Mail und Nachricht aus.',
-               en: 'Please fill in name, email and message.' },
-    email:   { de: 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
-               en: 'Please enter a valid email address.' },
-    error:   { de: 'Das hat leider nicht geklappt. Schreiben Sie mir gern direkt an rh@visualfacilitators.com.',
-               en: 'Something went wrong. Please email me directly at rh@visualfacilitators.com.' }
-  };
-  function t(key) { var l = document.documentElement.lang === 'en' ? 'en' : 'de'; return TXT[key][l]; }
-  function show(key, kind) {
-    status.textContent = t(key);
-    status.className = 'form-status' + (kind ? ' is-' + kind : '');
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = nameField.value.trim();
-    var email = emailField.value.trim();
-    var msg = messageField.value.trim();
-    if (!name || !email || !msg) { show('missing', 'error'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('email', 'error'); return; }
-
-    btn.disabled = true;
-    show('sending', '');
-
-    fetch(form.action, { method: 'POST', body: new FormData(form) })
-      .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
-      .then(function (data) {
-        if (data && data.ok) {
-          form.reset();
-          show('ok', 'ok');
-        } else {
-          show(data && data.error === 'email' ? 'email' : 'error', 'error');
-        }
-      })
-      .catch(function () { show('error', 'error'); })
-      .finally(function () { btn.disabled = false; });
-  });
-})();
-</script>
+<script src="js/contact.js?v=1" defer></script>
 </body>
 </html>

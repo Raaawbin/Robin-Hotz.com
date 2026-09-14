@@ -20,9 +20,12 @@
   var KEY = 'theme-pref';
   var mq = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function stored() {
-    try { return localStorage.getItem(KEY) || 'system'; } catch (e) { return 'system'; }
+  function validTheme(pref) {
+    return pref === 'light' || pref === 'dark' ? pref : 'system';
   }
+  var themePreference = 'system';
+  try { themePreference = validTheme(localStorage.getItem(KEY)); } catch (e) {}
+  function stored() { return themePreference; }
   function resolve(pref) {
     return pref === 'system' ? (mq.matches ? 'dark' : 'light') : pref;
   }
@@ -41,6 +44,8 @@
   window.themePref = {
     get: stored,
     set: function (pref) {
+      pref = validTheme(pref);
+      themePreference = pref;
       try { localStorage.setItem(KEY, pref); } catch (e) { /* privater Modus o. ä. */ }
       apply(pref);
     }
@@ -89,6 +94,13 @@
       return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'de';
     },
     set: function (lang) {
+      lang = lang === 'en' ? 'en' : 'de';
+      // Reloading a shared ?lang URL must retain the newly selected language.
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(history.state, '', url.href);
+      } catch (e) {}
       try { localStorage.setItem(LKEY, lang); } catch (e) {}
       applyLang(lang);
     }

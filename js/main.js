@@ -248,6 +248,10 @@
     var lang = window.langPref.get();
     var en = lang === 'en';
     select(langCtl, lang, 'data-lang', LANG_LABELS[lang]);
+    // Keep optional bilingual image descriptions in step with the page language.
+    document.querySelectorAll('img[data-alt-de][data-alt-en]').forEach(function (img) {
+      img.alt = img.getAttribute('data-alt-' + lang);
+    });
     if (menu) menu.setAttribute('aria-label', en ? 'Main navigation' : 'Hauptnavigation');
     var footerNav = document.querySelector('.site-foot nav');
     if (footerNav) footerNav.setAttribute('aria-label', en ? 'Pages' : 'Seiten');

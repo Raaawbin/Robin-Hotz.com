@@ -2202,3 +2202,42 @@ main[id],main [id]{scroll-margin-top:100px}
   .nav{gap:12px}
   .brand img{height:44px}
 }
+
+/* Standalone portfolio case studies */
+.portfolio-page .page-hero{text-align:center;padding-bottom:48px}
+.portfolio-page .page-hero .eyebrow{display:block}
+.portfolio-logo{display:inline-block;margin-bottom:20px;padding:8px 0}
+.portfolio-logo img{display:block;width:180px;height:auto;filter:var(--logo-filter);opacity:var(--logo-opacity)}
+.portfolio-page .page-hero h1{max-width:900px;margin-inline:auto;text-wrap:balance}
+.portfolio-page .page-hero .lead{margin:0 auto}
+.portfolio-facts{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin:26px 0 0;padding:0;list-style:none;color:var(--text-dim);font-size:.95rem}
+.portfolio-facts li+li::before{content:"·";margin-right:26px;color:var(--accent)}
+.portfolio-content{padding-top:12px}
+.portfolio-page .case{padding:34px}
+.portfolio-page .case-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:36px}
+.portfolio-page .case-shot img{height:auto;aspect-ratio:3/2;object-fit:contain;background:var(--bg-soft)}
+.portfolio-page .case-shot:has(figcaption){border-radius:0;overflow:visible;cursor:auto}
+.portfolio-page .case-shot:has(figcaption) img{border-radius:var(--radius-sm);cursor:zoom-in}
+.portfolio-page figcaption{padding-top:10px;font-size:.88rem;color:var(--text-dim)}
+.portfolio-page .case-meta{gap:32px 42px}
+.portfolio-page .cm h2.cm-l{font-size:.8rem;letter-spacing:.12em;line-height:1.5;margin:0 0 10px;color:var(--accent)}
+.portfolio-page .cm p{font-size:1rem;line-height:1.7}
+.portfolio-page .cm p+p{margin-top:14px}
+.portfolio-process{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.portfolio-process+p{margin-top:22px}
+.portfolio-page .portfolio-process h3{margin-bottom:8px;font-size:1.25rem}
+.portfolio-outcomes{margin:0;padding-left:1.2em;display:grid;gap:12px}
+.portfolio-outcomes li::marker{color:var(--accent)}
+.portfolio-page .portfolio-impressions{margin:38px 0 0;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.portfolio-page .portfolio-impressions img[width="1448"]{aspect-ratio:4/3}
+.portfolio-details{border-top:1px solid var(--line);margin-top:34px;padding-top:30px}
+.portfolio-page .reference-links{grid-template-columns:1fr 1fr}
+@media(max-width:680px){
+  .portfolio-page .page-hero{padding-top:130px;padding-bottom:36px}
+  .portfolio-page .page-hero h1{font-size:clamp(2rem,8vw,2.7rem)}
+  .portfolio-facts{display:grid;gap:4px}
+  .portfolio-facts li+li::before{content:none}
+  .portfolio-page .case{padding:22px 18px}
+  .portfolio-page .case-gallery,.portfolio-page .portfolio-impressions,.portfolio-process,.portfolio-page .reference-links{grid-template-columns:1fr}
+  .portfolio-page .case-meta{gap:28px}
+}

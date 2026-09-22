@@ -154,27 +154,11 @@
         <span class="lang-en">Enter your details here. You will receive a confirmation email, and only then are you subscribed.</span>
       </p>
 
-      <!-- ===================================================================
-           MAILCHIMP-ANMELDUNG
-           Diese Seite liegt in einem oeffentlichen Repository. Der Mailchimp
-           API-Key darf hier NICHT stehen, er gehoert nur ins Mailchimp-Konto.
-           Das eingebettete Formular braucht auch keinen Key, sondern nur die
-           drei oeffentlichen Werte aus dem Mailchimp-Embed-Code:
-
-             Mailchimp  ->  Audience "Robin Hotz"  ->  Signup forms
-                        ->  Embedded form  ->  Code kopieren
-
-           Im kopierten <form action="https://XXXX.us7.list-manage.com/
-           subscribe/post?u=abc123&amp;id=def456"> stehen alle drei Werte:
-             MC_DC = der Teil vor .list-manage.com   (z. B. "us7")
-             MC_U  = der Wert hinter u=              (z. B. "abc123")
-             MC_ID = der Wert hinter id=             (z. B. "def456")
-
-           Diese drei Werte NUR unten im Skript bei "MAILCHIMP-KONFIGURATION"
-           eintragen. Solange dort Platzhalter stehen, sendet das Formular
-           nicht, sondern zeigt einen Hinweis mit E-Mail-Adresse.
-           =================================================================== -->
-      <form id="newsletter-form" method="post" name="mc-embedded-subscribe-form" novalidate>
+      <!-- Oeffentliche Formular-URL aus Mailchimp, kein API-Key.
+           Die Audience darf keine weiteren Pflichtfelder voraussetzen. -->
+      <form id="newsletter-form"
+            action="https://Robin-Hotz.us7.list-manage.com/subscribe/post?u=11b1423e1074b15bdfb0047c3&amp;id=a4c7dc2d50"
+            method="post" name="mc-embedded-subscribe-form">
 
         <div class="field">
           <label for="nl-fname"><span class="lang-de">Vorname</span><span class="lang-en">First name</span></label>
@@ -193,9 +177,9 @@
           </label>
         </div>
 
-        <!-- Spamschutz von Mailchimp: Feld muss leer bleiben, Name setzt das Skript -->
+        <!-- Spamschutz von Mailchimp: Feld muss leer bleiben -->
         <div class="hp" aria-hidden="true">
-          <input id="nl-hp" type="text" name="" tabindex="-1" value="" autocomplete="off">
+          <input id="nl-hp" type="text" name="b_11b1423e1074b15bdfb0047c3_a4c7dc2d50" tabindex="-1" value="" autocomplete="off">
         </div>
 
         <button class="btn" type="submit" name="subscribe">
@@ -246,14 +230,6 @@
    ===================================================================== */
 (function () {
 
-  /* ---- MAILCHIMP-KONFIGURATION ------------------------------------
-     Die drei Werte aus dem Mailchimp-Embed-Code hier eintragen.
-     Siehe Kommentar oben beim Formular.                              */
-  var MC_DC = 'us7';                          // Rechenzentrum
-  var MC_U  = '11b1423e1074b15bdfb0047c3';    // Wert hinter  u=
-  var MC_ID = 'a4c7dc2d50';                   // Wert hinter  id=
-  /* ------------------------------------------------------------------ */
-
   var form = document.getElementById('newsletter-form');
   if (!form) return;
 
@@ -264,15 +240,9 @@
   var mail    = form.elements.namedItem('EMAIL');
   var consent = document.getElementById('nl-consent');
 
-  var configured = MC_DC.indexOf('MAILCHIMP') === -1 &&
-                   MC_U.indexOf('MAILCHIMP')  === -1 &&
-                   MC_ID.indexOf('MAILCHIMP') === -1;
-
-  var base = 'https://' + MC_DC + '.list-manage.com/subscribe/post';
-
-  /* Ohne Skript bzw. als Fallback: normales Mailchimp-Formular */
-  form.action = base + '?u=' + MC_U + '&id=' + MC_ID;
-  if (hp) hp.name = 'b_' + MC_U + '_' + MC_ID;
+  /* HTML bleibt auch ohne JavaScript ein gueltiges Mailchimp-Formular. */
+  form.noValidate = true;
+  var pending = false;
 
   function isEn() { return document.documentElement.lang === 'en'; }
 
@@ -310,14 +280,10 @@
     e.preventDefault();
     var en = isEn();
 
-    if (!configured) {
-      setStatus(en
-        ? 'The signup form is not connected yet. Please write to rh@visualfacilitators.com in the meantime.'
-        : 'Die Anmeldung ist noch nicht verbunden. Schreib mir gern an rh@visualfacilitators.com.', 'error');
-      return;
-    }
+    if (pending) return;
 
-    if (!mail.value || mail.value.indexOf('@') < 1) {
+    mail.value = mail.value.trim();
+    if (!mail.checkValidity()) {
       setStatus(en ? 'Please enter a valid email address.'
                    : 'Bitte gib eine gültige E-Mail-Adresse ein.', 'error');
       mail.focus();
@@ -335,16 +301,17 @@
     if (hp && hp.value) return;
 
     setStatus(en ? 'Sending …' : 'Wird gesendet …', '');
+    pending = true;
     if (btn) btn.disabled = true;
 
-    var url = 'https://' + MC_DC + '.list-manage.com/subscribe/post-json'
-            + '?u=' + encodeURIComponent(MC_U)
-            + '&id=' + encodeURIComponent(MC_ID)
-            + '&EMAIL=' + encodeURIComponent(mail.value)
-            + '&FNAME=' + encodeURIComponent(fname ? fname.value : '')
-            + '&b_' + MC_U + '_' + MC_ID + '=';
+    var url = new URL(form.action);
+    url.pathname = url.pathname.replace(/\/post$/, '/post-json');
+    url.searchParams.set('EMAIL', mail.value);
+    url.searchParams.set('FNAME', fname ? fname.value : '');
+    if (hp) url.searchParams.set(hp.name, '');
 
-    jsonp(url, function (data) {
+    jsonp(url.href, function (data) {
+      pending = false;
       if (btn) btn.disabled = false;
 
       if (!data) {
@@ -377,6 +344,14 @@
       if (/must contain a single @|valid email/i.test(msg)) {
         setStatus(en ? 'Please enter a valid email address.'
                      : 'Bitte gib eine gültige E-Mail-Adresse ein.', 'error');
+        return;
+      }
+
+      /* Alte Audience-Pflichtfelder sind ein Konfigurationsfehler. */
+      if (/please enter a value|required field|must be provided/i.test(msg)) {
+        setStatus(en
+          ? 'The signup is currently unavailable because the form is not configured correctly. Please write to rh@visualfacilitators.com.'
+          : 'Die Anmeldung ist gerade nicht möglich, weil das Formular noch nicht richtig eingerichtet ist. Schreib mir bitte an rh@visualfacilitators.com.', 'error');
         return;
       }
 

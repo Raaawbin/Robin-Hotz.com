@@ -2241,3 +2241,13 @@ main[id],main [id]{scroll-margin-top:100px}
   .portfolio-page .case-gallery,.portfolio-page .portfolio-impressions,.portfolio-process,.portfolio-page .reference-links{grid-template-columns:1fr}
   .portfolio-page .case-meta{gap:28px}
 }
+
+/* Full-width visual records and paired supporting photos. */
+.portfolio-page .portfolio-recording{grid-template-columns:minmax(0,1fr)}
+.portfolio-page .portfolio-recording img{aspect-ratio:16/9}
+.portfolio-page .portfolio-impressions-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.portfolio-logo-monochrome img{filter:grayscale(1)}
+[data-theme="dark"] .portfolio-logo-monochrome img{filter:grayscale(1) invert(1)}
+@media(max-width:680px){.portfolio-page .portfolio-impressions-pair{grid-template-columns:1fr}}
+
+.portfolio-page .portfolio-gallery-single{grid-template-columns:minmax(0,1fr)}

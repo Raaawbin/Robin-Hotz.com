@@ -1,0 +1,29 @@
+/* Shared newsletter form styles. */
+  .nl-note{font-size:.9rem;color:var(--text-dim);margin-top:16px;line-height:1.5}
+  .nl-note a{color:var(--accent);font-weight:600}
+  .nl-consent{display:grid;grid-template-columns:22px 1fr;gap:11px;align-items:start;margin:4px 0 20px}
+  .nl-consent input{width:19px;height:19px;margin-top:2px;accent-color:var(--orange)}
+  .nl-consent label{font-size:.9rem;line-height:1.5;color:var(--text)}
+  .nl-consent a{color:var(--accent);font-weight:600}
+
+/* Open, editorial contact section at the bottom of the home page. */
+.home-contact{padding:110px 0 56px;border-top:1px solid var(--line);background:var(--bg)}
+.home-contact-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(40px,7vw,110px)}
+.home-contact-heading{text-align:center}
+.home-contact-kicker{margin:0 0 30px;color:var(--accent-strong);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.home-contact-heading h2{font-size:clamp(3.8rem,6.5vw,6.4rem);line-height:.98;letter-spacing:-.055em;margin:0 0 30px}
+.home-contact-heading h2 em{font-style:normal;color:var(--accent-strong)}
+.home-contact-invitation{font-size:1.2rem;line-height:1.6;max-width:370px;margin:0 auto}
+.home-contact-portrait{display:block;width:100%;max-width:370px;height:auto;aspect-ratio:1;object-fit:cover;margin:32px auto 0;border-radius:8px}
+.home-contact-form{align-self:start;padding:clamp(22px,3vw,38px);border-radius:12px;background:var(--bg-soft)}
+.home-contact-intro{margin:0 0 30px;line-height:1.65}
+.home-contact-intro a{color:var(--accent);font-weight:600}
+.home-contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+.home-contact-wide{grid-column:1/-1}
+.home-contact .field{margin-bottom:24px}
+.home-contact .field input,.home-contact .field textarea{border:0;border-bottom:1px solid var(--text-dim);border-radius:0;background:transparent;padding:10px 0}
+.home-contact .field textarea{min-height:104px}
+.home-contact button[type="submit"]{width:100%;justify-content:center;min-height:58px;margin-top:8px}
+.home-contact .nl-note{font-size:.8rem;margin-top:10px}
+@media(max-width:800px){.home-contact{padding:64px 0 36px}.home-contact-layout{grid-template-columns:minmax(0,1fr);gap:36px}.home-contact-heading h2{font-size:clamp(3.6rem,12vw,5.4rem)}.home-contact-invitation{max-width:520px}.home-contact-kicker{margin-bottom:22px}}
+@media(max-width:480px){.home-contact-fields{grid-template-columns:minmax(0,1fr)}.home-contact-intro a{overflow-wrap:anywhere}}

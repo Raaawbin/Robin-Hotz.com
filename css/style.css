@@ -1816,6 +1816,9 @@ b{color:var(--text-strong)}
   .burger{display:inline-flex}
 }
 @media (max-width:860px){
+  /* Keep the home headline above the face in the mobile photo crop. */
+  .home-modern .hero-main{align-items:flex-start;padding-top:100px}
+  .home-modern .hero .eyebrow{margin-bottom:12px}
   /* Mittlere Breite: beide Aussagen bleiben als zwei klare Zeilen stehen */
   .hero .sub .nobr{white-space:nowrap}
   .hero .sub br{display:initial}

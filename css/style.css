@@ -480,6 +480,7 @@ b{color:var(--text-strong)}
 .about-new-qualifications strong{font-size:.98rem;line-height:1.35}
 .about-new-qualifications small{color:var(--text-dim);font-size:.83rem;line-height:1.4}
 .about-new-qualifications .textlink{font-size:.92rem}
+.about-new-qualifications > .btn{display:flex;width:fit-content;max-width:100%;margin-inline:auto}
 /* Abschluesse & Rollen: verlinkt, mit orangem Glow beim Hover */
 .about-new-qualifications li{display:block;padding:0}
 .about-new-qualifications .qual-link{

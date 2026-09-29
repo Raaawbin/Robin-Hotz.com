@@ -2255,3 +2255,71 @@ main[id],main [id]{scroll-margin-top:100px}
 @media(max-width:680px){.portfolio-page .portfolio-impressions-pair{grid-template-columns:1fr}}
 
 .portfolio-page .portfolio-gallery-single{grid-template-columns:minmax(0,1fr)}
+
+/* Visual Coaching for Founders */
+.founder-page{--fc-paper:var(--bg-soft)}
+.founder-page .site-head{background:var(--head-bg);backdrop-filter:blur(12px)}
+.fc-hero{padding:164px 0 86px;background:var(--fc-paper)}
+.fc-hero-grid{display:grid;grid-template-columns:1.03fr 1fr;gap:56px;align-items:center}
+.fc-hero h1{font-family:var(--font-body);font-size:clamp(3rem,5.2vw,4.6rem);font-weight:700;letter-spacing:-.055em;line-height:1.02;color:var(--text-strong);margin:0 0 26px}
+.fc-hero h1 .o{color:var(--accent-strong)}
+.fc-lead{font-size:1.22rem;line-height:1.6;max-width:560px}
+.fc-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.founder-page .btn{letter-spacing:.02em;text-transform:none;font-size:1rem;line-height:1.4;padding:16px 23px}
+.fc-textlink{font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:3px}
+.fc-small{font-size:.91rem;color:var(--text-dim);margin-top:16px}
+.fc-hero-image{width:100%;aspect-ratio:1.08;object-fit:cover;object-position:57% center;border-radius:20px}
+.fc-hero-visual{position:relative;padding-bottom:42px}
+.fc-photo-note{position:absolute;bottom:0;left:-22px;right:26px;background:var(--panel-solid);border:1px solid var(--line);border-radius:12px;padding:21px 25px;box-shadow:var(--shadow)}
+.fc-photo-note strong{display:block;font-size:1.22rem;color:var(--text-strong)}
+.fc-photo-note span{font-size:.98rem}
+.fc-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fc-strip .wrap{display:flex;justify-content:space-between;gap:20px;padding-block:23px;font-weight:600;color:var(--text-strong)}
+.fc-strip .wrap>span::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:12px;vertical-align:middle}
+.fc-section{padding:96px 0;scroll-margin-top:100px}
+.fc-section h2{font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:var(--text-strong);margin-bottom:23px;max-width:720px}
+.fc-section h3{font-size:1.35rem;line-height:1.25;color:var(--text-strong);margin-bottom:12px}
+.fc-intro{max-width:690px;font-size:1.12rem}
+.fc-problems{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px}
+.fc-problems article{border-top:2px solid var(--line);padding-top:24px}
+.fc-problems .fc-number{color:var(--accent);font-size:.86rem;letter-spacing:.1em;font-weight:700;display:block;margin-bottom:15px}
+.fc-stakes{margin-top:36px;max-width:790px;font-size:1.1rem}
+.fc-map-section{background:var(--fc-paper)}
+.fc-map-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center}
+.fc-map{border:1px solid var(--line);border-radius:20px;background-color:var(--panel-solid);background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:18px 18px;padding:30px 20px 22px;box-shadow:var(--shadow)}
+.fc-map-heading{font-size:.77rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text-dim);text-align:center}
+.fc-map-board{height:360px;position:relative;margin-top:12px}
+.fc-map-lines{position:absolute;inset:0;width:100%;height:100%;stroke:var(--accent);stroke-width:2;fill:none;opacity:.65}
+.fc-node{position:absolute;transform:translate(-50%,-50%);padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel-solid);text-align:center;font-size:.98rem;font-weight:600;line-height:1.25;box-shadow:0 3px 12px #00000006;min-width:112px}
+.fc-node small{display:block;margin-top:5px;font-size:.8rem;font-weight:400;color:var(--text-dim)}
+.fc-node.center{left:50%;top:48%;border:2px solid var(--accent);color:var(--text-strong);font-size:1.4rem;padding:20px}
+.fc-node.vision{left:50%;top:11%}.fc-node.people{left:18%;top:48%}.fc-node.role{left:82%;top:48%}.fc-node.next{left:50%;top:86%}
+.fc-map figcaption{font-size:.83rem;color:var(--text-dim);text-align:center}
+.fc-outcomes{list-style:none;margin-top:26px}
+.fc-outcomes li{padding:18px 0;border-top:1px solid var(--line)}
+.fc-outcomes strong{display:block;color:var(--text-strong);margin-bottom:4px;font-size:1.13rem}
+.fc-guide{display:grid;grid-template-columns:.75fr 1fr;gap:80px;align-items:center}
+.fc-guide img{width:100%;max-height:500px;object-fit:cover;object-position:center 35%;border-radius:18px}
+.fc-guide p+p{margin-top:18px}.fc-guide .fc-textlink{display:inline-block;margin-top:25px}
+.fc-process{background:var(--fc-paper)}
+.fc-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;list-style:none;counter-reset:plan;margin-top:42px}
+.fc-plan li{counter-increment:plan}
+.fc-plan li::before{content:'0' counter(plan);display:block;color:var(--accent);font-weight:700;font-size:2.1rem;letter-spacing:-.04em;margin-bottom:15px}
+.fc-booking{display:grid;grid-template-columns:1fr .85fr;gap:70px;align-items:center}
+.fc-booking-card{background:var(--panel-solid);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:16px;padding:36px;box-shadow:var(--shadow)}
+.fc-price{font-size:3.8rem;font-weight:700;letter-spacing:-.05em;color:var(--text-strong);line-height:1.2;margin:16px 0 8px}
+.fc-booking-card ul{list-style:none;margin:25px 0}
+.fc-booking-card li{padding:8px 0 8px 26px;position:relative}
+.fc-booking-card li::before{content:'';position:absolute;left:0;top:16px;width:11px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.fc-booking-card .btn{width:100%}
+.fc-booking-card .fc-small{line-height:1.5}
+.fc-email{display:inline-block;margin-top:12px;font-size:.95rem;text-decoration:underline;text-underline-offset:3px}
+.fc-faq{padding-top:0}.fc-faq-layout{display:grid;grid-template-columns:.7fr 1fr;gap:80px}
+.fc-faq details{border-top:1px solid var(--line);padding:22px 0}.fc-faq details:last-child{border-bottom:1px solid var(--line)}
+.fc-faq summary{font-weight:600;font-size:1.14rem;color:var(--text-strong);cursor:pointer;padding-right:20px}.fc-faq details p{margin-top:15px;max-width:620px}
+.founder-page :focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+@media(max-width:980px){.fc-hero{padding-top:135px}.fc-hero-grid{gap:35px}.fc-map-grid,.fc-guide,.fc-booking,.fc-faq-layout{gap:40px}.fc-node{min-width:95px;padding:10px;font-size:.88rem}.fc-node.center{font-size:1.15rem;padding:16px}.fc-node.people{left:16%}.fc-node.role{left:84%}.fc-map{padding-inline:12px}}
+@media(max-width:720px){.fc-hero{padding:128px 0 50px}.fc-hero-grid,.fc-map-grid,.fc-guide,.fc-booking,.fc-faq-layout{grid-template-columns:1fr}.fc-hero h1{font-size:clamp(2.8rem,10vw,4rem)}.fc-lead{font-size:1.12rem}.fc-hero-visual{margin-top:12px;padding-bottom:30px}.fc-photo-note{left:14px;right:14px;padding:18px}.fc-hero-image{aspect-ratio:1.25}.fc-strip .wrap{flex-wrap:wrap;justify-content:flex-start;gap:9px 24px;font-size:.9rem}.fc-section{padding:64px 0}.fc-problems,.fc-plan{grid-template-columns:1fr;gap:28px}.fc-map{order:2}.fc-map-board{height:330px}.fc-guide img{max-height:390px;object-position:center 29%}.fc-guide{gap:32px}.fc-booking-card{padding:27px}.fc-faq{padding-top:0}.fc-actions{gap:19px}.fc-actions .btn{width:100%}.fc-faq-layout{gap:10px}}
+@media(min-width:721px) and (max-width:980px){.fc-map-grid{grid-template-columns:1fr}.fc-map{max-width:580px;width:100%;margin-inline:auto}}
+@media(max-width:420px){.fc-map-board{height:auto;display:grid;grid-template-areas:'vision vision' 'org org' 'people role' 'next next';grid-template-columns:1fr 1fr;gap:18px 12px;padding:18px 0}.fc-map-lines{display:none}.fc-node{position:static;transform:none;min-width:0;top:auto!important;left:auto!important}.fc-node.vision{grid-area:vision;justify-self:center}.fc-node.center{grid-area:org;justify-self:center}.fc-node.people{grid-area:people}.fc-node.role{grid-area:role}.fc-node.next{grid-area:next;justify-self:center}.fc-node.center::before,.fc-node.next::before{content:'';position:absolute;height:18px;border-left:2px solid var(--accent);left:50%;margin-top:-35px}.fc-node.center,.fc-node.next{position:relative}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.founder-page *{transition:none!important}}

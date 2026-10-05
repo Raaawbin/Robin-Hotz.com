@@ -82,8 +82,8 @@
     if (new TextEncoder().encode(source.value).length > 255 ||
         new TextEncoder().encode(message.value).length > 255) {
       setStatus(en
-        ? 'Please keep your answers brief. For a longer message, email rh@visualfacilitators.com.'
-        : 'Bitte halte Deine Antworten kurz. Für ein längeres Anliegen schreib mir an rh@visualfacilitators.com.', 'error');
+        ? 'Please keep your answers brief. For a longer message, email robin@robin-hotz.com.'
+        : 'Bitte halte Deine Antworten kurz. Für ein längeres Anliegen schreib mir an robin@robin-hotz.com.', 'error');
       (new TextEncoder().encode(source.value).length > 255 ? source : message).focus();
       return;
     }
@@ -116,8 +116,8 @@
 
       if (!data) {
         setStatus(en
-          ? 'The signup could not be sent. Please try again or write to rh@visualfacilitators.com.'
-          : 'Die Anmeldung konnte nicht gesendet werden. Bitte versuche es erneut oder schreib an rh@visualfacilitators.com.', 'error');
+          ? 'The signup could not be sent. Please try again or write to robin@robin-hotz.com.'
+          : 'Die Anmeldung konnte nicht gesendet werden. Bitte versuche es erneut oder schreib an robin@robin-hotz.com.', 'error');
         return;
       }
 
@@ -135,8 +135,8 @@
       /* Eine bestehende Anmeldung bestaetigt keinen erneuten Nachrichtenversand. */
       if (/already subscribed/i.test(msg)) {
         setStatus(en
-          ? 'This address is already subscribed. To send me a new message, please email rh@visualfacilitators.com.'
-          : 'Diese Adresse ist bereits eingetragen. Für ein neues Anliegen schreib mir bitte an rh@visualfacilitators.com.', 'error');
+          ? 'This address is already subscribed. To send me a new message, please email robin@robin-hotz.com.'
+          : 'Diese Adresse ist bereits eingetragen. Für ein neues Anliegen schreib mir bitte an robin@robin-hotz.com.', 'error');
         return;
       }
 
@@ -150,14 +150,14 @@
       /* Weitere Audience-Pflichtfelder weisen auf eine abweichende Konfiguration hin. */
       if (/please enter a value|required field|must be provided/i.test(msg)) {
         setStatus(en
-          ? 'The signup is currently unavailable because the form is not configured correctly. Please write to rh@visualfacilitators.com.'
-          : 'Die Anmeldung ist gerade nicht möglich, weil das Formular noch nicht richtig eingerichtet ist. Schreib mir bitte an rh@visualfacilitators.com.', 'error');
+          ? 'The signup is currently unavailable because the form is not configured correctly. Please write to robin@robin-hotz.com.'
+          : 'Die Anmeldung ist gerade nicht möglich, weil das Formular noch nicht richtig eingerichtet ist. Schreib mir bitte an robin@robin-hotz.com.', 'error');
         return;
       }
 
       setStatus(msg || (en
-        ? 'The signup did not work. Please write to rh@visualfacilitators.com.'
-        : 'Die Anmeldung hat nicht geklappt. Schreib mir gern an rh@visualfacilitators.com.'), 'error');
+        ? 'The signup did not work. Please write to robin@robin-hotz.com.'
+        : 'Die Anmeldung hat nicht geklappt. Schreib mir gern an robin@robin-hotz.com.'), 'error');
     });
   });
 })();

@@ -53,7 +53,7 @@ test('explicit theme remains active when storage is blocked and OS theme changes
 
 function contact() {
   const events={}; const windowEvents={}; const status={}; const button={disabled:true};
-  const link={href:'mailto:rh@visualfacilitators.com'};
+  const link={href:'mailto:robin@robin-hotz.com'};
   const fields=['name','email','message'].map(name=>({
     name, value:'', validity:{valid:true}, events:{}, attributes:{},
     setCustomValidity(message){this.validity.valid=!message;},
@@ -81,7 +81,7 @@ test('email draft safely encodes special characters and retains form values',()=
   c.fields[2].value='Grüße? & # = %\nNext line'; c.submit();
   const url=new URL(c.window.location.href);
   assert.equal(url.protocol,'mailto:');
-  assert.equal(url.pathname,'rh@visualfacilitators.com');
+  assert.equal(url.pathname,'robin@robin-hotz.com');
   assert.equal(url.searchParams.get('subject'),'Anfrage über die Website von Test & Name');
   assert.ok(url.searchParams.get('body').includes('Grüße? & # = %\nNext line'));
   assert.equal(c.fields[2].value,'Grüße? & # = %\nNext line');
@@ -90,6 +90,6 @@ test('email draft safely encodes special characters and retains form values',()=
   c.document.documentElement.lang='en'; c.windowEvents.langchange();
   assert.ok(c.status.textContent.includes('Please send the message there'));
   c.fields[2].value='Edited'; c.fields[2].events.input();
-  assert.equal(c.link.href,'mailto:rh@visualfacilitators.com');
+  assert.equal(c.link.href,'mailto:robin@robin-hotz.com');
   assert.equal(c.status.textContent,'');
 });

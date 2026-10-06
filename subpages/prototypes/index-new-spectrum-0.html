@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="de"
+      data-title-de="Robin Hotz | Von Komplexität zu Klarheit | Spectrum 0"
+      data-title-en="Robin Hotz | From Complexity to Clarity | Spectrum 0"
+      data-desc-de="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Robin Hotz, Visual Facilitator, begleitet Organisationen im Wandel: klare Moderation, die Ergebnisse sichtbar macht. Deutschlandweit im Einsatz."
+      data-desc-en="Facilitation, workshop moderation and graphic recording in Berlin. Robin Hotz, visual facilitator, supports organisations in transition: clear facilitation that makes results visible. Available across Germany.">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="spectrum-0-mark.svg" type="image/svg+xml">
+<title>Robin Hotz | Von Komplexität zu Klarheit | Spectrum 0</title>
+<meta name="description" content="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Robin Hotz, Visual Facilitator, begleitet Organisationen im Wandel: klare Moderation, die Ergebnisse sichtbar macht. Deutschlandweit im Einsatz.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Robin Hotz">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robin Hotz">
+<meta property="og:title" content="Robin Hotz | Von Komplexität zu Klarheit">
+<meta property="og:description" content="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Klare Moderation für Organisationen im Wandel.">
+<meta property="og:url" content="https://robin-hotz.com/subpages/prototypes/index-new-spectrum-0.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://robin-hotz.com/assets/fotos/hero-wide.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1360">
+<meta property="og:image:height" content="901">
+<meta name="keywords" content="Moderation Berlin, Workshop-Moderation, Graphic Recording Berlin, Visual Facilitation, Event-Moderation, Organisationsentwicklung, Strategie-Workshop, Konferenz-Moderation, Sketchnotes, Moderator Berlin">
+<meta name="geo.region" content="DE-BE">
+<meta name="geo.placename" content="Berlin">
+<meta name="geo.position" content="52.5200;13.4050">
+<meta name="ICBM" content="52.5200, 13.4050">
+<meta property="og:image:alt" content="Robin Hotz moderiert vor einer großformatigen Visualisierung">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Robin Hotz | Von Komplexität zu Klarheit">
+<meta name="twitter:description" content="Moderation, Workshop-Moderation und Graphic Recording in Berlin.">
+<meta name="twitter:image" content="https://robin-hotz.com/assets/fotos/hero-wide.webp">
+<meta name="twitter:image:alt" content="Robin Hotz moderiert vor einer großformatigen Visualisierung">
+<link rel="preload" as="image" href="../../assets/fotos/hero-stadtraum.webp" fetchpriority="high">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<!-- Spectrum: a local interpretation of Robin's brand moodboard. Styles are in spectrum-0.css; JavaScript is embedded. -->
+<link rel="stylesheet" href="spectrum-0.css?v=2">
+<script>
+/* ============================================================
+   Theme- und Sprach-Bootstrap — MUSS im <head> ohne defer
+   geladen werden, damit beides vor dem ersten Rendern gesetzt
+   ist (kein Aufblitzen).
+
+   Theme:  localStorage "theme-pref" = system | light | dark
+           Default "system" folgt der Browser-/OS-Einstellung
+           (prefers-color-scheme) und reagiert live auf Wechsel.
+   Sprache: localStorage "rh_lang" = de | en (gleicher Key wie
+           lang.js der übrigen Seiten → Wahl gilt seitenweit).
+           Default: Browsersprache; ?lang=de|en übersteuert.
+           CSS blendet .lang-de/.lang-en passend zu <html lang> aus;
+           Titel + Meta-Description wechseln über data-title-… und data-desc-….
+   main.js nutzt window.themePref / window.langPref für die Dropdowns.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------- Theme ---------- */
+  var KEY = 'rh-studies-theme';
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function validTheme(pref) {
+    return pref === 'light' || pref === 'dark' ? pref : 'system';
+  }
+  var themePreference = 'dark';
+  try { themePreference = validTheme(localStorage.getItem(KEY) || 'dark'); } catch (e) {}
+  function stored() { return themePreference; }
+  function resolve(pref) {
+    return pref === 'system' ? (mq.matches ? 'dark' : 'light') : pref;
+  }
+  function apply(pref) {
+    var theme = resolve(pref);
+    document.documentElement.setAttribute('data-theme', theme);
+    /* Browser-Chrome (Adressleiste mobil) mitfärben */
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#06070b' : '#f6f5fb');
+    /* UI (z. B. Umschalter-Label) über den Wechsel informieren */
+    try {
+      window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme, pref: pref } }));
+    } catch (e) { /* sehr alte Browser */ }
+  }
+
+  window.themePref = {
+    get: stored,
+    set: function (pref) {
+      pref = validTheme(pref);
+      themePreference = pref;
+      try { localStorage.setItem(KEY, pref); } catch (e) { /* privater Modus o. ä. */ }
+      apply(pref);
+    }
+  };
+
+  /* Bei "System" live auf OS-Wechsel reagieren */
+  if (mq.addEventListener) {
+    mq.addEventListener('change', function () {
+      if (stored() === 'system') apply('system');
+    });
+  }
+
+  apply(stored());
+
+  /* ---------- Sprache ---------- */
+  var LKEY = 'rh-studies-lang';
+
+  function pickLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'de' || q === 'en') return q;
+    } catch (e) {}
+    var s;
+    try { s = localStorage.getItem(LKEY); } catch (e) {}
+    if (s === 'de' || s === 'en') return s;
+    var nav = (navigator.language || 'de').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'de';
+  }
+  function applyLang(lang) {
+    if (lang !== 'de' && lang !== 'en') lang = 'de';
+    var root = document.documentElement;
+    root.setAttribute('lang', lang);
+    /* Titel und Meta-Description mitwechseln, falls hinterlegt */
+    var t = root.getAttribute('data-title-' + lang);
+    if (t) document.title = t;
+    var d = root.getAttribute('data-desc-' + lang);
+    var meta = document.querySelector('meta[name="description"]');
+    if (d && meta) meta.setAttribute('content', d);
+    try {
+      window.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  window.langPref = {
+    get: function () {
+      return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'de';
+    },
+    set: function (lang) {
+      lang = lang === 'en' ? 'en' : 'de';
+      // Reloading a shared ?lang URL must retain the newly selected language.
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(history.state, '', url.href);
+      } catch (e) {}
+      try { localStorage.setItem(LKEY, lang); } catch (e) {}
+      applyLang(lang);
+    }
+  };
+
+  applyLang(pickLang());
+})();
+
+</script>
+</head>
+<body class="home-modern type-modern study-spectrum-zero" data-nav-page="home">
+
+<div data-site-header></div>
+
+<main id="main">
+
+<!-- ============ HERO: CINEMATIC ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div><div class="hero-art" aria-hidden="true"><svg viewBox="0 0 600 600" aria-hidden="true"><defs><linearGradient id="spectrum-edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4edbf5"/><stop offset=".3" stop-color="#9a6aff"/><stop offset=".63" stop-color="#f084e0"/><stop offset=".83" stop-color="#fdbc87"/><stop offset="1" stop-color="#7f76ff"/></linearGradient><filter id="edge-glow"><feGaussianBlur stdDeviation="8"/></filter></defs><ellipse cx="310" cy="300" rx="235" ry="265" fill="none" stroke="url(#spectrum-edge)" stroke-width="8" opacity=".6" filter="url(#edge-glow)"/><ellipse cx="310" cy="300" rx="235" ry="265" fill="none" stroke="url(#spectrum-edge)" stroke-width="1.5"/><ellipse cx="310" cy="300" rx="220" ry="250" fill="none" stroke="url(#spectrum-edge)" stroke-width=".5" opacity=".3"/></svg></div><div class="hero-caption"><span class="lang-de">Menschen. Perspektiven. Möglichkeiten.</span><span class="lang-en">People. Perspectives. Possibilities.</span></div>
+
+  <div class="hero-main">
+    <div class="wrap">
+      <span class="eyebrow"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></span>
+      <h1>
+        <span class="lang-de">Von Komplexität <span class="o">zu Klarheit</span></span>
+        <span class="lang-en"><span class="hero-line-wide">From Complexity</span><br class="wide-only"> <span class="o">to Clarity</span></span>
+      </h1>
+      <p class="sub">
+        <span class="lang-de"><span class="nobr">Organisationen im Wandel stehen vor <b>komplexen Herausforderungen</b>.</span><br> Ich bringe klare Moderation, die Ergebnisse sichtbar macht.</span>
+        <span class="lang-en"><span class="nobr">Organisations in transition face <b>complex challenges</b>.</span><br> I bring clear facilitation that makes results visible.</span>
+      </p>
+      <div class="ctas">
+        <a class="btn" href="../../contact.html"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span></a>
+        <a class="btn ghost" href="../../solutions.html"><span class="lang-de">Lösungen entdecken</span><span class="lang-en">Explore solutions</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kundenlogos statt Kennzahlen -->
+  <div class="hero-logos">
+    <div class="wrap">
+      <p class="label"><span class="lang-de">Vertrauen von Organisationen wie</span><span class="lang-en">Trusted by organisations like</span></p>
+      <div class="row">
+        <img src="../../assets/clients/dbbahn.webp" alt="DB Bahn" loading="eager" width="426" height="116">
+        <img src="../../assets/clients/fraunhofer.webp" alt="Fraunhofer" loading="eager" width="681" height="120">
+        <img src="../../assets/clients/ergo.webp" alt="ERGO" loading="eager" width="800" height="280">
+        <img class="logo-giz-hero" src="../../assets/clients/giz-neu.webp" alt="GIZ" loading="eager" width="232" height="188">
+        <img src="../../assets/clients/hohenheim.webp" alt="Universität Hohenheim" loading="eager" width="451" height="120">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============ TRANSFORMATION ============ -->
+<section class="sec sec-soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow"><span class="lang-de">Die Herausforderung</span><span class="lang-en">The Challenge</span></span>
+      <h2>
+        <span class="lang-de">Komplexität <span class="o">navigieren</span></span>
+        <span class="lang-en">Navigating <span class="o">complexity</span></span>
+      </h2>
+      <p class="section-intro home-wide-intro">
+        <span class="lang-de">Veränderungs-Prozesse kosten Zeit und Energie, doch Gespräche verlaufen im Kreis und Ergebnisse bleiben folgenlos. Ihrer Organisation fehlt ein gemeinsames Bild davon, was jetzt zählt?</span>
+        <span class="lang-en">Change processes take time and energy, yet conversations go in circles and results lead nowhere. Your organisation is missing a shared picture of what matters now?</span>
+      </p>
+    </div>
+
+    <div class="transform">
+      <div class="t-col panel problem">
+        <div class="t-media">
+          <img src="../../assets/fotos/townhall-1.webp" loading="lazy"
+               alt="Volle Townhall-Veranstaltung: viele Stimmen, viele offene Fragen" width="1200" height="900" decoding="async">
+        </div>
+        <div class="t-title"><span class="lang-de">Von Komplexität</span><span class="lang-en">From Complexity</span></div>
+        <p class="t-intro"><span class="lang-de">Organisationen im Wandel kennen diese Probleme:</span><span class="lang-en">Organisations in transition know these problems:</span></p>
+        <ul class="t-list">
+          <li><span class="icon icon-spark" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Chaos:</b> Meetings und Workshops verlieren den roten Faden. Diskussionen drehen sich im Kreis, statt zu greifbaren Ergebnissen zu kommen.</span>
+            <span class="lang-en"><b>Chaos:</b> Meetings and workshops lose the thread. Discussions go in circles instead of reaching tangible results.</span>
+          </span></li>
+          <li><span class="icon icon-users" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Konflikt:</b> Teams ziehen nicht am selben Strang. Zusammenarbeit und Kultur werden anstrengend, und jeder verfolgt sein eigenes Bild vom Ziel.</span>
+            <span class="lang-en"><b>Conflict:</b> Teams aren&#8217;t pulling in the same direction. Collaboration and culture become exhausting, and everyone pursues their own picture of the goal.</span>
+          </span></li>
+          <li><span class="icon icon-eye" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Komplexität:</b> Themen werden zu vielschichtig, niemand sieht mehr das große Ganze. Gute Gedanken bleiben abstrakt und gehen im Detail verloren.</span>
+            <span class="lang-en"><b>Complexity:</b> Topics become too complex, no one sees the bigger picture anymore. Good ideas stay abstract and get lost in the detail.</span>
+          </span></li>
+        </ul>
+      </div>
+
+      <div class="t-col panel solution">
+        <div class="t-media">
+          <img src="../../assets/fotos/klarheit-stadtraum.webp" loading="lazy"
+               alt="Robin Hotz moderiert vor einer Graphic-Recording-Wand mit klarem Zukunftsbild" width="1399" height="867" decoding="async">
+        </div>
+        <div class="t-title"><span class="lang-de">Zu Klarheit</span><span class="lang-en">To Clarity</span></div>
+        <p class="t-intro"><span class="lang-de">Klare Moderation führt zu nachhaltigen Lösungen:</span><span class="lang-en">Clear facilitation leads to lasting solutions:</span></p>
+        <ul class="t-list">
+          <li><span class="icon icon-target" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Fokus:</b> Alle bleiben im Thema, jede Stimme wird eingebunden, und am Ende stehen klare Entscheidungen. Aus zähen Meetings werden spannende Workshops.</span>
+            <span class="lang-en"><b>Focus:</b> Everyone stays on topic, every voice is included, and clear decisions emerge at the end. Tedious meetings become engaging workshops.</span>
+          </span></li>
+          <li><span class="icon icon-compass" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Richtung:</b> Ein geteiltes Verständnis von Auftrag und Ziel entsteht. Zusammenarbeit und Kultur werden zur Stärke, und alle bewegen sich auf dasselbe Bild zu.</span>
+            <span class="lang-en"><b>Direction:</b> A shared understanding of mission and goal emerges. Collaboration and culture become a strength, and everyone moves toward the same picture.</span>
+          </span></li>
+          <li><span class="icon icon-eye" aria-hidden="true"></span><span>
+            <span class="lang-de"><b>Sichtbarkeit:</b> Gedanken und Ergebnisse werden sichtbar, und es entsteht ein gemeinsames Bild, das Orientierung gibt und in Erinnerung bleibt.</span>
+            <span class="lang-en"><b>Visibility:</b> Thoughts and results become visible, and a shared picture emerges that provides orientation and stays memorable.</span>
+          </span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGEN: Foto-Karten ============ -->
+<section class="sec" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow"><span class="lang-de">Meine Leistungen</span><span class="lang-en">My services</span></span>
+      <h2><span class="lang-de">Moderation für <span class="o">Veränderung</span></span><span class="lang-en">Facilitation for <span class="o">change</span></span></h2>
+      <p class="section-intro home-wide-intro">
+        <span class="lang-de">Ich moderiere Gespräche mit klarem Fokus und mache Ergebnisse visuell sichtbar, damit Entscheidungen verständlich werden und konkrete nächste Schritte entstehen.</span>
+        <span class="lang-en">I facilitate conversations with a clear focus and make results visually tangible, so decisions become understandable and concrete next steps emerge.</span>
+      </p>
+    </div>
+
+    <div class="svc-grid">
+
+      <article class="svc panel" id="moderation">
+        <div class="svc-media">
+          <img src="../../assets/fotos/hohenheim-buehne.webp" loading="lazy"
+               alt="Robin Hotz moderiert mit Mikrofon auf einer Konferenzbühne" width="1024" height="768" decoding="async">
+        </div>
+        <div class="svc-body">
+          <h3><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></h3>
+          <p class="desc">
+            <span class="lang-de">Event-Moderation für Konferenzen und Organisationen, die ihre Themen souverän auf die Bühne bringen und ihr Publikum wirklich erreichen wollen.</span>
+            <span class="lang-en">Event facilitation for conferences and organisations that want to bring their topics to the stage with confidence and truly reach their audience.</span>
+          </p>
+          <ul class="feats">
+            <li><span class="lang-de">Event-Moderation</span><span class="lang-en">Event facilitation</span></li>
+            <li><span class="lang-de">Veranstaltungs-Design</span><span class="lang-en">Event design</span></li>
+            <li><span class="lang-de">Keynotes &amp; Vorträge</span><span class="lang-en">Keynotes &amp; talks</span></li>
+          </ul>
+          <p class="result">
+            <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
+            <span class="lang-de">Workshops mit rotem Faden, die Inhalte klar transportieren, das Publikum einbinden und in Erinnerung bleiben.</span>
+            <span class="lang-en">Workshops with a clear thread that convey content clearly, engage the audience and stay memorable.</span>
+          </p>
+          <a class="btn svc-cta" href="../../solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
+        </div>
+      </article>
+
+      <article class="svc panel" id="coaching">
+        <div class="svc-media">
+          <img src="../../assets/fotos/aoh-training.webp" loading="lazy"
+               alt="Moderierte Gesprächsrunde im Kreis bei einem Art-of-Hosting-Training" width="2000" height="1333" decoding="async">
+        </div>
+        <div class="svc-body">
+          <h3>Coaching</h3>
+          <p class="desc">
+            <span class="lang-de">Organisationsentwicklung für Führung und Rollenklärung. Strukturierte, partizipative Prozesse für Kulturentwicklung und gemeinsame Visionen.</span>
+            <span class="lang-en">Organisational development for leadership and role clarity. Structured, participatory processes for culture and shared visions.</span>
+          </p>
+          <ul class="feats">
+            <li><span class="lang-de">Team-Entwicklung</span><span class="lang-en">Team development</span></li>
+            <li><span class="lang-de">Führungskräfte-Coaching</span><span class="lang-en">Leadership coaching</span></li>
+            <li><span class="lang-de">Strategie-Workshops</span><span class="lang-en">Strategy workshops</span></li>
+          </ul>
+          <p class="result">
+            <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
+            <span class="lang-de">Teams, die Rollen, Richtung und Zusammenarbeit klar haben und gemeinsam ins Handeln kommen.</span>
+            <span class="lang-en">Teams that are clear on roles, direction and collaboration and start acting together.</span>
+          </p>
+          <a class="btn svc-cta" href="../../solutions.html#coaching">Coaching</a>
+        </div>
+      </article>
+
+      <article class="svc panel" id="visualisierung">
+        <div class="svc-media">
+          <img src="../../assets/fotos/strategietag-vision-1.webp" loading="lazy"
+               alt="Strategietag: eine Gruppe arbeitet fokussiert an einem gemeinsamen Bild" width="1200" height="800" decoding="async">
+        </div>
+        <div class="svc-body">
+          <h3><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></h3>
+          <p class="desc">
+            <span class="lang-de">Visualisierung, die komplexe Inhalte greifbar macht, damit Teams und Führungskräfte schneller verstehen, entscheiden und ins Handeln kommen.</span>
+            <span class="lang-en">Visualisation that makes complex content tangible, so teams and leaders understand, decide and act faster.</span>
+          </p>
+          <ul class="feats">
+            <li>Graphic Recording</li>
+            <li><span class="lang-de">Strategie-Visualisierung</span><span class="lang-en">Strategy visualisation</span></li>
+            <li>Sketchnotes</li>
+          </ul>
+          <p class="result">
+            <b><span class="lang-de">Ergebnis</span><span class="lang-en">Result</span></b>
+            <span class="lang-de">Bilder und Landkarten, die Diskussionen verdichten und Ergebnisse sichtbar verankern.</span>
+            <span class="lang-en">Images and maps that distil discussions and anchor results visibly.</span>
+          </p>
+          <a class="btn svc-cta" href="../services/visual-facilitation.html"><span class="lang-de">Visual Facilitation</span><span class="lang-en">Visual Facilitation</span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="svc-more">
+      <a class="btn" href="../../contact.html"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER MICH ============ -->
+<section class="sec sec-soft" id="ueber">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="../../assets/fotos/portrait-robin.webp" loading="lazy" alt="Porträt von Robin Hotz" width="1071" height="1200" decoding="async">
+    </div>
+    <div>
+      <span class="eyebrow"><span class="lang-de">Über mich</span><span class="lang-en">About me</span></span>
+      <h2 style="margin-bottom:20px"><span class="lang-de">Hi, ich bin <span class="o">Robin</span></span><span class="lang-en">Hi, I&#8217;m <span class="o">Robin</span></span></h2>
+      <p>
+        <span class="lang-de">Seit über zehn Jahren begleite ich Veränderungsprozesse als Visual Facilitator. In dieser Zeit habe ich hunderte Workshops begleitet und unzählige Diskussionen in klare Bilder übersetzt.</span>
+        <span class="lang-en">For over ten years I have accompanied change processes as a visual facilitator. In that time I have facilitated hundreds of workshops, translating countless discussions into clear images.</span>
+      </p>
+      <p>
+        <span class="lang-de">Dabei habe ich gemerkt, wie sehr es auf zwei Dinge ankommt: auf professionelle Moderation, die sicher durch komplexe Themen führt, und auf kreatives Veranstaltungs-Design, das Inhalte erlebbar macht.</span>
+        <span class="lang-en">Along the way I realised how much it comes down to two things: professional facilitation that guides safely through complex topics, and creative event design that makes content tangible.</span>
+      </p>
+      <p style="margin-bottom:26px">
+        <span class="lang-de">Heute verbinde ich beides als Moderation für Veränderungsprozesse, damit ihr im Wandel den Überblick behaltet und aus Ideen tragfähige Ergebnisse werden.</span>
+        <span class="lang-en">Today I combine both as facilitation for change processes, so you keep the bigger picture in transition and ideas turn into solid results.</span>
+      </p>
+      <div class="facts about-facts" style="margin-bottom:28px">
+        <div class="fact"><div class="n">10+</div><div class="l"><span class="lang-de">Jahre Erfahrung</span><span class="lang-en">years of experience</span></div></div>
+        <div class="fact"><div class="n">250+</div><div class="l"><span class="lang-de">begleitete Workshops</span><span class="lang-en">workshops supported</span></div></div>
+        <div class="fact"><div class="n">M.A.</div><div class="l"><span class="lang-de">Erwachsenenbildung</span><span class="lang-en">Adult Education</span></div></div>
+      </div>
+      <div class="about-action">
+        <a class="btn" href="../../about.html"><span class="lang-de">Mehr über mich</span><span class="lang-en">More about me</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="about-methods" id="methods">
+      <span class="cm-l"><span class="lang-de">Methoden, mit denen ich arbeite</span><span class="lang-en">Methods I work with</span></span>
+      <div class="method-pills" aria-label="Methods">
+        <a class="method-pill" href="../services/loop-approach.html"><span class="icon icon-spark" aria-hidden="true"></span>The Loop Approach&#174;</a>
+        <a class="method-pill" href="../services/liberating-structures.html"><span class="icon icon-users" aria-hidden="true"></span>Liberating Structures™</a>
+        <a class="method-pill" href="../services/design-thinking.html"><span class="icon icon-target" aria-hidden="true"></span>Design Thinking</a>
+        <a class="method-pill" href="../services/visual-facilitation.html"><span class="icon icon-pen" aria-hidden="true"></span>Visual Facilitation</a>
+        <a class="method-pill" href="../services/integrale-theorie.html"><span class="icon icon-compass" aria-hidden="true"></span><span class="lang-de">Integrale Theorie</span><span class="lang-en">Integral Theory</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENZEN ============ -->
+<section class="sec sec-soft" id="referenzen">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:10px">
+      <span class="eyebrow"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></span>
+      <h2><span class="lang-de">Organisationen, mit denen ich <span class="o">arbeite</span></span><span class="lang-en">Organisations <span class="o">I work with</span></span></h2>
+    </div>
+
+    <div class="client-logo-wall" aria-label="Auswahl bisheriger Auftraggeber und Partner">
+      <div class="client-logo-row client-logo-row-6-leading">
+        <div class="client-logo-item"><img src="../../assets/clients/logo-gls-bank.webp?v=2" alt="GLS Bank" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-deutsche-bahn.webp?v=2" alt="Deutsche Bahn" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-giz.webp?v=2" alt="Deutsche Gesellschaft für Internationale Zusammenarbeit, GIZ" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-bertelsmann-stiftung.webp?v=2" alt="Bertelsmann Stiftung" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-tu-muenchen.webp?v=2" alt="Technische Universität München" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-raiffeisen-bank-international.webp?v=2" alt="Raiffeisen Bank International" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="client-logo-row client-logo-row-6">
+        <div class="client-logo-item"><img src="../../assets/clients/logo-museum-fuer-naturkunde.webp?v=2" alt="Museum für Naturkunde Berlin" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-max-delbrueck-center.webp?v=2" alt="Max Delbrück Center" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-universitaet-wuerzburg.webp?v=2" alt="Julius-Maximilians-Universität Würzburg" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-stadt-ingolstadt.webp?v=2" alt="Stadt Ingolstadt" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-gew-berlin.webp?v=2" alt="Gewerkschaft Erziehung und Wissenschaft Berlin" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-kv-berlin.webp?v=2" alt="Kassenärztliche Vereinigung Berlin" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="client-logo-row client-logo-row-7">
+        <div class="client-logo-item"><img src="../../assets/clients/logo-db-akademie.webp?v=2" alt="DB Akademie" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-fraunhofer-netzwerk-marketing.webp?v=2" alt="Fraunhofer Netzwerk Marketing" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-art-of-hosting.webp?v=2" alt="Art of Hosting" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-betterplace-lab.webp?v=2" alt="betterplace lab" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-jobrad.webp?v=2" alt="JobRad" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-reinventing-society.webp?v=2" alt="Reinventing Society" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-visual-facilitators.webp?v=2" alt="Visual Facilitators" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="client-logo-row client-logo-row-8">
+        <div class="client-logo-item"><img src="../../assets/clients/logo-agenturmatching.webp?v=2" alt="Agenturmatching" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-akademie-heiligenfeld.webp?v=2" alt="Akademie Heiligenfeld" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-ebn-congress.webp?v=2" alt="EBN Congress" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-euses.webp?v=2" alt="European Social Economy Summit" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-kinder-jugendring-sachsen-anhalt.webp?v=2" alt="Kinder- und Jugendring Sachsen-Anhalt" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-synk-group.webp?v=2" alt="SYNK Group" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-the-good-change.webp?v=2" alt="The Good Change" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-leadership3.webp?v=2" alt="Leadership³" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="client-logo-row client-logo-row-9">
+        <div class="client-logo-item"><img src="../../assets/clients/logo-dafne.webp?v=2" alt="DAFNE" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-drehmoment.webp?v=2" alt="Drehmoment" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-evolve-live.webp?v=2" alt="evolve LIVE" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-unterwegs-natur-coaching.webp?v=2" alt="Unterwegs Natur und Coaching" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-monetative.webp?v=2" alt="Monetative" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-sensetribe.webp?v=2" alt="SenseTribe Consulting" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-socius.webp?v=2" alt="Socius Organisationsberatung" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-supermarkt.webp?v=2" alt="SUPERMARKT" loading="lazy" decoding="async"></div>
+        <div class="client-logo-item"><img src="../../assets/clients/logo-ulex.webp?v=2" alt="ulex" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+
+    <div class="q-grid">
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/clients/client-lino-zeddies.webp" alt="Lino Zeddies" loading="lazy" width="150" height="150" decoding="async"></div>
+        <blockquote>
+          <span class="lang-de">Robin schafft es, komplexe Themen greifbar zu machen und Menschen zu befähigen, gemeinsam Lösungen zu entwickeln.</span>
+          <span class="lang-en">Robin manages to make complex topics tangible and empowers people to develop solutions together.</span>
+        </blockquote>
+        <cite>Lino Zeddies, CEO, Reinventing Society</cite>
+      </figure>
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/clients/client-anne-spitz.webp" alt="Anne Spitz" loading="lazy" width="300" height="300" decoding="async"></div>
+        <blockquote>
+          <span class="lang-de">Dank Robin war unsere Konferenz ein voller Erfolg. Professionelle Moderation trifft auf kreatives Veranstaltungs-Design.</span>
+          <span class="lang-en">Thanks to Robin, our conference was a complete success. Professional facilitation meets creative event design.</span>
+        </blockquote>
+        <cite><span class="lang-de">Anne Spitz, Teilnehmerin Strategieprozess</span><span class="lang-en">Anne Spitz, Strategy process participant</span></cite>
+      </figure>
+      <figure class="q-card">
+        <div class="q-avatar"><img src="../../assets/clients/client-raphael-thelen.webp" alt="Raphael Thelen" loading="lazy" width="150" height="150" decoding="async"></div>
+        <blockquote>
+          <span class="lang-de">Robin hat unser Team in diversen Konflikten moderiert und uns geholfen, eine agile Organisation aufzubauen.</span>
+          <span class="lang-en">Robin facilitated our team through various conflicts and helped us build an agile organisation.</span>
+        </blockquote>
+        <cite><span class="lang-de">Raphael Thelen, Autor und Speaker</span><span class="lang-en">Raphael Thelen, Author and Speaker</span></cite>
+      </figure>
+    </div>
+
+    <div class="refs-more">
+      <a class="btn" href="../../references.html"><span class="lang-de">Mehr Referenzen</span><span class="lang-en">More references</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKTFORMULAR ============ -->
+<section class="sec home-contact" id="kontakt" aria-labelledby="home-contact-title">
+  <div class="wrap">
+    <div class="home-contact-layout">
+    <header class="home-contact-heading">
+      <h2 id="home-contact-title"><span class="lang-de">Lass uns<br><em>sprechen.</em></span><span class="lang-en">Let’s<br><em>talk.</em></span></h2>
+      <p class="home-contact-invitation"><span class="lang-de">Was möchtest Du mit Deinem Team oder Deiner Organisation bewegen? Ich freue mich, von Dir zu hören.</span><span class="lang-en">What would you like to make happen with your team or organisation? I’d love to hear from you.</span></p>
+      <img class="home-contact-portrait" src="../../assets/fotos/portrait-warm.webp" alt="Robin Hotz" width="800" height="800" loading="lazy" decoding="async">
+    </header>
+    <div class="home-contact-form">
+      <p class="muted home-contact-intro">
+        <span class="lang-de">Über dieses Formular erreichst Du mich und meldest Dich für meinen Newsletter an. Oder schreib mir direkt an <a href="mailto:robin@robin-hotz.com">robin@robin-hotz.com</a>.</span>
+        <span class="lang-en">Use this form to get in touch and sign up for my newsletter. Or email me directly at <a href="mailto:robin@robin-hotz.com">robin@robin-hotz.com</a>.</span>
+      </p>
+      <p class="demo-note"><span class="lang-de">Designvorschau: Dieses Formular versendet keine Daten.</span><span class="lang-en">Design preview: This form does not send any data.</span></p>
+      <form id="newsletter-form"
+            action="#kontakt" onsubmit="return false"
+            method="post" name="mc-embedded-subscribe-form">
+        <div class="home-contact-fields">
+          <div class="field">
+            <label for="nl-fname"><span class="lang-de">Name</span><span class="lang-en">Name</span></label>
+            <input id="nl-fname" name="FNAME" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="nl-mail"><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></label>
+            <input id="nl-mail" name="EMAIL" type="email" autocomplete="email" required>
+          </div>
+          <div class="field home-contact-wide">
+            <label for="nl-source"><span class="lang-de">Wie bist Du auf mich aufmerksam geworden?</span><span class="lang-en">How did you hear about me?</span></label>
+            <input id="nl-source" name="MERGE3" type="text">
+          </div>
+          <div class="field home-contact-wide">
+            <label for="nl-message"><span class="lang-de">Was ist Dein Anliegen?</span><span class="lang-en">What would you like to discuss?</span></label>
+            <textarea id="nl-message" name="MERGE4" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="nl-consent">
+          <input id="nl-consent" type="checkbox" required>
+          <label for="nl-consent">
+            <span class="lang-de">Ich möchte den Newsletter erhalten und habe die <a href="../../privacy.html">Datenschutzerklärung</a> gelesen. Die Einwilligung kann ich jederzeit widerrufen.</span>
+            <span class="lang-en">I would like to receive the newsletter and have read the <a href="../../privacy.html">privacy policy</a>. I can withdraw my consent at any time.</span>
+          </label>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <input id="nl-hp" type="text" name="b_11b1423e1074b15bdfb0047c3_a4c7dc2d50" tabindex="-1" value="" autocomplete="off">
+        </div>
+        <button class="btn" type="submit" name="subscribe">
+          <span class="lang-de">Absenden und anmelden</span><span class="lang-en">Send and subscribe</span>
+          <span class="icon icon-arrow sm" aria-hidden="true"></span>
+        </button>
+        <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="nl-note">
+        <span class="lang-de">Der Versand läuft über Mailchimp (Intuit Inc., USA). Mit der Anmeldung stimmst Du der Verarbeitung Deiner Daten dort zu. Jede E-Mail enthält einen Abmeldelink.</span>
+        <span class="lang-en">The newsletter is delivered via Mailchimp (Intuit Inc., USA). By subscribing you agree to the processing of your data there. Every email contains an unsubscribe link.</span>
+      </p>
+    </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script>
+/* ============================================================
+   Seiten-Interaktion: Scroll-Navigation, mobiles Menü,
+   Umschalter-Dropdowns für Sprache und Theme.
+   (Theme-/Sprachlogik liegt in theme.js —
+    window.themePref und window.langPref)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------- Zentrale Seitenbausteine: Header + Footer ----------
+     Alle Seiten enthalten nur noch [data-site-header] und [data-site-footer].
+     Pfade werden aus der URL dieser JS-Datei berechnet und funktionieren
+     dadurch auch in Unterordnern. */
+  var siteRoot = new URL('../../', window.location.href);
+  function siteUrl(path) { return new URL(path, siteRoot).href; }
+
+  var fileName = window.location.pathname.split('/').pop() || 'index.html';
+  var activePage = document.body.getAttribute('data-nav-page') || '';
+  if (!activePage) {
+    if (fileName === 'index.html' || fileName === 'index-new.html' || fileName === 'index-old.html') activePage = 'home';
+    else if (fileName === 'solutions.html' || fileName === 'solutions-new.html') activePage = 'solutions';
+    else if (fileName === 'references.html') activePage = 'references';
+    else if (fileName === 'about.html' || fileName === 'cv.html') activePage = 'about';
+    else if (fileName === 'contact.html') activePage = 'contact';
+  }
+  function current(page) { return activePage === page ? ' aria-current="page"' : ''; }
+
+  var headerMount = document.querySelector('[data-site-header]');
+  if (headerMount) {
+    headerMount.outerHTML =
+      '<a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>' +
+      '<header class="site-head" id="siteHead">' +
+        '<div class="nav">' +
+          '<a class="brand" href="' + siteUrl('subpages/prototypes/index-new-spectrum-0.html') + '" aria-label="Robin Hotz">' +
+            '<img class="brand-symbol" src="spectrum-0-mark.svg" alt="" width="52" height="52">' +
+            '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
+          '</a>' +
+          '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
+            '<a href="' + siteUrl('subpages/prototypes/index-new-spectrum-0.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+            '<span class="navitem">' +
+              '<a class="navlink" href="' + '#leistungen' + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<span class="dropdown">' +
+                '<a href="' + siteUrl('solutions.html#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
+                '<a href="' + siteUrl('solutions.html#coaching') + '">Coaching</a>' +
+                '<a href="' + siteUrl('solutions.html#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+              '</span>' +
+            '</span>' +
+            '<a href="' + '#referenzen' + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+            '<a href="' + '#ueber' + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+            '<span class="navitem drop-ctl" id="langCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false">' +
+                '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label">DE</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Sprache wählen">' +
+                '<button type="button" data-lang="de" aria-pressed="true">Deutsch</button>' +
+                '<button type="button" data-lang="en" aria-pressed="false">English</button>' +
+              '</span>' +
+            '</span>' +
+            '<span class="navitem drop-ctl" id="themeCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false">' +
+                '<span class="theme-dot" aria-hidden="true"></span><span class="ctl-label">Light</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Darstellung wählen">' +
+                '<button type="button" data-set-theme="light" aria-pressed="false">Light</button>' +
+                '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
+              '</span>' +
+            '</span>' +
+            '<a class="btn nav-cta" href="' + '#kontakt' + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+          '</nav>' +
+          '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu">' +
+            '<span class="visually-hidden lang-de">Menü öffnen</span><span class="visually-hidden lang-en">Open menu</span>' +
+            '<span class="icon icon-burger" aria-hidden="true"></span>' +
+          '</button>' +
+        '</div>' +
+      '</header>';
+  }
+
+  var footerMount = document.querySelector('[data-site-footer]');
+  if (footerMount) {
+    footerMount.outerHTML =
+      '<footer class="site-foot">' +
+        '<div class="wrap">' +
+          '<div class="foot-grid">' +
+            '<div class="foot-brand">' +
+              '<a class="brand brand-footer" href="' + siteUrl('subpages/prototypes/index-new-spectrum-0.html') + '" aria-label="Robin Hotz">' +
+                '<img class="brand-symbol" src="spectrum-0-mark.svg" alt="" width="52" height="52">' +
+                '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
+              '</a>' +
+              '<p class="brand-tagline"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></p>' +
+            '</div>' +
+            '<nav class="foot-col" aria-label="Seiten">' +
+              '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +
+              '<a href="' + siteUrl('subpages/prototypes/index-new-spectrum-0.html') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+              '<a href="' + '#leistungen' + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
+              '<a href="' + '#referenzen' + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+              '<a href="' + '#ueber' + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+              '<a href="' + '#kontakt' + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+            '</nav>' +
+            '<div class="foot-col">' +
+              '<h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>' +
+              '<a class="c-plain" href="mailto:robin@robin-hotz.com"><span class="icon icon-mail sm" aria-hidden="true"></span>robin@robin-hotz.com</a>' +
+              '<a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>' +
+              '<a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>' +
+              '<a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="foot-bottom">' +
+            '<span>© ' + new Date().getFullYear() + ' Robin Hotz</span>' +
+            '<span><a href="' + siteUrl('imprint.html') + '"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('privacy.html') + '"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('subpages/documents/terms.html') + '"><span class="lang-de">AGB</span><span class="lang-en">GTC</span></a></span>' +
+            '<span><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for change</span></span>' +
+          '</div>' +
+        '</div>' +
+      '</footer>';
+  }
+
+  /* ---------- Navigation and disclosure controls ---------- */
+  var head = document.getElementById('siteHead');
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  var mobile = window.matchMedia('(max-width: 980px)');
+  var ctls = Array.from(document.querySelectorAll('.drop-ctl'));
+
+  function onScroll() {
+    if (head) head.classList.toggle('scrolled', window.scrollY > 40 || !!(menu && menu.classList.contains('open')));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function closeAll(except) {
+    ctls.forEach(function (ctl) {
+      if (ctl === except) return;
+      ctl.classList.remove('open');
+      ctl.querySelector('.ctl-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
+  function setMenu(open, restoreFocus) {
+    if (!menu || !burger) return;
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    var en = document.documentElement.lang === 'en';
+    burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
+    if (!open) closeAll(null);
+    if (restoreFocus) burger.focus();
+    onScroll();
+  }
+  if (burger && menu) {
+    burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    menu.addEventListener('click', function (e) {
+      if (mobile.matches && e.target.closest('a')) setMenu(false);
+    });
+    if (mobile.addEventListener) mobile.addEventListener('change', function () {
+      var needsFocus = mobile.matches && menu.contains(document.activeElement);
+      setMenu(false, needsFocus);
+    });
+  }
+
+  ctls.forEach(function (ctl) {
+    var btn = ctl.querySelector('.ctl-btn');
+    var panel = ctl.querySelector('.dropdown');
+    panel.id = ctl.id + '-options';
+    btn.setAttribute('aria-controls', panel.id);
+    function openControl() {
+      closeAll(ctl);
+      ctl.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    btn.addEventListener('click', function () {
+      if (ctl.classList.contains('open')) closeAll(null);
+      else openControl();
+    });
+    ctl.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && ctl.classList.contains('open')) {
+        e.stopPropagation();
+        closeAll(null);
+        btn.focus();
+      } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        openControl();
+        var options = Array.from(panel.querySelectorAll('button'));
+        var index = options.indexOf(document.activeElement);
+        index = index < 0 ? (e.key === 'ArrowDown' ? 0 : options.length - 1) :
+          (index + (e.key === 'ArrowDown' ? 1 : -1) + options.length) % options.length;
+        options[index].focus();
+      }
+    });
+    ctl.addEventListener('focusout', function (e) {
+      if (!ctl.contains(e.relatedTarget)) {
+        ctl.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('pointerdown', function (e) {
+    closeAll(e.target.closest('.drop-ctl'));
+    if (head && !head.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('focusin', function (e) {
+    if (head && !head.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu && menu.classList.contains('open')) setMenu(false, true);
+  });
+
+  /* Auswahl in einem Umschalter-Dropdown markieren + Label setzen */
+  function select(ctl, value, attr, labelText) {
+    if (!ctl) return;
+    var hadFocus = ctl.querySelector('.dropdown').contains(document.activeElement);
+    ctl.querySelectorAll('[' + attr + ']').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute(attr) === value ? 'true' : 'false');
+    });
+    ctl.querySelector('.ctl-label').textContent = labelText;
+    ctl.classList.remove('open');
+    ctl.querySelector('.ctl-btn').setAttribute('aria-expanded', 'false');
+    if (hadFocus) ctl.querySelector('.ctl-btn').focus();
+  }
+
+  /* ---------- Theme (Light / Dark) ----------
+     Label und Optionen heißen in beiden Sprachen Light/Dark.
+     Ohne gespeicherte Wahl folgt die Seite der Systemeinstellung;
+     markiert wird immer der tatsächlich aktive Modus. */
+  var themeCtl = document.getElementById('themeCtl');
+  var THEME_LABELS = { light: 'Light', dark: 'Dark' };
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function syncTheme() {
+    select(themeCtl, currentTheme(), 'data-set-theme', THEME_LABELS[currentTheme()]);
+  }
+  syncTheme();
+  if (themeCtl) themeCtl.querySelectorAll('[data-set-theme]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      window.themePref.set(btn.getAttribute('data-set-theme'));
+      syncTheme();
+    });
+  });
+  /* Label aktuell halten, wenn das System-Theme live wechselt */
+  window.addEventListener('themechange', function () {
+    if (!themeCtl) return;
+    themeCtl.querySelector('.ctl-label').textContent = THEME_LABELS[currentTheme()];
+    themeCtl.querySelectorAll('[data-set-theme]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-theme') === currentTheme() ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- Sprache (DE / EN) ---------- */
+  var langCtl = document.getElementById('langCtl');
+  var LANG_LABELS = { de: 'DE', en: 'EN' };
+  function syncLang() {
+    var lang = window.langPref.get();
+    var en = lang === 'en';
+    select(langCtl, lang, 'data-lang', LANG_LABELS[lang]);
+    // Keep optional bilingual image descriptions in step with the page language.
+    document.querySelectorAll('img[data-alt-de][data-alt-en]').forEach(function (img) {
+      img.alt = img.getAttribute('data-alt-' + lang);
+    });
+    if (menu) menu.setAttribute('aria-label', en ? 'Main navigation' : 'Hauptnavigation');
+    var footerNav = document.querySelector('.site-foot nav');
+    if (footerNav) footerNav.setAttribute('aria-label', en ? 'Pages' : 'Seiten');
+    if (langCtl) langCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose language' : 'Sprache wählen');
+    if (themeCtl) themeCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose appearance' : 'Darstellung wählen');
+    if (burger) {
+      var open = menu && menu.classList.contains('open');
+      burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
+    }
+    // Carry explicit language choices across pages even when storage is blocked.
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      if (link.getAttribute('href').startsWith('#')) return;
+      var url = new URL(link.href, location.href);
+      if (url.origin === location.origin && url.pathname.startsWith(siteRoot.pathname) && /\.html$/.test(url.pathname)) {
+        url.searchParams.set('lang', lang);
+        link.href = url.href;
+      }
+    });
+  }
+  syncLang();
+  if (langCtl) langCtl.querySelectorAll('[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      window.langPref.set(btn.getAttribute('data-lang'));
+      syncLang();
+    });
+  });
+  window.addEventListener('langchange', syncLang);
+
+  document.querySelectorAll('[data-print-page]').forEach(function (button) {
+    button.addEventListener('click', function () { window.print(); });
+  });
+
+  /* Native modal: focus containment, Escape and inert background. */
+  var shots = Array.from(document.querySelectorAll('.case-shot img'));
+  if (shots.length) {
+    var lb = document.createElement('dialog');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<img alt=""><button class="lb-close" type="button">' +
+      '<span class="icon icon-close" aria-hidden="true"></span></button>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img');
+    var lbClose = lb.querySelector('button');
+    var opener;
+    var previousOverflow;
+
+    function openLb(img) {
+      if (lb.open) return;
+      opener = img;
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      var en = document.documentElement.lang === 'en';
+      lb.setAttribute('aria-label', en ? 'Enlarged project photo' : 'Vergrößertes Projektfoto');
+      lbClose.setAttribute('aria-label', en ? 'Close image' : 'Bild schließen');
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      lb.showModal();
+      lbClose.focus();
+    }
+    function closeLb() { if (lb.open) lb.close(); }
+    lb.addEventListener('close', function () {
+      document.body.style.overflow = previousOverflow;
+      if (opener && opener.isConnected) opener.focus({ preventScroll: true });
+      lbImg.removeAttribute('src');
+    });
+    shots.forEach(function (img) {
+      // Images that already link elsewhere retain their existing behavior.
+      if (img.closest('a')) return;
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.addEventListener('click', function () { openLb(img); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLb(img);
+        }
+      });
+    });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
+    });
+    lb.addEventListener('click', closeLb);
+  }
+})();
+
+(function () {
+ var form = document.getElementById('newsletter-form');
+ form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  document.getElementById('newsletter-status').textContent = document.documentElement.lang === 'en' ? 'Preview only. Your data has not been sent.' : 'Nur eine Vorschau. Deine Daten wurden nicht versendet.';
+ });
+})();
+
+/* Spectrum 3 interactions, applied to Spectrum 0's existing content. */
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  document.querySelector('.home-contact-layout').classList.add('s0-frame');
+  document.querySelectorAll('.hero .btn:not(.ghost), .svc-cta').forEach(function (button) {
+    if (button.querySelector('.icon')) return;
+    var arrow = document.createElement('span');
+    arrow.className = 'icon icon-arrow sm';
+    arrow.setAttribute('aria-hidden', 'true');
+    button.appendChild(arrow);
+  });
+
+  /* Retain all 36 references, in order, with inaccessible visual duplicates. */
+  var wall = document.querySelector('.client-logo-wall');
+  if (wall) {
+    var logos = Array.from(wall.querySelectorAll('.client-logo-item'));
+    var viewport = document.createElement('div');
+    viewport.className = 's0-marquee-viewport';
+    for (var rowIndex = 0; rowIndex < 2; rowIndex++) {
+      var row = document.createElement('div');
+      row.className = 's0-marquee-row' + (rowIndex ? ' s0-marquee-reverse' : '');
+      var track = document.createElement('div');
+      track.className = 's0-marquee-track';
+      var split = Math.ceil(logos.length / 2);
+      logos.slice(rowIndex * split, (rowIndex + 1) * split).forEach(function (logo) { track.appendChild(logo); });
+      var copy = track.cloneNode(true);
+      copy.classList.add('is-copy');
+      copy.setAttribute('aria-hidden', 'true');
+      copy.setAttribute('inert', '');
+      copy.querySelectorAll('img').forEach(function (img) { img.alt = ''; });
+      row.appendChild(track);
+      row.appendChild(copy);
+      viewport.appendChild(row);
+    }
+    wall.replaceChildren(viewport);
+    wall.classList.add('s0-marquee', 'is-ready', 'is-offscreen');
+    wall.setAttribute('role', 'region');
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 's0-marquee-toggle';
+    toggle.setAttribute('aria-pressed', 'false');
+    function syncMotionLabel() {
+      var paused = wall.classList.contains('is-paused');
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.innerHTML = paused
+        ? '<span class="lang-de">Bewegung fortsetzen</span><span class="lang-en">Resume motion</span>'
+        : '<span class="lang-de">Bewegung anhalten</span><span class="lang-en">Pause motion</span>';
+      wall.setAttribute('aria-label', document.documentElement.lang === 'en'
+        ? 'Selection of previous clients and partners'
+        : 'Auswahl bisheriger Auftraggeber und Partner');
+    }
+    toggle.addEventListener('click', function () {
+      wall.classList.toggle('is-paused');
+      syncMotionLabel();
+    });
+    wall.appendChild(toggle);
+    syncMotionLabel();
+    window.addEventListener('langchange', syncMotionLabel);
+    if ('IntersectionObserver' in window) {
+      var visibility = new IntersectionObserver(function (entries) {
+        wall.classList.toggle('is-offscreen', !entries[0].isIntersecting);
+      });
+      visibility.observe(wall);
+    } else {
+      wall.classList.remove('is-offscreen');
+    }
+  }
+
+  /* Subtle light follows the pointer; no tracking on touch or reduced motion. */
+  document.querySelectorAll('.panel, .q-card').forEach(function (card) {
+    var frame = 0;
+    var x = 0;
+    var y = 0;
+    card.addEventListener('pointermove', function (event) {
+      if (reduced.matches || !fine.matches) return;
+      var box = card.getBoundingClientRect();
+      x = event.clientX - box.left;
+      y = event.clientY - box.top;
+      if (frame) return;
+      frame = window.requestAnimationFrame(function () {
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+        frame = 0;
+      });
+    }, { passive: true });
+    card.addEventListener('pointerleave', function () {
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      card.style.removeProperty('--mx');
+      card.style.removeProperty('--my');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>

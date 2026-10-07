@@ -37,7 +37,7 @@
 <link rel="preload" as="image" href="../../assets/fotos/hero-stadtraum.webp" fetchpriority="high">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <!-- Spectrum: a local interpretation of Robin's brand moodboard. Styles are in style.css; JavaScript is embedded. -->
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=10">
 <script>
 /* ============================================================
    Theme- und Sprach-Bootstrap — MUSS im <head> ohne defer
@@ -514,16 +514,17 @@
     <header class="home-contact-heading">
       <h2 id="home-contact-title"><span class="lang-de">Lass uns<br><em>sprechen.</em></span><span class="lang-en">Let’s<br><em>talk.</em></span></h2>
       <p class="home-contact-invitation"><span class="lang-de">Was möchtest Du mit Deinem Team oder Deiner Organisation bewegen? Ich freue mich, von Dir zu hören.</span><span class="lang-en">What would you like to make happen with your team or organisation? I’d love to hear from you.</span></p>
-      <img class="home-contact-portrait" src="../../assets/fotos/portrait-warm.webp" alt="Robin Hotz" width="800" height="800" loading="lazy" decoding="async">
+      <figure class="home-contact-photo">
+        <img class="home-contact-portrait" src="../../assets/fotos/robin-hotz-moderator-natuerliches-portrait.webp" alt="Robin Hotz sitzt lächelnd auf einem Hocker" data-alt-de="Robin Hotz sitzt lächelnd auf einem Hocker" data-alt-en="Robin Hotz sitting on a stool, smiling" width="1172" height="1920" loading="lazy" decoding="async">
+      </figure>
     </header>
     <div class="home-contact-form">
       <p class="muted home-contact-intro">
         <span class="lang-de">Über dieses Formular erreichst Du mich und meldest Dich für meinen Newsletter an. Oder schreib mir direkt an <a href="mailto:robin@robin-hotz.com">robin@robin-hotz.com</a>.</span>
         <span class="lang-en">Use this form to get in touch and sign up for my newsletter. Or email me directly at <a href="mailto:robin@robin-hotz.com">robin@robin-hotz.com</a>.</span>
       </p>
-      <p class="demo-note"><span class="lang-de">Designvorschau: Dieses Formular versendet keine Daten.</span><span class="lang-en">Design preview: This form does not send any data.</span></p>
       <form id="newsletter-form"
-            action="#kontakt" onsubmit="return false"
+            action="https://Robin-Hotz.us7.list-manage.com/subscribe/post?u=11b1423e1074b15bdfb0047c3&amp;id=a4c7dc2d50"
             method="post" name="mc-embedded-subscribe-form">
         <div class="home-contact-fields">
           <div class="field">
@@ -915,14 +916,6 @@
   }
 })();
 
-(function () {
- var form = document.getElementById('newsletter-form');
- form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  document.getElementById('newsletter-status').textContent = document.documentElement.lang === 'en' ? 'Preview only. Your data has not been sent.' : 'Nur eine Vorschau. Deine Daten wurden nicht versendet.';
- });
-})();
-
 /* Spectrum 3 interactions, applied to Spectrum 0's existing content. */
 (function () {
   'use strict';
@@ -1021,5 +1014,6 @@
 })();
 
 </script>
+<script src="../../js/newsletter.js?v=2" defer></script>
 </body>
 </html>

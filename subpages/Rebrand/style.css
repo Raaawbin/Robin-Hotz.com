@@ -439,12 +439,14 @@ a, button { touch-action: manipulation; }
 /* Contact remains a two-column invitation inside a complete spectral frame. */
 .home-contact { padding-top: 42px; }
 .home-contact::before { display: none; }
-.home-contact-layout { position: relative; isolation: isolate; display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(36px,5vw,72px); align-items: start; padding: clamp(30px,4.5vw,60px); border-radius: 38px; background: radial-gradient(800px 450px at 0% 0%,rgba(110,231,255,.08),transparent 60%),radial-gradient(700px 480px at 100% 100%,rgba(244,114,182,.08),transparent 60%),var(--surface); box-shadow: 0 50px 120px -65px rgba(167,139,250,.6); }
+.home-contact-layout { position: relative; isolation: isolate; display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(36px,5vw,72px); align-items: stretch; padding: clamp(30px,4.5vw,60px); border-radius: 38px; background: radial-gradient(800px 450px at 0% 0%,rgba(110,231,255,.08),transparent 60%),radial-gradient(700px 480px at 100% 100%,rgba(244,114,182,.08),transparent 60%),var(--surface); box-shadow: 0 50px 120px -65px rgba(167,139,250,.6); }
 .home-contact-layout::before { content: ""; position: absolute; inset: 40px; z-index: -1; border-radius: inherit; background: var(--grad); filter: blur(70px); opacity: .1; pointer-events: none; }
 .home-contact h2 { font-size: clamp(3rem,5.2vw,4.8rem); line-height: 1.03; letter-spacing: -.048em; margin-bottom: 26px; }
 .home-contact-invitation { font-size: 1.02rem; max-width: 340px; }
-.home-contact-portrait { width: 96px; height: 96px; object-fit: cover; border-radius: 50%; margin-top: 32px; padding: 3px; background: var(--grad); box-shadow: 0 0 40px -16px var(--c2); }
-.home-contact-form { min-width: 0; }
+.home-contact-heading { display: flex; flex-direction: column; min-width: 0; }
+.home-contact-photo { position: relative; flex: 1 1 auto; min-height: 640px; margin: 34px 0 0; padding: 2px; border-radius: 30px; background: var(--grad); box-shadow: 0 30px 70px -40px var(--c2); }
+.home-contact-portrait { position: absolute; inset: 2px; display: block; width: calc(100% - 4px); height: calc(100% - 4px); object-fit: cover; object-position: 50% 86%; border-radius: 28px; }
+.home-contact-form { min-width: 0; align-self: center; }
 .home-contact-intro { font-size: .9rem; line-height: 1.75; margin-bottom: 18px; }
 .home-contact-intro a, .nl-consent a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; overflow-wrap: anywhere; }
 .home-contact-intro a:hover, .nl-consent a:hover { text-decoration-color: var(--c2); }
@@ -561,9 +563,8 @@ a, button { touch-action: manipulation; }
   .q-card:first-child { grid-row: auto; padding: 32px; }
   .q-card:first-child blockquote { font-size: 1.7rem; }
   .home-contact-layout { padding: 32px; gap: 38px; border-radius: 30px; }
-  .home-contact-heading { position: relative; }
-  .home-contact h2 { font-size: clamp(3.1rem,9.5vw,4.6rem); padding-right: 66px; }
-  .home-contact-portrait { position: absolute; right: 0; top: 6px; width: 70px; height: 70px; margin: 0; }
+  .home-contact h2 { font-size: clamp(3.1rem,9.5vw,4.6rem); }
+  .home-contact-photo { flex: none; min-height: 0; aspect-ratio: 2 / 3; width: 100%; max-width: 440px; margin-top: 28px; }
   .home-contact-invitation { max-width: 100%; font-size: .98rem; margin-bottom: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .foot-brand { grid-column: 1/-1; }
@@ -597,8 +598,7 @@ a, button { touch-action: manipulation; }
   .q-card cite { font-size: .76rem; }
   .home-contact .wrap { padding-inline: 12px; }
   .home-contact-layout { padding: 26px 22px; }
-  .home-contact h2 { font-size: 3.05rem; padding-right: 0; }
-  .home-contact-portrait { width: 57px; height: 57px; top: 3px; }
+  .home-contact h2 { font-size: 3.05rem; }
   .home-contact-fields { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
   .foot-bottom { flex-direction: column; }

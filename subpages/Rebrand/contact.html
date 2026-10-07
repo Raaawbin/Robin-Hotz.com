@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="de"
+      data-title-de="Kontakt | Robin Hotz"
+      data-title-en="Contact | Robin Hotz"
+      data-desc-de="Kontakt zu Robin Hotz in Berlin. Anfragen für Moderation, Coaching und Visualisierung per E-Mail oder LinkedIn. Hier auch zum Newsletter anmelden."
+      data-desc-en="Contact Robin Hotz in Berlin. Enquiries for facilitation, coaching and visualisation by email or LinkedIn. Sign up for the newsletter here too.">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" type="image/svg+xml">
+<title>Kontakt | Robin Hotz</title>
+<meta name="description" content="Kontakt zu Robin Hotz in Berlin. Anfragen für Moderation, Coaching und Visualisierung per E-Mail oder LinkedIn. Hier auch zum Newsletter anmelden.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Robin Hotz">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robin Hotz">
+<meta property="og:title" content="Kontakt | Robin Hotz">
+<meta property="og:description" content="Anfragen für Moderation, Coaching und Visualisierung.">
+<meta property="og:url" content="https://robin-hotz.com/subpages/Rebrand/contact.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://robin-hotz.com/assets/fotos/hero-stadtraum.webp">
+<meta name="geo.region" content="DE-BE">
+<meta name="geo.placename" content="Berlin">
+<!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"ContactPage","@id":"https://robin-hotz.com/contact.html","name":"Kontakt","about":{"@id":"https://robin-hotz.com/#robin"}},
+ {"@type":"Person","@id":"https://robin-hotz.com/#robin","name":"Robin Hotz","jobTitle":"Visual Facilitator und Moderator","url":"https://robin-hotz.com/","worksFor":{"@type":"Organization","name":"Visual Facilitators GmbH","url":"https://www.visualfacilitators.com/"},"address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"sameAs":["https://www.linkedin.com/in/robin-hotz-2688491a3/","https://www.instagram.com/robin.visual.coach/"]}
+]}
+</script>
+<link rel="stylesheet" href="style.css?v=6">
+<script>
+/* ============================================================
+   Theme- und Sprach-Bootstrap — MUSS im <head> ohne defer
+   geladen werden, damit beides vor dem ersten Rendern gesetzt
+   ist (kein Aufblitzen).
+
+   Theme:  localStorage "theme-pref" = system | light | dark
+           Default "system" folgt der Browser-/OS-Einstellung
+           (prefers-color-scheme) und reagiert live auf Wechsel.
+   Sprache: localStorage "rh_lang" = de | en (gleicher Key wie
+           lang.js der übrigen Seiten → Wahl gilt seitenweit).
+           Default: Browsersprache; ?lang=de|en übersteuert.
+           CSS blendet .lang-de/.lang-en passend zu <html lang> aus;
+           Titel + Meta-Description wechseln über data-title-… und data-desc-….
+   main.js nutzt window.themePref / window.langPref für die Dropdowns.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------- Theme ---------- */
+  var KEY = 'rh-studies-theme';
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function validTheme(pref) {
+    return pref === 'light' || pref === 'dark' ? pref : 'system';
+  }
+  var themePreference = 'dark';
+  try { themePreference = validTheme(localStorage.getItem(KEY) || 'dark'); } catch (e) {}
+  function stored() { return themePreference; }
+  function resolve(pref) {
+    return pref === 'system' ? (mq.matches ? 'dark' : 'light') : pref;
+  }
+  function apply(pref) {
+    var theme = resolve(pref);
+    document.documentElement.setAttribute('data-theme', theme);
+    /* Browser-Chrome (Adressleiste mobil) mitfärben */
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#06070b' : '#f6f5fb');
+    /* UI (z. B. Umschalter-Label) über den Wechsel informieren */
+    try {
+      window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme, pref: pref } }));
+    } catch (e) { /* sehr alte Browser */ }
+  }
+
+  window.themePref = {
+    get: stored,
+    set: function (pref) {
+      pref = validTheme(pref);
+      themePreference = pref;
+      try { localStorage.setItem(KEY, pref); } catch (e) { /* privater Modus o. ä. */ }
+      apply(pref);
+    }
+  };
+
+  /* Bei "System" live auf OS-Wechsel reagieren */
+  if (mq.addEventListener) {
+    mq.addEventListener('change', function () {
+      if (stored() === 'system') apply('system');
+    });
+  }
+
+  apply(stored());
+
+  /* ---------- Sprache ---------- */
+  var LKEY = 'rh-studies-lang';
+
+  function pickLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'de' || q === 'en') return q;
+    } catch (e) {}
+    var s;
+    try { s = localStorage.getItem(LKEY); } catch (e) {}
+    if (s === 'de' || s === 'en') return s;
+    var nav = (navigator.language || 'de').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'de';
+  }
+  function applyLang(lang) {
+    if (lang !== 'de' && lang !== 'en') lang = 'de';
+    var root = document.documentElement;
+    root.setAttribute('lang', lang);
+    /* Titel und Meta-Description mitwechseln, falls hinterlegt */
+    var t = root.getAttribute('data-title-' + lang);
+    if (t) document.title = t;
+    var d = root.getAttribute('data-desc-' + lang);
+    var meta = document.querySelector('meta[name="description"]');
+    if (d && meta) meta.setAttribute('content', d);
+    try {
+      window.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  window.langPref = {
+    get: function () {
+      return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'de';
+    },
+    set: function (lang) {
+      lang = lang === 'en' ? 'en' : 'de';
+      // Reloading a shared ?lang URL must retain the newly selected language.
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(history.state, '', url.href);
+      } catch (e) {}
+      try { localStorage.setItem(LKEY, lang); } catch (e) {}
+      applyLang(lang);
+    }
+  };
+
+  applyLang(pickLang());
+})();
+
+</script>
+</head>
+<body class="type-modern contact-page" data-nav-page="contact">
+<!-- Non-destructive photo grading: cool shadows, soft highlights, original image content. -->
+<svg class="photo-grade-defs" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="brand-photo-grade" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0.86"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0.018 0.245 0.515 0.772 1"/>
+        <feFuncG type="table" tableValues="0.020 0.255 0.525 0.785 1"/>
+        <feFuncB type="table" tableValues="0.060 0.300 0.570 0.800 1"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
+
+<div data-site-header></div>
+
+<main id="main">
+
+<!-- ============ SEITEN-KOPF ============ -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></span>
+    <h1>
+      <span class="lang-de">Lass uns <span class="o">sprechen</span></span>
+      <span class="lang-en">Let&#8217;s <span class="o">talk</span></span>
+    </h1>
+    <p class="lead">
+      <span class="lang-de">Ob konkrete Anfrage oder erste Idee. Schreib mir, und wir finden im Erstgespräch heraus, wie ich Dich unterstützen kann.</span>
+      <span class="lang-en">Whether it&#8217;s a concrete enquiry or a first idea. Write to me, and in a first conversation we&#8217;ll find out how I can support you.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ KONTAKT + FORMULAR ============ -->
+<section class="sec" style="padding-top:30px">
+  <div class="wrap grid-2 align-start">
+
+    <div>
+      <h2 style="font-size:2rem;margin-bottom:14px">
+        <span class="lang-de">Direkt <span class="o">erreichen</span></span>
+        <span class="lang-en">Reach me <span class="o">directly</span></span>
+      </h2>
+      <p style="margin-bottom:22px">
+        <span class="lang-de">Ich lebe in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> und arbeite als Visual Facilitator bei der <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
+        <span class="lang-en">I live in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> and work as a visual facilitator at <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
+      </p>
+
+      <div class="c-list">
+        <a class="c-row" href="mailto:robin@robin-hotz.com">
+          <span class="icon icon-mail" aria-hidden="true"></span>
+          <span>E-Mail - robin@robin-hotz.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener">
+          <span class="icon icon-linkedin" aria-hidden="true"></span>
+          <span>LinkedIn - Robin Hotz</span>
+        </a>
+        <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener">
+          <span class="icon icon-instagram" aria-hidden="true"></span>
+          <span>Instagram - robin.visual.coach</span>
+        </a>
+        <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener">
+          <span class="icon icon-pin" aria-hidden="true"></span>
+          <span>Berlin - Working Internationally</span>
+        </a>
+        <a class="c-row" href="https://www.visualfacilitators.com/" target="_blank" rel="noopener">
+          <span class="icon icon-pen" aria-hidden="true"></span>
+          <span>
+            <span class="lang-de">Visual Facilitators - Senior Facilitator</span>
+            <span class="lang-en">Visual Facilitators - Senior Facilitator</span>
+          </span>
+        </a>
+      </div>
+
+      <p class="muted" style="margin-top:24px">
+        <span class="lang-de">In der Regel antworte ich innerhalb von ein bis zwei Werktagen.</span>
+        <span class="lang-en">I usually reply within one to two working days.</span>
+      </p>
+    </div>
+
+    <div class="form panel contact-form-panel">
+      <figure class="contact-form-photo">
+        <img src="../../assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin" width="980" height="1605">
+      </figure>
+      <h3 style="margin-bottom:6px">
+        <span class="lang-de">Dein Anliegen</span><span class="lang-en">Get in touch</span>
+      </h3>
+      <p class="muted" style="font-size:.95rem;margin-bottom:22px">
+        <span class="lang-de">Über dieses Formular erreichst Du mich und meldest Dich für meinen Newsletter an. Oder schreib mir direkt an <a href="mailto:robin@robin-hotz.com" style="color:var(--accent);font-weight:600">robin@robin-hotz.com</a>.</span>
+        <span class="lang-en">Use this form to get in touch and sign up for my newsletter. Or email me directly at <a href="mailto:robin@robin-hotz.com" style="color:var(--accent);font-weight:600">robin@robin-hotz.com</a>.</span>
+      </p>
+
+      <!-- Oeffentliche Formular-URL aus Mailchimp, kein API-Key.
+           MERGE3 und MERGE4 entsprechen den beiden freiwilligen Fragen der Audience. -->
+      <form id="newsletter-form"
+            action="https://Robin-Hotz.us7.list-manage.com/subscribe/post?u=11b1423e1074b15bdfb0047c3&amp;id=a4c7dc2d50"
+            method="post" name="mc-embedded-subscribe-form">
+
+        <div class="field">
+          <label for="nl-fname"><span class="lang-de">Name</span><span class="lang-en">Name</span></label>
+          <input id="nl-fname" name="FNAME" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="nl-mail"><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></label>
+          <input id="nl-mail" name="EMAIL" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="nl-source"><span class="lang-de">Wie bist Du auf mich aufmerksam geworden?</span><span class="lang-en">How did you hear about me?</span></label>
+          <input id="nl-source" name="MERGE3" type="text">
+        </div>
+        <div class="field">
+          <label for="nl-message"><span class="lang-de">Was ist Dein Anliegen?</span><span class="lang-en">What would you like to discuss?</span></label>
+          <textarea id="nl-message" name="MERGE4" rows="3"></textarea>
+        </div>
+
+        <div class="nl-consent">
+          <input id="nl-consent" type="checkbox" required>
+          <label for="nl-consent">
+            <span class="lang-de">Ich möchte den Newsletter erhalten und habe die <a href="../../privacy.html">Datenschutzerklärung</a> gelesen. Die Einwilligung kann ich jederzeit widerrufen.</span>
+            <span class="lang-en">I would like to receive the newsletter and have read the <a href="../../privacy.html">privacy policy</a>. I can withdraw my consent at any time.</span>
+          </label>
+        </div>
+
+        <!-- Spamschutz von Mailchimp: Feld muss leer bleiben -->
+        <div class="hp" aria-hidden="true">
+          <input id="nl-hp" type="text" name="b_11b1423e1074b15bdfb0047c3_a4c7dc2d50" tabindex="-1" value="" autocomplete="off">
+        </div>
+
+        <button class="btn" type="submit" name="subscribe">
+          <span class="lang-de">Absenden und anmelden</span><span class="lang-en">Send and subscribe</span>
+          <span class="icon icon-arrow sm" aria-hidden="true"></span>
+        </button>
+
+        <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="nl-note">
+        <span class="lang-de">Der Versand läuft über Mailchimp (Intuit Inc., USA). Mit der Anmeldung stimmst Du der Verarbeitung Deiner Daten dort zu. Jede E-Mail enthält einen Abmeldelink.</span>
+        <span class="lang-en">The newsletter is delivered via Mailchimp (Intuit Inc., USA). By subscribing you agree to the processing of your data there. Every email contains an unsubscribe link.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-soft">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow"><span class="lang-de">Häufige Fragen</span><span class="lang-en">Frequently asked</span></span>
+      <h2><span class="lang-de">Gut zu <span class="o">wissen</span></span><span class="lang-en">Good to <span class="o">know</span></span></h2>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary><span class="lang-de">Wofür kann ich Dich buchen?</span><span class="lang-en">What can I book you for?</span></summary>
+        <p>
+          <span class="lang-de">Du kannst mich für Facilitation und Moderation, visuelle Facilitation, Graphic Recording, Strategieprozesse, Organisationsentwicklung, Art-of-Hosting-Formate und Keynotes buchen. Ich begleite einzelne Workshops und Konferenzen ebenso wie mehrmonatige Prozesse. Je nach Ziel übernehme ich Konzeption, Vorbereitung, Moderation und visuelle Ergebnissicherung als Gesamtpaket oder einzelne Bausteine.</span>
+          <span class="lang-en">You can book me for facilitation, visual facilitation, graphic recording, strategy processes, organisational development, Art of Hosting formats and keynotes. I support individual workshops and conferences as well as multi-month processes. Depending on your objective, I can provide the complete package of process design, preparation, facilitation and visual documentation, or selected elements.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Was ist der Unterschied zwischen Facilitation und Visualisierung?</span><span class="lang-en">What is the difference between facilitation and visualisation?</span></summary>
+        <p>
+          <span class="lang-de">Als Facilitator gestalte und führe ich den Prozess: Ich entwickle eine passende Dramaturgie, stelle die richtigen Fragen, beteilige unterschiedliche Perspektiven und unterstütze Gruppen dabei, zu klaren Entscheidungen und nächsten Schritten zu kommen. In der Visualisierung höre ich Inhalte live mit, verdichte Kernaussagen und mache Zusammenhänge in verständlichen Bildern sichtbar. Beides lässt sich wirkungsvoll verbinden, weil der Prozess Orientierung erhält und Ergebnisse direkt nachvollziehbar dokumentiert werden.</span>
+          <span class="lang-en">As a facilitator, I design and guide the process: I create a suitable structure, ask the right questions, involve different perspectives and help groups reach clear decisions and next steps. In visualisation, I listen to the content as it unfolds, distil key messages and make connections visible in accessible images. Combining both creates orientation throughout the process while documenting outcomes in a way people can understand and use.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Arbeitest Du auch international?</span><span class="lang-en">Do you work internationally?</span></summary>
+        <p>
+          <span class="lang-de">Ja. Ich bin in Berlin ansässig und arbeite in Deutschland sowie international, auf Deutsch und Englisch. Workshops, Konferenzen und Strategieprozesse begleite ich vor Ort, online oder hybrid. Für internationale Teams passe ich Sprache, Methoden, Beteiligungsformate und visuelle Dokumentation an den kulturellen und organisatorischen Kontext an.</span>
+          <span class="lang-en">Yes. I am based in Berlin and work throughout Germany and internationally, in both English and German. I facilitate workshops, conferences and strategy processes on site, online or in hybrid settings. For international teams, I adapt the language, methods, participation formats and visual documentation to the cultural and organisational context.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Wie beginnt eine Zusammenarbeit?</span><span class="lang-en">How does a collaboration begin?</span></summary>
+        <p>
+          <span class="lang-de">Am Anfang steht ein unverbindliches Erstgespräch. Darin klären wir Anlass, Zielgruppe, gewünschte Ergebnisse, Rahmenbedingungen und die passende Form der Zusammenarbeit. Anschließend erhältst Du ein individuelles, transparentes Angebot mit Leistungsumfang, Vorgehen, Zeitplan und Honorar. Nach der Beauftragung folgt eine strukturierte Detailklärung mit den relevanten Ansprechpersonen.</span>
+          <span class="lang-en">We begin with a no-obligation introductory call to clarify the context, audience, intended outcomes, practical requirements and the most suitable form of support. You then receive a tailored, transparent proposal outlining the scope, approach, timeline and fee. Once commissioned, I conduct a structured briefing with the relevant stakeholders.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Welche Erfahrung bringst Du mit?</span><span class="lang-en">What experience do you bring?</span></summary>
+        <p>
+          <span class="lang-de">Ich arbeite seit mehr als zehn Jahren in Facilitation, Visualisierung, Training und Organisationsentwicklung und habe über 250 Veranstaltungen und Prozesse begleitet. Dazu gehören Führungsklausuren, Strategieworkshops, internationale Konferenzen, Großgruppenformate und längerfristige Veränderungsprozesse. Zu meinen Auftraggebern und Projektkontexten zählen unter anderem die Deutsche Bahn, GIZ, ERGO, Fraunhofer, die Universität Hohenheim und internationale Summit-Formate.</span>
+          <span class="lang-en">I have more than ten years of experience in facilitation, visualisation, training and organisational development and have supported over 250 events and processes. These include leadership offsites, strategy workshops, international conferences, large-group formats and longer-term transformation processes. My clients and project contexts include Deutsche Bahn, GIZ, ERGO, Fraunhofer, the University of Hohenheim and international summit formats.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Für welche Gruppengrößen und Formate ist die Zusammenarbeit geeignet?</span><span class="lang-en">Which group sizes and formats do you support?</span></summary>
+        <p>
+          <span class="lang-de">Ich arbeite mit kleinen Führungs- und Projektteams ebenso wie mit Konferenzen und Großgruppen mit rund 150 oder mehr Teilnehmenden. Das Format folgt dabei immer dem Ziel: von fokussierten Strategie-Meetings über partizipative Workshops bis zu mehrtägigen Trainings und hybriden Events. Bei größeren oder besonders komplexen Aufträgen stelle ich bei Bedarf ein erfahrenes Team aus Facilitation, Visualisierung und technischer Produktion zusammen.</span>
+          <span class="lang-en">I work with small leadership and project teams as well as conferences and large groups of around 150 participants or more. The format always follows the objective, from focused strategy meetings and participatory workshops to multi-day trainings and hybrid events. For larger or particularly complex assignments, I can assemble an experienced team covering facilitation, visualisation and technical production.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Wie früh sollte ich anfragen?</span><span class="lang-en">How early should I get in touch?</span></summary>
+        <p>
+          <span class="lang-de">Für Konferenzen, Strategieprozesse und größere Workshops sind vier bis zwölf Wochen Vorlauf hilfreich, damit Auftragsklärung, Prozessdesign und Abstimmung sorgfältig erfolgen können. Für längerfristige Prozesse empfiehlt sich eine noch frühere Anfrage. Kurzfristige Termine sind je nach Verfügbarkeit ebenfalls möglich, sprich mich gern an.</span>
+          <span class="lang-en">For conferences, strategy processes and larger workshops, four to twelve weeks of lead time is helpful for a thorough briefing, process design and coordination. Longer-term processes benefit from an even earlier enquiry. Short-notice assignments may also be possible depending on availability, so please feel free to get in touch.</span>
+        </p>
+      </details>
+      <details>
+        <summary><span class="lang-de">Was kostet eine Zusammenarbeit?</span><span class="lang-en">What does a collaboration cost?</span></summary>
+        <p>
+          <span class="lang-de">Das Honorar richtet sich nach Ziel, Umfang, Vorbereitungsaufwand, Dauer, Reisebedarf und der gewünschten Dokumentation. Ein einzelner Moderations- oder Visualisierungsauftrag wird anders kalkuliert als ein mehrmonatiger Strategieprozess. Nach dem Erstgespräch erhältst Du ein klar gegliedertes Angebot ohne versteckte Zusatzkosten, sodass Leistungen und Investition verlässlich planbar sind.</span>
+          <span class="lang-en">Fees depend on the objective, scope, preparation required, duration, travel and the desired documentation. A single facilitation or visualisation assignment is calculated differently from a multi-month strategy process. After the introductory call, you receive a clearly structured proposal without hidden extras, making both the services and investment easy to plan.</span>
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+
+<script src="../../js/newsletter.js?v=2" defer></script>
+<script>
+/* ============================================================
+   Seiten-Interaktion: Scroll-Navigation, mobiles Menü,
+   Umschalter-Dropdowns für Sprache und Theme.
+   (Theme-/Sprachlogik liegt in theme.js —
+    window.themePref und window.langPref)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---------- Zentrale Seitenbausteine: Header + Footer ----------
+     Alle Seiten enthalten nur noch [data-site-header] und [data-site-footer].
+     Pfade werden aus der URL dieser JS-Datei berechnet und funktionieren
+     dadurch auch in Unterordnern. */
+  var siteRoot = new URL('../../', window.location.href);
+  function siteUrl(path) { return new URL(path, siteRoot).href; }
+
+  var fileName = window.location.pathname.split('/').pop() || 'index.html';
+  var activePage = document.body.getAttribute('data-nav-page') || '';
+  if (!activePage) {
+    if (fileName === 'index.html' || fileName === 'index-new.html' || fileName === 'index-old.html') activePage = 'home';
+    else if (fileName === 'solutions.html' || fileName === 'solutions-new.html') activePage = 'solutions';
+    else if (fileName === 'references.html') activePage = 'references';
+    else if (fileName === 'about.html' || fileName === 'cv.html') activePage = 'about';
+    else if (fileName === 'contact.html') activePage = 'contact';
+  }
+  function current(page) { return activePage === page ? ' aria-current="page"' : ''; }
+
+  var headerMount = document.querySelector('[data-site-header]');
+  if (headerMount) {
+    headerMount.outerHTML =
+      '<a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>' +
+      '<header class="site-head" id="siteHead">' +
+        '<div class="nav">' +
+          '<a class="brand" href="' + siteUrl('subpages/Rebrand/index.html') + '" aria-label="Robin Hotz">' +
+            '<img class="brand-symbol" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" alt="" width="52" height="52">' +
+            '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
+          '</a>' +
+          '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
+            '<a href="' + siteUrl('subpages/Rebrand/index.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+            '<span class="navitem">' +
+              '<a class="navlink" href="' + siteUrl('subpages/Rebrand/solutions.html') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<span class="dropdown">' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#coaching') + '">Coaching</a>' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+              '</span>' +
+            '</span>' +
+            '<a href="' + siteUrl('subpages/Rebrand/index.html#referenzen') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+            '<a href="' + siteUrl('subpages/Rebrand/about.html') + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+            '<span class="navitem drop-ctl" id="langCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false">' +
+                '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label">DE</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Sprache wählen">' +
+                '<button type="button" data-lang="de" aria-pressed="true">Deutsch</button>' +
+                '<button type="button" data-lang="en" aria-pressed="false">English</button>' +
+              '</span>' +
+            '</span>' +
+            '<span class="navitem drop-ctl" id="themeCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false">' +
+                '<span class="theme-dot" aria-hidden="true"></span><span class="ctl-label">Light</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Darstellung wählen">' +
+                '<button type="button" data-set-theme="light" aria-pressed="false">Light</button>' +
+                '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
+              '</span>' +
+            '</span>' +
+            '<a class="btn nav-cta" href="' + siteUrl('subpages/Rebrand/contact.html') + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+          '</nav>' +
+          '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu">' +
+            '<span class="visually-hidden lang-de">Menü öffnen</span><span class="visually-hidden lang-en">Open menu</span>' +
+            '<span class="icon icon-burger" aria-hidden="true"></span>' +
+          '</button>' +
+        '</div>' +
+      '</header>';
+  }
+
+  var footerMount = document.querySelector('[data-site-footer]');
+  if (footerMount) {
+    footerMount.outerHTML =
+      '<footer class="site-foot">' +
+        '<div class="wrap">' +
+          '<div class="foot-grid">' +
+            '<div class="foot-brand">' +
+              '<a class="brand brand-footer" href="' + siteUrl('subpages/Rebrand/index.html') + '" aria-label="Robin Hotz">' +
+                '<img class="brand-symbol" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" alt="" width="52" height="52">' +
+                '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
+              '</a>' +
+              '<p class="brand-tagline"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></p>' +
+            '</div>' +
+            '<nav class="foot-col" aria-label="Seiten">' +
+              '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +
+              '<a href="' + siteUrl('subpages/Rebrand/index.html') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/solutions.html') + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/index.html#referenzen') + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/about.html') + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/contact.html') + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+            '</nav>' +
+            '<div class="foot-col">' +
+              '<h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>' +
+              '<a class="c-plain" href="mailto:robin@robin-hotz.com"><span class="icon icon-mail sm" aria-hidden="true"></span>robin@robin-hotz.com</a>' +
+              '<a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>' +
+              '<a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>' +
+              '<a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="foot-bottom">' +
+            '<span>© ' + new Date().getFullYear() + ' Robin Hotz</span>' +
+            '<span><a href="' + siteUrl('imprint.html') + '"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('privacy.html') + '"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('subpages/documents/terms.html') + '"><span class="lang-de">AGB</span><span class="lang-en">GTC</span></a></span>' +
+            '<span><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for change</span></span>' +
+          '</div>' +
+        '</div>' +
+      '</footer>';
+  }
+
+  /* ---------- Navigation and disclosure controls ---------- */
+  var head = document.getElementById('siteHead');
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  var mobile = window.matchMedia('(max-width: 980px)');
+  var ctls = Array.from(document.querySelectorAll('.drop-ctl'));
+
+  function onScroll() {
+    if (head) head.classList.toggle('scrolled', window.scrollY > 40 || !!(menu && menu.classList.contains('open')));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function closeAll(except) {
+    ctls.forEach(function (ctl) {
+      if (ctl === except) return;
+      ctl.classList.remove('open');
+      ctl.querySelector('.ctl-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
+  function setMenu(open, restoreFocus) {
+    if (!menu || !burger) return;
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    var en = document.documentElement.lang === 'en';
+    burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
+    if (!open) closeAll(null);
+    if (restoreFocus) burger.focus();
+    onScroll();
+  }
+  if (burger && menu) {
+    burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    menu.addEventListener('click', function (e) {
+      if (mobile.matches && e.target.closest('a')) setMenu(false);
+    });
+    if (mobile.addEventListener) mobile.addEventListener('change', function () {
+      var needsFocus = mobile.matches && menu.contains(document.activeElement);
+      setMenu(false, needsFocus);
+    });
+  }
+
+  ctls.forEach(function (ctl) {
+    var btn = ctl.querySelector('.ctl-btn');
+    var panel = ctl.querySelector('.dropdown');
+    panel.id = ctl.id + '-options';
+    btn.setAttribute('aria-controls', panel.id);
+    function openControl() {
+      closeAll(ctl);
+      ctl.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    btn.addEventListener('click', function () {
+      if (ctl.classList.contains('open')) closeAll(null);
+      else openControl();
+    });
+    ctl.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && ctl.classList.contains('open')) {
+        e.stopPropagation();
+        closeAll(null);
+        btn.focus();
+      } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        openControl();
+        var options = Array.from(panel.querySelectorAll('button'));
+        var index = options.indexOf(document.activeElement);
+        index = index < 0 ? (e.key === 'ArrowDown' ? 0 : options.length - 1) :
+          (index + (e.key === 'ArrowDown' ? 1 : -1) + options.length) % options.length;
+        options[index].focus();
+      }
+    });
+    ctl.addEventListener('focusout', function (e) {
+      if (!ctl.contains(e.relatedTarget)) {
+        ctl.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('pointerdown', function (e) {
+    closeAll(e.target.closest('.drop-ctl'));
+    if (head && !head.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('focusin', function (e) {
+    if (head && !head.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu && menu.classList.contains('open')) setMenu(false, true);
+  });
+
+  /* Auswahl in einem Umschalter-Dropdown markieren + Label setzen */
+  function select(ctl, value, attr, labelText) {
+    if (!ctl) return;
+    var hadFocus = ctl.querySelector('.dropdown').contains(document.activeElement);
+    ctl.querySelectorAll('[' + attr + ']').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute(attr) === value ? 'true' : 'false');
+    });
+    ctl.querySelector('.ctl-label').textContent = labelText;
+    ctl.classList.remove('open');
+    ctl.querySelector('.ctl-btn').setAttribute('aria-expanded', 'false');
+    if (hadFocus) ctl.querySelector('.ctl-btn').focus();
+  }
+
+  /* ---------- Theme (Light / Dark) ----------
+     Label und Optionen heißen in beiden Sprachen Light/Dark.
+     Ohne gespeicherte Wahl folgt die Seite der Systemeinstellung;
+     markiert wird immer der tatsächlich aktive Modus. */
+  var themeCtl = document.getElementById('themeCtl');
+  var THEME_LABELS = { light: 'Light', dark: 'Dark' };
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function syncTheme() {
+    select(themeCtl, currentTheme(), 'data-set-theme', THEME_LABELS[currentTheme()]);
+  }
+  syncTheme();
+  if (themeCtl) themeCtl.querySelectorAll('[data-set-theme]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      window.themePref.set(btn.getAttribute('data-set-theme'));
+      syncTheme();
+    });
+  });
+  /* Label aktuell halten, wenn das System-Theme live wechselt */
+  window.addEventListener('themechange', function () {
+    if (!themeCtl) return;
+    themeCtl.querySelector('.ctl-label').textContent = THEME_LABELS[currentTheme()];
+    themeCtl.querySelectorAll('[data-set-theme]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-theme') === currentTheme() ? 'true' : 'false');
+    });
+  });
+
+  /* ---------- Sprache (DE / EN) ---------- */
+  var langCtl = document.getElementById('langCtl');
+  var LANG_LABELS = { de: 'DE', en: 'EN' };
+  function syncLang() {
+    var lang = window.langPref.get();
+    var en = lang === 'en';
+    select(langCtl, lang, 'data-lang', LANG_LABELS[lang]);
+    // Keep optional bilingual image descriptions in step with the page language.
+    document.querySelectorAll('img[data-alt-de][data-alt-en]').forEach(function (img) {
+      img.alt = img.getAttribute('data-alt-' + lang);
+    });
+    if (menu) menu.setAttribute('aria-label', en ? 'Main navigation' : 'Hauptnavigation');
+    var footerNav = document.querySelector('.site-foot nav');
+    if (footerNav) footerNav.setAttribute('aria-label', en ? 'Pages' : 'Seiten');
+    if (langCtl) langCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose language' : 'Sprache wählen');
+    if (themeCtl) themeCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose appearance' : 'Darstellung wählen');
+    if (burger) {
+      var open = menu && menu.classList.contains('open');
+      burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
+    }
+    // Carry explicit language choices across pages even when storage is blocked.
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      if (link.getAttribute('href').startsWith('#')) return;
+      var url = new URL(link.href, location.href);
+      if (url.origin === location.origin && url.pathname.startsWith(siteRoot.pathname) && /\.html$/.test(url.pathname)) {
+        url.searchParams.set('lang', lang);
+        link.href = url.href;
+      }
+    });
+  }
+  syncLang();
+  if (langCtl) langCtl.querySelectorAll('[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      window.langPref.set(btn.getAttribute('data-lang'));
+      syncLang();
+    });
+  });
+  window.addEventListener('langchange', syncLang);
+
+  document.querySelectorAll('[data-print-page]').forEach(function (button) {
+    button.addEventListener('click', function () { window.print(); });
+  });
+
+  /* Native modal: focus containment, Escape and inert background. */
+  var shots = Array.from(document.querySelectorAll('.case-shot img'));
+  if (shots.length) {
+    var lb = document.createElement('dialog');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<img alt=""><button class="lb-close" type="button">' +
+      '<span class="icon icon-close" aria-hidden="true"></span></button>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img');
+    var lbClose = lb.querySelector('button');
+    var opener;
+    var previousOverflow;
+
+    function openLb(img) {
+      if (lb.open) return;
+      opener = img;
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      var en = document.documentElement.lang === 'en';
+      lb.setAttribute('aria-label', en ? 'Enlarged project photo' : 'Vergrößertes Projektfoto');
+      lbClose.setAttribute('aria-label', en ? 'Close image' : 'Bild schließen');
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      lb.showModal();
+      lbClose.focus();
+    }
+    function closeLb() { if (lb.open) lb.close(); }
+    lb.addEventListener('close', function () {
+      document.body.style.overflow = previousOverflow;
+      if (opener && opener.isConnected) opener.focus({ preventScroll: true });
+      lbImg.removeAttribute('src');
+    });
+    shots.forEach(function (img) {
+      // Images that already link elsewhere retain their existing behavior.
+      if (img.closest('a')) return;
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.addEventListener('click', function () { openLb(img); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLb(img);
+        }
+      });
+    });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
+    });
+    lb.addEventListener('click', closeLb);
+  }
+})();
+</script>
+</body>
+</html>

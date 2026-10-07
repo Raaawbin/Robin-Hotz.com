@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="de"
-      data-title-de="Robin Hotz | Von Komplexität zu Klarheit | Spectrium-2"
-      data-title-en="Robin Hotz | From Complexity to Clarity | Spectrium-2"
+      data-title-de="Robin Hotz | Von Komplexität zu Klarheit | Spectrum 0"
+      data-title-en="Robin Hotz | From Complexity to Clarity | Spectrum 0"
       data-desc-de="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Robin Hotz, Visual Facilitator, begleitet Organisationen im Wandel: klare Moderation, die Ergebnisse sichtbar macht. Deutschlandweit im Einsatz."
       data-desc-en="Facilitation, workshop moderation and graphic recording in Berlin. Robin Hotz, visual facilitator, supports organisations in transition: clear facilitation that makes results visible. Available across Germany.">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="../../favicon.ico" sizes="any">
-<title>Robin Hotz | Von Komplexität zu Klarheit | Spectrium-2</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" type="image/svg+xml">
+<title>Robin Hotz | Von Komplexität zu Klarheit | Spectrum 0</title>
 <meta name="description" content="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Robin Hotz, Visual Facilitator, begleitet Organisationen im Wandel: klare Moderation, die Ergebnisse sichtbar macht. Deutschlandweit im Einsatz.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="author" content="Robin Hotz">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Robin Hotz">
 <meta property="og:title" content="Robin Hotz | Von Komplexität zu Klarheit">
 <meta property="og:description" content="Moderation, Workshop-Moderation und Graphic Recording in Berlin. Klare Moderation für Organisationen im Wandel.">
-<meta property="og:url" content="https://robin-hotz.com/subpages/prototypes/index-new-spectrium-2.html">
+<meta property="og:url" content="https://robin-hotz.com/subpages/Rebrand/index.html">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://robin-hotz.com/assets/fotos/hero-wide.webp">
 <meta property="og:image:type" content="image/webp">
@@ -36,8 +36,8 @@
 <meta name="twitter:image:alt" content="Robin Hotz moderiert vor einer großformatigen Visualisierung">
 <link rel="preload" as="image" href="../../assets/fotos/hero-stadtraum.webp" fetchpriority="high">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
-<!-- Spectrium-2: a local interpretation of Robin's brand moodboard. Styles are in spectrium-2.css; JavaScript is embedded. -->
-<link rel="stylesheet" href="spectrium-2.css?v=1">
+<!-- Spectrum: a local interpretation of Robin's brand moodboard. Styles are in style.css; JavaScript is embedded. -->
+<link rel="stylesheet" href="style.css?v=6">
 <script>
 /* ============================================================
    Theme- und Sprach-Bootstrap — MUSS im <head> ohne defer
@@ -75,7 +75,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     /* Browser-Chrome (Adressleiste mobil) mitfärben */
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#07080c' : '#faf9fd');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#06070b' : '#f6f5fb');
     /* UI (z. B. Umschalter-Label) über den Wechsel informieren */
     try {
       window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme, pref: pref } }));
@@ -152,46 +152,44 @@
 
 </script>
 </head>
-<body class="home-modern type-modern study-spectrium-2" data-nav-page="home">
+<body class="home-modern type-modern study-spectrum-zero" data-nav-page="home">
+<!-- Non-destructive photo grading: cool shadows, soft highlights, original image content. -->
+<svg class="photo-grade-defs" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="brand-photo-grade" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0.86"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0.018 0.245 0.515 0.772 1"/>
+        <feFuncG type="table" tableValues="0.020 0.255 0.525 0.785 1"/>
+        <feFuncB type="table" tableValues="0.060 0.300 0.570 0.800 1"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
 
 <div data-site-header></div>
 
-<div class="reading-progress" aria-hidden="true"></div>
 <main id="main">
 
-<!-- Spectrium-2: an editorial exploration of light, perspective and clarity. -->
-<section class="hero" id="top">
+<!-- ============ HERO: CINEMATIC ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div><div class="hero-caption"><span class="lang-de">Menschen. Perspektiven. Möglichkeiten.</span><span class="lang-en">People. Perspectives. Possibilities.</span></div>
+
   <div class="hero-main">
-    <div class="wrap s2-hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></span>
-        <h1>
-          <span class="lang-de"><span class="hero-opening">Von</span> Komplexität <span class="o">zu Klarheit</span></span>
-          <span class="lang-en"><span class="hero-opening">From</span> Complexity <span class="o">to Clarity</span></span>
-        </h1>
-        <p class="sub">
-          <span class="lang-de">Organisationen im Wandel stehen vor <b>komplexen Herausforderungen</b>. Ich bringe klare Moderation, die Ergebnisse sichtbar macht.</span>
-          <span class="lang-en">Organisations in transition face <b>complex challenges</b>. I bring clear facilitation that makes results visible.</span>
-        </p>
-        <div class="ctas">
-          <a class="btn" href="#kontakt"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a>
-          <a class="hero-explore" href="#leistungen"><span class="lang-de">Lösungen entdecken</span><span class="lang-en">Explore solutions</span><span aria-hidden="true">↗</span></a>
-        </div>
+    <div class="wrap">
+      <span class="eyebrow"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></span>
+      <h1>
+        <span class="lang-de">Von Komplexität <span class="o">zu Klarheit</span></span>
+        <span class="lang-en"><span class="hero-line-wide">From Complexity</span><br class="wide-only"> <span class="o">to Clarity</span></span>
+      </h1>
+      <p class="sub">
+        <span class="lang-de"><span class="nobr">Organisationen im Wandel stehen vor <b>komplexen Herausforderungen</b>.</span><br> Ich bringe klare Moderation, die Ergebnisse sichtbar macht.</span>
+        <span class="lang-en"><span class="nobr">Organisations in transition face <b>complex challenges</b>.</span><br> I bring clear facilitation that makes results visible.</span>
+      </p>
+      <div class="ctas">
+        <a class="btn" href="contact.html"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span></a>
+        <a class="btn ghost" href="solutions.html"><span class="lang-de">Lösungen entdecken</span><span class="lang-en">Explore solutions</span></a>
       </div>
-      <figure class="hero-visual">
-        <div class="visual-aura" aria-hidden="true"></div>
-        <svg class="orbital-lines" viewBox="0 0 640 720" fill="none" aria-hidden="true">
-          <defs><linearGradient id="orbital-colour" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6ddaff"/><stop offset=".42" stop-color="#b38aff"/><stop offset=".7" stop-color="#ed80cb"/><stop offset="1" stop-color="#ffc394"/></linearGradient></defs>
-          <ellipse cx="320" cy="358" rx="295" ry="330" stroke="url(#orbital-colour)" stroke-width="1" transform="rotate(-22 320 358)"/>
-          <ellipse cx="320" cy="358" rx="279" ry="351" stroke="url(#orbital-colour)" stroke-width=".6" opacity=".45" transform="rotate(-22 320 358)"/>
-          <path d="M42 578C175 678 491 570 620 186" stroke="url(#orbital-colour)" stroke-width="2"/>
-          <circle cx="568" cy="334" r="5" fill="#b38aff"/>
-          <circle cx="79" cy="543" r="4" fill="#78dcff"/>
-        </svg>
-        <div class="portrait-portal"><img src="../../assets/fotos/hero-stadtraum.webp" alt="Robin Hotz moderiert vor einer großformatigen Visualisierung" data-alt-de="Robin Hotz moderiert vor einer großformatigen Visualisierung" data-alt-en="Robin Hotz facilitating in front of a large visualisation" width="1600" height="1067" fetchpriority="high"></div>
-        <figcaption class="portrait-signature"><span class="signature-star" aria-hidden="true">✳</span><span><strong>Robin Hotz</strong><small>Visual Facilitator</small></span></figcaption>
-        <a class="portal-link" href="#leistungen"><span class="visually-hidden lang-de">Lösungen entdecken</span><span class="visually-hidden lang-en">Explore solutions</span><span aria-hidden="true">↘</span></a>
-      </figure>
     </div>
   </div>
 
@@ -212,12 +210,8 @@
 </section>
 
 
-<div class="perspective-band" aria-hidden="true">
-  <div class="wrap"><span class="lang-de">Menschen<span class="band-star">✳</span>Perspektiven<span class="band-star">✳</span>Möglichkeiten</span><span class="lang-en">People<span class="band-star">✳</span>Perspectives<span class="band-star">✳</span>Possibilities</span></div>
-</div>
-
 <!-- ============ TRANSFORMATION ============ -->
-<section class="sec sec-soft transformation-section">
+<section class="sec sec-soft">
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow"><span class="lang-de">Die Herausforderung</span><span class="lang-en">The Challenge</span></span>
@@ -296,7 +290,6 @@
     <div class="svc-grid">
 
       <article class="svc panel" id="moderation">
-        <span class="service-number" aria-hidden="true">01</span>
         <div class="svc-media">
           <img src="../../assets/fotos/hohenheim-buehne.webp" loading="lazy"
                alt="Robin Hotz moderiert mit Mikrofon auf einer Konferenzbühne" width="1024" height="768" decoding="async">
@@ -317,12 +310,11 @@
             <span class="lang-de">Workshops mit rotem Faden, die Inhalte klar transportieren, das Publikum einbinden und in Erinnerung bleiben.</span>
             <span class="lang-en">Workshops with a clear thread that convey content clearly, engage the audience and stay memorable.</span>
           </p>
-          <a class="btn svc-cta" href="../../solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
+          <a class="btn svc-cta" href="solutions.html#moderation"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>
         </div>
       </article>
 
       <article class="svc panel" id="coaching">
-        <span class="service-number" aria-hidden="true">02</span>
         <div class="svc-media">
           <img src="../../assets/fotos/aoh-training.webp" loading="lazy"
                alt="Moderierte Gesprächsrunde im Kreis bei einem Art-of-Hosting-Training" width="2000" height="1333" decoding="async">
@@ -343,12 +335,11 @@
             <span class="lang-de">Teams, die Rollen, Richtung und Zusammenarbeit klar haben und gemeinsam ins Handeln kommen.</span>
             <span class="lang-en">Teams that are clear on roles, direction and collaboration and start acting together.</span>
           </p>
-          <a class="btn svc-cta" href="../../solutions.html#coaching">Coaching</a>
+          <a class="btn svc-cta" href="solutions.html#coaching">Coaching</a>
         </div>
       </article>
 
       <article class="svc panel" id="visualisierung">
-        <span class="service-number" aria-hidden="true">03</span>
         <div class="svc-media">
           <img src="../../assets/fotos/strategietag-vision-1.webp" loading="lazy"
                alt="Strategietag: eine Gruppe arbeitet fokussiert an einem gemeinsamen Bild" width="1200" height="800" decoding="async">
@@ -376,7 +367,7 @@
     </div>
 
     <div class="svc-more">
-      <a class="btn" href="../../contact.html"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+      <a class="btn" href="contact.html"><span class="lang-de">Zusammenarbeit anfragen</span><span class="lang-en">Let&#8217;s work together</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
     </div>
   </div>
 </section>
@@ -408,7 +399,7 @@
         <div class="fact"><div class="n">M.A.</div><div class="l"><span class="lang-de">Erwachsenenbildung</span><span class="lang-en">Adult Education</span></div></div>
       </div>
       <div class="about-action">
-        <a class="btn" href="../../about.html"><span class="lang-de">Mehr über mich</span><span class="lang-en">More about me</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+        <a class="btn" href="about.html"><span class="lang-de">Mehr über mich</span><span class="lang-en">More about me</span> <span class="icon icon-arrow sm" aria-hidden="true"></span></a>
       </div>
     </div>
   </div>
@@ -615,22 +606,22 @@
       '<a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>' +
       '<header class="site-head" id="siteHead">' +
         '<div class="nav">' +
-          '<a class="brand" href="' + siteUrl('subpages/prototypes/index-new-spectrium-2.html') + '" aria-label="Robin Hotz">' +
-            '<img class="logo-on-dark" src="' + siteUrl('assets/images/logo-clean-dark.webp') + '" alt="Robin Hotz">' +
-            '<img class="logo-on-light" src="' + siteUrl('assets/images/logo-clean-light.webp') + '" alt="Robin Hotz">' +
+          '<a class="brand" href="' + siteUrl('subpages/Rebrand/index.html') + '" aria-label="Robin Hotz">' +
+            '<img class="brand-symbol" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" alt="" width="52" height="52">' +
+            '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
           '</a>' +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
-            '<a href="' + siteUrl('subpages/prototypes/index-new-spectrium-2.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+            '<a href="' + siteUrl('subpages/Rebrand/index.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
             '<span class="navitem">' +
-              '<a class="navlink" href="' + '#leistungen' + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<a class="navlink" href="' + siteUrl('subpages/Rebrand/solutions.html') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
-                '<a href="' + siteUrl('solutions.html#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
-                '<a href="' + siteUrl('solutions.html#coaching') + '">Coaching</a>' +
-                '<a href="' + siteUrl('solutions.html#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#coaching') + '">Coaching</a>' +
+                '<a href="' + siteUrl('subpages/Rebrand/solutions.html#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
               '</span>' +
             '</span>' +
-            '<a href="' + '#referenzen' + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
-            '<a href="' + '#ueber' + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+            '<a href="' + siteUrl('subpages/Rebrand/index.html#referenzen') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+            '<a href="' + siteUrl('subpages/Rebrand/about.html') + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
             '<span class="navitem drop-ctl" id="langCtl">' +
               '<button class="ctl-btn" type="button" aria-expanded="false">' +
                 '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label">DE</span><span class="caret" aria-hidden="true"></span>' +
@@ -649,7 +640,7 @@
                 '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
               '</span>' +
             '</span>' +
-            '<a class="btn nav-cta" href="' + '#kontakt' + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+            '<a class="btn nav-cta" href="' + siteUrl('subpages/Rebrand/contact.html') + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
           '</nav>' +
           '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu">' +
             '<span class="visually-hidden lang-de">Menü öffnen</span><span class="visually-hidden lang-en">Open menu</span>' +
@@ -666,16 +657,19 @@
         '<div class="wrap">' +
           '<div class="foot-grid">' +
             '<div class="foot-brand">' +
-              '<img class="lang-de" src="' + siteUrl('assets/images/logo-cream.webp') + '" alt="Robin Hotz, Moderation für Veränderung">' +
-              '<img class="lang-en" src="' + siteUrl('assets/images/logo-cream-en.webp') + '" alt="Robin Hotz, Facilitation for Change">' +
+              '<a class="brand brand-footer" href="' + siteUrl('subpages/Rebrand/index.html') + '" aria-label="Robin Hotz">' +
+                '<img class="brand-symbol" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+CiAgPHRpdGxlPlJvYmluIEhvdHo6IFBlcnNwZWt0aXZlIHVuZCBLbGFyaGVpdDwvdGl0bGU+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNwZWN0cnVtIiB4MT0iNSIgeTE9IjE0IiB4Mj0iNjAiIHkyPSI1MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTljZGU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjM2IiBzdG9wLWNvbG9yPSIjYWE3YmYyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjY4IiBzdG9wLWNvbG9yPSIjZWQ4MGNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y1YTQ3OCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJ1cmwoI3NwZWN0cnVtKSIgc3Ryb2tlLXdpZHRoPSIyLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNNSAzNEMxMiAyMyAyMSAxNyAzMiAxN3MyMCA2IDI3IDE3Yy03IDExLTE2IDE3LTI3IDE3UzEyIDQ1IDUgMzRaIi8+CiAgICA8ZWxsaXBzZSBjeD0iMzIiIGN5PSIzNCIgcng9IjkiIHJ5PSIxMyIgdHJhbnNmb3JtPSJyb3RhdGUoMjggMzIgMzQpIi8+CiAgICA8cGF0aCBkPSJNMzIgNXY1TTE0IDEwbDMgNE01MCAxMGwtMyA0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjMyIiBjeT0iMzQiIHI9IjMuMiIgZmlsbD0idXJsKCNzcGVjdHJ1bSkiLz4KPC9zdmc+Cg==" alt="" width="52" height="52">' +
+                '<span class="brand-wordmark" aria-hidden="true">robin <strong>hotz</strong><span class="brand-dot">.</span></span>' +
+              '</a>' +
+              '<p class="brand-tagline"><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for Change</span></p>' +
             '</div>' +
             '<nav class="foot-col" aria-label="Seiten">' +
               '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +
-              '<a href="' + siteUrl('subpages/prototypes/index-new-spectrium-2.html') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
-              '<a href="' + '#leistungen' + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
-              '<a href="' + '#referenzen' + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
-              '<a href="' + '#ueber' + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
-              '<a href="' + '#kontakt' + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/index.html') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/solutions.html') + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/index.html#referenzen') + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/about.html') + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+              '<a href="' + siteUrl('subpages/Rebrand/contact.html') + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
             '</nav>' +
             '<div class="foot-col">' +
               '<h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>' +
@@ -929,32 +923,103 @@
  });
 })();
 
-</script>
-<script>
+/* Spectrum 3 interactions, applied to Spectrum 0's existing content. */
 (function () {
-  const root = document.documentElement;
-  const hero = document.querySelector('.hero');
-  const progress = document.querySelector('.reading-progress');
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const pointer = matchMedia('(hover: hover) and (pointer: fine)');
-  let pending = false;
-  function updateProgress() {
-    const available = root.scrollHeight - innerHeight;
-    progress.style.transform = 'scaleX(' + (available > 0 ? Math.min(1, scrollY / available) : 0) + ')';
-    pending = false;
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  document.querySelector('.home-contact-layout').classList.add('s0-frame');
+  document.querySelectorAll('.hero .btn:not(.ghost), .svc-cta').forEach(function (button) {
+    if (button.querySelector('.icon')) return;
+    var arrow = document.createElement('span');
+    arrow.className = 'icon icon-arrow sm';
+    arrow.setAttribute('aria-hidden', 'true');
+    button.appendChild(arrow);
+  });
+
+  /* Retain all 36 references, in order, with inaccessible visual duplicates. */
+  var wall = document.querySelector('.client-logo-wall');
+  if (wall) {
+    var logos = Array.from(wall.querySelectorAll('.client-logo-item'));
+    var viewport = document.createElement('div');
+    viewport.className = 's0-marquee-viewport';
+    for (var rowIndex = 0; rowIndex < 2; rowIndex++) {
+      var row = document.createElement('div');
+      row.className = 's0-marquee-row' + (rowIndex ? ' s0-marquee-reverse' : '');
+      var track = document.createElement('div');
+      track.className = 's0-marquee-track';
+      var split = Math.ceil(logos.length / 2);
+      logos.slice(rowIndex * split, (rowIndex + 1) * split).forEach(function (logo) { track.appendChild(logo); });
+      var copy = track.cloneNode(true);
+      copy.classList.add('is-copy');
+      copy.setAttribute('aria-hidden', 'true');
+      copy.setAttribute('inert', '');
+      copy.querySelectorAll('img').forEach(function (img) { img.alt = ''; });
+      row.appendChild(track);
+      row.appendChild(copy);
+      viewport.appendChild(row);
+    }
+    wall.replaceChildren(viewport);
+    wall.classList.add('s0-marquee', 'is-ready', 'is-offscreen');
+    wall.setAttribute('role', 'region');
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 's0-marquee-toggle';
+    toggle.setAttribute('aria-pressed', 'false');
+    function syncMotionLabel() {
+      var paused = wall.classList.contains('is-paused');
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.innerHTML = paused
+        ? '<span class="lang-de">Bewegung fortsetzen</span><span class="lang-en">Resume motion</span>'
+        : '<span class="lang-de">Bewegung anhalten</span><span class="lang-en">Pause motion</span>';
+      wall.setAttribute('aria-label', document.documentElement.lang === 'en'
+        ? 'Selection of previous clients and partners'
+        : 'Auswahl bisheriger Auftraggeber und Partner');
+    }
+    toggle.addEventListener('click', function () {
+      wall.classList.toggle('is-paused');
+      syncMotionLabel();
+    });
+    wall.appendChild(toggle);
+    syncMotionLabel();
+    window.addEventListener('langchange', syncMotionLabel);
+    if ('IntersectionObserver' in window) {
+      var visibility = new IntersectionObserver(function (entries) {
+        wall.classList.toggle('is-offscreen', !entries[0].isIntersecting);
+      });
+      visibility.observe(wall);
+    } else {
+      wall.classList.remove('is-offscreen');
+    }
   }
-  addEventListener('scroll', function () {
-    if (!pending) { pending = true; requestAnimationFrame(updateProgress); }
-  }, { passive: true });
-  addEventListener('resize', updateProgress, { passive: true });
-  updateProgress();
-  hero.addEventListener('pointermove', function (event) {
-    if (motion.matches || !pointer.matches) return;
-    const box = hero.getBoundingClientRect();
-    hero.style.setProperty('--pointer-x', ((event.clientX - box.left) / box.width * 100) + '%');
-    hero.style.setProperty('--pointer-y', ((event.clientY - box.top) / box.height * 100) + '%');
-  }, { passive: true });
+
+  /* Subtle light follows the pointer; no tracking on touch or reduced motion. */
+  document.querySelectorAll('.panel, .q-card').forEach(function (card) {
+    var frame = 0;
+    var x = 0;
+    var y = 0;
+    card.addEventListener('pointermove', function (event) {
+      if (reduced.matches || !fine.matches) return;
+      var box = card.getBoundingClientRect();
+      x = event.clientX - box.left;
+      y = event.clientY - box.top;
+      if (frame) return;
+      frame = window.requestAnimationFrame(function () {
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+        frame = 0;
+      });
+    }, { passive: true });
+    card.addEventListener('pointerleave', function () {
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      card.style.removeProperty('--mx');
+      card.style.removeProperty('--my');
+    });
+  });
 })();
+
 </script>
 </body>
 </html>

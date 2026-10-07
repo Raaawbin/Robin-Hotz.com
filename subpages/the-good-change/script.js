@@ -1,9 +1,11 @@
-/* THE GOOD CHANGE · VISION · B2B landing page · script.js
+/* THE GOOD CHANGE · shared script for all pages in this folder
    1. Language switch DE/EN: both languages live in the markup (.lang-de / .lang-en).
       This script sets <html lang>, CSS hides the inactive one. Same priority and storage
       key as js/lang.js on robin-hotz.com: ?lang= parameter, saved choice, browser language.
-      Attributes: data-alt-en (img alt) and data-label-en (aria-label) carry the English text.
-   2. Page interactions: mobile menu, knot, VISION stations, services, network rail, hello button.
+      Attributes: data-alt-en (img alt), data-label-en (aria-label) and data-ph-en (placeholder).
+   2. Page interactions, each one only runs when its elements exist on the page:
+      mobile menu, knot, VISION stations, generic tabs, accordions, rails, contact form,
+      floating hello button.
    Loaded in <head> without defer, so the language is set before the first paint. */
 (function () {
   'use strict';
@@ -13,8 +15,20 @@
 
   /* UI strings that only live in JavaScript */
   var T = {
-    de: { menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', knotBefore: 'Viele Fäden, kein Muster.', knotAfter: 'Ein Faden, eine Richtung.' },
-    en: { menuOpen: 'Open menu', menuClose: 'Close menu', knotBefore: 'Many threads, no pattern.', knotAfter: 'One thread, one direction.' }
+    de: {
+      menuOpen: 'Menü öffnen', menuClose: 'Menü schließen',
+      knotBefore: 'Viele Fäden, kein Muster.', knotAfter: 'Ein Faden, eine Richtung.',
+      mailSubject: 'Anfrage über die Website', mailHello: 'Hallo THE GOOD CHANGE,',
+      mailName: 'Name', mailOrg: 'Organisation', mailTopic: 'Thema', mailBye: 'Viele Grüße',
+      formMissing: 'Bitte Name, E-Mail und Nachricht ausfüllen.', formOk: 'Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht.'
+    },
+    en: {
+      menuOpen: 'Open menu', menuClose: 'Close menu',
+      knotBefore: 'Many threads, no pattern.', knotAfter: 'One thread, one direction.',
+      mailSubject: 'Enquiry via the website', mailHello: 'Hello THE GOOD CHANGE,',
+      mailName: 'Name', mailOrg: 'Organisation', mailTopic: 'Topic', mailBye: 'Best regards',
+      formMissing: 'Please fill in your name, email and message.', formOk: 'Your email program opens with the message ready to send.'
+    }
   };
 
   function pick() {
@@ -51,6 +65,11 @@
     if (d && meta) meta.setAttribute('content', d);
     swapAttr('alt', 'alt', l);
     swapAttr('aria-label', 'label', l);
+    swapAttr('placeholder', 'ph', l);
+    document.querySelectorAll('option[data-en]').forEach(function (o) {
+      if (!o.hasAttribute('data-de')) o.setAttribute('data-de', o.textContent);
+      o.textContent = o.getAttribute('data-' + l);
+    });
     document.querySelectorAll('.lang-switch button[data-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
     });
@@ -68,7 +87,8 @@
     var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
     var clamp = function (v, a, b) { a = a || 0; b = b === undefined ? 1 : b; return Math.min(b, Math.max(a, v)); };
 
-    $('#year').textContent = new Date().getFullYear();
+    var year = $('#year');
+    if (year) year.textContent = new Date().getFullYear();
 
     /* ── Language switch ── */
     $$('.lang-switch button[data-lang]').forEach(function (b) {
@@ -77,19 +97,21 @@
 
     /* ── Mobile menu ── */
     var burger = $('.burger'), menu = $('#mobile-menu');
-    function toggleMenu(open) {
-      document.body.classList.toggle('menu-open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      burger.setAttribute('aria-label', open ? T[lang].menuClose : T[lang].menuOpen);
-      menu.setAttribute('aria-hidden', String(!open));
-      document.body.style.overflow = open ? 'hidden' : '';
+    if (burger && menu) {
+      var toggleMenu = function (open) {
+        document.body.classList.toggle('menu-open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? T[lang].menuClose : T[lang].menuOpen);
+        menu.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+      burger.addEventListener('click', function () { toggleMenu(!document.body.classList.contains('menu-open')); });
+      $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { toggleMenu(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggleMenu(false); });
+      onLang.push(function (l) {
+        burger.setAttribute('aria-label', document.body.classList.contains('menu-open') ? T[l].menuClose : T[l].menuOpen);
+      });
     }
-    burger.addEventListener('click', function () { toggleMenu(!document.body.classList.contains('menu-open')); });
-    $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { toggleMenu(false); }); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggleMenu(false); });
-    onLang.push(function (l) {
-      burger.setAttribute('aria-label', document.body.classList.contains('menu-open') ? T[l].menuClose : T[l].menuOpen);
-    });
 
     /* Smooth path through points (Catmull-Rom to cubic Bezier) */
     function smooth(pts, t) {
@@ -104,87 +126,124 @@
     }
 
     /* ── Knot: unties once when it comes into view (time based, not scroll linked) ── */
-    var knot = $('#knot'), knotPath = $('#knot-path'), knotLabel = $('#knot-label');
-    var seed = 7;
-    var rnd = function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
-    var N = 44, tangled = [], straight = [];
-    for (var i = 0; i < N; i++) {
-      var a = i * 2.35 + rnd() * 1.4, rad = 46 + rnd() * 150;
-      tangled.push([280 + Math.cos(a) * rad * 1.15, 210 + Math.sin(a) * rad * .82]);
-      straight.push([20 + (520 * i) / (N - 1), 220 + Math.sin(i / (N - 1) * Math.PI * 2) * 26]);
+    var knot = $('#knot');
+    if (knot) {
+      var knotPath = $('#knot-path'), knotLabel = $('#knot-label');
+      var seed = 7;
+      var rnd = function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+      var N = 44, tangled = [], straight = [];
+      for (var i = 0; i < N; i++) {
+        var a = i * 2.35 + rnd() * 1.4, rad = 46 + rnd() * 150;
+        tangled.push([280 + Math.cos(a) * rad * 1.15, 210 + Math.sin(a) * rad * .82]);
+        straight.push([20 + (520 * i) / (N - 1), 220 + Math.sin(i / (N - 1) * Math.PI * 2) * 26]);
+      }
+      tangled[0] = [10, 300]; tangled[N - 1] = [550, 120];
+      var mix = function (x, y, t) { return x + (y - x) * t; };
+      var ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+      var loose = false;
+      var setKnotLabel = function () { knotLabel.textContent = loose ? T[lang].knotAfter : T[lang].knotBefore; };
+      var drawKnot = function (p) {
+        var pts = tangled.map(function (pt, k) {
+          var local = ease(clamp(p * 1.35 - (k / N) * .35));
+          return [mix(pt[0], straight[k][0], local), mix(pt[1], straight[k][1], local)];
+        });
+        knotPath.setAttribute('d', smooth(pts, .9));
+        var e = ease(p);
+        knotPath.style.stroke = 'rgb(' + Math.round(mix(0, 2, e)) + ',' + Math.round(mix(0, 152, e)) + ',' + Math.round(mix(0, 85, e)) + ')';
+        knotPath.style.strokeWidth = mix(1.8, 3.2, e);
+        loose = p > .95;
+        knot.classList.toggle('is-loose', loose);
+        setKnotLabel();
+      };
+      var playKnot = function () {
+        if (reduce) { drawKnot(1); return; }
+        var t0 = performance.now(), dur = 2800;
+        var step = function (now) { var p = clamp((now - t0 - 500) / dur); drawKnot(p); if (p < 1) requestAnimationFrame(step); };
+        drawKnot(0); requestAnimationFrame(step);
+      };
+      drawKnot(reduce ? 1 : 0);
+      new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { playKnot(); o.disconnect(); } }, { threshold: .5 }).observe(knot);
+      var replay = $('#knot-replay');
+      if (replay) replay.addEventListener('click', playKnot);
+      onLang.push(setKnotLabel);
     }
-    tangled[0] = [10, 300]; tangled[N - 1] = [550, 120];
-    var mix = function (x, y, t) { return x + (y - x) * t; };
-    var ease = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
-    var loose = false;
-    function setKnotLabel() { knotLabel.textContent = loose ? T[lang].knotAfter : T[lang].knotBefore; }
-    function drawKnot(p) {
-      var pts = tangled.map(function (pt, k) {
-        var local = ease(clamp(p * 1.35 - (k / N) * .35));
-        return [mix(pt[0], straight[k][0], local), mix(pt[1], straight[k][1], local)];
-      });
-      knotPath.setAttribute('d', smooth(pts, .9));
-      var e = ease(p);
-      knotPath.style.stroke = 'rgb(' + Math.round(mix(0, 2, e)) + ',' + Math.round(mix(0, 152, e)) + ',' + Math.round(mix(0, 85, e)) + ')';
-      knotPath.style.strokeWidth = mix(1.8, 3.2, e);
-      loose = p > .95;
-      knot.classList.toggle('is-loose', loose);
-      setKnotLabel();
-    }
-    function playKnot() {
-      if (reduce) { drawKnot(1); return; }
-      var t0 = performance.now(), dur = 2800;
-      var step = function (now) { var p = clamp((now - t0 - 500) / dur); drawKnot(p); if (p < 1) requestAnimationFrame(step); };
-      drawKnot(0); requestAnimationFrame(step);
-    }
-    drawKnot(reduce ? 1 : 0);
-    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { playKnot(); o.disconnect(); } }, { threshold: .5 }).observe(knot);
-    $('#knot-replay').addEventListener('click', playKnot);
-    onLang.push(setKnotLabel);
 
     /* ── VISION: static landscape, stations by click and keyboard ── */
-    var tabs = $$('.vtab'), panels = $$('.vpanel');
-    var stops = [[110, 268], [318, 168], [500, 252], [706, 150], [884, 244], [1086, 140]];
-    var routeD = smooth([[16, 352]].concat(stops, [[1170, 92]]), .75);
-    $('#route').setAttribute('d', routeD);
-    $('#flow').setAttribute('d', routeD);
-    var hills = $$('.vmap .hill'), dayTexts = $$('.vmap .daylabel, .vmap .daysub');
-    var days = $$('.vday'), dayBtns = $$('.vday__letters button'), word = $$('#vision-word span');
-    var current = 0;
-    function select(n, focus) {
-      n = (n + 6) % 6; current = n;
-      var day = Math.floor(n / 2);
-      tabs.forEach(function (t, k) {
-        t.setAttribute('aria-selected', String(k === n));
-        t.tabIndex = k === n ? 0 : -1;
-        t.classList.toggle('is-done', k < n);
-      });
-      panels.forEach(function (p, k) { p.hidden = k !== n; p.classList.toggle('is-shown', k === n); });
-      hills.forEach(function (h) { h.classList.toggle('is-on', +h.dataset.day === day); });
-      dayTexts.forEach(function (t) { t.classList.toggle('is-on', +t.dataset.day === day); });
-      days.forEach(function (d) { d.classList.toggle('is-on', +d.dataset.day === day); });
-      dayBtns.forEach(function (b) { b.classList.toggle('is-on', +b.dataset.go === n); });
-      word.forEach(function (w, k) { w.classList.toggle('is-on', k === n); });
-      $('#vcount').textContent = String(n + 1).padStart(2, '0') + ' / 06';
-      if (focus) tabs[n].focus();
+    var route = $('#route');
+    if (route) {
+      var stops = [[110, 268], [318, 168], [500, 252], [706, 150], [884, 244], [1086, 140]];
+      var routeD = smooth([[16, 352]].concat(stops, [[1170, 92]]), .75);
+      route.setAttribute('d', routeD);
+      var flow = $('#flow');
+      if (flow) flow.setAttribute('d', routeD);
     }
-    tabs.forEach(function (t, k) {
-      t.addEventListener('click', function () { select(k); });
-      t.addEventListener('keydown', function (e) {
-        var step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-        if (step) { e.preventDefault(); select(current + step, true); }
-        if (e.key === 'Home') { e.preventDefault(); select(0, true); }
-        if (e.key === 'End') { e.preventDefault(); select(5, true); }
+    var vtabs = $$('.vtab');
+    if (vtabs.length) {
+      var panels = $$('.vpanel');
+      var hills = $$('.vmap .hill'), dayTexts = $$('.vmap .daylabel, .vmap .daysub');
+      var days = $$('.vday'), dayBtns = $$('.vday__letters button'), word = $$('#vision-word span');
+      var current = 0;
+      var select = function (n, focus) {
+        n = (n + 6) % 6; current = n;
+        var day = Math.floor(n / 2);
+        vtabs.forEach(function (t, k) {
+          t.setAttribute('aria-selected', String(k === n));
+          t.tabIndex = k === n ? 0 : -1;
+          t.classList.toggle('is-done', k < n);
+        });
+        panels.forEach(function (p, k) { p.hidden = k !== n; p.classList.toggle('is-shown', k === n); });
+        hills.forEach(function (h) { h.classList.toggle('is-on', +h.dataset.day === day); });
+        dayTexts.forEach(function (t) { t.classList.toggle('is-on', +t.dataset.day === day); });
+        days.forEach(function (d) { d.classList.toggle('is-on', +d.dataset.day === day); });
+        dayBtns.forEach(function (b) { b.classList.toggle('is-on', +b.dataset.go === n); });
+        word.forEach(function (w, k) { w.classList.toggle('is-on', k === n); });
+        var count = $('#vcount');
+        if (count) count.textContent = String(n + 1).padStart(2, '0') + ' / 06';
+        if (focus) vtabs[n].focus();
+      };
+      vtabs.forEach(function (t, k) {
+        t.addEventListener('click', function () { select(k); });
+        t.addEventListener('keydown', function (e) {
+          var step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+          if (step) { e.preventDefault(); select(current + step, true); }
+          if (e.key === 'Home') { e.preventDefault(); select(0, true); }
+          if (e.key === 'End') { e.preventDefault(); select(5, true); }
+        });
       });
-    });
-    $('#vprev').addEventListener('click', function () { select(current - 1); });
-    $('#vnext').addEventListener('click', function () { select(current + 1); });
-    dayBtns.concat(word).forEach(function (b) { b.addEventListener('click', function () { select(+b.dataset.go); }); });
-    select(0);
+      var vprev = $('#vprev'), vnext = $('#vnext');
+      if (vprev) vprev.addEventListener('click', function () { select(current - 1); });
+      if (vnext) vnext.addEventListener('click', function () { select(current + 1); });
+      dayBtns.concat(word).forEach(function (b) { b.addEventListener('click', function () { select(+b.dataset.go); }); });
+      select(0);
+    }
 
-    /* ── Services accordion ── */
+    /* ── Generic tabs: [data-tabs] with [role=tab] buttons and [role=tabpanel] panels ── */
+    $$('[data-tabs]').forEach(function (box) {
+      var tabs = $$('[role="tab"]', box), panes = $$('[role="tabpanel"]', box);
+      var cur = 0;
+      var show = function (n, focus) {
+        n = (n + tabs.length) % tabs.length; cur = n;
+        tabs.forEach(function (t, k) { t.setAttribute('aria-selected', String(k === n)); t.tabIndex = k === n ? 0 : -1; });
+        panes.forEach(function (p, k) { p.hidden = k !== n; p.classList.toggle('is-shown', k === n); });
+        box.style.setProperty('--active', n);
+        if (focus) tabs[n].focus();
+      };
+      tabs.forEach(function (t, k) {
+        t.addEventListener('click', function () { show(k); });
+        t.addEventListener('keydown', function (e) {
+          var step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+          if (step) { e.preventDefault(); show(cur + step, true); }
+        });
+      });
+      $$('[data-tab-prev]', box).forEach(function (b) { b.addEventListener('click', function () { show(cur - 1); }); });
+      $$('[data-tab-next]', box).forEach(function (b) { b.addEventListener('click', function () { show(cur + 1); }); });
+      show(0);
+    });
+
+    /* ── Accordions (services list, FAQ, modules) ── */
     $$('.svc__item').forEach(function (item) {
       var btn = $('.svc__btn', item);
+      if (!btn) return;
       btn.addEventListener('click', function () {
         var open = !item.classList.contains('is-open');
         item.classList.toggle('is-open', open);
@@ -192,22 +251,47 @@
       });
     });
 
-    /* ── Network rail ── */
-    var rail = $('#rail');
+    /* ── Rails: buttons with data-rail="-1|1" and data-target="#id" ── */
     $$('[data-rail]').forEach(function (b) {
+      var rail = $(b.getAttribute('data-target') || '#rail');
+      if (!rail) return;
       b.addEventListener('click', function () {
-        var card = rail.querySelector('.mate');
-        rail.scrollBy({ left: +b.dataset.rail * (card.offsetWidth + 16) * 2, behavior: reduce ? 'auto' : 'smooth' });
+        var card = rail.firstElementChild;
+        var stepW = card ? card.offsetWidth + 16 : rail.clientWidth * .8;
+        rail.scrollBy({ left: +b.dataset.rail * stepW * 2, behavior: reduce ? 'auto' : 'smooth' });
       });
     });
 
-    /* ── Floating hello: hide over CTA and footer ── */
-    var hello = $('#hello'), zones = new Map();
-    var zoneIO = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { zones.set(e.target, e.isIntersecting); });
-      hello.classList.toggle('is-hidden', Array.from(zones.values()).some(Boolean));
-    }, { threshold: .05 });
-    [$('#kontakt'), $('.footer')].forEach(function (z) { zoneIO.observe(z); });
+    /* ── Contact form: composes an email (GitHub Pages has no form backend) ── */
+    var form = $('#contact-form');
+    if (form) {
+      var note = $('#form-note', form);
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var v = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
+        if (!v('name') || !v('email') || !v('message')) { note.textContent = T[lang].formMissing; note.classList.add('is-error'); return; }
+        var topicEl = form.elements.topic;
+        var topic = topicEl ? topicEl.options[topicEl.selectedIndex].text.trim() : '';
+        var body = [T[lang].mailHello, '', v('message'), '', T[lang].mailName + ': ' + v('name'), 'E-Mail: ' + v('email')];
+        if (v('org')) body.push(T[lang].mailOrg + ': ' + v('org'));
+        if (topic) body.push(T[lang].mailTopic + ': ' + topic);
+        body.push('', T[lang].mailBye, v('name'));
+        var subject = (topic ? topic + ' · ' : '') + T[lang].mailSubject;
+        note.textContent = T[lang].formOk; note.classList.remove('is-error');
+        window.location.href = 'mailto:hello@thegoodchange.co?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.join('\n'));
+      });
+    }
+
+    /* ── Floating hello: hide over CTA sections and footer ── */
+    var hello = $('#hello');
+    if (hello) {
+      var zones = new Map();
+      var zoneIO = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { zones.set(e.target, e.isIntersecting); });
+        hello.classList.toggle('is-hidden', Array.from(zones.values()).some(Boolean));
+      }, { threshold: .05 });
+      $$('#kontakt, .cta, .footer').forEach(function (z) { zoneIO.observe(z); });
+    }
 
     apply(lang);
   });

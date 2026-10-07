@@ -29,30 +29,24 @@
 <!-- ───────── Header ───────── -->
 <header class="header" id="top">
   <div class="wrap header__in">
-    <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
-    <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
-      <a href="about.html" data-nav="about">About</a>
-      <a href="academy.html" data-nav="academy">Academy</a>
-      <a href="services.html" data-nav="services">Services</a>
-      <a href="cases.html" data-nav="cases" aria-current="page">Cases</a>
-      <a href="blog.html" data-nav="blog">Blog</a>
-      <a href="contact.html" data-nav="contact">Contact us</a>
-    </nav>
     <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
       <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
     </a>
+    <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
+      <a href="index.html" data-nav="index">Start</a>
+      <a href="beratung.html" data-nav="beratung"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
+      <a href="academy.html" data-nav="academy">Academy</a>
+      <a href="coaching.html" data-nav="coaching">Coaching</a>
+      <a href="cases.html" data-nav="cases" aria-current="page">Cases</a>
+      <a href="blog.html" data-nav="blog">Blog</a>
+    </nav>
     <div class="header__right">
-      <a class="social" href="https://www.instagram.com/thegoodchange.co/" target="_blank" rel="noopener" aria-label="THE GOOD CHANGE auf Instagram" data-label-en="THE GOOD CHANGE on Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a class="social" href="https://www.linkedin.com/in/lisa-marie-jikeli-8b5b8b120/" target="_blank" rel="noopener" aria-label="Lisa Jikeli auf LinkedIn" data-label-en="Lisa Jikeli on LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.6 4.77 6v5.45h-4V15.9c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.93h-3.95z"/></svg>
-      </a>
       <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
         <button type="button" data-lang="de" aria-pressed="true">DE</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a class="btn btn--green header__cta" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></a>
+      <a class="btn btn--green header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
+      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -60,16 +54,15 @@
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <nav aria-label="Mobile Navigation" data-label-en="Mobile navigation">
     <a href="index.html" data-nav="index">Start</a>
-    <a href="about.html" data-nav="about">About</a>
+    <a href="beratung.html" data-nav="beratung"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
     <a href="academy.html" data-nav="academy">Academy</a>
-    <a href="services.html" data-nav="services">Services</a>
-    <a href="transformationsbegleitung.html" data-nav="transformation">Transformation</a>
+    <a href="coaching.html" data-nav="coaching">Coaching</a>
     <a href="cases.html" data-nav="cases" aria-current="page">Cases</a>
     <a href="blog.html" data-nav="blog">Blog</a>
-    <a href="contact.html" data-nav="contact">Contact us</a>
+    <a href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
   </nav>
   <div class="btns">
-    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Connection Call buchen</span><span class="lang-en">Book a connection call</span></a>
+    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></a>
     <a class="btn btn--ghost" href="mailto:hello@thegoodchange.co">hello@thegoodchange.co</a>
   </div>
 </div>
@@ -239,13 +232,13 @@
         <h4>THE GOOD CHANGE</h4>
         <ul>
           <li><a href="index.html">Start</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="beratung.html"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a></li>
+          <li><a href="transformationsbegleitung.html"><span class="lang-de">Transformationsbegleitung</span><span class="lang-en">Transformation support</span></a></li>
           <li><a href="academy.html">Academy</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="transformationsbegleitung.html">Transformation</a></li>
+          <li><a href="coaching.html">Coaching</a></li>
           <li><a href="cases.html">Cases</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
         </ul>
       </div>
       <div>

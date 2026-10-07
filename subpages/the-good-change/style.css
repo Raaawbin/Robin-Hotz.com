@@ -844,3 +844,38 @@ a.ccard:hover > span{color:rgba(252,249,244,.7)}
 @media (max-width:1180px){.offers{grid-template-columns:1fr 1fr}.offers .offer:last-child{grid-column:span 2}}
 @media (max-width:960px){.finder{grid-template-columns:1fr}.finder__panel{min-height:0}}
 @media (max-width:760px){.offers{grid-template-columns:1fr}.offers .offer:last-child{grid-column:auto}.plan3{grid-template-columns:1fr;gap:28px}.plan3::before{display:none}.also{border-radius:var(--r)}}
+
+/* ═════════════════════════════════════════════════════════════
+   HEADER v2 · logo left, pill navigation right, language + contact
+   (overrides the earlier centred-logo header)
+   ═════════════════════════════════════════════════════════════ */
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.logo{flex:none;justify-self:auto}
+.logo img{height:46px}
+.nav{display:flex;align-items:center;gap:2px;padding:4px;margin-left:auto;border:var(--rule);border-radius:999px;background:var(--cream)}
+.nav a{font-family:var(--f-ui);font-weight:500;font-size:.88rem;letter-spacing:0;text-transform:none;text-decoration:none;padding:.6em 1.05em;border-radius:999px;line-height:1;transition:background-color .25s,color .25s}
+.nav a::after{display:none}
+.nav a:hover{background:var(--cream-3)}
+.nav a[aria-current="page"]{background:var(--ink);color:var(--cream)}
+.header__right{display:flex;align-items:center;gap:10px;justify-self:auto}
+.header .lang-switch{margin-left:0}
+.header__cta{margin-left:0;padding:.85em 1.4em;font-size:.88rem;opacity:1;pointer-events:auto;transform:none}
+.header__cta[aria-current="page"]{--bg:var(--ink)}
+.burger{display:none;border:var(--rule);flex:none}
+.mobile-menu nav a[aria-current="page"]{color:var(--green-deep)}
+@media (max-width:940px){
+  .nav{display:none}
+  .burger{display:block}
+  .header__cta{display:inline-flex}
+}
+@media (max-width:960px){
+  .header__in{grid-template-columns:none}
+  .logo img{height:42px}
+  .header__cta{display:inline-flex}
+}
+@media (max-width:560px){
+  .header__cta{display:none}
+  .logo img{height:38px}
+}
+.subnav{top:72px}
+@media (max-width:960px){.subnav{top:70px}}

@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,401&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
@@ -27,27 +26,31 @@
 <body>
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<!-- ───────── Header ───────── -->
+<!-- ───────── Header: floating bar ───────── -->
 <header class="header" id="top">
-  <div class="wrap header__in">
-    <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
-      <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
-    </a>
-    <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
-      <a href="index.html" data-nav="index">Start</a>
-      <a href="beratung.html" data-nav="beratung" aria-current="page"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
-      <a href="academy.html" data-nav="academy">Academy</a>
-      <a href="coaching.html" data-nav="coaching">Coaching</a>
-      <a href="cases.html" data-nav="cases">Cases</a>
-      <a href="blog.html" data-nav="blog">Blog</a>
-    </nav>
-    <div class="header__right">
-      <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
-        <button type="button" data-lang="de" aria-pressed="true">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <div class="wrap">
+    <div class="header__bar">
+      <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
+        <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
+        <a href="index.html" data-nav="index">Start</a>
+        <a href="beratung.html" data-nav="beratung" aria-current="page"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
+        <a href="academy.html" data-nav="academy">Academy</a>
+        <a href="coaching.html" data-nav="coaching">Coaching</a>
+        <a href="cases.html" data-nav="cases">Cases</a>
+        <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+      </nav>
+      <div class="header__right">
+        <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
+        <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </div>
-      <a class="btn btn--green header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
-      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -59,11 +62,13 @@
     <a href="academy.html" data-nav="academy">Academy</a>
     <a href="coaching.html" data-nav="coaching">Coaching</a>
     <a href="cases.html" data-nav="cases">Cases</a>
+    <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
     <a href="blog.html" data-nav="blog">Blog</a>
     <a href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
   </nav>
   <div class="btns">
-    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></a>
+    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
     <a class="btn btn--ghost" href="mailto:hello@thegoodchange.co">hello@thegoodchange.co</a>
   </div>
 </div>
@@ -72,51 +77,40 @@
 <main id="main">
 
 <!-- ───────── Hero ───────── -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero__media grain">
-    <img src="images/hero-lisa-anja-workshop.jpg" width="2500" height="1667"
-         alt="Lisa und Anja von THE GOOD CHANGE ordnen Karten mit den Begriffen Acting, Collaborating, Relating und Thinking an einer Wand."
-         data-alt-en="Lisa and Anja from THE GOOD CHANGE arranging cards with the words Acting, Collaborating, Relating and Thinking on a wall."
-         fetchpriority="high">
-    <span class="chip"><span class="dot" aria-hidden="true"></span><span class="lang-de">Lisa und Anja, mitten im Prozess</span><span class="lang-en">Lisa and Anja, in the middle of the process</span></span>
-    <div class="glass in" style="--d:1s">
-      <small><span class="star" aria-hidden="true"></span><span class="lang-de">Kostenloser Connection Call</span><span class="lang-en">Free connection call</span></small>
-      <p><span class="lang-de">30 Minuten, um zu sehen, ob wir zusammenpassen.</span><span class="lang-en">30 minutes to see if we are a good fit.</span></p>
-      <a class="textlink" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Termin wählen</span><span class="lang-en">Pick a time</span></a>
-    </div>
-  </div>
-
-  <div class="hero__copy">
-    <p class="crumbs in"><a href="index.html">THE GOOD CHANGE</a><span class="star" aria-hidden="true"></span><span class="lang-de">Transformationsbegleitung</span><span class="lang-en">Transformation support</span></p>
+<section class="intro intro--page" aria-labelledby="hero-title">
+  <img class="intro__bg" src="images/hero-lisa-anja-workshop.jpg" width="2500" height="1667" style="object-position:38% 30%"
+       alt="Lisa und Anja von THE GOOD CHANGE ordnen Karten mit den Begriffen Acting, Collaborating, Relating und Thinking an einer Wand."
+       data-alt-en="Lisa and Anja from THE GOOD CHANGE arranging cards with the words Acting, Collaborating, Relating and Thinking on a wall."
+       fetchpriority="high">
+  <div class="wrap intro__inner">
+    <p class="crumbs in"><a href="index.html">THE GOOD CHANGE</a><span class="star" aria-hidden="true"></span><a href="beratung.html"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a><span class="star" aria-hidden="true"></span><span class="lang-de">Transformationsbegleitung</span><span class="lang-en">Transformation support</span></p>
     <span class="pill in" style="--d:.05s"><b><span class="lang-de">Neu</span><span class="lang-en">New</span></b><span class="lang-de">VISION für Unternehmen, Teams und Organisationen</span><span class="lang-en">VISION for companies, teams and organisations</span></span>
-    <h1 id="hero-title" class="in" style="--d:.15s">
+    <h1 id="hero-title" class="in" style="--d:.12s">
       <span class="lang-de">Klarheit für Teams, die <span class="hl">gemeinsam</span> weiterwollen.</span>
       <span class="lang-en">Clarity for teams that want to move forward <span class="hl">together.</span></span>
     </h1>
-    <p class="lead in" style="--d:.25s">
-      <span class="lang-de">Euer Unternehmen wächst, Rollen verschieben sich, Entscheidungen bleiben hängen. Mit VISION begleiten wir Euer Team in drei Trainingstagen vom gemeinsamen Zielbild bis zur Umsetzung im Alltag.</span>
-      <span class="lang-en">Your company is growing, roles are shifting, decisions get stuck. With VISION, we accompany your team through three training days, from a shared vision all the way to putting it into practice.</span>
-    </p>
-    <div class="btns in" style="--d:.35s">
-      <a class="btn btn--green" href="#kontakt"><span class="lang-de">VISION als Team starten</span><span class="lang-en">Start VISION as a team</span>
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
-      <a class="btn btn--ghost" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Erstgespräch vereinbaren</span><span class="lang-en">Book an intro call</span></a>
+    <div class="intro__row">
+      <p class="lead in" style="--d:.24s">
+        <span class="lang-de">Euer Unternehmen wächst, Rollen verschieben sich, Entscheidungen bleiben hängen. Mit VISION begleiten wir Euer Team in drei Trainingstagen vom gemeinsamen Zielbild bis zur Umsetzung im Alltag.</span>
+        <span class="lang-en">Your company is growing, roles are shifting, decisions get stuck. With VISION, we accompany your team through three training days, from a shared vision all the way to putting it into practice.</span>
+      </p>
+      <div class="btns in" style="--d:.32s">
+        <a class="btn btn--green" href="#kontakt"><span class="lang-de">VISION als Team starten</span><span class="lang-en">Start VISION as a team</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
+        <a class="btn btn--glass" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Erstgespräch vereinbaren</span><span class="lang-en">Book an intro call</span></a>
+      </div>
     </div>
-    <ul class="facts in" style="--d:.45s">
-      <li><b>3</b><span><span class="lang-de">Trainingstage</span><span class="lang-en">Training days</span></span></li>
-      <li><b>6</b><span><span class="lang-de">Stationen</span><span class="lang-en">Stations</span></span></li>
-      <li><b>1</b><span><span class="lang-de">Zielbild</span><span class="lang-en">Shared vision</span></span></li>
-    </ul>
-  </div>
-
-  <div class="badge" aria-hidden="true">
-    <svg class="ring" viewBox="0 0 140 140"><defs><path id="ring-hero" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs>
-      <text class="lang-de"><textPath href="#ring-hero">VISION · drei Tage · ein Team · ein Zielbild ·</textPath></text>
-      <text class="lang-en"><textPath href="#ring-hero">VISION · three days · one team · one picture ·</textPath></text>
-    </svg>
-    <span class="core"></span>
+    <div class="intro__foot in" style="--d:.44s">
+      <ul class="intro__facts">
+        <li><b>3</b><span><span class="lang-de">Trainingstage</span><span class="lang-en">Training days</span></span></li>
+        <li><b>6</b><span><span class="lang-de">Stationen</span><span class="lang-en">Stations</span></span></li>
+        <li><b>1</b><span><span class="lang-de">Zielbild</span><span class="lang-en">Shared vision</span></span></li>
+      </ul>
+      <p class="intro__cap"><span class="lang-de">Im Bild: Lisa und Anja, mitten im Prozess</span><span class="lang-en">Pictured: Lisa and Anja, in the middle of the process</span></p>
+    </div>
   </div>
 </section>
+
 
 <!-- ───────── Marquee ───────── -->
 <div class="marquee" aria-label="Was wir verbinden: Organisationsentwicklung, Facilitation, Coaching, Systemdenken, visuelle Methoden, Inner Work und ein interdisziplinäres Netzwerk" data-label-en="What we bring together: organisational development, facilitation, coaching, systems thinking, visual methods, inner work and an interdisciplinary network">
@@ -734,7 +728,8 @@
           <li><a href="coaching.html">Coaching</a></li>
           <li><a href="cases.html">Cases</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="about.html"><span class="lang-de">Lisas Weg</span><span class="lang-en">Lisa's path</span></a></li>
         </ul>
       </div>
       <div>
@@ -754,7 +749,7 @@
   </div>
 </footer>
 
-<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo<br>sagen</span><span class="lang-en">Say<br>hi</span></a>
+<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo sagen</span><span class="lang-en">Say hi</span></a>
 
 </body>
 </html>

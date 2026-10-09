@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,401&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
@@ -26,27 +25,31 @@
 <body>
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<!-- ───────── Header ───────── -->
+<!-- ───────── Header: floating bar ───────── -->
 <header class="header" id="top">
-  <div class="wrap header__in">
-    <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
-      <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
-    </a>
-    <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
-      <a href="index.html" data-nav="index">Start</a>
-      <a href="beratung.html" data-nav="beratung" aria-current="page"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
-      <a href="academy.html" data-nav="academy">Academy</a>
-      <a href="coaching.html" data-nav="coaching">Coaching</a>
-      <a href="cases.html" data-nav="cases">Cases</a>
-      <a href="blog.html" data-nav="blog">Blog</a>
-    </nav>
-    <div class="header__right">
-      <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
-        <button type="button" data-lang="de" aria-pressed="true">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <div class="wrap">
+    <div class="header__bar">
+      <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
+        <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
+        <a href="index.html" data-nav="index">Start</a>
+        <a href="beratung.html" data-nav="beratung" aria-current="page"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
+        <a href="academy.html" data-nav="academy">Academy</a>
+        <a href="coaching.html" data-nav="coaching">Coaching</a>
+        <a href="cases.html" data-nav="cases">Cases</a>
+        <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+      </nav>
+      <div class="header__right">
+        <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
+        <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </div>
-      <a class="btn btn--green header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
-      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -58,11 +61,13 @@
     <a href="academy.html" data-nav="academy">Academy</a>
     <a href="coaching.html" data-nav="coaching">Coaching</a>
     <a href="cases.html" data-nav="cases">Cases</a>
+    <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
     <a href="blog.html" data-nav="blog">Blog</a>
     <a href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
   </nav>
   <div class="btns">
-    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></a>
+    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
     <a class="btn btn--ghost" href="mailto:hello@thegoodchange.co">hello@thegoodchange.co</a>
   </div>
 </div>
@@ -225,8 +230,6 @@
 
 <!-- ───────── CTA ───────── -->
 <section class="section cta" id="kontakt" aria-labelledby="cta-title">
-  <svg class="cta__blob cta__blob--1" viewBox="0 0 600 600" aria-hidden="true"><path fill="#017a44" d="M421 74c62 38 118 108 116 182-2 75-62 153-128 206-66 52-139 79-210 62-71-18-140-80-158-152-18-73 15-157 69-211 55-54 130-79 196-82 41-2 80-27 115-5z"/></svg>
-  <svg class="cta__blob cta__blob--2" viewBox="0 0 600 600" aria-hidden="true"><path fill="#02a35c" d="M300 40c88 0 190 44 230 120 40 75 18 182-42 254-60 71-158 107-250 92-92-16-178-82-196-168-19-86 30-191 102-246 52-40 98-52 156-52z"/></svg>
   <div class="wrap cta__in">
     <div>
       <p class="eyebrow"><span class="lang-de">Passen wir zusammen?</span><span class="lang-en">Are we a good fit?</span></p>
@@ -285,7 +288,8 @@
           <li><a href="coaching.html">Coaching</a></li>
           <li><a href="cases.html">Cases</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="about.html"><span class="lang-de">Lisas Weg</span><span class="lang-en">Lisa's path</span></a></li>
         </ul>
       </div>
       <div>
@@ -305,7 +309,7 @@
   </div>
 </footer>
 
-<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo<br>sagen</span><span class="lang-en">Say<br>hi</span></a>
+<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo sagen</span><span class="lang-en">Say hi</span></a>
 
 </body>
 </html>

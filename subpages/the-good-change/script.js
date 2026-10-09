@@ -4,7 +4,7 @@
       key as js/lang.js on robin-hotz.com: ?lang= parameter, saved choice, browser language.
       Attributes: data-alt-en (img alt), data-label-en (aria-label) and data-ph-en (placeholder).
    2. Page interactions, each one only runs when its elements exist on the page:
-      mobile menu, knot, VISION stations, generic tabs, accordions, rails, contact form,
+      mobile menu, header nav pill, knot, VISION stations, generic tabs, accordions, rails, contact form,
       floating hello button.
    Loaded in <head> without defer, so the language is set before the first paint. */
 (function () {
@@ -103,7 +103,8 @@
         burger.setAttribute('aria-expanded', String(open));
         burger.setAttribute('aria-label', open ? T[lang].menuClose : T[lang].menuOpen);
         menu.setAttribute('aria-hidden', String(!open));
-        document.body.style.overflow = open ? 'hidden' : '';
+        /* Lock scrolling on <html>: overflow on <body> would turn it into the scroll box and unstick the header */
+        root.style.overflow = open ? 'hidden' : '';
       };
       burger.addEventListener('click', function () { toggleMenu(!document.body.classList.contains('menu-open')); });
       $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { toggleMenu(false); }); });
@@ -111,6 +112,34 @@
       onLang.push(function (l) {
         burger.setAttribute('aria-label', document.body.classList.contains('menu-open') ? T[l].menuClose : T[l].menuOpen);
       });
+    }
+
+    /* ── Header navigation: one pill glides to the hovered or focused link and rests on the current page ── */
+    var nav = $('.header .nav');
+    if (nav) {
+      var ind = document.createElement('span');
+      ind.className = 'nav__ind';
+      ind.setAttribute('aria-hidden', 'true');
+      nav.insertBefore(ind, nav.firstChild);
+      var navLinks = $$('a', nav), navCur = $('a[aria-current="page"]', nav);
+      var moveInd = function (a, instant) {
+        if (!a || !a.offsetWidth) { nav.classList.remove('has-ind'); return; }
+        if (instant) ind.style.transition = 'none';
+        ind.style.width = a.offsetWidth + 'px';
+        ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
+        nav.classList.add('has-ind');
+        if (instant) { void ind.offsetWidth; ind.style.transition = ''; }
+      };
+      navLinks.forEach(function (a) {
+        a.addEventListener('mouseenter', function () { moveInd(a); });
+        a.addEventListener('focus', function () { moveInd(a); });
+      });
+      nav.addEventListener('mouseleave', function () { moveInd(navCur); });
+      nav.addEventListener('focusout', function (e) { if (!nav.contains(e.relatedTarget)) moveInd(navCur); });
+      var placeInd = function () { moveInd(navCur, true); };
+      window.addEventListener('resize', placeInd);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeInd);
+      onLang.push(placeInd);
     }
 
     /* Smooth path through points (Catmull-Rom to cubic Bezier) */
@@ -282,7 +311,7 @@
       });
     }
 
-    /* ── Floating hello: hide over CTA sections and footer ── */
+    /* ── Floating hello: hide over hero sections, CTA sections and footer ── */
     var hello = $('#hello');
     if (hello) {
       var zones = new Map();
@@ -290,7 +319,7 @@
         es.forEach(function (e) { zones.set(e.target, e.isIntersecting); });
         hello.classList.toggle('is-hidden', Array.from(zones.values()).some(Boolean));
       }, { threshold: .05 });
-      $$('#kontakt, .cta, .footer').forEach(function (z) { zoneIO.observe(z); });
+      $$('.intro, .phero, #kontakt, .cta, .footer').forEach(function (z) { zoneIO.observe(z); });
     }
 
     apply(lang);

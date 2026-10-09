@@ -20,7 +20,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,401&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
@@ -29,27 +28,31 @@
 <body>
 <a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>
 
-<!-- ───────── Header ───────── -->
+<!-- ───────── Header: floating bar ───────── -->
 <header class="header" id="top">
-  <div class="wrap header__in">
-    <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
-      <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
-    </a>
-    <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
-      <a href="index.html" data-nav="index" aria-current="page">Start</a>
-      <a href="beratung.html" data-nav="beratung"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
-      <a href="academy.html" data-nav="academy">Academy</a>
-      <a href="coaching.html" data-nav="coaching">Coaching</a>
-      <a href="cases.html" data-nav="cases">Cases</a>
-      <a href="blog.html" data-nav="blog">Blog</a>
-    </nav>
-    <div class="header__right">
-      <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
-        <button type="button" data-lang="de" aria-pressed="true">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <div class="wrap">
+    <div class="header__bar">
+      <a class="logo" href="index.html" aria-label="THE GOOD CHANGE Startseite" data-label-en="THE GOOD CHANGE home">
+        <img src="images/logos/the-good-change.png" alt="THE GOOD CHANGE" width="726" height="303">
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation" data-label-en="Main navigation">
+        <a href="index.html" data-nav="index" aria-current="page">Start</a>
+        <a href="beratung.html" data-nav="beratung"><span class="lang-de">Beratung</span><span class="lang-en">Consulting</span></a>
+        <a href="academy.html" data-nav="academy">Academy</a>
+        <a href="coaching.html" data-nav="coaching">Coaching</a>
+        <a href="cases.html" data-nav="cases">Cases</a>
+        <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+      </nav>
+      <div class="header__right">
+        <div class="lang-switch" role="group" aria-label="Sprache wählen" data-label-en="Choose language">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
+        <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       </div>
-      <a class="btn btn--green header__cta" href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
-      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -61,11 +64,13 @@
     <a href="academy.html" data-nav="academy">Academy</a>
     <a href="coaching.html" data-nav="coaching">Coaching</a>
     <a href="cases.html" data-nav="cases">Cases</a>
+    <a href="ueber-uns.html" data-nav="ueber-uns"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
     <a href="blog.html" data-nav="blog">Blog</a>
     <a href="contact.html" data-nav="contact"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>
   </nav>
   <div class="btns">
-    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></a>
+    <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
     <a class="btn btn--ghost" href="mailto:hello@thegoodchange.co">hello@thegoodchange.co</a>
   </div>
 </div>
@@ -73,63 +78,40 @@
 
 <main id="main">
 
-<!-- ───────── 1 Hero: the character and what they want ───────── -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero__media grain">
-    <img src="images/hero-lisa-anja-workshop.jpg" width="2500" height="1667"
-         alt="Lisa und Anja von THE GOOD CHANGE ordnen Karten mit den Begriffen Acting, Collaborating, Relating und Thinking an einer Wand."
-         data-alt-en="Lisa and Anja from THE GOOD CHANGE arranging cards with the words Acting, Collaborating, Relating and Thinking on a wall."
-         fetchpriority="high">
-    <span class="chip"><span class="dot" aria-hidden="true"></span><span class="lang-de">Lisa und Anja, mitten im Prozess</span><span class="lang-en">Lisa and Anja, in the middle of the process</span></span>
-    <div class="glass in" style="--d:1s">
-      <small><span class="star" aria-hidden="true"></span><span class="lang-de">Kostenloser Connection Call</span><span class="lang-en">Free connection call</span></small>
-      <p><span class="lang-de">30 Minuten, um herauszufinden, welcher Weg zu Dir passt.</span><span class="lang-en">30 minutes to find out which path fits you.</span></p>
-      <a class="textlink" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Termin wählen</span><span class="lang-en">Pick a time</span></a>
-    </div>
-  </div>
-
-  <div class="hero__copy">
-    <span class="pill in" style="--d:.05s"><b>Academy</b><b style="background:var(--ink)">Workshops</b><span>Transformation</span></span>
-    <h1 id="hero-title" class="in" style="--d:.15s">
-      <span class="lang-de">Wir bringen den <span class="hl">GOOD CHANGE</span></span>
-      <span class="lang-en">We bring the <span class="hl">GOOD CHANGE</span></span>
+<!-- ───────── 1 Intro: the character and what they want ───────── -->
+<section class="intro" aria-labelledby="hero-title">
+  <img class="intro__bg" src="images/hero-lisa-anja-workshop.jpg" width="2500" height="1667"
+       alt="Lisa und Anja von THE GOOD CHANGE ordnen Karten mit den Begriffen Acting, Collaborating, Relating und Thinking an einer Wand."
+       data-alt-en="Lisa and Anja from THE GOOD CHANGE arranging cards with the words Acting, Collaborating, Relating and Thinking on a wall."
+       fetchpriority="high">
+  <div class="wrap intro__inner">
+    <p class="eyebrow in" style="--d:.05s">Academy · Workshops · Transformation</p>
+    <h1 id="hero-title">
+      <span class="lang-de"><span class="ln"><span>Wir bringen den</span></span> <span class="ln hl"><span>GOOD CHANGE</span></span></span>
+      <span class="lang-en"><span class="ln"><span>We bring the</span></span> <span class="ln hl"><span>GOOD CHANGE</span></span></span>
     </h1>
-    <p class="lead in" style="--d:.25s">
-      <span class="lang-de">Für mehr Wirkung, Freude und Sinn in der Arbeit. THE GOOD CHANGE begleitet Menschen, Teams und Organisationen durch große Übergänge: mit einer Ausbildung, mit Workshops und mit Organisationsentwicklung, die langfristig trägt.</span>
-      <span class="lang-en">For more impact, joy and purpose at work. THE GOOD CHANGE supports people, teams and organisations through big transitions: with a training programme, with workshops and with organisational development that lasts.</span>
-    </p>
-    <div class="btns in" style="--d:.35s">
-      <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Kostenlosen Call vereinbaren</span><span class="lang-en">Book a free call</span>
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
-      <a class="btn btn--ghost" href="#angebote"><span class="lang-de">Angebote entdecken</span><span class="lang-en">Explore our offers</span></a>
+    <div class="intro__row">
+      <p class="lead in" style="--d:.42s">
+        <span class="lang-de">Für mehr Wirkung, Freude und Sinn in der Arbeit. THE GOOD CHANGE begleitet Menschen, Teams und Organisationen durch große Übergänge: mit einer Ausbildung, mit Workshops und mit Organisationsentwicklung, die langfristig trägt.</span>
+        <span class="lang-en">For more impact, joy and purpose at work. THE GOOD CHANGE supports people, teams and organisations through big transitions: with a training programme, with workshops and with organisational development that lasts.</span>
+      </p>
+      <div class="btns in" style="--d:.52s">
+        <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Kostenlosen Call vereinbaren</span><span class="lang-en">Book a free call</span>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
+        <a class="btn btn--glass" href="#angebote"><span class="lang-de">Angebote entdecken</span><span class="lang-en">Explore our offers</span></a>
+      </div>
     </div>
-    <ul class="facts in" style="--d:.45s">
-      <li><b>3</b><span><span class="lang-de">Angebote</span><span class="lang-en">Offers</span></span></li>
-      <li><b>500+</b><span><span class="lang-de">Menschen begleitet</span><span class="lang-en">People supported</span></span></li>
-      <li><b>30</b><span><span class="lang-de">Min. Erstgespräch</span><span class="lang-en">Min. intro call</span></span></li>
-    </ul>
-  </div>
-
-  <div class="badge" aria-hidden="true">
-    <svg class="ring" viewBox="0 0 140 140"><defs><path id="ring-home" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs>
-      <text class="lang-de"><textPath href="#ring-home">Wirkung · Freude · Sinn · Wirkung · Freude · Sinn ·</textPath></text>
-      <text class="lang-en"><textPath href="#ring-home">Impact · Joy · Purpose · Impact · Joy · Purpose ·</textPath></text>
-    </svg>
-    <span class="core"></span>
+    <div class="intro__foot in" style="--d:.66s">
+      <ul class="intro__facts">
+        <li><b>3</b><span><span class="lang-de">Angebote</span><span class="lang-en">Offers</span></span></li>
+        <li><b>500+</b><span><span class="lang-de">Menschen begleitet</span><span class="lang-en">People supported</span></span></li>
+        <li><b>30</b><span><span class="lang-de">Min. Erstgespräch</span><span class="lang-en">Min. intro call</span></span></li>
+      </ul>
+      <p class="intro__cap"><span class="lang-de">Im Bild: Lisa und Anja, mitten im Prozess</span><span class="lang-en">Pictured: Lisa and Anja, in the middle of the process</span></p>
+    </div>
   </div>
 </section>
 
-<!-- ───────── Marquee ───────── -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track lang-de">
-    <ul><li>Academy</li><li>Workshops</li><li>Transformation</li><li>Coaching</li><li>Mentoring</li><li>Facilitation</li><li>Inner Work</li></ul>
-    <ul><li>Academy</li><li>Workshops</li><li>Transformation</li><li>Coaching</li><li>Mentoring</li><li>Facilitation</li><li>Inner Work</li></ul>
-  </div>
-  <div class="marquee__track lang-en">
-    <ul><li>Academy</li><li>Workshops</li><li>Transformation</li><li>Coaching</li><li>Mentoring</li><li>Facilitation</li><li>Inner work</li></ul>
-    <ul><li>Academy</li><li>Workshops</li><li>Transformation</li><li>Coaching</li><li>Mentoring</li><li>Facilitation</li><li>Inner work</li></ul>
-  </div>
-</div>
 
 <!-- ───────── 2 Problem ───────── -->
 <section class="section section--rule" id="herausforderung" aria-labelledby="problem-title">
@@ -157,12 +139,15 @@
 
     <ol class="tensions">
       <li class="tension"><span class="tension__no"><span class="lang-de">Für Individuen</span><span class="lang-en">For individuals</span></span>
+        <svg class="ico-mark tension__ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M34 7C40 5 43 9 41 14C40 19 34 21 31 17C28 14 29 9 34 7Z"/><path d="M31 25C29 31 25 40 21 49C19 54 20 58 23 59C29 52 35 38 36 28C36 24 33 23 31 25Z"/><path d="M8 24C18 31 26 34 33 31C40 28 46 22 56 20C50 25 45 33 36 37C26 42 15 34 8 24Z"/></svg>
         <h3><span class="lang-de">Der Job passt nicht mehr</span><span class="lang-en">The job no longer fits</span></h3>
         <p><span class="lang-de">Arbeit und Leben passen nicht mehr zusammen, der nächste Schritt ist unklar, und für Sinn bleibt kaum Raum.</span><span class="lang-en">Work and life no longer fit together, the next step is unclear and there's little room for meaning.</span></p></li>
       <li class="tension"><span class="tension__no"><span class="lang-de">Für Teams</span><span class="lang-en">For teams</span></span>
+        <svg class="ico-mark tension__ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M16 9C21 7 25 10 24 15C23 20 17 22 14 18C11 15 12 11 16 9Z"/><path d="M46 13C51 11 55 15 53 20C51 24 46 25 43 21C41 18 42 15 46 13Z"/><path d="M16 25C12 31 12 39 18 44C22 48 29 49 35 47C27 55 16 52 11 45C6 38 8 29 16 25Z"/><path d="M46 29C42 32 40 38 38 43C35 50 28 54 20 55C31 60 43 53 46 44C49 37 49 32 46 29Z"/></svg>
         <h3><span class="lang-de">Zusammenarbeit wird zäh</span><span class="lang-en">Collaboration gets stuck</span></h3>
         <p><span class="lang-de">Unklare Rollen, Reibung in der Kommunikation und stille Überlastung machen gemeinsames Arbeiten schwer.</span><span class="lang-en">Unclear roles, friction in communication and silent overload make working together hard.</span></p></li>
       <li class="tension"><span class="tension__no"><span class="lang-de">Für Organisationen</span><span class="lang-en">For organisations</span></span>
+        <svg class="ico-mark tension__ico" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M12 12C16 10 20 12 19 16C18 20 14 22 11 19C8 17 9 14 12 12Z"/><path d="M31 7C35 5 39 8 38 12C37 16 33 18 30 15C27 13 28 9 31 7Z"/><path d="M49 13C54 11 57 14 56 18C55 22 51 24 48 21C45 19 46 15 49 13Z"/><path d="M7 34C15 38 21 36 28 29C37 20 48 23 57 30C47 27 39 28 32 35C23 45 14 44 7 34Z"/><path d="M9 48C18 54 25 51 33 44C41 37 49 39 57 43C48 43 43 44 37 51C27 61 16 59 9 48Z"/></svg>
         <h3><span class="lang-de">Strukturen wachsen nicht mit</span><span class="lang-en">Structures don't keep up</span></h3>
         <p><span class="lang-de">Wachstum, Fachkräftemangel und Krisen verlangen neue Strukturen. Gute Leute zu halten wird zur Kernaufgabe.</span><span class="lang-en">Growth, skills shortages and crises call for new structures. Keeping good people becomes a core task.</span></p></li>
     </ol>
@@ -178,8 +163,8 @@
 <!-- ───────── 3 Guide ───────── -->
 <section class="section section--rule cream2" aria-labelledby="guide-title">
   <div class="wrap split">
-    <figure class="grain" style="border:var(--rule);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/2;position:relative">
-      <img src="images/lisa-anja.jpg" width="1500" height="1000" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%" alt="Lisa Jikeli und Dr. Anja Adler stehen nebeneinander vor einer hellen Wand." data-alt-en="Lisa Jikeli and Dr. Anja Adler standing side by side in front of a light wall.">
+    <figure class="frame frame--3x2">
+      <img src="images/lisa-anja.jpg" width="1500" height="1000" loading="lazy" style="object-position:50% 25%" alt="Lisa Jikeli und Dr. Anja Adler stehen nebeneinander vor einer hellen Wand." data-alt-en="Lisa Jikeli and Dr. Anja Adler standing side by side in front of a light wall.">
     </figure>
     <div>
       <p class="eyebrow"><span class="lang-de">Wer wir sind</span><span class="lang-en">Who we are</span></p>
@@ -199,7 +184,7 @@
           <img src="images/team/maik-birnbach.jpg" alt="" loading="lazy">
           <span>+5</span>
         </div>
-        <a class="textlink" href="about.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
+        <a class="textlink" href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a>
         <a class="textlink" href="academy.html#trainer"><span class="lang-de">Das Trainingsteam</span><span class="lang-en">The trainers</span></a>
       </div>
     </div>
@@ -237,17 +222,14 @@
         <div class="offer__body">
           <span class="offer__for"><span class="lang-de">Für Arbeitssuchende und alle, die Wandel begleiten wollen</span><span class="lang-en">For job seekers and anyone who wants to guide change</span></span>
           <h3>Academy</h3>
-          <p><span class="lang-de">Die Ausbildung zum GOOD CHANGE FACILITATOR: drei Monate Organisationsentwicklung, Facilitation und New Work, mit Bildungsgutschein bis zu 100 % gefördert.</span><span class="lang-en">The GOOD CHANGE FACILITATOR training: three months of organisational development, facilitation and New Work, funded up to 100 % with an education voucher.</span></p>
+          <p><span class="lang-de">Die Ausbildung zum GOOD CHANGE FACILITATOR: drei Monate Organisationsentwicklung, Facilitation und New Work, mit Bildungsgutschein bis zu 100&nbsp;% gefördert.</span><span class="lang-en">The GOOD CHANGE FACILITATOR training: three months of organisational development, facilitation and New Work, funded up to 100&nbsp;% with an education voucher.</span></p>
           <div class="chiprow lang-de"><span class="tag">3 Monate</span><span class="tag">8 Module</span><span class="tag">Zertifikat</span></div>
           <div class="chiprow lang-en"><span class="tag">3 months</span><span class="tag">8 modules</span><span class="tag">Certificate</span></div>
-          <div class="offer__cta">
-            <a class="btn btn--green" href="academy.html"><span class="lang-de">Zur Academy</span><span class="lang-en">Go to the academy</span>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
-          </div>
+          <a class="offer__link" href="academy.html"><span><span class="lang-de">Zur Academy</span><span class="lang-en">Go to the academy</span></span><span class="arr" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></span></a>
         </div>
       </article>
 
-      <article class="offer offer--green">
+      <article class="offer">
         <div class="offer__img"><img src="images/hero-lisa-anja-workshop.jpg" width="2500" height="1667" loading="lazy" style="object-position:35% 40%" alt="Lisa und Anja ordnen in einem Workshop Karten an einer Wand." data-alt-en="Lisa and Anja arranging cards on a wall during a workshop."><span class="offer__no" aria-hidden="true">02</span></div>
         <div class="offer__body">
           <span class="offer__for"><span class="lang-de">Für Teams</span><span class="lang-en">For teams</span></span>
@@ -255,14 +237,11 @@
           <p><span class="lang-de">Ausgewählte Trainings zu Teamarbeit. Im Call klären wir, welches Format zu Eurem Team und Eurer Frage passt.</span><span class="lang-en">Selected trainings on teamwork. In a call we work out which format fits your team and your question.</span></p>
           <div class="chiprow lang-de"><span class="tag">Selbstorganisation</span><span class="tag">Kommunikation</span><span class="tag">New Leadership</span></div>
           <div class="chiprow lang-en"><span class="tag">Self-organisation</span><span class="tag">Communication</span><span class="tag">New leadership</span></div>
-          <div class="offer__cta">
-            <a class="btn" href="beratung.html#workshops"><span class="lang-de">Zu den Workshops</span><span class="lang-en">See the workshops</span>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
-          </div>
+          <a class="offer__link" href="beratung.html#workshops"><span><span class="lang-de">Zu den Workshops</span><span class="lang-en">See the workshops</span></span><span class="arr" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></span></a>
         </div>
       </article>
 
-      <article class="offer offer--dark">
+      <article class="offer">
         <div class="offer__img"><img src="images/workshop-gespraechskreis.webp" width="2000" height="1333" loading="lazy" style="object-position:50% 60%" alt="Eine moderierte Gesprächsrunde im Kreis bei einem Art-of-Hosting-Training." data-alt-en="A facilitated conversation in a circle at an Art of Hosting training."><span class="offer__no" aria-hidden="true">03</span></div>
         <div class="offer__body">
           <span class="offer__for"><span class="lang-de">Für Organisationen</span><span class="lang-en">For organisations</span></span>
@@ -270,10 +249,7 @@
           <p><span class="lang-de">Organisationsentwicklung für Organisationen, die sich langfristig entwickeln wollen. Der Einstieg: VISION, drei Trainingstage vom gemeinsamen Zielbild zur Umsetzung.</span><span class="lang-en">Organisational development for organisations that want to develop for the long term. The starting point: VISION, three training days from a shared vision to implementation.</span></p>
           <div class="chiprow lang-de"><span class="tag">VISION</span><span class="tag">Rollen &amp; Strukturen</span><span class="tag">Kultur</span></div>
           <div class="chiprow lang-en"><span class="tag">VISION</span><span class="tag">Roles &amp; structures</span><span class="tag">Culture</span></div>
-          <div class="offer__cta">
-            <a class="btn btn--green" href="transformationsbegleitung.html"><span class="lang-de">Zur Transformationsbegleitung</span><span class="lang-en">Transformation support</span>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
-          </div>
+          <a class="offer__link" href="transformationsbegleitung.html"><span><span class="lang-de">Zur Transformationsbegleitung</span><span class="lang-en">Transformation support</span></span><span class="arr" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></span></a>
         </div>
       </article>
     </div>
@@ -307,7 +283,7 @@
       <div class="finder__panel" role="tabpanel" id="fp-1" aria-labelledby="ft-1">
         <small><span class="lang-de">Unsere Empfehlung</span><span class="lang-en">Our recommendation</span></small>
         <h3>Academy</h3>
-        <p><span class="lang-de">Die Ausbildung zum GOOD CHANGE FACILITATOR: drei Monate Vollzeit, online, mit acht Modulen von New Work bis KI. Für Arbeitssuchende und alle, die Wandel begleiten wollen, mit Bildungsgutschein bis zu 100 % gefördert.</span><span class="lang-en">The GOOD CHANGE FACILITATOR training: three months full-time, online, with eight modules from New Work to AI. For job seekers and anyone who wants to guide change, funded up to 100 % with an education voucher.</span></p>
+        <p><span class="lang-de">Die Ausbildung zum GOOD CHANGE FACILITATOR: drei Monate Vollzeit, online, mit acht Modulen von New Work bis KI. Für Arbeitssuchende und alle, die Wandel begleiten wollen, mit Bildungsgutschein bis zu 100&nbsp;% gefördert.</span><span class="lang-en">The GOOD CHANGE FACILITATOR training: three months full-time, online, with eight modules from New Work to AI. For job seekers and anyone who wants to guide change, funded up to 100&nbsp;% with an education voucher.</span></p>
         <div class="btns">
           <a class="btn btn--green" href="academy.html"><span class="lang-de">Zur Academy</span><span class="lang-en">Go to the academy</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
           <a class="btn btn--ghost" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener">Chemistry Call</a>
@@ -359,11 +335,12 @@
       <p class="lead"><span class="lang-de">Du musst nicht vorher wissen, welches Angebot passt. Das finden wir gemeinsam heraus.</span><span class="lang-en">You don't need to know in advance which offer fits. We'll find out together.</span></p>
     </div>
     <ol class="plan3">
-      <li><b>1</b><h3><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></h3><p><span class="lang-de">30 Minuten, kostenlos und unverbindlich.</span><span class="lang-en">30 minutes, free and with no strings attached.</span></p></li>
-      <li><b>2</b><h3><span class="lang-de">Gemeinsam sortieren</span><span class="lang-en">Sort it out together</span></h3><p><span class="lang-de">Wir klären, wo Du stehst und welcher Weg passt.</span><span class="lang-en">We clarify where you stand and which path fits.</span></p></li>
-      <li><b>3</b><h3><span class="lang-de">Loslegen</span><span class="lang-en">Get started</span></h3><p><span class="lang-de">In der Academy, im Workshop oder in der Begleitung Eurer Organisation.</span><span class="lang-en">In the academy, in a workshop or with support for your organisation.</span></p></li>
+      <li><b>01</b><h3><span class="lang-de">Call vereinbaren</span><span class="lang-en">Book a call</span></h3><p><span class="lang-de">30 Minuten, kostenlos und unverbindlich.</span><span class="lang-en">30 minutes, free and with no strings attached.</span></p></li>
+      <li><b>02</b><h3><span class="lang-de">Gemeinsam sortieren</span><span class="lang-en">Sort it out together</span></h3><p><span class="lang-de">Wir klären, wo Du stehst und welcher Weg passt.</span><span class="lang-en">We clarify where you stand and which path fits.</span></p></li>
+      <li><b>03</b><h3><span class="lang-de">Loslegen</span><span class="lang-en">Get started</span></h3><p><span class="lang-de">In der Academy, im Workshop oder in der Begleitung Eurer Organisation.</span><span class="lang-en">In the academy, in a workshop or with support for your organisation.</span></p></li>
     </ol>
-    <div class="btns" style="justify-content:center;margin-top:clamp(36px,4vw,56px)">
+    <div class="plan3__cta">
+      <p><span class="lang-de">Der erste Schritt ist ein kostenloser Connection Call.</span><span class="lang-en">The first step is a free connection call.</span></p>
       <a class="btn btn--green" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Kostenlosen Call vereinbaren</span><span class="lang-en">Book a free call</span>
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5"/></svg></a>
     </div>
@@ -429,8 +406,6 @@
 
 <!-- ───────── CTA ───────── -->
 <section class="section cta" id="kontakt" aria-labelledby="cta-title">
-  <svg class="cta__blob cta__blob--1" viewBox="0 0 600 600" aria-hidden="true"><path fill="#017a44" d="M421 74c62 38 118 108 116 182-2 75-62 153-128 206-66 52-139 79-210 62-71-18-140-80-158-152-18-73 15-157 69-211 55-54 130-79 196-82 41-2 80-27 115-5z"/></svg>
-  <svg class="cta__blob cta__blob--2" viewBox="0 0 600 600" aria-hidden="true"><path fill="#02a35c" d="M300 40c88 0 190 44 230 120 40 75 18 182-42 254-60 71-158 107-250 92-92-16-178-82-196-168-19-86 30-191 102-246 52-40 98-52 156-52z"/></svg>
   <div class="wrap cta__in">
     <div>
       <p class="eyebrow"><span class="lang-de">Passen wir zusammen?</span><span class="lang-en">Are we a good fit?</span></p>
@@ -489,7 +464,8 @@
           <li><a href="coaching.html">Coaching</a></li>
           <li><a href="cases.html">Cases</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About us</span></a></li>
+          <li><a href="about.html"><span class="lang-de">Lisas Weg</span><span class="lang-en">Lisa's path</span></a></li>
         </ul>
       </div>
       <div>
@@ -509,7 +485,7 @@
   </div>
 </footer>
 
-<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo<br>sagen</span><span class="lang-en">Say<br>hi</span></a>
+<a class="hello" id="hello" href="https://calendly.com/lisajikelicoaching/connection-call" target="_blank" rel="noopener"><span class="lang-de">Hallo sagen</span><span class="lang-en">Say hi</span></a>
 
 </body>
 </html>

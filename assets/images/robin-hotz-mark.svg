@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Robin Hotz: Perspektive und Klarheit</title>
+  <defs>
+    <linearGradient id="spectrum" x1="5" y1="14" x2="60" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59cde9"/>
+      <stop offset=".36" stop-color="#aa7bf2"/>
+      <stop offset=".68" stop-color="#ed80cb"/>
+      <stop offset="1" stop-color="#f5a478"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#spectrum)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 34C12 23 21 17 32 17s20 6 27 17c-7 11-16 17-27 17S12 45 5 34Z"/>
+    <ellipse cx="32" cy="34" rx="9" ry="13" transform="rotate(28 32 34)"/>
+    <path d="M32 5v5M14 10l3 4M50 10l-3 4"/>
+  </g>
+  <circle cx="32" cy="34" r="3.2" fill="url(#spectrum)"/>
+</svg>

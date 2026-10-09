@@ -261,13 +261,16 @@ b, strong { font-weight: 650; }
 :root[data-theme="light"] .nav { box-shadow: 0 12px 40px -24px rgba(62, 43, 110, .32); }
 :root[data-theme="light"] .site-head.scrolled .nav { box-shadow: 0 18px 50px -28px rgba(62, 43, 110, .34); }
 
-/* Das Glow-Logo behält auch im hellen Theme seinen dunklen Hintergrund.
-   Der Bildrahmen entfernt nur freien Rand oberhalb und unterhalb des Logos. */
-.brand {
-  display: block; flex: none; width: clamp(176px, 18vw, 210px); height: 46px;
-  overflow: hidden; border-radius: 16px; background: #06070b;
-}
-.brand-logo { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+/* Logo mit transparentem Hintergrund: weiße Schrift im dunklen Theme,
+   schwarze Schrift im hellen Theme. */
+.brand { display: block; flex: none; width: clamp(176px, 18vw, 210px); }
+.brand-logo { width: 100%; height: auto; }
+.brand-logo-light { display: none; }
+:root[data-theme="light"] .brand-logo-dark { display: none; }
+:root[data-theme="light"] .brand-logo-light { display: block; }
+/* Der Footer bleibt in beiden Themes dunkel und zeigt immer die weiße Schrift. */
+:root[data-theme="light"] .brand-footer .brand-logo-dark { display: block; }
+:root[data-theme="light"] .brand-footer .brand-logo-light { display: none; }
 
 .menu { display: flex; align-items: center; gap: 2px; font-size: .86rem; font-weight: 550; color: var(--ink); }
 .menu > a:not(.btn), .navlink, .ctl-btn {
@@ -391,7 +394,7 @@ b, strong { font-weight: 650; }
   background: var(--grad-dark); filter: blur(85px); opacity: .4; border-radius: 50%; pointer-events: none;
 }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
-.brand-footer { width: min(320px, 100%); height: auto; aspect-ratio: 4 / 1; }
+.brand-footer { width: min(320px, 100%); }
 .brand-tagline { margin: 20px 0 0; font-size: .78rem; color: var(--muted); }
 .foot-col { display: flex; flex-direction: column; gap: 10px; font-size: .94rem; }
 .foot-title { margin-bottom: 10px; font-family: var(--font-text); font-size: .72rem; font-weight: 650; letter-spacing: .18em; line-height: 1.6; text-transform: uppercase; color: var(--muted); }
@@ -581,7 +584,13 @@ b, strong { font-weight: 650; }
 .home-contact-invitation { max-width: 340px; font-size: 1.02rem; }
 .home-contact-photo { position: relative; flex: 1 1 auto; min-height: 640px; margin: 34px 0 0; padding: 2px; border-radius: 30px; background: var(--grad); box-shadow: 0 30px 70px -40px var(--c2); }
 .home-contact-portrait { position: absolute; inset: 2px; width: calc(100% - 4px); height: calc(100% - 4px); object-fit: cover; object-position: 50% 86%; border-radius: 28px; }
-.home-contact-form { min-width: 0; align-self: center; }
+/* Das Formular füllt die volle Höhe der Spalte: oben bündig mit der Überschrift,
+   unten schließt der Hinweistext mit dem Foto ab. Den Platz nimmt das Nachrichtenfeld auf. */
+.home-contact-form { min-width: 0; display: flex; flex-direction: column; }
+.home-contact-form form { flex: 1 1 auto; display: flex; flex-direction: column; }
+.home-contact-form .home-contact-fields { flex: 1 1 auto; grid-template-rows: auto auto 1fr; }
+.home-contact-fields .field:last-child { display: flex; flex-direction: column; }
+.home-contact-fields .field:last-child textarea { flex: 1 1 auto; min-height: 140px; }
 .home-contact-intro { margin-bottom: 18px; font-size: .9rem; line-height: 1.75; }
 .home-contact-intro a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; overflow-wrap: anywhere; }
 .home-contact-intro a:hover { text-decoration-color: var(--c2); }
@@ -804,7 +813,7 @@ b, strong { font-weight: 650; }
 
 @media (max-width: 980px) {
   .nav { height: 62px; padding: 0 7px 0 17px; }
-  .nav .brand { width: min(200px, calc(100vw - 112px)); height: 42px; }
+  .nav .brand { width: min(190px, calc(100vw - 112px)); }
   .burger { display: flex; }
   .menu {
     display: none; position: absolute; left: 0; right: 0; top: calc(100% + 10px);

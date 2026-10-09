@@ -25,7 +25,8 @@
   function brand(extraClass) {
     return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('index.html') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
-        '<img class="brand-logo" src="' + pageUrl('Bilder/robin-hotz-logo-04-glow-web.webp') + '" alt="" width="1080" height="360" decoding="async">' +
+        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/robin-hotz-logo-04-glow-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
+        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/robin-hotz-logo-04-light-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
       '</a>';
   }
 

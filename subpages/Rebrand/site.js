@@ -49,7 +49,7 @@
                 '<a href="' + pageUrl('solutions.html#visualisierung') + '">' + t('Visualisierung', 'Visualisation') + '</a>' +
               '</span>' +
             '</span>' +
-            '<a href="' + pageUrl('index.html#referenzen') + '">' + t('Referenzen', 'References') + '</a>' +
+            '<a href="' + pageUrl('references.html') + '"' + current('references') + '>' + t('Referenzen', 'References') + '</a>' +
             '<a href="' + pageUrl('about.html') + '"' + current('about') + '>' + t('Über mich', 'About') + '</a>' +
             '<span class="menu-sep" aria-hidden="true"></span>' +
             '<span class="navitem drop-ctl" id="langCtl">' +
@@ -94,7 +94,7 @@
               '<h2 class="foot-title" id="footPagesTitle">' + t('Seiten', 'Pages') + '</h2>' +
               '<a href="' + pageUrl('index.html') + '">' + t('Start', 'Home') + '</a>' +
               '<a href="' + pageUrl('solutions.html') + '">' + t('Lösungen', 'Solutions') + '</a>' +
-              '<a href="' + pageUrl('index.html#referenzen') + '">' + t('Referenzen', 'References') + '</a>' +
+              '<a href="' + pageUrl('references.html') + '">' + t('Referenzen', 'References') + '</a>' +
               '<a href="' + pageUrl('about.html') + '">' + t('Über mich', 'About') + '</a>' +
               '<a href="' + pageUrl('contact.html') + '">' + t('Kontakt', 'Contact') + '</a>' +
             '</nav>' +

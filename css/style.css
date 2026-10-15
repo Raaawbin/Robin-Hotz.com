@@ -187,7 +187,7 @@ a{color:inherit;text-decoration:none}
 }
 .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;max-width:1180px;margin:0 auto;transition:padding .3s ease}
 .brand{display:block;line-height:0}
-.brand img{height:50px;width:auto;transition:height .3s ease;filter:var(--brand-filter)}
+.brand img{height:38px;width:auto;transition:height .3s ease;filter:var(--brand-filter)}
 .menu{display:flex;align-items:center;gap:28px;font-weight:600;font-size:.97rem;color:var(--nav-text)}
 .menu>a,.navitem>.navlink{opacity:.9;transition:opacity .15s ease,color .15s ease;position:relative;display:inline-flex;align-items:center;gap:6px}
 .menu>a:hover,.navitem>.navlink:hover{opacity:1;color:var(--accent)}
@@ -237,7 +237,7 @@ a{color:inherit;text-decoration:none}
 /* Glas-Zustand nach dem Scrollen */
 .site-head.scrolled{background:var(--head-bg);backdrop-filter:blur(12px);box-shadow:var(--head-shadow);border-bottom:1px solid var(--line)}
 .site-head.scrolled .nav{padding-top:12px;padding-bottom:12px}
-.site-head.scrolled .brand img{height:42px}
+.site-head.scrolled .brand img{height:32px}
 
 /* ============================================================
    HERO: Cinematic — Foto mit Theme-Verlauf von links
@@ -1750,7 +1750,7 @@ b{color:var(--text-strong)}
    ============================================================ */
 .site-foot{background:#0E0D0C;color:rgba(255,255,255,.75);padding:64px 0 30px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.foot-brand img{height:72px;width:auto;margin-bottom:16px}
+.foot-brand img{height:58px;width:auto;margin-bottom:16px}
 .foot-col{display:flex;flex-direction:column;gap:10px}
 .foot-col h4{color:#fff;font-size:.86rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
 .foot-col a{display:inline-flex;align-items:center;gap:9px;transition:color .15s ease}
@@ -2204,7 +2204,7 @@ button{font-family:inherit}
 main[id],main [id]{scroll-margin-top:100px}
 @media (max-width:380px){
   .nav{gap:12px}
-  .brand img{height:44px}
+  .brand img{height:32px}
 }
 
 /* Standalone portfolio case studies */

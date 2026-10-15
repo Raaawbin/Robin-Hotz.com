@@ -33,8 +33,8 @@
       '<header class="site-head" id="siteHead">' +
         '<div class="nav">' +
           '<a class="brand" href="' + siteUrl('index.html') + '" aria-label="Robin Hotz">' +
-            '<img class="logo-on-dark" src="' + siteUrl('assets/images/logo-clean-dark.webp') + '" alt="Robin Hotz">' +
-            '<img class="logo-on-light" src="' + siteUrl('assets/images/logo-clean-light.webp') + '" alt="Robin Hotz">' +
+            '<img class="logo-on-dark" src="' + siteUrl('assets/images/logo-klarblick-dark.svg') + '" alt="Robin Hotz">' +
+            '<img class="logo-on-light" src="' + siteUrl('assets/images/logo-klarblick-light.svg') + '" alt="Robin Hotz">' +
           '</a>' +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
             '<a href="' + siteUrl('index.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
@@ -83,8 +83,8 @@
         '<div class="wrap">' +
           '<div class="foot-grid">' +
             '<div class="foot-brand">' +
-              '<img class="lang-de" src="' + siteUrl('assets/images/logo-cream.webp') + '" alt="Robin Hotz, Moderation für Veränderung">' +
-              '<img class="lang-en" src="' + siteUrl('assets/images/logo-cream-en.webp') + '" alt="Robin Hotz, Facilitation for Change">' +
+              '<img class="lang-de" src="' + siteUrl('assets/images/logo-klarblick-footer-de.svg') + '" alt="Robin Hotz, Moderation für Veränderung">' +
+              '<img class="lang-en" src="' + siteUrl('assets/images/logo-klarblick-footer-en.svg') + '" alt="Robin Hotz, Facilitation for Change">' +
             '</div>' +
             '<nav class="foot-col" aria-label="Seiten">' +
               '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +

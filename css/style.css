@@ -53,9 +53,9 @@
   --ghost-bg:rgba(255,255,255,.6);
   --ghost-border:rgba(26,26,26,.4);
   --ghost-color:var(--ink);
-  --ghost-hover-bg:var(--ink);
-  --ghost-hover-border:var(--ink);
-  --ghost-hover-color:#fff;
+  --ghost-hover-bg:rgba(232,83,30,.1);   /* Hover: zarter Orange-Ton statt Schwarz */
+  --ghost-hover-border:var(--orange);
+  --ghost-hover-color:var(--orange-dark);
   --logo-filter:none;                 /* Kundenlogos in Originalfarbe */
   --logo-opacity:.85;
   --hint-color:rgba(26,26,26,.55);
@@ -98,9 +98,9 @@
   --ghost-bg:rgba(12,10,9,.45);
   --ghost-border:rgba(255,255,255,.55);
   --ghost-color:#fff;
-  --ghost-hover-bg:#fff;
-  --ghost-hover-border:#fff;
-  --ghost-hover-color:var(--ink);
+  --ghost-hover-bg:rgba(232,83,30,.18);  /* Hover: zarter Orange-Ton statt Weiß */
+  --ghost-hover-border:var(--orange-soft);
+  --ghost-hover-color:#fff;
   --logo-filter:brightness(0) invert(1); /* Kundenlogos weiß freigestellt */
   --logo-opacity:.75;
   --hint-color:rgba(255,255,255,.6);
@@ -163,18 +163,27 @@ a{color:inherit;text-decoration:none}
 .icon-close{-webkit-mask-image:url(../assets/icons/close.svg);mask-image:url(../assets/icons/close.svg)}
 .icon-award{-webkit-mask-image:url(../assets/icons/award.svg);mask-image:url(../assets/icons/award.svg)}
 .icon-book{-webkit-mask-image:url(../assets/icons/book.svg);mask-image:url(../assets/icons/book.svg)}
+.icon-network{-webkit-mask-image:url(../assets/icons/network.svg);mask-image:url(../assets/icons/network.svg)}
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons ----------
+   Pill-Form mit kräftigem Orange-Verlauf und leichtem Glow (seit 2026-10-16 auf allen Seiten).
+   Beim Hover wandert der Verlauf zur helleren Seite, der Glow wird etwas stärker. */
 .btn{
   display:inline-flex;align-items:center;gap:10px;
   font-weight:700;font-size:.84rem;letter-spacing:.13em;text-transform:uppercase;
-  padding:15px 26px;border-radius:6px;border:0;cursor:pointer;
-  background:var(--grad);color:#fff;box-shadow:var(--shadow-orange);
-  transition:transform .18s ease,background .18s ease,box-shadow .18s ease,border-color .18s ease;
+  padding:15px 28px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(100deg,#D4441A 0%,#E8531E 30%,#F4863F 70%,#F9A15E 100%) 0 0/170% 100%;
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 0 0 1px rgba(232,83,30,.22),0 8px 22px -8px rgba(232,83,30,.6),0 0 18px -6px rgba(244,134,63,.45);
+  transition:transform .2s ease,background-position .45s ease,box-shadow .25s ease,border-color .2s ease,color .2s ease;
 }
-.btn:hover,.btn:focus-visible{background:var(--grad-dark);transform:translateY(-2px);box-shadow:var(--shadow-orange-hover)}
-.btn.ghost{background:var(--ghost-bg);border:2px solid var(--ghost-border);color:var(--ghost-color);box-shadow:var(--shadow-orange)}
-.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ghost-hover-bg);color:var(--ghost-hover-color);border-color:var(--accent);box-shadow:var(--shadow-orange-hover)}
+.btn:hover,.btn:focus-visible{
+  background:linear-gradient(100deg,#D4441A 0%,#E8531E 30%,#F4863F 70%,#F9A15E 100%) 100% 0/170% 100%;
+  transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 0 0 1px rgba(244,134,63,.35),0 12px 28px -8px rgba(232,83,30,.7),0 0 26px -4px rgba(244,134,63,.55);
+}
+.btn.ghost{background:var(--ghost-bg);border:2px solid var(--ghost-border);color:var(--ghost-color);box-shadow:0 0 18px -8px rgba(232,83,30,.45)}
+.btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ghost-hover-bg);color:var(--ghost-hover-color);border-color:var(--ghost-hover-border);box-shadow:0 10px 26px -10px rgba(232,83,30,.6),0 0 22px -6px rgba(244,134,63,.45)}
 
 /* ============================================================
    NAVIGATION: erst transparent über dem Hero,
@@ -231,6 +240,9 @@ a{color:inherit;text-decoration:none}
   transition:background .25s ease;
 }
 .nav-cta{padding:12px 22px}
+/* Kontakt-Button im Menü: nicht die orange Hover-Farbe der Textlinks übernehmen */
+.menu>a.nav-cta{opacity:1;transition:transform .2s ease,background-position .45s ease,box-shadow .25s ease}
+.menu>a.nav-cta:hover,.menu>a.nav-cta:focus-visible{color:#fff}
 .burger{display:none;background:none;border:0;color:var(--nav-text);cursor:pointer;padding:6px}
 .burger .icon{width:26px;height:26px}
 
@@ -636,6 +648,48 @@ b{color:var(--text-strong)}
 }
 .field input:focus,.field textarea:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
 .field textarea{min-height:150px;resize:vertical}
+
+/* ---------- Kontaktseite: Aufbau wie im Rebrand, im Orange der Website ---------- */
+.text-link{
+  color:var(--accent-strong);font-weight:600;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
+  overflow-wrap:anywhere;transition:color .2s ease;
+}
+.text-link:hover{color:var(--text-strong)}
+.contact-main{padding-top:30px}
+.contact-direct h2{font-size:2rem;margin-bottom:14px}
+.contact-direct>p{margin-bottom:22px;line-height:1.8}
+/* Kontaktwege: Icon im Orange-Verlauf, kleine Versal-Zeile über dem Wert */
+.contact-page .c-list{gap:4px;margin-top:26px}
+.contact-page .c-list a{
+  display:flex;align-items:center;gap:16px;width:fit-content;max-width:calc(100% + 14px);
+  margin-left:-14px;padding:11px 14px;border-radius:16px;
+  transition:background .25s ease,color .25s ease;
+}
+.contact-page .c-list .icon{width:21px;height:21px;margin-top:0;background:var(--grad)}
+.c-text{display:flex;flex-direction:column;min-width:0}
+.c-label{color:var(--text-dim);font-size:.7rem;font-weight:700;letter-spacing:.14em;line-height:1.5;text-transform:uppercase}
+.c-value{color:var(--text-strong);font-size:.98rem;font-weight:600;line-height:1.5;overflow-wrap:anywhere;transition:color .25s ease}
+.contact-page .c-list a:hover{background:var(--drop-hover)}
+.contact-page .c-list a:hover .c-value{color:var(--accent)}
+.reply-note{margin-top:24px}
+/* Formular-Karte mit eingerücktem Foto */
+.contact-form-panel{position:relative;padding:30px;box-shadow:var(--shadow),0 35px 90px -55px rgba(232,83,30,.55)}
+.contact-page .contact-form-photo{height:270px;margin:-18px -18px 28px;border-radius:var(--radius-sm)}
+.contact-form-panel h3{font-size:1.9rem;line-height:1.2;margin-bottom:6px}
+.contact-form-intro{font-size:.95rem;margin-bottom:22px}
+.contact-page .field{margin-bottom:20px}
+.contact-page .field label{font-size:.85rem}
+.contact-page .field input,.contact-page .field textarea{padding:13px 15px;border-radius:14px;transition:border-color .2s ease,box-shadow .2s ease}
+.contact-page .field textarea{min-height:145px}
+.contact-page .field input:focus,.contact-page .field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,83,30,.2)}
+.contact-page .nl-consent input{accent-color:var(--orange)}
+.contact-form-panel .btn{width:100%}
+@media (max-width:560px){
+  .contact-form-panel{padding:24px}
+  .contact-page .contact-form-photo{height:230px;margin:-12px -12px 24px}
+  .contact-form-panel h3{font-size:1.8rem}
+}
 /* Honeypot gegen Spam: fuer Menschen unsichtbar */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-status{margin-top:14px;font-weight:600;min-height:1.4em}

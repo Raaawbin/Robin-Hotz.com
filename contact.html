@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="css/style.css?v=43">
+<link rel="stylesheet" href="css/style.css?v=51">
 <link rel="stylesheet" href="css/newsletter.css?v=1">
 <!-- theme.js bewusst blockierend im <head>: setzt Theme + Sprache vor dem ersten Rendern -->
 <script src="js/theme.js?v=8"></script>
@@ -62,46 +62,43 @@
 </section>
 
 <!-- ============ KONTAKT + FORMULAR ============ -->
-<section class="sec" style="padding-top:30px">
+<section class="sec contact-main" aria-labelledby="contactDirectTitle">
   <div class="wrap grid-2 align-start">
 
-    <div>
-      <h2 style="font-size:2rem;margin-bottom:14px">
+    <div class="contact-direct">
+      <h2 id="contactDirectTitle">
         <span class="lang-de">Direkt <span class="o">erreichen</span></span>
         <span class="lang-en">Reach me <span class="o">directly</span></span>
       </h2>
-      <p style="margin-bottom:22px">
-        <span class="lang-de">Ich lebe in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> und arbeite als Visual Facilitator bei der <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
-        <span class="lang-en">I live in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Berlin</a> and work as a visual facilitator at <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Visual Facilitators GmbH</a>.</span>
+      <p>
+        <span class="lang-de">Ich lebe in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" class="text-link">Berlin</a> und arbeite als Visual Facilitator bei der <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" class="text-link">Visual Facilitators GmbH</a>.</span>
+        <span class="lang-en">I live in <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener" class="text-link">Berlin</a> and work as a visual facilitator at <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener" class="text-link">Visual Facilitators GmbH</a>.</span>
       </p>
 
       <div class="c-list">
-        <a class="c-row" href="mailto:robin@robin-hotz.com">
+        <a href="mailto:robin@robin-hotz.com">
           <span class="icon icon-mail" aria-hidden="true"></span>
-          <span>E-Mail - robin@robin-hotz.com</span>
+          <span class="c-text"><span class="c-label"><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></span><span class="c-value">robin@robin-hotz.com</span></span>
         </a>
         <a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener">
           <span class="icon icon-linkedin" aria-hidden="true"></span>
-          <span>LinkedIn - Robin Hotz</span>
+          <span class="c-text"><span class="c-label">LinkedIn</span><span class="c-value">Robin Hotz</span></span>
         </a>
         <a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener">
           <span class="icon icon-instagram" aria-hidden="true"></span>
-          <span>Instagram - robin.visual.coach</span>
+          <span class="c-text"><span class="c-label">Instagram</span><span class="c-value">robin.visual.coach</span></span>
         </a>
         <a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener">
           <span class="icon icon-pin" aria-hidden="true"></span>
-          <span>Berlin - Working Internationally</span>
+          <span class="c-text"><span class="c-label"><span class="lang-de">Standort</span><span class="lang-en">Location</span></span><span class="c-value"><span class="lang-de">Berlin, international tätig</span><span class="lang-en">Berlin, working internationally</span></span></span>
         </a>
-        <a class="c-row" href="https://www.visualfacilitators.com/" target="_blank" rel="noopener">
+        <a href="https://www.visualfacilitators.com/" target="_blank" rel="noopener">
           <span class="icon icon-pen" aria-hidden="true"></span>
-          <span>
-            <span class="lang-de">Visual Facilitators - Senior Facilitator</span>
-            <span class="lang-en">Visual Facilitators - Senior Facilitator</span>
-          </span>
+          <span class="c-text"><span class="c-label">Visual Facilitators</span><span class="c-value">Senior Facilitator</span></span>
         </a>
       </div>
 
-      <p class="muted" style="margin-top:24px">
+      <p class="muted reply-note">
         <span class="lang-de">In der Regel antworte ich innerhalb von ein bis zwei Werktagen.</span>
         <span class="lang-en">I usually reply within one to two working days.</span>
       </p>
@@ -109,14 +106,14 @@
 
     <div class="form panel contact-form-panel">
       <figure class="contact-form-photo">
-        <img src="assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin" width="980" height="1605">
+        <img src="assets/fotos/robin-hotz-moderator-natuerliches-portrait-warm.webp" alt="Robin Hotz, Moderator und Visual Facilitator in Berlin" width="980" height="1605" decoding="async">
       </figure>
-      <h3 style="margin-bottom:6px">
+      <h3>
         <span class="lang-de">Dein Anliegen</span><span class="lang-en">Get in touch</span>
       </h3>
-      <p class="muted" style="font-size:.95rem;margin-bottom:22px">
-        <span class="lang-de">Über dieses Formular erreichst Du mich und meldest Dich für meinen Newsletter an. Oder schreib mir direkt an <a href="mailto:robin@robin-hotz.com" style="color:var(--accent);font-weight:600">robin@robin-hotz.com</a>.</span>
-        <span class="lang-en">Use this form to get in touch and sign up for my newsletter. Or email me directly at <a href="mailto:robin@robin-hotz.com" style="color:var(--accent);font-weight:600">robin@robin-hotz.com</a>.</span>
+      <p class="muted contact-form-intro">
+        <span class="lang-de">Über dieses Formular erreichst Du mich und meldest Dich für meinen Newsletter an. Oder schreib mir direkt an <a href="mailto:robin@robin-hotz.com" class="text-link">robin@robin-hotz.com</a>.</span>
+        <span class="lang-en">Use this form to get in touch and sign up for my newsletter. Or email me directly at <a href="mailto:robin@robin-hotz.com" class="text-link">robin@robin-hotz.com</a>.</span>
       </p>
 
       <!-- Oeffentliche Formular-URL aus Mailchimp, kein API-Key.
@@ -174,11 +171,11 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="sec sec-soft">
+<section class="sec sec-soft" aria-labelledby="faqTitle">
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow"><span class="lang-de">Häufige Fragen</span><span class="lang-en">Frequently asked</span></span>
-      <h2><span class="lang-de">Gut zu <span class="o">wissen</span></span><span class="lang-en">Good to <span class="o">know</span></span></h2>
+      <h2 id="faqTitle"><span class="lang-de">Gut zu <span class="o">wissen</span></span><span class="lang-en">Good to <span class="o">know</span></span></h2>
     </div>
 
     <div class="faq">

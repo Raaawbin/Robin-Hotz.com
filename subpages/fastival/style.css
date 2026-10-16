@@ -248,6 +248,13 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, serif; font-weight: 400
 .signup h2 { font-size: clamp(2.56rem, 6.4vw, 6.8rem); }
 .signup h2 em { color: var(--lime); }
 .signup-content > p:not(.eyebrow) { max-width: 42rem; margin: 2rem auto; font-size: 1.1rem; }
+.cost-note { max-width: 34rem; margin: 0 auto 2rem; padding: 1.25rem 1.5rem; text-align: left; background: rgba(13,38,28,.9); border: 1px solid rgba(255,255,255,.3); border-radius: var(--radius); }
+.cost-head { margin: 0 0 .7rem; color: var(--lime); font-size: .7rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.cost-note ul { margin: 0; padding: 0; list-style: none; }
+.cost-note li { position: relative; padding-left: 1rem; font-size: .85rem; line-height: 1.45; }
+.cost-note li + li { margin-top: .5rem; }
+.cost-note li::before { content: ""; position: absolute; left: 0; top: .55em; width: .32rem; height: .32rem; background: var(--lime); border-radius: 50%; }
+.cost-note strong { color: var(--lime); }
 .button-big { padding: 1.2rem 1.8rem; font-size: 1rem; }
 .signup small { display: block; margin-top: 1rem; opacity: .65; }
 

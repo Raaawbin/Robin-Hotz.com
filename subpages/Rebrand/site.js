@@ -10,12 +10,15 @@
 
   var root = document.documentElement;
   var scriptUrl = document.currentScript ? document.currentScript.src : location.href;
-  var siteRoot = new URL('../../', scriptUrl);
+  /* Alle Pfade gehen vom Rebrand-Ordner aus, damit eine Kopie des Ordners für sich läuft.
+     Seiten außerhalb von Rebrand (Impressum, Datenschutz, AGB) verlinken auf die Live-Seite. */
+  var pageRoot = new URL('./', scriptUrl);
+  var LIVE = 'https://robin-hotz.com/';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-  function siteUrl(path) { return new URL(path, siteRoot).href; }
-  function pageUrl(file) { return siteUrl('subpages/Rebrand/' + file); }
+  function siteUrl(path) { return LIVE + path; }
+  function pageUrl(file) { return new URL(file, pageRoot).href; }
   function isEn() { return root.getAttribute('lang') === 'en'; }
   function t(de, en) { return '<span class="lang-de">' + de + '</span><span class="lang-en">' + en + '</span>'; }
 
@@ -25,8 +28,8 @@
   function brand(extraClass) {
     return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('index.html') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
-        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/robin-hotz-logo-04-glow-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
-        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/robin-hotz-logo-04-light-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
+        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-logo-04-glow-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
+        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-logo-04-light-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
       '</a>';
   }
 
@@ -276,7 +279,7 @@
     document.querySelectorAll('a[href]').forEach(function (link) {
       if (link.getAttribute('href').charAt(0) === '#') return;
       var url = new URL(link.href, location.href);
-      if (url.origin === location.origin && url.pathname.indexOf(siteRoot.pathname) === 0 && /\.html$/.test(url.pathname)) {
+      if ((url.origin === location.origin || url.hostname === 'robin-hotz.com') && /\.html$/.test(url.pathname)) {
         url.searchParams.set('lang', lang);
         link.href = url.href;
       }

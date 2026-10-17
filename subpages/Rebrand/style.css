@@ -178,24 +178,24 @@ b, strong { font-weight: 650; }
   -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat;
 }
 .icon.sm { width: 17px; height: 17px; }
-.icon-arrow { -webkit-mask-image: url(../../assets/icons/arrow-right.svg); mask-image: url(../../assets/icons/arrow-right.svg); }
-.icon-award { -webkit-mask-image: url(../../assets/icons/award.svg); mask-image: url(../../assets/icons/award.svg); }
-.icon-book { -webkit-mask-image: url(../../assets/icons/book.svg); mask-image: url(../../assets/icons/book.svg); }
-.icon-cap { -webkit-mask-image: url(../../assets/icons/cap.svg); mask-image: url(../../assets/icons/cap.svg); }
-.icon-check { -webkit-mask-image: url(../../assets/icons/check.svg); mask-image: url(../../assets/icons/check.svg); }
-.icon-close { -webkit-mask-image: url(../../assets/icons/close.svg); mask-image: url(../../assets/icons/close.svg); }
-.icon-compass { -webkit-mask-image: url(../../assets/icons/compass.svg); mask-image: url(../../assets/icons/compass.svg); }
-.icon-eye { -webkit-mask-image: url(../../assets/icons/eye.svg); mask-image: url(../../assets/icons/eye.svg); }
-.icon-globe { -webkit-mask-image: url(../../assets/icons/globe.svg); mask-image: url(../../assets/icons/globe.svg); }
-.icon-instagram { -webkit-mask-image: url(../../assets/icons/instagram.svg); mask-image: url(../../assets/icons/instagram.svg); }
-.icon-linkedin { -webkit-mask-image: url(../../assets/icons/linkedin.svg); mask-image: url(../../assets/icons/linkedin.svg); }
-.icon-mail { -webkit-mask-image: url(../../assets/icons/mail.svg); mask-image: url(../../assets/icons/mail.svg); }
-.icon-mic { -webkit-mask-image: url(../../assets/icons/mic.svg); mask-image: url(../../assets/icons/mic.svg); }
-.icon-pen { -webkit-mask-image: url(../../assets/icons/pen.svg); mask-image: url(../../assets/icons/pen.svg); }
-.icon-pin { -webkit-mask-image: url(../../assets/icons/pin.svg); mask-image: url(../../assets/icons/pin.svg); }
-.icon-spark { -webkit-mask-image: url(../../assets/icons/spark.svg); mask-image: url(../../assets/icons/spark.svg); }
-.icon-target { -webkit-mask-image: url(../../assets/icons/target.svg); mask-image: url(../../assets/icons/target.svg); }
-.icon-users { -webkit-mask-image: url(../../assets/icons/users.svg); mask-image: url(../../assets/icons/users.svg); }
+.icon-arrow { -webkit-mask-image: url(Bilder/icons/arrow-right.svg); mask-image: url(Bilder/icons/arrow-right.svg); }
+.icon-award { -webkit-mask-image: url(Bilder/icons/award.svg); mask-image: url(Bilder/icons/award.svg); }
+.icon-book { -webkit-mask-image: url(Bilder/icons/book.svg); mask-image: url(Bilder/icons/book.svg); }
+.icon-cap { -webkit-mask-image: url(Bilder/icons/cap.svg); mask-image: url(Bilder/icons/cap.svg); }
+.icon-check { -webkit-mask-image: url(Bilder/icons/check.svg); mask-image: url(Bilder/icons/check.svg); }
+.icon-close { -webkit-mask-image: url(Bilder/icons/close.svg); mask-image: url(Bilder/icons/close.svg); }
+.icon-compass { -webkit-mask-image: url(Bilder/icons/compass.svg); mask-image: url(Bilder/icons/compass.svg); }
+.icon-eye { -webkit-mask-image: url(Bilder/icons/eye.svg); mask-image: url(Bilder/icons/eye.svg); }
+.icon-globe { -webkit-mask-image: url(Bilder/icons/globe.svg); mask-image: url(Bilder/icons/globe.svg); }
+.icon-instagram { -webkit-mask-image: url(Bilder/icons/instagram.svg); mask-image: url(Bilder/icons/instagram.svg); }
+.icon-linkedin { -webkit-mask-image: url(Bilder/icons/linkedin.svg); mask-image: url(Bilder/icons/linkedin.svg); }
+.icon-mail { -webkit-mask-image: url(Bilder/icons/mail.svg); mask-image: url(Bilder/icons/mail.svg); }
+.icon-mic { -webkit-mask-image: url(Bilder/icons/mic.svg); mask-image: url(Bilder/icons/mic.svg); }
+.icon-pen { -webkit-mask-image: url(Bilder/icons/pen.svg); mask-image: url(Bilder/icons/pen.svg); }
+.icon-pin { -webkit-mask-image: url(Bilder/icons/pin.svg); mask-image: url(Bilder/icons/pin.svg); }
+.icon-spark { -webkit-mask-image: url(Bilder/icons/spark.svg); mask-image: url(Bilder/icons/spark.svg); }
+.icon-target { -webkit-mask-image: url(Bilder/icons/target.svg); mask-image: url(Bilder/icons/target.svg); }
+.icon-users { -webkit-mask-image: url(Bilder/icons/users.svg); mask-image: url(Bilder/icons/users.svg); }
 
 /* Verlaufsbuttons mit Leuchten beim Hover */
 .btn {
@@ -429,7 +429,7 @@ b, strong { font-weight: 650; }
 .hero .sub b { color: var(--ink); }
 .hero-bg {
   position: absolute; z-index: -1; inset: 136px 0 156px 34%;
-  background: url("../../assets/fotos/hero-stadtraum.webp") 70% 38% / cover no-repeat;
+  background: url("Bilder/photos/hero-stadtraum.webp") 70% 38% / cover no-repeat;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 48%), linear-gradient(0deg, transparent, #000 28%, #000 70%, transparent);
   -webkit-mask-composite: source-in;
   mask-image: linear-gradient(90deg, transparent, #000 48%), linear-gradient(0deg, transparent, #000 28%, #000 70%, transparent);

@@ -43,7 +43,7 @@
               '<a class="navlink" href="' + siteUrl('solutions') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
                 '<a href="' + siteUrl('solutions#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
-                '<a href="' + siteUrl('solutions#coaching') + '">Coaching</a>' +
+                '<a href="' + siteUrl('solutions#coaching') + '">Workshops</a>' +
                 '<a href="' + siteUrl('solutions#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
                 '<a href="' + siteUrl('einzelcoaching') + '"><span class="lang-de">Einzelcoaching</span><span class="lang-en">1:1 Coaching</span></a>' +
               '</span>' +

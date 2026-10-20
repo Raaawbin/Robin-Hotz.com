@@ -324,4 +324,26 @@
 
     apply(lang);
   });
+  /* ---------- Direkt aus dem Ordner geöffnet (file://) ----------
+     Online (GitHub Pages) stehen Links ohne .html. Lokal ohne Server gibt es
+     diese Auflösung nicht: dann zeigen interne Links wieder auf die Dateien
+     (about -> about.html, Ordner -> index.html). Online passiert hier nichts. */
+  if (location.protocol === 'file:') {
+    var fixFileLink = function (a) {
+      var raw = a.getAttribute('href') || '';
+      if (/^(#|mailto:|tel:|javascript:|data:)/i.test(raw)) return;
+      var url = new URL(a.href, location.href);
+      if (url.protocol !== 'file:') return;
+      var last = url.pathname.split('/').pop();
+      if (last === '') url.pathname += 'index.html';
+      else if (!/\.[a-z0-9]+$/i.test(last)) url.pathname += '.html';
+      else return;
+      a.href = url.href;
+    };
+    document.querySelectorAll('a[href]').forEach(fixFileLink);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (a) fixFileLink(a);
+    }, true);
+  }
 })();

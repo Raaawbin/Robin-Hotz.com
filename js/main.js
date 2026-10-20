@@ -15,14 +15,15 @@
   var siteRoot = new URL('../', scriptUrl || window.location.href);
   function siteUrl(path) { return new URL(path, siteRoot).href; }
 
-  var fileName = window.location.pathname.split('/').pop() || 'index.html';
+  // Links ohne .html (robin-hotz.com/about); alte .html-Adressen funktionieren weiter
+  var fileName = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
   var activePage = document.body.getAttribute('data-nav-page') || '';
   if (!activePage) {
-    if (fileName === 'index.html' || fileName === 'index-new.html' || fileName === 'index-old.html') activePage = 'home';
-    else if (fileName === 'solutions.html' || fileName === 'solutions-new.html') activePage = 'solutions';
-    else if (fileName === 'references.html') activePage = 'references';
-    else if (fileName === 'about.html' || fileName === 'cv.html') activePage = 'about';
-    else if (fileName === 'contact.html') activePage = 'contact';
+    if (fileName === 'index' || fileName === 'index-new' || fileName === 'index-old') activePage = 'home';
+    else if (fileName === 'solutions' || fileName === 'solutions-new') activePage = 'solutions';
+    else if (fileName === 'references') activePage = 'references';
+    else if (fileName === 'about' || fileName === 'cv') activePage = 'about';
+    else if (fileName === 'contact') activePage = 'contact';
   }
   function current(page) { return activePage === page ? ' aria-current="page"' : ''; }
 
@@ -32,22 +33,22 @@
       '<a class="skip" href="#main"><span class="lang-de">Zum Inhalt springen</span><span class="lang-en">Skip to content</span></a>' +
       '<header class="site-head" id="siteHead">' +
         '<div class="nav">' +
-          '<a class="brand" href="' + siteUrl('index.html') + '" aria-label="Robin Hotz">' +
+          '<a class="brand" href="' + siteUrl('./') + '" aria-label="Robin Hotz">' +
             '<img class="logo-on-dark" src="' + siteUrl('assets/images/logo-klarblick-dark.svg') + '" alt="Robin Hotz">' +
             '<img class="logo-on-light" src="' + siteUrl('assets/images/logo-klarblick-light.svg') + '" alt="Robin Hotz">' +
           '</a>' +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
-            '<a href="' + siteUrl('index.html') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+            '<a href="' + siteUrl('./') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
             '<span class="navitem">' +
-              '<a class="navlink" href="' + siteUrl('solutions.html') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<a class="navlink" href="' + siteUrl('solutions') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
-                '<a href="' + siteUrl('solutions.html#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
-                '<a href="' + siteUrl('solutions.html#coaching') + '">Coaching</a>' +
-                '<a href="' + siteUrl('solutions.html#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+                '<a href="' + siteUrl('solutions#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
+                '<a href="' + siteUrl('solutions#coaching') + '">Coaching</a>' +
+                '<a href="' + siteUrl('solutions#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
               '</span>' +
             '</span>' +
-            '<a href="' + siteUrl('references.html') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
-            '<a href="' + siteUrl('about.html') + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+            '<a href="' + siteUrl('references') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+            '<a href="' + siteUrl('about') + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
             '<span class="navitem drop-ctl" id="langCtl">' +
               '<button class="ctl-btn" type="button" aria-expanded="false">' +
                 '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label">DE</span><span class="caret" aria-hidden="true"></span>' +
@@ -66,7 +67,7 @@
                 '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
               '</span>' +
             '</span>' +
-            '<a class="btn nav-cta" href="' + siteUrl('contact.html') + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+            '<a class="btn nav-cta" href="' + siteUrl('contact') + '"' + current('contact') + '><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
           '</nav>' +
           '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu">' +
             '<span class="visually-hidden lang-de">Menü öffnen</span><span class="visually-hidden lang-en">Open menu</span>' +
@@ -88,11 +89,11 @@
             '</div>' +
             '<nav class="foot-col" aria-label="Seiten">' +
               '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +
-              '<a href="' + siteUrl('index.html') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
-              '<a href="' + siteUrl('solutions.html') + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
-              '<a href="' + siteUrl('references.html') + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
-              '<a href="' + siteUrl('about.html') + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
-              '<a href="' + siteUrl('contact.html') + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
+              '<a href="' + siteUrl('./') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
+              '<a href="' + siteUrl('solutions') + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
+              '<a href="' + siteUrl('references') + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
+              '<a href="' + siteUrl('about') + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+              '<a href="' + siteUrl('contact') + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +
             '</nav>' +
             '<div class="foot-col">' +
               '<h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>' +
@@ -104,7 +105,7 @@
           '</div>' +
           '<div class="foot-bottom">' +
             '<span>© ' + new Date().getFullYear() + ' Robin Hotz</span>' +
-            '<span><a href="' + siteUrl('imprint.html') + '"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('privacy.html') + '"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('subpages/documents/terms.html') + '"><span class="lang-de">AGB</span><span class="lang-en">GTC</span></a></span>' +
+            '<span><a href="' + siteUrl('imprint') + '"><span class="lang-de">Impressum</span><span class="lang-en">Imprint</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('privacy') + '"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy</span></a> &nbsp;·&nbsp; <a href="' + siteUrl('subpages/documents/terms') + '"><span class="lang-de">AGB</span><span class="lang-en">GTC</span></a></span>' +
             '<span><span class="lang-de">Moderation für Veränderung</span><span class="lang-en">Facilitation for change</span></span>' +
           '</div>' +
         '</div>' +
@@ -265,7 +266,7 @@
     document.querySelectorAll('a[href]').forEach(function (link) {
       if (link.getAttribute('href').startsWith('#')) return;
       var url = new URL(link.href, location.href);
-      if (url.origin === location.origin && url.pathname.startsWith(siteRoot.pathname) && /\.html$/.test(url.pathname)) {
+      if (url.origin === location.origin && url.pathname.startsWith(siteRoot.pathname) && /(\.html|\/|\/[^.\/]+)$/.test(url.pathname)) {
         url.searchParams.set('lang', lang);
         link.href = url.href;
       }
@@ -335,5 +336,27 @@
       if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
     });
     lb.addEventListener('click', closeLb);
+  }
+  /* ---------- Direkt aus dem Ordner geöffnet (file://) ----------
+     Online (GitHub Pages) stehen Links ohne .html. Lokal ohne Server gibt es
+     diese Auflösung nicht: dann zeigen interne Links wieder auf die Dateien
+     (about -> about.html, Ordner -> index.html). Online passiert hier nichts. */
+  if (location.protocol === 'file:') {
+    var fixFileLink = function (a) {
+      var raw = a.getAttribute('href') || '';
+      if (/^(#|mailto:|tel:|javascript:|data:)/i.test(raw)) return;
+      var url = new URL(a.href, location.href);
+      if (url.protocol !== 'file:') return;
+      var last = url.pathname.split('/').pop();
+      if (last === '') url.pathname += 'index.html';
+      else if (!/\.[a-z0-9]+$/i.test(last)) url.pathname += '.html';
+      else return;
+      a.href = url.href;
+    };
+    document.querySelectorAll('a[href]').forEach(fixFileLink);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (a) fixFileLink(a);
+    }, true);
   }
 })();

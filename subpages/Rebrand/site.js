@@ -26,7 +26,7 @@
   function current(page) { return activePage === page ? ' aria-current="page"' : ''; }
 
   function brand(extraClass) {
-    return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('index.html') + '"' +
+    return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('./') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
         '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-logo-04-glow-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
         '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-logo-04-light-transparent-web.webp') + '" alt="" width="1080" height="275" decoding="async">' +
@@ -42,18 +42,18 @@
         '<div class="nav">' +
           brand('') +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation" data-label-de="Hauptnavigation" data-label-en="Main navigation">' +
-            '<a href="' + pageUrl('index.html') + '"' + current('home') + '>' + t('Start', 'Home') + '</a>' +
+            '<a href="' + pageUrl('./') + '"' + current('home') + '>' + t('Start', 'Home') + '</a>' +
             '<span class="navitem">' +
-              '<a class="navlink" href="' + pageUrl('solutions.html') + '"' + current('solutions') + '>' +
+              '<a class="navlink" href="' + pageUrl('solutions') + '"' + current('solutions') + '>' +
                 t('Lösungen', 'Solutions') + '<span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
-                '<a href="' + pageUrl('solutions.html#moderation') + '">' + t('Moderation', 'Facilitation') + '</a>' +
-                '<a href="' + pageUrl('solutions.html#coaching') + '">Coaching</a>' +
-                '<a href="' + pageUrl('solutions.html#visualisierung') + '">' + t('Visualisierung', 'Visualisation') + '</a>' +
+                '<a href="' + pageUrl('solutions#moderation') + '">' + t('Moderation', 'Facilitation') + '</a>' +
+                '<a href="' + pageUrl('solutions#coaching') + '">Coaching</a>' +
+                '<a href="' + pageUrl('solutions#visualisierung') + '">' + t('Visualisierung', 'Visualisation') + '</a>' +
               '</span>' +
             '</span>' +
-            '<a href="' + pageUrl('references.html') + '"' + current('references') + '>' + t('Referenzen', 'References') + '</a>' +
-            '<a href="' + pageUrl('about.html') + '"' + current('about') + '>' + t('Über mich', 'About') + '</a>' +
+            '<a href="' + pageUrl('references') + '"' + current('references') + '>' + t('Referenzen', 'References') + '</a>' +
+            '<a href="' + pageUrl('about') + '"' + current('about') + '>' + t('Über mich', 'About') + '</a>' +
             '<span class="menu-sep" aria-hidden="true"></span>' +
             '<span class="navitem drop-ctl" id="langCtl">' +
               '<button class="ctl-btn" type="button" aria-expanded="false" aria-label="Sprache: Deutsch">' +
@@ -73,7 +73,7 @@
                 '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
               '</span>' +
             '</span>' +
-            '<a class="btn nav-cta" href="' + pageUrl('contact.html') + '"' + current('contact') + '>' + t('Kontakt', 'Contact') + '</a>' +
+            '<a class="btn nav-cta" href="' + pageUrl('contact') + '"' + current('contact') + '>' + t('Kontakt', 'Contact') + '</a>' +
           '</nav>' +
           '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">' +
             '<span class="burger-lines" aria-hidden="true"><i></i><i></i></span>' +
@@ -95,11 +95,11 @@
             '</div>' +
             '<nav class="foot-col" aria-labelledby="footPagesTitle">' +
               '<h2 class="foot-title" id="footPagesTitle">' + t('Seiten', 'Pages') + '</h2>' +
-              '<a href="' + pageUrl('index.html') + '">' + t('Start', 'Home') + '</a>' +
-              '<a href="' + pageUrl('solutions.html') + '">' + t('Lösungen', 'Solutions') + '</a>' +
-              '<a href="' + pageUrl('references.html') + '">' + t('Referenzen', 'References') + '</a>' +
-              '<a href="' + pageUrl('about.html') + '">' + t('Über mich', 'About') + '</a>' +
-              '<a href="' + pageUrl('contact.html') + '">' + t('Kontakt', 'Contact') + '</a>' +
+              '<a href="' + pageUrl('./') + '">' + t('Start', 'Home') + '</a>' +
+              '<a href="' + pageUrl('solutions') + '">' + t('Lösungen', 'Solutions') + '</a>' +
+              '<a href="' + pageUrl('references') + '">' + t('Referenzen', 'References') + '</a>' +
+              '<a href="' + pageUrl('about') + '">' + t('Über mich', 'About') + '</a>' +
+              '<a href="' + pageUrl('contact') + '">' + t('Kontakt', 'Contact') + '</a>' +
             '</nav>' +
             '<div class="foot-col">' +
               '<h2 class="foot-title">' + t('Kontakt', 'Contact') + '</h2>' +
@@ -112,9 +112,9 @@
           '<div class="foot-bottom">' +
             '<span>© ' + new Date().getFullYear() + ' Robin Hotz</span>' +
             '<span class="foot-legal">' +
-              '<a href="' + siteUrl('imprint.html') + '">' + t('Impressum', 'Imprint') + '</a>' +
-              '<a href="' + siteUrl('privacy.html') + '">' + t('Datenschutz', 'Privacy') + '</a>' +
-              '<a href="' + siteUrl('subpages/documents/terms.html') + '">' + t('AGB', 'Terms') + '</a>' +
+              '<a href="' + siteUrl('imprint') + '">' + t('Impressum', 'Imprint') + '</a>' +
+              '<a href="' + siteUrl('privacy') + '">' + t('Datenschutz', 'Privacy') + '</a>' +
+              '<a href="' + siteUrl('subpages/documents/terms') + '">' + t('AGB', 'Terms') + '</a>' +
             '</span>' +
           '</div>' +
         '</div>' +
@@ -279,7 +279,7 @@
     document.querySelectorAll('a[href]').forEach(function (link) {
       if (link.getAttribute('href').charAt(0) === '#') return;
       var url = new URL(link.href, location.href);
-      if ((url.origin === location.origin || url.hostname === 'robin-hotz.com') && /\.html$/.test(url.pathname)) {
+      if ((url.origin === location.origin || url.hostname === 'robin-hotz.com') && /(\.html|\/|\/[^.\/]+)$/.test(url.pathname)) {
         url.searchParams.set('lang', lang);
         link.href = url.href;
       }
@@ -421,4 +421,26 @@
       card.style.removeProperty('--my');
     });
   });
+  /* ---------- Direkt aus dem Ordner geöffnet (file://) ----------
+     Online (GitHub Pages) stehen Links ohne .html. Lokal ohne Server gibt es
+     diese Auflösung nicht: dann zeigen interne Links wieder auf die Dateien
+     (about -> about.html, Ordner -> index.html). Online passiert hier nichts. */
+  if (location.protocol === 'file:') {
+    var fixFileLink = function (a) {
+      var raw = a.getAttribute('href') || '';
+      if (/^(#|mailto:|tel:|javascript:|data:)/i.test(raw)) return;
+      var url = new URL(a.href, location.href);
+      if (url.protocol !== 'file:') return;
+      var last = url.pathname.split('/').pop();
+      if (last === '') url.pathname += 'index.html';
+      else if (!/\.[a-z0-9]+$/i.test(last)) url.pathname += '.html';
+      else return;
+      a.href = url.href;
+    };
+    document.querySelectorAll('a[href]').forEach(fixFileLink);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (a) fixFileLink(a);
+    }, true);
+  }
 })();

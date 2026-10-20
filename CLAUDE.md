@@ -5,3 +5,5 @@ In the full Robin Hotz workspace, read `../../CLAUDE.md`, then its required docu
 This repository contains website code, not the complete private brand context. In an isolated clone, obtain the required brand brief, voice, workflow, and relevant examples through private agent context before writing brand copy. Do not infer the current voice from old site text alone or add the private archive to deployed assets.
 
 Inspect Git status and the relevant HTML/CSS/JS before editing. Preserve the existing bilingual behaviour. Follow the website workflow for validation and deployment; GitHub Pages cannot execute PHP. This file does not authorize deployment or DNS changes.
+
+Internal links never end in `.html` (`about`, `solutions#coaching`, `../../` for an `index.html`). GitHub Pages resolves them. Preview locally with `python3 scripts/dev-server.py`, because Python's built-in server cannot. Opened straight from the folder (`file://`), the page scripts point links back to the `.html` files.

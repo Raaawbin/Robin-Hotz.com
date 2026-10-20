@@ -258,15 +258,6 @@
       var open = menu && menu.classList.contains('open');
       burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
     }
-    // Carry explicit language choices across pages even when storage is blocked.
-    document.querySelectorAll('a[href]').forEach(function (link) {
-      if (link.getAttribute('href').startsWith('#')) return;
-      var url = new URL(link.href, location.href);
-      if (url.origin === location.origin && url.pathname.startsWith(siteRoot.pathname) && /(\.html|\/|\/[^.\/]+)$/.test(url.pathname)) {
-        url.searchParams.set('lang', lang);
-        link.href = url.href;
-      }
-    });
   }
   syncLang();
   if (langCtl) langCtl.querySelectorAll('[data-lang]').forEach(function (btn) {

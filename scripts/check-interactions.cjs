@@ -25,14 +25,20 @@ function preferences({blocked = false, theme = null, url = 'https://example.com/
   return {window,root,attributes,location,mq,events};
 }
 
-test('switching language updates a shared URL, including its hash and other parameters',()=>{
-  const p=preferences({url:'https://example.com/about.html?lang=de&source=test#main'});
-  p.window.langPref.set('en');
+test('a shared ?lang link applies the language, then leaves a clean URL with hash and other parameters',()=>{
+  const p=preferences({url:'https://example.com/about.html?lang=en&source=test#main'});
   assert.equal(p.root.getAttribute('lang'),'en');
-  assert.equal(p.location.searchParams.get('lang'),'en');
+  assert.equal(p.location.searchParams.has('lang'),false);
   assert.equal(p.location.searchParams.get('source'),'test');
   assert.equal(p.location.hash,'#main');
-  assert.equal(preferences({url:p.location.href}).root.getAttribute('lang'),'en');
+});
+
+test('switching language never writes ?lang into the URL',()=>{
+  const p=preferences({url:'https://example.com/about.html#main'});
+  p.window.langPref.set('en');
+  assert.equal(p.root.getAttribute('lang'),'en');
+  assert.equal(p.location.searchParams.has('lang'),false);
+  assert.equal(p.location.hash,'#main');
 });
 
 test('invalid stored theme falls back to system',()=>{

@@ -8,7 +8,9 @@
            (prefers-color-scheme) und reagiert live auf Wechsel.
    Sprache: localStorage "rh_lang" = de | en (gleicher Key wie
            lang.js der übrigen Seiten → Wahl gilt seitenweit).
-           Default: Browsersprache; ?lang=de|en übersteuert.
+           Default: Browsersprache; ?lang=de|en übersteuert, wird
+           gespeichert und danach aus der Adresszeile entfernt
+           (Robin, 2026-10-20: Links ohne ?lang=).
            CSS blendet .lang-de/.lang-en passend zu <html lang> aus;
            Titel + Meta-Description wechseln über data-title-… und data-desc-….
    main.js nutzt window.themePref / window.langPref für die Dropdowns.
@@ -66,7 +68,10 @@
   function pickLang() {
     try {
       var q = new URLSearchParams(location.search).get('lang');
-      if (q === 'de' || q === 'en') return q;
+      if (q === 'de' || q === 'en') {
+        try { localStorage.setItem(LKEY, q); } catch (e) {}
+        return q;
+      }
     } catch (e) {}
     var s;
     try { s = localStorage.getItem(LKEY); } catch (e) {}
@@ -95,16 +100,21 @@
     },
     set: function (lang) {
       lang = lang === 'en' ? 'en' : 'de';
-      // Reloading a shared ?lang URL must retain the newly selected language.
-      try {
-        var url = new URL(location.href);
-        url.searchParams.set('lang', lang);
-        history.replaceState(history.state, '', url.href);
-      } catch (e) {}
       try { localStorage.setItem(LKEY, lang); } catch (e) {}
       applyLang(lang);
     }
   };
 
+  /* ?lang= aus der Adresszeile nehmen; Pfad, übrige Parameter und Anker bleiben */
+  function cleanLangParam() {
+    try {
+      var url = new URL(location.href);
+      if (!url.searchParams.has('lang')) return;
+      url.searchParams.delete('lang');
+      history.replaceState(history.state, '', url.href);
+    } catch (e) {}
+  }
+
   applyLang(pickLang());
+  cleanLangParam();
 })();

@@ -45,10 +45,12 @@
                 '<a href="' + siteUrl('solutions#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
                 '<a href="' + siteUrl('solutions#coaching') + '">Coaching</a>' +
                 '<a href="' + siteUrl('solutions#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+                '<a href="' + siteUrl('einzelcoaching') + '"><span class="lang-de">Einzelcoaching</span><span class="lang-en">1:1 Coaching</span></a>' +
               '</span>' +
             '</span>' +
             '<a href="' + siteUrl('references') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
             '<a href="' + siteUrl('about') + '"' + current('about') + '><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
+            '<span class="menu-sep" aria-hidden="true"></span>' +
             '<span class="navitem drop-ctl" id="langCtl">' +
               '<button class="ctl-btn" type="button" aria-expanded="false">' +
                 '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label">DE</span><span class="caret" aria-hidden="true"></span>' +
@@ -119,11 +121,6 @@
   var mobile = window.matchMedia('(max-width: 980px)');
   var ctls = Array.from(document.querySelectorAll('.drop-ctl'));
 
-  function onScroll() {
-    if (head) head.classList.toggle('scrolled', window.scrollY > 40 || !!(menu && menu.classList.contains('open')));
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
   function closeAll(except) {
     ctls.forEach(function (ctl) {
@@ -140,7 +137,6 @@
     burger.setAttribute('aria-label', en ? (open ? 'Close menu' : 'Open menu') : (open ? 'Menü schließen' : 'Menü öffnen'));
     if (!open) closeAll(null);
     if (restoreFocus) burger.focus();
-    onScroll();
   }
   if (burger && menu) {
     burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });

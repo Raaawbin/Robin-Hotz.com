@@ -49,6 +49,11 @@
   --nav-text:var(--ink);
   --head-bg:rgba(255,255,255,.94);
   --head-shadow:0 6px 24px -14px rgba(0,0,0,.25);
+  --nav-glass:rgba(255,253,250,.8);
+  --nav-line:rgba(28,22,16,.09);
+  --nav-hover:rgba(28,22,16,.055);
+  --nav-shadow:0 12px 36px -22px rgba(60,35,15,.38);
+  --nav-drop-shadow:0 24px 50px -25px rgba(60,35,15,.32);
   --drop-hover:#F6F3EF;
   --ghost-bg:rgba(255,255,255,.6);
   --ghost-border:rgba(26,26,26,.4);
@@ -94,6 +99,11 @@
   --nav-text:#FFFFFF;
   --head-bg:rgba(16,14,12,.9);
   --head-shadow:0 10px 30px -18px rgba(0,0,0,.9);
+  --nav-glass:rgba(26,22,19,.74);
+  --nav-line:rgba(255,255,255,.12);
+  --nav-hover:rgba(255,255,255,.07);
+  --nav-shadow:0 12px 40px -24px rgba(0,0,0,.8);
+  --nav-drop-shadow:0 24px 60px -20px rgba(0,0,0,.65);
   --drop-hover:rgba(255,255,255,.05);
   --ghost-bg:rgba(12,10,9,.45);
   --ghost-border:rgba(255,255,255,.55);
@@ -186,70 +196,63 @@ a{color:inherit;text-decoration:none}
 .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ghost-hover-bg);color:var(--ghost-hover-color);border-color:var(--ghost-hover-border);box-shadow:0 10px 26px -10px rgba(232,83,30,.6),0 0 22px -6px rgba(244,134,63,.45)}
 
 /* ============================================================
-   NAVIGATION: erst transparent über dem Hero,
-   nach dem Scrollen Glasleiste im Theme-Ton
+   NAVIGATION: schwebende Leiste, immer gleich, kein Wechsel beim
+   Scrollen (Robin, 2026-10-20; Vorbild Rebrand und THE GOOD CHANGE)
    ============================================================ */
-.site-head{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:transparent;
-  transition:background .3s ease,box-shadow .3s ease;
+.site-head{position:fixed;top:14px;left:0;right:0;z-index:50;pointer-events:none}
+.nav{
+  position:relative;pointer-events:auto;
+  width:min(1180px,calc(100% - 28px));height:68px;margin:0 auto;padding:0 9px 0 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border-radius:999px;background:var(--nav-glass);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid var(--nav-line);box-shadow:var(--nav-shadow);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;max-width:1180px;margin:0 auto;transition:padding .3s ease}
-.brand{display:block;line-height:0}
-.brand img{height:38px;width:auto;transition:height .3s ease;filter:var(--brand-filter)}
-.menu{display:flex;align-items:center;gap:28px;font-weight:600;font-size:.97rem;color:var(--nav-text)}
-.menu>a,.navitem>.navlink{opacity:.9;transition:opacity .15s ease,color .15s ease;position:relative;display:inline-flex;align-items:center;gap:6px}
-.menu>a:hover,.navitem>.navlink:hover{opacity:1;color:var(--accent)}
-.caret{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.7;flex:none}
-.navitem{position:relative}
+.brand{display:block;line-height:0;flex:none}
+.brand img{height:34px;width:auto}
+.menu{display:flex;align-items:center;gap:2px;font-weight:600;font-size:.92rem;color:var(--text-strong)}
+.menu>a:not(.btn),.navitem>.navlink,.drop-ctl .ctl-btn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;
+  color:inherit;transition:background-color .2s ease,color .2s ease;
+}
+.menu>a:not(.btn):hover,.navitem>.navlink:hover,.navitem:not(.drop-ctl):focus-within>.navlink,
+.drop-ctl .ctl-btn:hover,.drop-ctl.open .ctl-btn{background:var(--nav-hover)}
+/* Aktive Seite: weiche Fläche und kleiner oranger Punkt */
+.menu>a:not(.btn)[aria-current="page"],.navlink[aria-current="page"]{background:var(--nav-hover)}
+.menu>a:not(.btn)[aria-current="page"]::before,.navlink[aria-current="page"]::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.caret{width:6px;height:6px;margin:-3px 0 0 2px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);opacity:.7;flex:none}
+.navitem{position:relative;display:flex;align-items:center}
+.menu-sep{width:1px;height:22px;background:var(--nav-line);margin:0 6px}
 .dropdown{
-  position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);
-  display:flex;flex-direction:column;min-width:190px;padding:10px 0;
-  background:var(--panel-solid);color:var(--text);border:1px solid var(--line);
-  border-radius:var(--radius-sm);box-shadow:var(--shadow);
-  opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease;
+  position:absolute;top:calc(100% + 14px);left:0;min-width:200px;
+  display:flex;flex-direction:column;padding:8px;
+  background:var(--panel-solid);color:var(--text);border:1px solid var(--nav-line);border-radius:18px;
+  box-shadow:var(--nav-drop-shadow);
+  opacity:0;visibility:hidden;transform:translateY(6px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;
 }
-/* Hover öffnet nur das Seiten-Dropdown (Lösungen), nicht die Umschalter */
-.navitem:not(.drop-ctl):hover .dropdown,.navitem:not(.drop-ctl):focus-within .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
-.dropdown a{padding:9px 20px;font-weight:600;font-size:.93rem}
-.dropdown a:hover{color:var(--accent);background:var(--drop-hover)}
-
-/* Umschalter-Dropdowns (Sprache + Theme): öffnen per Klick */
-/* Flex statt Inline-Baseline, damit die Buttons exakt auf der
-   Mittellinie der übrigen Menüpunkte sitzen */
-.navitem.drop-ctl{display:inline-flex;align-items:center}
-.drop-ctl .ctl-btn{
-  background:none;border:0;padding:0;color:inherit;font:inherit;font-weight:700;font-size:.85rem;
-  line-height:1;cursor:pointer;display:inline-flex;align-items:center;gap:7px;opacity:.9;
-  transition:opacity .15s ease,color .15s ease;
+.drop-ctl .dropdown{left:auto;right:0;min-width:150px}
+/* Hover öffnet nur das Seiten-Dropdown (Lösungen), die Umschalter öffnen per Klick */
+.navitem:not(.drop-ctl):hover .dropdown,.navitem:not(.drop-ctl):focus-within .dropdown,.drop-ctl.open .dropdown{opacity:1;visibility:visible;transform:none}
+.dropdown a,.drop-ctl .dropdown button{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 14px;border:0;border-radius:11px;background:none;color:inherit;
+  font:inherit;font-weight:600;font-size:.92rem;text-align:left;white-space:nowrap;cursor:pointer;
+  transition:background-color .15s ease,color .15s ease;
 }
-.drop-ctl .ctl-btn:hover,.drop-ctl.open .ctl-btn{opacity:1;color:var(--accent)}
-.drop-ctl.open .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
-.drop-ctl .dropdown{min-width:150px}
-.drop-ctl .dropdown button{
-  background:none;border:0;color:inherit;font:inherit;font-weight:600;font-size:.93rem;
-  cursor:pointer;text-align:left;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;
-}
-.drop-ctl .dropdown button:hover{color:var(--accent);background:var(--drop-hover)}
-.drop-ctl .dropdown button[aria-pressed="true"]{color:var(--accent)}
+.dropdown a:hover,.drop-ctl .dropdown button:hover{background:var(--drop-hover);color:var(--accent-strong)}
+.drop-ctl .dropdown button[aria-pressed="true"]{color:var(--accent-strong)}
 .drop-ctl .dropdown button[aria-pressed="true"]::after{content:"✓";font-size:.85em}
+.navitem.drop-ctl{display:flex;align-items:center}
+.drop-ctl .ctl-btn{border:0;background:none;font:inherit;font-weight:700;font-size:.82rem;line-height:1;cursor:pointer}
 /* Kreis-Icon im Theme-Umschalter: zeigt den aktiven Modus (hell/dunkel) */
-.theme-dot{
-  width:13px;height:13px;border-radius:50%;flex:none;
-  background:var(--theme-dot);border:2px solid currentColor;
-  transition:background .25s ease;
-}
-.nav-cta{padding:12px 22px}
-/* Kontakt-Button im Menü: nicht die orange Hover-Farbe der Textlinks übernehmen */
-.menu>a.nav-cta{opacity:1;transition:transform .2s ease,background-position .45s ease,box-shadow .25s ease}
+.theme-dot{width:13px;height:13px;border-radius:50%;flex:none;background:var(--theme-dot);border:2px solid currentColor;transition:background .25s ease}
+.nav-cta{margin-left:8px;padding:12px 22px}
+/* Kontakt-Button im Menü: nicht die Hover-Fläche der Textlinks übernehmen */
+.menu>a.nav-cta{transition:transform .2s ease,background-position .45s ease,box-shadow .25s ease}
 .menu>a.nav-cta:hover,.menu>a.nav-cta:focus-visible{color:#fff}
-.burger{display:none;background:none;border:0;color:var(--nav-text);cursor:pointer;padding:6px}
-.burger .icon{width:26px;height:26px}
-
-/* Glas-Zustand nach dem Scrollen */
-.site-head.scrolled{background:var(--head-bg);backdrop-filter:blur(12px);box-shadow:var(--head-shadow);border-bottom:1px solid var(--line)}
-.site-head.scrolled .nav{padding-top:12px;padding-bottom:12px}
-.site-head.scrolled .brand img{height:32px}
+.burger{display:none;width:46px;height:46px;align-items:center;justify-content:center;padding:0;border-radius:999px;border:1px solid var(--nav-line);background:var(--nav-hover);color:var(--text-strong);cursor:pointer}
+.burger .icon{width:22px;height:22px}
 
 /* ============================================================
    HERO: Cinematic — Foto mit Theme-Verlauf von links
@@ -1850,25 +1853,22 @@ b{color:var(--text-strong)}
   .client-logo-row .client-logo-item img{height:48px}
 }
 @media (max-width:980px){
-  .menu{
-    display:none;position:absolute;top:100%;left:0;right:0;
-    flex-direction:column;align-items:flex-start;gap:4px;
-    background:var(--panel-solid);color:var(--text);padding:18px 28px 26px;
-    border-bottom:1px solid var(--line);
-    box-shadow:0 24px 40px -20px rgba(0,0,0,.5);
-  }
-  .menu>a,.navitem{padding:8px 0}
-  .menu.open{display:flex}
-  .dropdown{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:0;background:transparent;padding:4px 0 4px 16px}
-  .menu .navitem:not(.drop-ctl)>.dropdown,
-  .menu .navitem:not(.drop-ctl):hover>.dropdown,
-  .menu .navitem:not(.drop-ctl):focus-within>.dropdown{left:auto;transform:none}
-  /* Umschalter (Sprache/Theme) mobil erst per Tipp ausklappen */
-  .drop-ctl .dropdown{display:none}
-  .drop-ctl.open .dropdown{display:flex;transform:none}
-  .navitem.drop-ctl{display:flex;flex-direction:column;align-items:flex-start}
-  .nav-cta{min-width:160px;justify-content:center;margin-top:10px}
+  .nav{height:62px;padding:0 8px 0 18px}
   .burger{display:inline-flex}
+  .menu{
+    display:none;position:absolute;left:0;right:0;top:calc(100% + 10px);
+    flex-direction:column;align-items:stretch;gap:2px;padding:12px;
+    border-radius:26px;background:var(--panel-solid);color:var(--text-strong);
+    border:1px solid var(--nav-line);box-shadow:var(--nav-drop-shadow);
+  }
+  .menu.open{display:flex}
+  .menu>a:not(.btn),.navitem>.navlink,.drop-ctl .ctl-btn{padding:13px 16px;font-size:1rem;border-radius:16px;width:100%}
+  .navitem,.navitem.drop-ctl{flex-direction:column;align-items:stretch}
+  .menu-sep{width:auto;height:1px;margin:8px 6px}
+  .menu .dropdown{position:static;display:none;min-width:0;padding:0 0 6px 14px;opacity:1;visibility:visible;transform:none;background:none;border:0;box-shadow:none}
+  .menu .navitem:not(.drop-ctl) .dropdown,.menu .drop-ctl.open .dropdown{display:flex}
+  .navlink .caret{display:none}
+  .nav-cta{margin:10px 0 2px;justify-content:center}
 }
 @media (max-width:860px){
   /* Keep the home headline above the face in the mobile photo crop. */
@@ -1980,12 +1980,6 @@ b{color:var(--text-strong)}
   --vmw-yellow:#f1c641;
   overflow-x:hidden;
 }
-.vision-deck-page .site-head:not(.scrolled){color:#fff}
-.vision-deck-page .site-head:not(.scrolled) .menu{color:#fff}
-.vision-deck-page .site-head:not(.scrolled) .logo-on-light{filter:brightness(0) invert(1)}
-.vision-deck-page .site-head:not(.scrolled) .burger{color:#fff}
-.vision-deck-page .site-head.scrolled .logo-on-light{filter:none}
-:root[data-theme="dark"] .vision-deck-page .site-head.scrolled .logo-on-light{filter:brightness(0) invert(1)}
 .vmw-deck{position:relative}
 .vmw-slide{position:relative;display:flex;align-items:center;min-height:min(920px,100svh);padding:126px 0 104px;scroll-margin-top:78px;overflow:hidden}
 .vmw-slide h1,.vmw-slide h2{color:var(--text-strong);font-weight:650;letter-spacing:-.055em;line-height:.93}
@@ -2228,12 +2222,12 @@ button{font-family:inherit}
 .dropdown a:focus-visible,.drop-ctl .dropdown button:focus-visible{
   background:var(--drop-hover);color:var(--accent-strong);outline-offset:-3px;
 }
-.dropdown::before{content:"";position:absolute;bottom:100%;left:0;right:0;height:12px}
+.dropdown::before{content:"";position:absolute;bottom:100%;left:0;right:0;height:16px}
 .burger{min-width:44px;min-height:44px;align-items:center;justify-content:center}
 .burger[aria-expanded="true"] .icon{
   -webkit-mask-image:url(../assets/icons/close.svg);mask-image:url(../assets/icons/close.svg);
 }
-.drop-ctl .ctl-btn{min-height:44px}
+.menu>a:not(.btn),.navitem>.navlink,.drop-ctl .ctl-btn{min-height:44px}
 .form-status.is-ok{color:#28743B}
 .form-status.is-error{color:#B12C28}
 :root[data-theme="dark"] .form-status.is-ok{color:#87D59A}
@@ -2243,7 +2237,7 @@ button{font-family:inherit}
 .form-direct a{text-decoration:underline;text-underline-offset:3px}
 .foot-col a{overflow-wrap:anywhere}
 @media (max-width:980px){
-  .menu{max-height:calc(100dvh - 94px);overflow-y:auto;overscroll-behavior:contain}
+  .menu{max-height:calc(100dvh - 106px);overflow-y:auto;overscroll-behavior:contain}
   .menu>a,.menu .navitem{width:100%}
   .menu>a,.menu .navlink,.menu .dropdown a,.menu .dropdown button{min-height:44px}
   .menu .dropdown::before{display:none}
@@ -2312,14 +2306,13 @@ main[id],main [id]{scroll-margin-top:100px}
 
 /* Visual Coaching for Founders */
 .founder-page{--fc-paper:var(--bg-soft)}
-.founder-page .site-head{background:var(--head-bg);backdrop-filter:blur(12px)}
 .fc-hero{padding:164px 0 86px;background:var(--fc-paper)}
 .fc-hero-grid{display:grid;grid-template-columns:1.03fr 1fr;gap:56px;align-items:center}
 .fc-hero h1{font-family:var(--font-body);font-size:clamp(3rem,5.2vw,4.6rem);font-weight:700;letter-spacing:-.055em;line-height:1.02;color:var(--text-strong);margin:0 0 26px}
 .fc-hero h1 .o{color:var(--accent-strong)}
 .fc-lead{font-size:1.22rem;line-height:1.6;max-width:560px}
 .fc-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:30px}
-.founder-page .btn{letter-spacing:.02em;text-transform:none;font-size:1rem;line-height:1.4;padding:16px 23px}
+.founder-page main .btn{letter-spacing:.02em;text-transform:none;font-size:1rem;line-height:1.4;padding:16px 23px}
 .fc-textlink{font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:3px}
 .fc-small{font-size:.91rem;color:var(--text-dim);margin-top:16px}
 .fc-hero-image{width:100%;aspect-ratio:1.08;object-fit:cover;object-position:57% center;border-radius:20px}

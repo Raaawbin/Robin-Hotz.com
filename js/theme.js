@@ -3,9 +3,10 @@
    geladen werden, damit beides vor dem ersten Rendern gesetzt
    ist (kein Aufblitzen).
 
-   Theme:  localStorage "theme-pref" = system | light | dark
-           Default "system" folgt der Browser-/OS-Einstellung
-           (prefers-color-scheme) und reagiert live auf Wechsel.
+   Theme:  localStorage "theme-pref" = light | dark (alt: system)
+           Default "dark" (Robin, 2026-10-27): ohne gespeicherte Wahl
+           ist die Seite dunkel, Light nur per Umschalter. Ein früher
+           gespeichertes "system" folgt weiter der OS-Einstellung.
    Sprache: localStorage "rh_lang" = de | en (gleicher Key wie
            lang.js der übrigen Seiten → Wahl gilt seitenweit).
            Default: Browsersprache; ?lang=de|en übersteuert, wird
@@ -25,8 +26,11 @@
   function validTheme(pref) {
     return pref === 'light' || pref === 'dark' ? pref : 'system';
   }
-  var themePreference = 'system';
-  try { themePreference = validTheme(localStorage.getItem(KEY)); } catch (e) {}
+  var themePreference = 'dark';   /* Standard: dunkel, Light nur manuell */
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved) themePreference = validTheme(saved);
+  } catch (e) {}
   function stored() { return themePreference; }
   function resolve(pref) {
     return pref === 'system' ? (mq.matches ? 'dark' : 'light') : pref;

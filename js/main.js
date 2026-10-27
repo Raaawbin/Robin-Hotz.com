@@ -211,7 +211,7 @@
 
   /* ---------- Theme (Light / Dark) ----------
      Label und Optionen heißen in beiden Sprachen Light/Dark.
-     Ohne gespeicherte Wahl folgt die Seite der Systemeinstellung;
+     Ohne gespeicherte Wahl ist die Seite dunkel (theme.js);
      markiert wird immer der tatsächlich aktive Modus. */
   var themeCtl = document.getElementById('themeCtl');
   var THEME_LABELS = { light: 'Light', dark: 'Dark' };

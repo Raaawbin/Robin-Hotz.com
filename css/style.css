@@ -2370,3 +2370,7 @@ main[id],main [id]{scroll-margin-top:100px}
 @media(min-width:721px) and (max-width:980px){.fc-map-grid{grid-template-columns:1fr}.fc-map{max-width:580px;width:100%;margin-inline:auto}}
 @media(max-width:420px){.fc-map-board{height:auto;display:grid;grid-template-areas:'vision vision' 'org org' 'people role' 'next next';grid-template-columns:1fr 1fr;gap:18px 12px;padding:18px 0}.fc-map-lines{display:none}.fc-node{position:static;transform:none;min-width:0;top:auto!important;left:auto!important}.fc-node.vision{grid-area:vision;justify-self:center}.fc-node.center{grid-area:org;justify-self:center}.fc-node.people{grid-area:people}.fc-node.role{grid-area:role}.fc-node.next{grid-area:next;justify-self:center}.fc-node.center::before,.fc-node.next::before{content:'';position:absolute;height:18px;border-left:2px solid var(--accent);left:50%;margin-top:-35px}.fc-node.center,.fc-node.next{position:relative}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.founder-page *{transition:none!important}}
+
+/* CV: Beschäftigungsart hinter der Organisation (10/2026) */
+.cv-entry .cv-org .cv-emp{color:var(--text-dim);font-weight:600}
+.cv-entry .cv-org .cv-emp::before{content:"·";margin:0 .45em;opacity:.6}

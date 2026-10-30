@@ -20,7 +20,7 @@
   var activePage = document.body.getAttribute('data-nav-page') || '';
   if (!activePage) {
     if (fileName === 'index' || fileName === 'index-new' || fileName === 'index-old') activePage = 'home';
-    else if (fileName === 'solutions' || fileName === 'solutions-new') activePage = 'solutions';
+    else if (fileName === 'solutions' || fileName === 'solutions-new') activePage = 'business';
     else if (fileName === 'references') activePage = 'references';
     else if (fileName === 'about' || fileName === 'cv') activePage = 'about';
     else if (fileName === 'contact') activePage = 'contact';
@@ -40,12 +40,18 @@
           '<nav class="menu" id="menu" aria-label="Hauptnavigation">' +
             '<a href="' + siteUrl('./') + '"' + current('home') + '><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
             '<span class="navitem">' +
-              '<a class="navlink" href="' + siteUrl('solutions') + '"' + current('solutions') + '><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<a class="navlink" href="' + siteUrl('solutions/') + '"' + current('business') + '><span class="lang-de">Für Unternehmen</span><span class="lang-en">For Organisations</span><span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
-                '<a href="' + siteUrl('solutions#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
-                '<a href="' + siteUrl('solutions#coaching') + '">Workshops</a>' +
-                '<a href="' + siteUrl('solutions#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
-                '<a href="' + siteUrl('einzelcoaching') + '"><span class="lang-de">Einzelcoaching</span><span class="lang-en">1:1 Coaching</span></a>' +
+                '<a href="' + siteUrl('solutions/#moderation') + '"><span class="lang-de">Moderation</span><span class="lang-en">Facilitation</span></a>' +
+                '<a href="' + siteUrl('solutions/#coaching') + '">Workshops</a>' +
+                '<a href="' + siteUrl('solutions/#visualisierung') + '"><span class="lang-de">Visualisierung</span><span class="lang-en">Visualisation</span></a>' +
+              '</span>' +
+            '</span>' +
+            '<span class="navitem">' +
+              '<a class="navlink" href="' + siteUrl('solutions/einzelcoaching') + '"' + current('individuals') + '><span class="lang-de">Für Individuen</span><span class="lang-en">For Individuals</span><span class="caret" aria-hidden="true"></span></a>' +
+              '<span class="dropdown">' +
+                '<a class="dd-item" href="' + siteUrl('solutions/vision-coaching') + '">Visual Coaching<span class="dd-sub">VISION · Sessions</span></a>' +
+                '<a class="dd-item" href="' + siteUrl('solutions/venture-journey') + '">Build your Brand<span class="dd-sub"><span class="lang-de">VENTURE · Programm</span><span class="lang-en">VENTURE · Program</span></span></a>' +
               '</span>' +
             '</span>' +
             '<a href="' + siteUrl('references') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
@@ -92,7 +98,8 @@
             '<nav class="foot-col" aria-label="Seiten">' +
               '<h4><span class="lang-de">Seiten</span><span class="lang-en">Pages</span></h4>' +
               '<a href="' + siteUrl('./') + '"><span class="lang-de">Start</span><span class="lang-en">Home</span></a>' +
-              '<a href="' + siteUrl('solutions') + '"><span class="lang-de">Lösungen</span><span class="lang-en">Solutions</span></a>' +
+              '<a href="' + siteUrl('solutions/') + '"><span class="lang-de">Für Unternehmen</span><span class="lang-en">For Organisations</span></a>' +
+              '<a href="' + siteUrl('solutions/einzelcoaching') + '"><span class="lang-de">Für Individuen</span><span class="lang-en">For Individuals</span></a>' +
               '<a href="' + siteUrl('references') + '"><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +
               '<a href="' + siteUrl('about') + '"><span class="lang-de">Über mich</span><span class="lang-en">About</span></a>' +
               '<a href="' + siteUrl('contact') + '"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a>' +

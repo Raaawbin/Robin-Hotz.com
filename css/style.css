@@ -2374,3 +2374,18 @@ main[id],main [id]{scroll-margin-top:100px}
 /* CV: Beschäftigungsart hinter der Organisation (10/2026) */
 .cv-entry .cv-org .cv-emp{color:var(--text-dim);font-weight:600}
 .cv-entry .cv-org .cv-emp::before{content:"·";margin:0 .45em;opacity:.6}
+
+/* Zielgruppen-Weiche: Für Unternehmen / Für Individuen (10/2026) */
+.aud-split{padding-bottom:24px}
+.aud-split .sec-head{margin-bottom:0}
+.aud-split .ctas{justify-content:center;margin-top:30px}
+.aud-note{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;margin-top:30px;padding:20px 24px;border:1px solid var(--line);border-radius:16px;background:var(--panel-solid)}
+.aud-note p{margin:0;max-width:640px;color:var(--text)}
+.aud-note strong{color:var(--text-strong)}
+.aud-note-sec{padding:0 0 80px}
+@media(max-width:720px){.aud-split .ctas .btn,.aud-note .btn{width:100%}.aud-note-sec{padding-bottom:56px}}
+
+/* Dropdown-Einträge mit Unterzeile (Für Individuen, 10/2026) */
+.dropdown a.dd-item{flex-direction:column;align-items:flex-start;justify-content:center;gap:1px}
+.dd-sub{font-size:.76rem;font-weight:600;letter-spacing:.04em;color:var(--text-dim)}
+.dropdown a.dd-item:hover .dd-sub{color:inherit;opacity:.8}

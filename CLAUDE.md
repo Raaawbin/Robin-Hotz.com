@@ -6,4 +6,4 @@ This repository contains website code, not the complete private brand context. I
 
 Inspect Git status and the relevant HTML/CSS/JS before editing. Preserve the existing bilingual behaviour. Follow the website workflow for validation and deployment; GitHub Pages cannot execute PHP. This file does not authorize deployment or DNS changes.
 
-Internal links never end in `.html` (`about`, `solutions#coaching`, `../../` for an `index.html`). GitHub Pages resolves them. Preview locally with `python3 scripts/dev-server.py`, because Python's built-in server cannot. Opened straight from the folder (`file://`), the page scripts point links back to the `.html` files.
+Internal links never end in `.html` (`about`, `solutions/#coaching`, `solutions/loop-approach`, `../` for an `index.html`). All service and solution pages live in `solutions/`. GitHub Pages resolves them. Preview locally with `python3 scripts/dev-server.py`, because Python's built-in server cannot. Opened straight from the folder (`file://`), the page scripts point links back to the `.html` files.

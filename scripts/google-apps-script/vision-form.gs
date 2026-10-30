@@ -1,7 +1,7 @@
 /*
  * VISION Coaching: receiver for the preparation form
  *
- * Receives the answers from robin-hotz.com/vision-form,
+ * Receives the answers from robin-hotz.com/solutions/vision-form,
  * writes them as a row into the Google Sheet this script is bound to,
  * and sends Robin an email with all answers.
  *
@@ -9,7 +9,7 @@
  * 1. Open the sheet, then Extensions > Apps Script, paste this code, save.
  * 2. Select the function "test" at the top and click Run. Allow access. A test email arrives.
  * 3. Deploy > New deployment > Web app, Execute as: Me, Who has access: Anyone.
- * 4. Put the web app URL (ends in /exec) into vision-form.html at ENDPOINT.
+ * 4. Put the web app URL (ends in /exec) into solutions/vision-form.html at ENDPOINT.
  * After later code changes: Manage deployments > Edit > Version: New version.
  * That way the URL stays the same.
  */

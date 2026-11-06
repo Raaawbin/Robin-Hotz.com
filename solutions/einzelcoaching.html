@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
-<link rel="stylesheet" href="../css/style.css?v=54">
+<link rel="stylesheet" href="../css/style.css?v=55">
 <script src="../js/theme.js?v=10"></script>
-<script src="../js/main.js?v=15" defer></script>
+<script src="../js/main.js?v=18" defer></script>
 <style>
 /* 1:1 Coaching: Startseite für VISION Coaching und VENTURE Journey. Seitenspezifisch, baut auf den fc-Bausteinen auf. */
 .coach-page h1 .o,.coach-page h2 .o{background:var(--hero-o-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -33,8 +33,9 @@
 .cc-steps li:last-child{border-bottom:1px solid var(--line)}
 .cc-steps .icon{width:30px;height:30px;color:var(--accent);margin-top:3px}
 .cc-steps h3{font-size:1.2rem;margin-bottom:6px}
-.cc-choices{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
-.cc-card{display:flex;flex-direction:column;background:var(--panel-solid);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:16px;padding:34px;box-shadow:var(--shadow)}
+.cc-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+@media(max-width:1060px){.cc-choices{grid-template-columns:1fr}}
+.cc-card{display:flex;flex-direction:column;background:var(--panel-solid);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:16px;padding:30px;box-shadow:var(--shadow)}
 .cc-tag{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent-strong)}
 .cc-card h3{font-size:1.8rem;margin:10px 0 6px;letter-spacing:-.02em}
 .cc-format{font-size:1.05rem;color:var(--text-strong);font-weight:600}
@@ -57,8 +58,8 @@
       <span class="eyebrow"><span class="lang-de">1:1 Coaching · Visuell</span><span class="lang-en">1:1 Coaching · Visual</span></span>
       <h1><span class="lang-de">Du erzählst.<br><span class="o">Ich frage und zeichne.</span></span><span class="lang-en">You talk.<br><span class="o">I ask and draw.</span></span></h1>
       <p class="fc-lead"><span class="lang-de">Im Einzelcoaching arbeiten wir an dem, was Dich gerade beschäftigt: eine Vision, ein Vorhaben, Deine eigene Marke. Ich höre zu, stelle Fragen und zeichne mit. So siehst Du Deine Gedanken vor Dir und erkennst, wo Du ansetzen kannst.</span><span class="lang-en">In one-to-one coaching, we work on what’s on your mind right now: a vision, a project, your own brand. I listen, ask questions and draw along. That way, you see your thoughts in front of you and recognise where to start.</span></p>
-      <div class="cc-hero-actions"><a class="btn" href="vision-coaching"><span class="lang-de">VISION Coaching</span><span class="lang-en">VISION Coaching</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a><a class="btn ghost" href="venture-journey"><span class="lang-de">VENTURE Journey</span><span class="lang-en">VENTURE Journey</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a></div>
-      <p class="fc-small"><span class="lang-de">VISION ist eine einzelne Session von 90 Minuten. Die VENTURE Journey führt über sieben Sessions und rund vier Monate.</span><span class="lang-en">VISION is a single 90-minute session. The VENTURE Journey runs over seven sessions and about four months.</span></p>
+      <div class="cc-hero-actions"><a class="btn" href="vision-coaching"><span class="lang-de">VISION Coaching</span><span class="lang-en">VISION Coaching</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a><a class="btn ghost" href="venture-journey"><span class="lang-de">VENTURE Journey</span><span class="lang-en">VENTURE Journey</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a><a class="btn ghost" href="leadership-coaching"><span class="lang-de">Leadership Coaching</span><span class="lang-en">Leadership Coaching</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a></div>
+      <p class="fc-small"><span class="lang-de">VISION ist eine einzelne Session von 90 Minuten. Die VENTURE Journey führt über sieben Sessions und rund vier Monate. Das Leadership Coaching ist für Führungskräfte.</span><span class="lang-en">VISION is a single 90-minute session. The VENTURE Journey runs over seven sessions and about four months. Leadership Coaching is for leaders.</span></p>
     </div>
     <figure class="fc-hero-visual">
       <img class="fc-hero-image" src="../assets/fotos/robin-hotz-visual-facilitator-portrait.webp" alt="Robin Hotz vor einer handgezeichneten Workshop-Visualisierung" data-alt-de="Robin Hotz vor einer handgezeichneten Workshop-Visualisierung" data-alt-en="Robin Hotz in front of a hand-drawn workshop visualization" width="1920" height="1781" fetchpriority="high">
@@ -102,7 +103,7 @@
 <section class="fc-section" id="formate">
   <div class="wrap">
     <span class="eyebrow"><span class="lang-de">Wähle Dein Format</span><span class="lang-en">Choose your format</span></span>
-    <h2><span class="lang-de">Eine Session<br><span class="o">oder ein ganzer Weg.</span></span><span class="lang-en">One session<br><span class="o">or a whole journey.</span></span></h2>
+    <h2><span class="lang-de">Wähle, was<br><span class="o">zu Dir passt.</span></span><span class="lang-en">Choose what<br><span class="o">fits you.</span></span></h2>
     <div class="cc-choices">
       <article class="cc-card">
         <span class="cc-tag"><span class="lang-de">Einzelsession</span><span class="lang-en">Single session</span></span>
@@ -127,6 +128,18 @@
           <li><span class="lang-de">Am Ende steht Deine Website</span><span class="lang-en">By the end, your website is in place</span></li>
         </ul>
         <a class="btn ghost" href="venture-journey"><span class="lang-de">Zur VENTURE Journey</span><span class="lang-en">Go to the VENTURE Journey</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a>
+      </article>
+      <article class="cc-card">
+        <span class="cc-tag"><span class="lang-de">Für Führungskräfte</span><span class="lang-en">For leaders</span></span>
+        <h3>Leadership Coaching</h3>
+        <p class="cc-format"><span class="lang-de">Story &amp; Strategie · 1:1</span><span class="lang-en">Story &amp; strategy · 1:1</span></p>
+        <p><span class="lang-de">Für Führungskräfte, die ihre Marke und Strategie klären wollen. Wir arbeiten Deine Story heraus, schärfen Deine Strategie und formulieren Deine Botschaft.</span><span class="lang-en">For leaders who want to clarify their brand and strategy. We work out your story, sharpen your strategy and shape your message.</span></p>
+        <ul>
+          <li><span class="lang-de">Deine Story und Deine Botschaft</span><span class="lang-en">Your story and your message</span></li>
+          <li><span class="lang-de">Eine Strategie, die dazu passt</span><span class="lang-en">A strategy that fits</span></li>
+          <li><span class="lang-de">Einstieg über ein kurzes Gespräch</span><span class="lang-en">Start with a short conversation</span></li>
+        </ul>
+        <a class="btn ghost" href="leadership-coaching"><span class="lang-de">Zum Leadership Coaching</span><span class="lang-en">Go to Leadership Coaching</span><span class="icon icon-arrow sm" aria-hidden="true"></span></a>
       </article>
     </div>
     <div class="aud-note">

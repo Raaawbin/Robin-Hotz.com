@@ -2385,7 +2385,3 @@ main[id],main [id]{scroll-margin-top:100px}
 .aud-note-sec{padding:0 0 80px}
 @media(max-width:720px){.aud-split .ctas .btn,.aud-note .btn{width:100%}.aud-note-sec{padding-bottom:56px}}
 
-/* Dropdown-Einträge mit Unterzeile (Für Individuen, 10/2026) */
-.dropdown a.dd-item{flex-direction:column;align-items:flex-start;justify-content:center;gap:1px}
-.dd-sub{font-size:.76rem;font-weight:600;letter-spacing:.04em;color:var(--text-dim)}
-.dropdown a.dd-item:hover .dd-sub{color:inherit;opacity:.8}

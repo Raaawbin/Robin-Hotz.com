@@ -311,6 +311,39 @@
       });
     }
 
+    /* ── Team workshop sign-up: composes an email, like the contact form ── */
+    var signup = $('#signup-form');
+    if (signup) {
+      var sNote = $('#form-note', signup);
+      signup.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var de = lang === 'de';
+        var val = function (n) { var el = signup.elements[n]; return el && el.value ? el.value.trim() : ''; };
+        var picked = function (n) {
+          return $$('input[name="' + n + '"]:checked', signup).map(function (i) { return i.getAttribute('data-' + lang); });
+        };
+        if (!val('name') || !val('email')) {
+          sNote.textContent = de ? 'Bitte Name und E-Mail ausfüllen.' : 'Please fill in your name and email.';
+          sNote.classList.add('is-error'); return;
+        }
+        var roleEl = signup.elements.role;
+        var role = roleEl && roleEl.value ? roleEl.options[roleEl.selectedIndex].text.trim() : '';
+        var attend = picked('attend');
+        var body = [
+          de ? 'Hallo THE GOOD CHANGE,' : 'Hello THE GOOD CHANGE,', '',
+          de ? 'ich melde mich für den Team-Workshop am 31. Januar 2027 an.' : 'I would like to sign up for the team workshop on 31 January 2027.', '',
+          'Name: ' + val('name'), (de ? 'E-Mail: ' : 'Email: ') + val('email')
+        ];
+        if (role) body.push((de ? 'Rolle: ' : 'Role: ') + role);
+        if (attend.length) body.push((de ? 'Zusage: ' : 'Attendance: ') + attend[0]);
+        if (val('message')) body.push('', val('message'));
+        body.push('', de ? 'Viele Grüße' : 'Best regards', val('name'));
+        var subject = de ? 'Anmeldung Team-Workshop 31. Januar 2027' : 'Sign-up team workshop 31 January 2027';
+        sNote.textContent = T[lang].formOk; sNote.classList.remove('is-error');
+        window.location.href = 'mailto:hello@thegoodchange.co?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.join('\n'));
+      });
+    }
+
     /* ── Floating hello: hide over hero sections, CTA sections and footer ── */
     var hello = $('#hello');
     if (hello) {

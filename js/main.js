@@ -50,8 +50,9 @@
             '<span class="navitem">' +
               '<a class="navlink" href="' + siteUrl('solutions/einzelcoaching') + '"' + current('individuals') + '><span class="lang-de">Für Individuen</span><span class="lang-en">For Individuals</span><span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
-                '<a class="dd-item" href="' + siteUrl('solutions/vision-coaching') + '">Visual Coaching<span class="dd-sub">VISION · Sessions</span></a>' +
-                '<a class="dd-item" href="' + siteUrl('solutions/venture-journey') + '">Build your Brand<span class="dd-sub"><span class="lang-de">VENTURE · Programm</span><span class="lang-en">VENTURE · Program</span></span></a>' +
+                '<a href="' + siteUrl('solutions/vision-coaching') + '">Clarify your Vision</a>' +
+                '<a href="' + siteUrl('solutions/venture-journey') + '">Build your Brand</a>' +
+                '<a href="' + siteUrl('solutions/leadership-coaching') + '">Leadership Coaching</a>' +
               '</span>' +
             '</span>' +
             '<a href="' + siteUrl('references') + '"' + current('references') + '><span class="lang-de">Referenzen</span><span class="lang-en">References</span></a>' +

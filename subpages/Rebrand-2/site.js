@@ -1,7 +1,7 @@
 /* =====================================================================
    robin-hotz.com | Rebrand 2 | site.js
    Gemeinsamer Seitenrahmen für alle Rebrand-Seiten:
-   Header und Footer, Navigation, Sprach- und Theme-Umschalter,
+   Header und Footer, Navigation, Sprachschalter,
    Bildvergrößerung, Logo-Band und Lichteffekt auf Karten.
    Voraussetzung: theme.js im <head> (window.themePref, window.langPref).
    ===================================================================== */
@@ -28,10 +28,8 @@
   function brand(extraClass) {
     return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('./') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
-        /* Logo wie bei AIwareness: leuchtendes Auge als Bild, der Name als echte Schrift */
-        '<img class="brand-eye brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-eye-aiw-glow-web.webp') + '" alt="" width="252" height="160" decoding="async">' +
-        '<img class="brand-eye brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-eye-aiw-light-web.webp') + '" alt="" width="252" height="160" decoding="async">' +
-        '<span class="brand-word">Robin Hotz</span>' +
+        /* Logo Klarblick der Hauptseite in den Farben von Rebrand 2 (erzeugt mit rh-4-logos-icons/make-logo.py, Modus rebrand2) */
+        '<img class="brand-logo" src="' + pageUrl('Bilder/logos/robin-hotz-klarblick-rebrand2.svg') + '" alt="" width="417" height="66" decoding="async">' +
       '</a>';
   }
 
@@ -48,38 +46,35 @@
           brand('') +
           '<nav class="menu" id="menu" aria-label="Hauptnavigation" data-label-de="Hauptnavigation" data-label-en="Main navigation">' +
             '<a href="' + pageUrl('./') + '"' + current('home') + '>' + t('Start', 'Home') + '</a>' +
+            /* Zwei Zielgruppen wie auf der Hauptseite: Unternehmen und Individuen */
             '<span class="navitem">' +
               '<a class="navlink" href="' + pageUrl('solutions') + '"' + current('solutions') + '>' +
-                t('Lösungen', 'Solutions') + '<span class="caret" aria-hidden="true"></span></a>' +
+                t('Für Unternehmen', 'For Organisations') + '<span class="caret" aria-hidden="true"></span></a>' +
               '<span class="dropdown">' +
                 '<a href="' + pageUrl('solutions#moderation') + '">' + t('Moderation', 'Facilitation') + '</a>' +
-                '<a href="' + pageUrl('solutions#coaching') + '">Coaching</a>' +
+                '<a href="' + pageUrl('solutions#workshops') + '">Workshops</a>' +
                 '<a href="' + pageUrl('solutions#visualisierung') + '">' + t('Visualisierung', 'Visualisation') + '</a>' +
+              '</span>' +
+            '</span>' +
+            '<span class="navitem">' +
+              '<a class="navlink" href="' + pageUrl('coaching') + '"' + current('individuals') + '>' +
+                t('Für Individuen', 'For Individuals') + '<span class="caret" aria-hidden="true"></span></a>' +
+              '<span class="dropdown">' +
+                '<a href="' + pageUrl('story-strategy-coaching') + '">Story &amp; Strategy Coaching</a>' +
+                '<a href="' + pageUrl('leadership-coaching') + '">Leadership Coaching</a>' +
+                '<a href="' + pageUrl('ai-agency-coaching') + '">AI Agency Coaching</a>' +
               '</span>' +
             '</span>' +
             '<a href="' + pageUrl('references') + '"' + current('references') + '>' + t('Referenzen', 'References') + '</a>' +
             '<a href="' + pageUrl('about') + '"' + current('about') + '>' + t('Über mich', 'About') + '</a>' +
-            '<span class="menu-sep" aria-hidden="true"></span>' +
-            '<span class="navitem drop-ctl" id="langCtl">' +
-              '<button class="ctl-btn" type="button" aria-expanded="false" aria-label="Sprache: Deutsch">' +
-                '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label" aria-hidden="true">DE</span><span class="caret" aria-hidden="true"></span>' +
-              '</button>' +
-              '<span class="dropdown" role="group" aria-label="Sprache wählen">' +
-                '<button type="button" data-lang="de" aria-pressed="true" lang="de">Deutsch</button>' +
-                '<button type="button" data-lang="en" aria-pressed="false" lang="en">English</button>' +
-              '</span>' +
-            '</span>' +
-            '<span class="navitem drop-ctl" id="themeCtl">' +
-              '<button class="ctl-btn" type="button" aria-expanded="false" aria-label="Darstellung: Dark">' +
-                '<span class="theme-dot" aria-hidden="true"></span><span class="ctl-label" aria-hidden="true">Dark</span><span class="caret" aria-hidden="true"></span>' +
-              '</button>' +
-              '<span class="dropdown" role="group" aria-label="Darstellung wählen">' +
-                '<button type="button" data-set-theme="light" aria-pressed="false">Light</button>' +
-                '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
-              '</span>' +
-            '</span>' +
             '<a class="btn nav-cta" href="' + pageUrl('contact') + '"' + current('contact') + '>' + t('Kontakt', 'Contact') + '</a>' +
           '</nav>' +
+          /* Sprache als Schalter mit zwei Knöpfen, auch mobil neben dem Burger sichtbar */
+          '<div class="lang-switch" role="group" aria-label="Sprache / Language">' +
+            '<span class="icon icon-globe" aria-hidden="true"></span>' +
+            '<button type="button" data-lang="de" lang="de" aria-label="Deutsch">DE</button>' +
+            '<button type="button" data-lang="en" lang="en" aria-label="English">EN</button>' +
+          '</div>' +
           '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">' +
             '<span class="burger-lines" aria-hidden="true"><i></i><i></i></span>' +
           '</button>' +
@@ -101,7 +96,8 @@
             '<nav class="foot-col" aria-labelledby="footPagesTitle">' +
               '<h2 class="foot-title" id="footPagesTitle">' + t('Seiten', 'Pages') + '</h2>' +
               '<a href="' + pageUrl('./') + '">' + t('Start', 'Home') + '</a>' +
-              '<a href="' + pageUrl('solutions') + '">' + t('Lösungen', 'Solutions') + '</a>' +
+              '<a href="' + pageUrl('solutions') + '">' + t('Für Unternehmen', 'For Organisations') + '</a>' +
+              '<a href="' + pageUrl('coaching') + '">' + t('Für Individuen', 'For Individuals') + '</a>' +
               '<a href="' + pageUrl('references') + '">' + t('Referenzen', 'References') + '</a>' +
               '<a href="' + pageUrl('about') + '">' + t('Über mich', 'About') + '</a>' +
               '<a href="' + pageUrl('contact') + '">' + t('Kontakt', 'Contact') + '</a>' +
@@ -239,36 +235,16 @@
     if (hadFocus) btn.focus();
   }
 
-  /* ---------- Theme ---------- */
-  var themeCtl = document.getElementById('themeCtl');
-  var THEME_LABELS = { light: 'Light', dark: 'Dark' };
-
-  function currentTheme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
-  function syncTheme() {
-    var theme = currentTheme();
-    selectOption(themeCtl, theme, 'data-set-theme', THEME_LABELS[theme],
-      (isEn() ? 'Appearance: ' : 'Darstellung: ') + THEME_LABELS[theme]);
-  }
-
-  if (themeCtl) {
-    themeCtl.querySelectorAll('[data-set-theme]').forEach(function (option) {
-      option.addEventListener('click', function (e) {
-        e.stopPropagation();
-        window.themePref.set(option.getAttribute('data-set-theme'));
-      });
-    });
-  }
-  window.addEventListener('themechange', syncTheme);
-  syncTheme();
-
-  /* ---------- Sprache ---------- */
-  var langCtl = document.getElementById('langCtl');
+  /* ---------- Sprache (Rebrand 2: nur Dark Mode, kein Theme-Umschalter) ---------- */
+  var langSwitch = document.querySelector('.lang-switch');
 
   function syncLang() {
     var lang = window.langPref.get();
-    var en = lang === 'en';
-    selectOption(langCtl, lang, 'data-lang', en ? 'EN' : 'DE', en ? 'Language: English' : 'Sprache: Deutsch');
-    syncTheme();
+    if (langSwitch) {
+      langSwitch.querySelectorAll('[data-lang]').forEach(function (option) {
+        option.setAttribute('aria-pressed', option.getAttribute('data-lang') === lang ? 'true' : 'false');
+      });
+    }
 
     document.querySelectorAll('img[data-alt-de][data-alt-en]').forEach(function (img) {
       img.alt = img.getAttribute('data-alt-' + lang);
@@ -276,8 +252,6 @@
     document.querySelectorAll('[data-label-de][data-label-en]').forEach(function (el) {
       el.setAttribute('aria-label', el.getAttribute('data-label-' + lang));
     });
-    if (langCtl) langCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose language' : 'Sprache wählen');
-    if (themeCtl) themeCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose appearance' : 'Darstellung wählen');
     if (burger) burger.setAttribute('aria-label', burgerLabel(menu && menu.classList.contains('open')));
 
     /* Die Sprachwahl über Seitenwechsel mitnehmen, auch wenn der Speicher gesperrt ist. */
@@ -291,12 +265,9 @@
     });
   }
 
-  if (langCtl) {
-    langCtl.querySelectorAll('[data-lang]').forEach(function (option) {
-      option.addEventListener('click', function (e) {
-        e.stopPropagation();
-        window.langPref.set(option.getAttribute('data-lang'));
-      });
+  if (langSwitch) {
+    langSwitch.querySelectorAll('[data-lang]').forEach(function (option) {
+      option.addEventListener('click', function () { window.langPref.set(option.getAttribute('data-lang')); });
     });
   }
   window.addEventListener('langchange', syncLang);

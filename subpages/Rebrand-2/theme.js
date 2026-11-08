@@ -25,8 +25,8 @@
     return pref === 'light' || pref === 'dark' || pref === 'system' ? pref : DEFAULT_THEME;
   }
 
+  /* Rebrand 2: immer dunkel. Eine gespeicherte Wahl von anderen Seiten wird ignoriert. */
   var themePreference = DEFAULT_THEME;
-  try { themePreference = validTheme(localStorage.getItem(THEME_KEY)); } catch (e) { /* Speicher gesperrt */ }
 
   function resolveTheme(pref) {
     return pref === 'system' ? (systemDark.matches ? 'dark' : 'light') : pref;

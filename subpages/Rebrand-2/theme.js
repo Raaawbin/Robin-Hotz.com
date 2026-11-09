@@ -1,10 +1,10 @@
 /* =====================================================================
-   robin-hotz.com | Rebrand 2 | theme.js
+   robin-hotz.com | Rebrand | theme.js
    Theme- und Sprachstart. Wird blockierend im <head> geladen, damit
    Darstellung und Sprache vor dem ersten Rendern feststehen.
 
    Theme:   localStorage "theme-pref" = light | dark | system
-            Ohne gespeicherte Wahl startet die Seite dunkel.
+            Ohne gespeicherte Wahl folgt die Seite der Einstellung des Browsers.
    Sprache: localStorage "rh_lang" = de | en, ?lang=de|en hat Vorrang,
             danach die Browsersprache.
    Beide Schlüssel teilt sich die Rebrand-Seite mit den übrigen Seiten
@@ -18,15 +18,15 @@
 
   /* ---------- Theme ---------- */
   var THEME_KEY = 'theme-pref';
-  var DEFAULT_THEME = 'dark';
+  var DEFAULT_THEME = 'system';
   var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   function validTheme(pref) {
     return pref === 'light' || pref === 'dark' || pref === 'system' ? pref : DEFAULT_THEME;
   }
 
-  /* Rebrand 2: immer dunkel. Eine gespeicherte Wahl von anderen Seiten wird ignoriert. */
   var themePreference = DEFAULT_THEME;
+  try { themePreference = validTheme(localStorage.getItem(THEME_KEY)); } catch (e) { /* Speicher gesperrt */ }
 
   function resolveTheme(pref) {
     return pref === 'system' ? (systemDark.matches ? 'dark' : 'light') : pref;
@@ -36,7 +36,7 @@
     var theme = resolveTheme(pref);
     root.setAttribute('data-theme', theme);
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0b' : '#f6f5fb');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#06070b' : '#f6f5fb');
     window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme, pref: pref } }));
   }
 

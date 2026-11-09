@@ -1,7 +1,7 @@
 /* =====================================================================
    robin-hotz.com | Rebrand 2 | site.js
    Gemeinsamer Seitenrahmen für alle Rebrand-Seiten:
-   Header und Footer, Navigation, Sprachschalter,
+   Header und Footer, Navigation, Sprach- und Theme-Umschalter,
    Bildvergrößerung, Logo-Band und Lichteffekt auf Karten.
    Voraussetzung: theme.js im <head> (window.themePref, window.langPref).
    ===================================================================== */
@@ -28,13 +28,11 @@
   function brand(extraClass) {
     return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('./') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
-        /* Logo Klarblick der Hauptseite in den Farben von Rebrand 2 (erzeugt mit rh-4-logos-icons/make-logo.py, Modus rebrand2) */
-        '<img class="brand-logo" src="' + pageUrl('Bilder/logos/robin-hotz-klarblick-rebrand2.svg') + '" alt="" width="417" height="66" decoding="async">' +
+        /* Logo „Lichtspur mit Marker“ (erzeugt mit rh-4-logos-icons/make-logo-pinsel.py, Modus final) */
+        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-logo-marker-fuer-dunkel.svg') + '" alt="" width="472" height="124" decoding="async">' +
+        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-logo-marker-fuer-hell.svg') + '" alt="" width="472" height="124" decoding="async">' +
       '</a>';
   }
-
-  /* ---------- Lichtflächen im Hintergrund (aus dem AIwareness-Design) ---------- */
-  document.body.insertAdjacentHTML('afterbegin', '<div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>');
 
   /* ---------- Header ---------- */
   var headerMount = document.querySelector('[data-site-header]');
@@ -67,14 +65,27 @@
             '</span>' +
             '<a href="' + pageUrl('references') + '"' + current('references') + '>' + t('Referenzen', 'References') + '</a>' +
             '<a href="' + pageUrl('about') + '"' + current('about') + '>' + t('Über mich', 'About') + '</a>' +
+            '<span class="menu-sep" aria-hidden="true"></span>' +
+            '<span class="navitem drop-ctl" id="langCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false" aria-label="Sprache: Deutsch">' +
+                '<span class="icon icon-globe sm" aria-hidden="true"></span><span class="ctl-label" aria-hidden="true">DE</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Sprache wählen">' +
+                '<button type="button" data-lang="de" aria-pressed="true" lang="de">Deutsch</button>' +
+                '<button type="button" data-lang="en" aria-pressed="false" lang="en">English</button>' +
+              '</span>' +
+            '</span>' +
+            '<span class="navitem drop-ctl" id="themeCtl">' +
+              '<button class="ctl-btn" type="button" aria-expanded="false" aria-label="Darstellung: Dark">' +
+                '<span class="theme-dot" aria-hidden="true"></span><span class="ctl-label" aria-hidden="true">Dark</span><span class="caret" aria-hidden="true"></span>' +
+              '</button>' +
+              '<span class="dropdown" role="group" aria-label="Darstellung wählen">' +
+                '<button type="button" data-set-theme="light" aria-pressed="false">Light</button>' +
+                '<button type="button" data-set-theme="dark" aria-pressed="false">Dark</button>' +
+              '</span>' +
+            '</span>' +
             '<a class="btn nav-cta" href="' + pageUrl('contact') + '"' + current('contact') + '>' + t('Kontakt', 'Contact') + '</a>' +
           '</nav>' +
-          /* Sprache als Schalter mit zwei Knöpfen, auch mobil neben dem Burger sichtbar */
-          '<div class="lang-switch" role="group" aria-label="Sprache / Language">' +
-            '<span class="icon icon-globe" aria-hidden="true"></span>' +
-            '<button type="button" data-lang="de" lang="de" aria-label="Deutsch">DE</button>' +
-            '<button type="button" data-lang="en" lang="en" aria-label="English">EN</button>' +
-          '</div>' +
           '<button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">' +
             '<span class="burger-lines" aria-hidden="true"><i></i><i></i></span>' +
           '</button>' +
@@ -104,7 +115,6 @@
             '</nav>' +
             '<div class="foot-col">' +
               '<h2 class="foot-title">' + t('Kontakt', 'Contact') + '</h2>' +
-              '<a href="mailto:robin@robin-hotz.com"><span class="icon icon-mail sm" aria-hidden="true"></span>robin@robin-hotz.com</a>' +
               '<a href="https://www.linkedin.com/in/robin-hotz-2688491a3/" target="_blank" rel="noopener"><span class="icon icon-linkedin sm" aria-hidden="true"></span>LinkedIn</a>' +
               '<a href="https://www.instagram.com/robin.visual.coach/" target="_blank" rel="noopener"><span class="icon icon-instagram sm" aria-hidden="true"></span>Instagram</a>' +
               '<a href="https://share.google/VscmN0hO51CdECujJ" target="_blank" rel="noopener"><span class="icon icon-pin sm" aria-hidden="true"></span>Berlin</a>' +
@@ -235,16 +245,36 @@
     if (hadFocus) btn.focus();
   }
 
-  /* ---------- Sprache (Rebrand 2: nur Dark Mode, kein Theme-Umschalter) ---------- */
-  var langSwitch = document.querySelector('.lang-switch');
+  /* ---------- Theme ---------- */
+  var themeCtl = document.getElementById('themeCtl');
+  var THEME_LABELS = { light: 'Light', dark: 'Dark' };
+
+  function currentTheme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  function syncTheme() {
+    var theme = currentTheme();
+    selectOption(themeCtl, theme, 'data-set-theme', THEME_LABELS[theme],
+      (isEn() ? 'Appearance: ' : 'Darstellung: ') + THEME_LABELS[theme]);
+  }
+
+  if (themeCtl) {
+    themeCtl.querySelectorAll('[data-set-theme]').forEach(function (option) {
+      option.addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.themePref.set(option.getAttribute('data-set-theme'));
+      });
+    });
+  }
+  window.addEventListener('themechange', syncTheme);
+  syncTheme();
+
+  /* ---------- Sprache ---------- */
+  var langCtl = document.getElementById('langCtl');
 
   function syncLang() {
     var lang = window.langPref.get();
-    if (langSwitch) {
-      langSwitch.querySelectorAll('[data-lang]').forEach(function (option) {
-        option.setAttribute('aria-pressed', option.getAttribute('data-lang') === lang ? 'true' : 'false');
-      });
-    }
+    var en = lang === 'en';
+    selectOption(langCtl, lang, 'data-lang', en ? 'EN' : 'DE', en ? 'Language: English' : 'Sprache: Deutsch');
+    syncTheme();
 
     document.querySelectorAll('img[data-alt-de][data-alt-en]').forEach(function (img) {
       img.alt = img.getAttribute('data-alt-' + lang);
@@ -252,6 +282,8 @@
     document.querySelectorAll('[data-label-de][data-label-en]').forEach(function (el) {
       el.setAttribute('aria-label', el.getAttribute('data-label-' + lang));
     });
+    if (langCtl) langCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose language' : 'Sprache wählen');
+    if (themeCtl) themeCtl.querySelector('.dropdown').setAttribute('aria-label', en ? 'Choose appearance' : 'Darstellung wählen');
     if (burger) burger.setAttribute('aria-label', burgerLabel(menu && menu.classList.contains('open')));
 
     /* Die Sprachwahl über Seitenwechsel mitnehmen, auch wenn der Speicher gesperrt ist. */
@@ -265,9 +297,12 @@
     });
   }
 
-  if (langSwitch) {
-    langSwitch.querySelectorAll('[data-lang]').forEach(function (option) {
-      option.addEventListener('click', function () { window.langPref.set(option.getAttribute('data-lang')); });
+  if (langCtl) {
+    langCtl.querySelectorAll('[data-lang]').forEach(function (option) {
+      option.addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.langPref.set(option.getAttribute('data-lang'));
+      });
     });
   }
   window.addEventListener('langchange', syncLang);

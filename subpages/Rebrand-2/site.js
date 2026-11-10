@@ -28,9 +28,9 @@
   function brand(extraClass) {
     return '<a class="brand' + (extraClass || '') + '" href="' + pageUrl('./') + '"' +
         ' aria-label="Robin Hotz, Startseite" data-label-de="Robin Hotz, Startseite" data-label-en="Robin Hotz, home">' +
-        /* Logo „Lichtspur mit Marker“ (erzeugt mit rh-4-logos-icons/make-logo-pinsel.py, Modus final) */
-        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-logo-marker-fuer-dunkel.svg') + '" alt="" width="472" height="124" decoding="async">' +
-        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-logo-marker-fuer-hell.svg') + '" alt="" width="472" height="124" decoding="async">' +
+        /* Logo „Auge“ im Verlauf (erzeugt mit rh-4-logos-icons/make-logo-signet.py, Entwurf 6) */
+        '<img class="brand-logo brand-logo-dark" src="' + pageUrl('Bilder/logos/robin-hotz-logo-auge-fuer-dunkel.svg') + '" alt="" width="446" height="101" decoding="async">' +
+        '<img class="brand-logo brand-logo-light" src="' + pageUrl('Bilder/logos/robin-hotz-logo-auge-fuer-hell.svg') + '" alt="" width="446" height="101" decoding="async">' +
       '</a>';
   }
 

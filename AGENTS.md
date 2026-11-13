@@ -1,9 +1,3 @@
-# Robin Hotz website: agent entry point
+# Codex entry point
 
-In the full Robin Hotz workspace, read `../../CLAUDE.md`, then its required documents in `../../RH-2-Brand-Context/`. Read `../rh-6-brand/website-writing.md` and the visual style guide for page work.
-
-This repository contains website code, not the complete private brand context. In an isolated clone, obtain the required brand brief, voice, workflow, and relevant examples through private agent context before writing brand copy. Do not infer the current voice from old site text alone or add the private archive to deployed assets.
-
-Inspect Git status and the relevant HTML/CSS/JS before editing. Preserve the existing bilingual behaviour. Follow the website workflow for validation and deployment; GitHub Pages cannot execute PHP. This file does not authorize deployment or DNS changes.
-
-Internal links never end in `.html` (`about`, `solutions/#coaching`, `solutions/loop-approach`, `../` for an `index.html`). All service and solution pages live in `solutions/`. GitHub Pages resolves them. Preview locally with `python3 scripts/dev-server.py`, because Python's built-in server cannot. Opened straight from the folder (`file://`), the page scripts point links back to the `.html` files.
+Read `CLAUDE.md` in this folder and follow it. It describes what this folder is for and how to navigate it, and points to the workspace instructions. Do not maintain separate rules here.
